@@ -1,0 +1,5 @@
+/target/
+.classpath
+.project
+.settings/
+/logJats2Spar.log

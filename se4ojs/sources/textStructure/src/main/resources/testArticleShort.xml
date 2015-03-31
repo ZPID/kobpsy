@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<article xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink"
+   article-type="announcement" dtd-version="0.4" xml:lang="EN">
+   <?release-delay 0|0?>
+   <front>
+      <article-meta>
+         <article-id pub-id-type="doi">10.5964/ejop.v8i3.308</article-id>
+         <abstract>
+            <p>Cluster headache (CH) is a chronic syndrome.</p>
+         </abstract>
+      </article-meta>
+   </front>
+   <body>
+      <p>para1</p>
+      <p>para2</p>
+      <sec sec-type="methods">
+         <title>sec1</title>
+         <sec>
+            <title>sub1</title>
+            <p>sub1 p1</p>
+            <p>sub1 p2</p>
+         </sec>
+         <sec>
+            <title>sub2</title>
+            <p>sub2 p1</p>
+         </sec>
+         <sec>
+            <title>sub3</title>
+            <p>sub3 p1</p>
+            <p>sub3 p2</p>
+         </sec>
+      </sec>
+      <sec sec-type="results">
+         <title>sec2</title>
+         <sec>
+            <title>sub1</title>
+            <p>sub1 p1</p>
+         </sec>
+         <sec>
+            <title>sub2</title>
+            <p>sub2 p1</p>
+            <p>sub2 p2</p>
+            <p>sub2 p3</p>
+         </sec>
+      </sec>
+   </body>
+</article>

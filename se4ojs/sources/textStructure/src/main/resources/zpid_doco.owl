@@ -1,0 +1,128 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY terms "http://purl.org/dc/terms/" >
+    <!ENTITY deo "http://purl.org/spar/deo/" >
+    <!ENTITY doco "http://purl.org/spar/doco/" >
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY pattern "http://www.essepuntato.it/2008/12/pattern#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY sro "http://salt.semanticauthoring.org/ontologies/sro#" >
+	<!ENTITY zpid_doco "http://www.zpid.de/zpid_doco#" >
+]>
+
+
+<rdf:RDF xmlns="http://purl.org/spar/doco/"
+     xml:base="http://purl.org/spar/doco/"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:pattern="http://www.essepuntato.it/2008/12/pattern#"
+     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:doco="http://purl.org/spar/doco/"
+     xmlns:sro="http://salt.semanticauthoring.org/ontologies/sro#"
+     xmlns:deo="http://purl.org/spar/deo/">
+	 xmlns:zpid_doco="http://www.zpid.de/zpid_doco#">
+	 
+    <owl:Ontology rdf:about="http://www.zpid.de/zpid_doco#">
+        <dc:creator rdf:datatype="&xsd;string">Isabel Barth</dc:creator>
+        <owl:versionInfo>0.1</owl:versionInfo>
+        <dc:date>2015-02-11</dc:date>
+        <dc:title xml:lang="en">Extension of DoCO, the Document Components Ontology</dc:title>
+        <rdfs:comment xml:lang="en">adds a transitive part of property.</rdfs:comment>
+		
+        <owl:imports rdf:resource="http://purl.org/spar/doco"/>
+		<owl:imports rdf:resource="http://purl.org/spar/deo"/>
+        <owl:imports rdf:resource="http://www.essepuntato.it/2008/12/pattern"/>
+    </owl:Ontology>
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->	
+    <!-- http://www.zpid.de/zpid_doco#containsIndirectly -->
+                                    
+    <owl:ObjectProperty rdf:about="&zpid_doco;containsIndirectly">
+		<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+		
+	    <rdfs:label xml:lang="en">containsIndirectly</rdfs:label>
+        <rdfs:comment xml:lang="en">A structured element transitively contains another generic element.</rdfs:comment>
+        <rdfs:domain rdf:resource="&pattern;Structured"/>
+        <owl:inverseOf rdf:resource="&zpid_doco;isContainedByIndirectly"/>
+    </owl:ObjectProperty>
+	
+	<!-- http://www.zpid.de/zpid_doco#isContainedByIndirectly -->
+
+    <owl:ObjectProperty rdf:about="&zpid_doco;isContainedByIndirectly">
+        <!--rdfs:subPropertyOf rdf:resource="&pattern;isContainedBy"/-->
+		<rdfs:label xml:lang="en">is contained by transitively</rdfs:label>
+        <rdfs:comment xml:lang="en">An element that is transitively contained by another structured element.</rdfs:comment>
+    </owl:ObjectProperty>
+	
+	
+    <!-- http://www.essepuntato.it/2008/12/pattern#contains -->
+
+    <owl:ObjectProperty rdf:about="&pattern;contains">
+        <rdfs:subPropertyOf rdf:resource="&zpid_doco;containsIndirectly"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.essepuntato.it/2008/12/pattern#isContainedBy -->
+
+    <owl:ObjectProperty rdf:about="&pattern;isContainedBy">
+        <rdfs:subPropertyOf rdf:resource="&zpid_doco;isContainedByIndirectly"/>
+    </owl:ObjectProperty>
+    
+	
+	    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <!-- http://purl.org/spar/doco/Section -->
+
+    <owl:Class rdf:about="&doco;Section">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&zpid_doco;containsIndirectly"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&doco;Paragraph"/>
+                            <rdf:Description rdf:about="&doco;Section"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&zpid_doco;containsIndirectly"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:complementOf rdf:resource="&doco;Chapter"/>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+</rdf:RDF>
+
+
+

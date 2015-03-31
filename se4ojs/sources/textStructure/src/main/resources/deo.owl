@@ -1,0 +1,449 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY terms "http://purl.org/dc/terms/" >
+    <!ENTITY deo "http://purl.org/spar/deo/" >
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY sro "http://salt.semanticauthoring.org/ontologies/sro#" >
+]>
+
+
+<rdf:RDF xmlns="http://purl.org/spar/deo/"
+     xmlns:deo="http://purl.org/spar/deo/"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:sro="http://salt.semanticauthoring.org/ontologies/sro#">
+    <owl:Ontology rdf:about="http://purl.org/spar/deo">
+        <dc:date rdf:datatype="&xsd;date">2011-05-05</dc:date>
+        <dc:creator rdf:datatype="&xsd;string">David Shotton</dc:creator>
+        <dc:creator rdf:datatype="&xsd;string">Silvio Peroni</dc:creator>
+        <dc:description xml:lang="en">DEO, The Discourse Elements Ontology, is an ontology written in OWL 2 DL that provides a structured vocabulary for rhetorical elements within documents (e.g. Introduction, Discussion, Acknowledgements, Reference List, Figures, Appendix), enabling these to be described in RDF.  It uses all the rhetorical block elements from the SALT Rhetorical Ontology (http://salt.semanticauthoring.org/ontologies/sro.rdfs) except &#39;Entities&#39; and &#39;Abstract&#39;.
+</dc:description>
+        <dc:title xml:lang="en">The Discourse Elements Ontology
+     (DEO)</dc:title>
+        <rdfs:comment xml:lang="en">The Discourse Elements Ontology is an ontology for describing the major rhetorical elements of a document such as a journal article.  It is a subsidiary ontology that is imported into the Document Components Ontology, itself part of SPAR, the Semantic Publishing and Referencing Ontologies.  Other SPAR ontologies are described at http://purl.org/spar/.
+</rdfs:comment>
+        <dc:rights xml:lang="en">This work is distributed under a Creative Commons Attribution License (http://creativecommons.org/licenses/by/3.0/).</dc:rights>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="&dc;creator"/>
+    <owl:AnnotationProperty rdf:about="&dc;date"/>
+    <owl:AnnotationProperty rdf:about="&rdfs;label"/>
+    <owl:AnnotationProperty rdf:about="&dc;description"/>
+    <owl:AnnotationProperty rdf:about="&rdfs;comment"/>
+    <owl:AnnotationProperty rdf:about="&dc;title"/>
+    <owl:AnnotationProperty rdf:about="&dc;rights"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/terms/hasPart -->
+
+    <owl:ObjectProperty rdf:about="&terms;hasPart">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:label xml:lang="en">has part</rdfs:label>
+        <rdfs:comment xml:lang="en">A related resource that is included either physically or logically in the described resource.</rdfs:comment>
+        <owl:inverseOf rdf:resource="&terms;isPartOf"/>
+        <rdfs:subPropertyOf rdf:resource="&terms;relation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dc/terms/isPartOf -->
+
+    <owl:ObjectProperty rdf:about="&terms;isPartOf">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:label xml:lang="en">is part of</rdfs:label>
+        <rdfs:comment xml:lang="en">A related resource in which the described resource is physically or logically included.</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&terms;relation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dc/terms/relation -->
+
+    <owl:ObjectProperty rdf:about="&terms;relation">
+        <rdf:type rdf:resource="&owl;SymmetricProperty"/>
+        <rdfs:label xml:lang="en">has relation</rdfs:label>
+        <rdfs:comment xml:lang="en">A related resource.</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#topObjectProperty -->
+
+    <owl:ObjectProperty rdf:about="&owl;topObjectProperty"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/spar/deo/Acknowledgements -->
+
+    <owl:Class rdf:about="&deo;Acknowledgements">
+        <rdfs:label xml:lang="en">acknowledgements</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&deo;DiscourseElement"/>
+        <rdfs:comment xml:lang="en">Usually part of the preface, or a separate section in its own right, often as part of the back matter, it acknowledges those, including funding agencies, who contributed to the undertaking of a research project described in a publication, or to the creation of the work in some way. In scientific articles, the acknowledgements are usually placed as a separated section immediately following the Discussion or Conclusions.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/spar/deo/AuthorContribution -->
+
+    <owl:Class rdf:about="&deo;AuthorContribution">
+        <rdfs:label xml:lang="en">author contribution</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&deo;DiscourseElement"/>
+        <rdfs:comment xml:lang="en">A description of the roles played by an author in the publication.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/spar/deo/BibliographicReference -->
+
+    <owl:Class rdf:about="&deo;BibliographicReference">
+        <rdfs:label xml:lang="en">bibliographic reference</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&deo;Reference"/>
+        <rdfs:comment xml:lang="en">A reference, usually contained in a footnote or a bibliographic reference list, that refer to another publication, such as a journal article, a book, a book chapter or a Web site. The inclusion of the bibliographic reference in a publication constitutes the performative act of bibliographic citation.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/spar/deo/Biography -->
+
+    <owl:Class rdf:about="&deo;Biography">
+        <rdfs:label xml:lang="en">biography</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&deo;DiscourseElement"/>
+        <rdfs:comment xml:lang="en">Information describing a person and his or her life history and contributions.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/spar/deo/Caption -->
+
+    <owl:Class rdf:about="&deo;Caption">
+        <rdfs:label xml:lang="en">caption</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&deo;DiscourseElement"/>
+        <rdfs:comment xml:lang="en">Text accompanying another item, such as a picture.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/spar/deo/Data -->
+
+    <owl:Class rdf:about="&deo;Data">
+        <rdfs:label xml:lang="en">data</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&deo;DiscourseElement"/>
+        <rdfs:comment xml:lang="en">A textual description of data used or produced in the work which the document describes, or the data themselves.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/spar/deo/DatasetDescription -->
+
+    <owl:Class rdf:about="&deo;DatasetDescription">
+        <rdfs:label xml:lang="en">dataset description</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&deo;ExternalResourceDescription"/>
+        <rdfs:comment xml:lang="en">Information describing a dataset held in an external database or repository and including a reference to it, such as a database ID or an accession number.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/spar/deo/Dedication -->
+
+    <owl:Class rdf:about="&deo;Dedication">
+        <rdfs:label xml:lang="en">dedication</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&deo;DiscourseElement"/>
+        <rdfs:comment xml:lang="en">Text in which the author names the person or people for whom he/she has written the document, or to whose memory it is dedicated.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/spar/deo/DiscourseElement -->
+
+    <owl:Class rdf:about="&deo;DiscourseElement">
+        <rdfs:label xml:lang="en">discourse element</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <rdfs:comment xml:lang="en">An element of a document that carries out a rhetorical function.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/spar/deo/Epilogue -->
+
+    <owl:Class rdf:about="&deo;Epilogue">
+        <rdfs:label xml:lang="en">epilogue</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&deo;DiscourseElement"/>
+        <rdfs:comment xml:lang="en">A piece of writing at the end of a work of literature or drama, usually used to bring closure to the work.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/spar/deo/ExternalResourceDescription -->
+
+    <owl:Class rdf:about="&deo;ExternalResourceDescription">
+        <rdfs:label xml:lang="en">external resource description</rdfs:label>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&deo;DiscourseElement"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&terms;hasPart"/>
+                        <owl:someValuesFrom rdf:resource="&deo;Reference"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">Information describing an external resource and including a reference to that resource.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/spar/deo/FutureWork -->
+
+    <owl:Class rdf:about="&deo;FutureWork">
+        <rdfs:label xml:lang="en">future work</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&deo;DiscourseElement"/>
+        <rdfs:comment xml:lang="en">A proposal for new investigation to be undertaken in order to continue and advance the work described in the publication.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/spar/deo/Introduction -->
+
+    <owl:Class rdf:about="&deo;Introduction">
+        <rdfs:label xml:lang="en">introduction</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&deo;DiscourseElement"/>
+        <rdfs:comment xml:lang="en">An initial description which states the purpose and goals of the following writing, and, in the case of journal articles, typically includes background information on the research topic and a review of related work in the area.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/spar/deo/Legend -->
+
+    <owl:Class rdf:about="&deo;Legend">
+        <rdfs:label xml:lang="en">legend</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&deo;Caption"/>
+        <rdfs:comment xml:lang="en">Informative text that explicitly explains another item, such as a figure or a table.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/spar/deo/Materials -->
+
+    <owl:Class rdf:about="&deo;Materials">
+        <rdfs:label xml:lang="en">materials</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&deo;DiscourseElement"/>
+        <rdfs:comment xml:lang="en">A description in a research paper documenting the specialized materials used in the work described. This description is often combined with a description of the methods used, in a section entitled &#39;Methods and Materials&#39;, &#39;Experimental&#39; or a related term.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/spar/deo/Methods -->
+
+    <owl:Class rdf:about="&deo;Methods">
+        <rdfs:label xml:lang="en">methods</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&deo;DiscourseElement"/>
+        <rdfs:comment xml:lang="en">A description in a research paper documenting the specialized methods used in the work described. This description is often combined with a description of the materials used, in a section entitled &#39;Methods and Materials&#39;, &#39;Experimental&#39; or a related term.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/spar/deo/Model -->
+
+    <owl:Class rdf:about="&deo;Model">
+        <rdfs:label xml:lang="en">model</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&deo;DiscourseElement"/>
+        <rdfs:comment xml:lang="en">A description of a model used or produced by the work described in the publication.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/spar/deo/Postscript -->
+
+    <owl:Class rdf:about="&deo;Postscript">
+        <rdfs:label xml:lang="en">postscript</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&deo;DiscourseElement"/>
+        <rdfs:comment xml:lang="en">Text added after the signature of a letter, or sometimes after the main body of an essay or book.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/spar/deo/ProblemStatement -->
+
+    <owl:Class rdf:about="&deo;ProblemStatement">
+        <rdfs:label xml:lang="en">problem statement</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&deo;DiscourseElement"/>
+        <dc:description xml:lang="en">A concise description of the issues that needed to be addressed by a work described in the document.</dc:description>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/spar/deo/Prologue -->
+
+    <owl:Class rdf:about="&deo;Prologue">
+        <rdfs:label xml:lang="en">prologue</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&deo;DiscourseElement"/>
+        <rdfs:comment xml:lang="en">A piece of writing at the beginning of a work of literature or drama, usually used to set the scene or to introduce the work.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/spar/deo/Reference -->
+
+    <owl:Class rdf:about="&deo;Reference">
+        <rdfs:label xml:lang="en">reference</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&deo;DiscourseElement"/>
+        <rdfs:comment xml:lang="en">A reference to a specific part of the document, or to another publication.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/spar/deo/RelatedWork -->
+
+    <owl:Class rdf:about="&deo;RelatedWork">
+        <rdfs:label xml:lang="en">related work</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&deo;DiscourseElement"/>
+        <rdfs:comment xml:lang="en">The authors&#39; critical review of current knowledge by specific reference to others&#39; work, both in terms of substantive findings and theoretical and methodological contributions to a particular topic. This description is often included within the introduction section.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/spar/deo/Results -->
+
+    <owl:Class rdf:about="&deo;Results">
+        <rdfs:label xml:lang="en">results</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&deo;DiscourseElement"/>
+        <rdfs:comment xml:lang="en">The report of the specific findings of an investigation, given without discussion or conclusion being drawn.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/spar/deo/SupplementaryInformationDescription -->
+
+    <owl:Class rdf:about="&deo;SupplementaryInformationDescription">
+        <rdfs:label xml:lang="en">supplementary information description</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&deo;ExternalResourceDescription"/>
+        <rdfs:comment xml:lang="en">Information describing supplementary information relating to the document, including references or links to the relevant supplementary information.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://salt.semanticauthoring.org/ontologies/sro#Background -->
+
+    <owl:Class rdf:about="&sro;Background">
+        <rdfs:label xml:lang="en">background</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&deo;DiscourseElement"/>
+        <rdfs:comment xml:lang="en">Presentation of information that is essential for understanding the situation or problem that is the subject of the publication. In a journal article, the background is usually part of the Introduction, but may be present as separated section.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://salt.semanticauthoring.org/ontologies/sro#Conclusion -->
+
+    <owl:Class rdf:about="&sro;Conclusion">
+        <rdfs:label xml:lang="en">conclusion</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&deo;DiscourseElement"/>
+        <rdfs:comment xml:lang="en">A reflection on the preceding text, summarizing the evidence, arguments or premises presented in the document and their logical outcomes. Conclusions are a fundamental feature in academic research publications, and may be included in the Discussion section.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://salt.semanticauthoring.org/ontologies/sro#Contribution -->
+
+    <owl:Class rdf:about="&sro;Contribution">
+        <rdfs:label xml:lang="en">contribution</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&deo;DiscourseElement"/>
+        <rdfs:comment xml:lang="en">A description of the part that this publication plays in the overall field.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://salt.semanticauthoring.org/ontologies/sro#Discussion -->
+
+    <owl:Class rdf:about="&sro;Discussion">
+        <rdfs:label xml:lang="en">discussion</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&deo;DiscourseElement"/>
+        <rdfs:comment xml:lang="en">An interpretation and discussion of the results obtained and an analysis of their significance, in support of conclusions. These conclusions may be part of this discussion or may be included in a separate section of the document.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://salt.semanticauthoring.org/ontologies/sro#Evaluation -->
+
+    <owl:Class rdf:about="&sro;Evaluation">
+        <rdfs:label xml:lang="en">evaluation</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&deo;DiscourseElement"/>
+        <rdfs:comment xml:lang="en">A consideration of the value, meaning and significance of the results obtained.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://salt.semanticauthoring.org/ontologies/sro#Motivation -->
+
+    <owl:Class rdf:about="&sro;Motivation">
+        <rdfs:label xml:lang="en">motivation</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&deo;DiscourseElement"/>
+        <rdfs:comment xml:lang="en">A description of the justification for undertaking the work described in the publication.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://salt.semanticauthoring.org/ontologies/sro#Scenario -->
+
+    <owl:Class rdf:about="&sro;Scenario">
+        <rdfs:label xml:lang="en">scenario</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&deo;DiscourseElement"/>
+        <rdfs:comment xml:lang="en">A presentation of a use case or test, based on a real or hypothetical situation, used to help someone think through a complex problem or system.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <owl:Class rdf:about="&owl;Thing"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.0.0.1451) http://owlapi.sourceforge.net -->
+
+

@@ -1,0 +1,62 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<artifactId>client</artifactId>
+	<packaging>jar</packaging>
+	<name>client</name>
+
+	<parent>
+		<groupId>org.zpid.se4ojs</groupId>
+		<artifactId>se4ojs-parent</artifactId>
+		<version>1.0-SNAPSHOT</version>
+	</parent>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				
+			</plugin>
+		</plugins>
+	</build>
+	<dependencies>
+	<!--  internal project dependencies -->	
+		<dependency>
+			<groupId>org.zpid.se4ojs</groupId>
+			<artifactId>annotation-ncbo</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.zpid.se4ojs</groupId>
+			<artifactId>annotation-umls</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.zpid.se4ojs</groupId>
+			<artifactId>textStructure</artifactId>
+            <version>${project.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.zpid.se4ojs</groupId>
+			<artifactId>jats2spar</artifactId>
+            <version>${project.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.zpid.se4ojs</groupId>
+			<artifactId>refStructuring</artifactId>
+            <version>${project.version}</version>
+		</dependency>
+		
+	<!--  external dependencies -->
+
+	</dependencies>
+</project>
