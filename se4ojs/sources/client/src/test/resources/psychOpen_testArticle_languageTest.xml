@@ -1,0 +1,1970 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<article xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink"
+   article-type="announcement" dtd-version="0.4" xml:lang="en">
+   <?release-delay 0|0?>
+   <front>
+      <journal-meta>
+         <journal-id journal-id-type="publisher-id">EJOP</journal-id>
+         <journal-id journal-id-type="nlm-ta">Eur J Psychol</journal-id>
+         <journal-title-group>
+            <journal-title>Europe's Journal of Psychology</journal-title>
+            <abbrev-journal-title abbrev-type="pubmed">Eur. J. Psychol.</abbrev-journal-title>
+         </journal-title-group>
+         <issn pub-type="epub">1841-0413</issn>
+         <publisher>
+            <publisher-name>PsychOpen</publisher-name>
+         </publisher>
+      </journal-meta>
+      <article-meta>
+         <article-id pub-id-type="publisher-id">ejop.v8i3.308</article-id>
+         <article-id pub-id-type="doi">10.5964/ejop.v8i3.308</article-id>
+         <article-categories>
+            <subj-group subj-group-type="heading">
+               <subject>Research Reports</subject>
+            </subj-group>
+         </article-categories>
+         <title-group>
+            <article-title>Emotional Status, Perceived Control of Pain, and Pain Coping Strategies
+               in Episodic and Chronic Cluster Headache</article-title>
+            <trans-title-group xml:lang="de">
+               <trans-title>Emotional Communication on Romantic Relationships: Design and Validation
+                  of a Measure in Mexico</trans-title>
+            </trans-title-group>
+            <alt-title alt-title-type="right-running">Cluster Headache</alt-title>
+         </title-group>
+         <contrib-group>
+            <contrib contrib-type="editor">
+               <name>
+                  <surname>Allen</surname>
+                  <given-names>Andrew</given-names>
+               </name>
+               <xref ref-type="aff" rid="aff2"/>
+            </contrib>
+            <contrib contrib-type="author" corresp="yes" id="contnr1" xlink:href="ejop.v10i2.810-f1">
+               <name name-style="western">
+                  <surname>Zahavi</surname>
+                  <given-names>Dan</given-names>
+               </name>
+
+               <bio>
+                  <p xml:lang="de"><bold>Dan Zahavi</bold> is Professor of Philosophy and Director of the Center
+                     for Subjectivity Research at the University of Copenhagen. He obtained his
+                     Ph.D. from Katholieke Universiteit Leuven in 1994 and his Dr.phil.
+                     (Habilitation) from University of Copenhagen in 1999. He has served as
+                     president of the Nordic Society for Phenomenology in the years 2001-2007, and
+                     is currently co-editor in chief of the journal Phenomenology and the Cognitive
+                     Sciences. In his systematic work, Zahavi has mainly been investigating the
+                     nature of selfhood, self-consciousness and intersubjectivity. His most
+                     important publications include <italic>Husserl und die transzendentale
+                        Intersubjektivität</italic> (Kluwer 1996), <italic>Self-awareness and
+                        Alterity</italic> (Northwestern University Press 1999), <italic>Husserl’s
+                        Phenomenology</italic> (Stanford University Press 2003),
+                        <italic>Subjectivity and Selfhood</italic> (MIT Press 2005), and together
+                     with Shaun Gallagher <italic>The Phenomenological Mind</italic> (Routledge
+                     2008).</p>
+               </bio>
+               <xref ref-type="corresp" rid="cor1">
+                  <sup>*</sup>
+               </xref>
+               <xref ref-type="aff" rid="aff1">
+                  <sup>a</sup>
+               </xref>
+            </contrib>
+            <contrib contrib-type="author">
+               <name>
+                  <surname>Valade</surname>
+                  <given-names>Dominique</given-names>
+               </name>
+               <xref ref-type="aff" rid="aff1">
+                  <sup>a</sup>
+               </xref>
+            </contrib>
+            <contrib contrib-type="author">
+               <name>
+                  <surname>Fontenelle</surname>
+                  <given-names>Frédéric</given-names>
+               </name>
+               <xref ref-type="aff" rid="aff2">
+                  <sup>b</sup>
+               </xref>
+            </contrib>
+            <contrib contrib-type="author">
+               <name>
+                  <surname>Roos</surname>
+                  <given-names>Caroline</given-names>
+               </name>
+               <xref ref-type="aff" rid="aff1">
+                  <sup>a</sup>
+               </xref>
+            </contrib>
+            <contrib contrib-type="author">
+               <name>
+                  <surname>Rousseau-Salvador</surname>
+                  <given-names>Céline</given-names>
+               </name>
+               <xref ref-type="aff" rid="aff2">
+                  <sup>b</sup>
+               </xref>
+               <xref ref-type="aff" rid="aff3">
+                  <sup>c</sup>
+               </xref>
+            </contrib>
+            <contrib contrib-type="author">
+               <name>
+                  <surname>Ducros</surname>
+                  <given-names>Anne</given-names>
+               </name>
+               <xref ref-type="aff" rid="aff1">
+                  <sup>a</sup>
+               </xref>
+            </contrib>
+
+            <contrib contrib-type="author" corresp="yes">
+               <name>
+                  <surname>Rusinek</surname>
+                  <given-names>Stéphane</given-names>
+               </name>
+               <xref ref-type="corresp" rid="cor1">
+                  <sup>*</sup>
+               </xref>
+               <xref ref-type="aff" rid="aff2">
+                  <sup>b</sup>
+               </xref>
+            </contrib>
+
+            <aff id="aff1"><label>a</label>Emergency Headache Centre, Lariboisiere Hospital, Paris,
+               France</aff>
+            <aff id="aff2"><label>b</label>Department of Psychology, University of Lille
+               Nord-de-France, UDL3, Villeneuve d’Ascq, France</aff>
+            <aff id="aff3"><label>c</label>Service of Pediatric Hematology and Oncology, Trousseau
+               Hospital, Paris, France<country>France</country></aff>
+         </contrib-group>
+         <author-notes>
+            <corresp id="cor1"><label>*</label>Laboratoire PSITEC, Université de Lille
+               Nord-de-France, UDL3, B.P. 06149, 59 653 Villeneuve d’Ascq Cedex, France, email:
+                  <email xlink:href="stephane.rusinek@univ-lille3.fr">stephane.rusinek@univ-lille3.fr</email>, 
+                  <email xlink:href="smit.indoo@gmail.com">smit.indoo@gmail.com</email>, 
+                  <email xlink:href="singhindu64@rediffmail.com">singhindu64@rediffmail.com</email> tel.: + 33 3 20 41 67 87</corresp>
+         </author-notes>
+         <pub-date pub-type="ppub">
+            <day>29</day>
+            <month>08</month>
+            <year>2012</year>
+         </pub-date>
+         <volume>8</volume>
+         <issue>3</issue>
+         <fpage>461</fpage>
+         <lpage>474</lpage>
+         <history>
+            <date date-type="received">
+               <day>14</day>
+               <month>03</month>
+               <year>2012</year>
+            </date>
+            <date date-type="accepted">
+               <day>27</day>
+               <month>05</month>
+               <year>2012</year>
+            </date>
+            <date date-type="corrected">
+               <day>30</day>
+               <month>08</month>
+               <year>2013</year>
+            </date>
+         </history>
+         <product product-type="book" id="p1">
+            <person-group person-group-type="author">
+               <name name-style="western">
+                  <surname>Hatfield</surname>
+                  <given-names>Gary</given-names>
+               </name>
+               <name name-style="western">
+                  <surname>Allred</surname>
+                  <given-names>Sarah</given-names>
+               </name>
+            </person-group>
+            <role>Eds.</role>
+            <source>Visual Experience: Sensation, Cognition and Constancy</source>
+            <publisher-loc>Oxford, United Kingdom</publisher-loc>
+            <publisher-name>Oxford University Press</publisher-name>
+            <year>2012</year>
+            <size units="page">264</size>
+            <isbn>9780199597277</isbn>
+            <inline-graphic xlink:href="ejop.v10i1.731-f1"/>
+         </product>
+
+         <permissions>
+            <copyright-year/>
+            <copyright-holder/>
+            <license license-type="open-access"
+               xlink:href="http://creativecommons.org/licenses/by/3.0/">
+               <license-p>This is an open-access article distributed under the terms of the Creative
+                  Commons Attribution License, which permits unrestricted use, distribution, and
+                  reproduction in any medium, provided the original work is properly
+                  cited.</license-p>
+            </license>
+         </permissions>
+         <abstract xml:lang="fr">
+            <p>Cluster headache (CH) is a chronic syndrome characterized by excruciatingly painful
+               attacks occurring with circadian and circannual periodicity. The objectives of the
+               present study were, in CH patients, to determine by principal component analysis the
+               factor structure of two instruments commonly used in clinics to evaluate pain locus
+               of control (Cancer Locus of Control Scale–CLCS) and coping strategies (Coping
+               Strategies Questionnaire–CSQ), to examine the relationship between internal pain
+               controllability and emotional distress, and to compare psychosocial distress and
+               coping strategies between two subsets of patients with episodic or chronic CH.
+               Results indicate, for CLCS, a 3-factor structure (internal controllability, medical
+               controllability, religious controllability) noticeably different in CH patients from
+               the structure reported in patients with other painful pathologies and, for CSQ, a
+               5-factor structure of CSQ which did not markedly diverge from the classical
+               structure. Perceived internal controllability of pain was strongly correlated with
+               study measures of depression (HAD depression/anhedonia subscale, Beck Depression
+               Inventory). Comparison between subsets of patients with episodic or chronic CH of
+               emotional status, pain locus of control, perceived social support and coping
+               strategies did not reveal significant differences apart for the Reinterpreting pain
+               sensations strategy which was more often used by episodic CH patients. Observed
+               tendencies for increased anxiety and perceived social support in patients with
+               episodic CH, and for increased depression and more frequent use of the Ignoring pain
+               sensations strategy in patients with chronic CH, warrant confirmation in larger
+               groups of patients.</p>
+         </abstract>
+         <kwd-group kwd-group-type="author" xml:lang="EN">
+            <kwd>cluster headache</kwd>
+            <kwd>anxiety</kwd>
+            <kwd>depression</kwd>
+            <kwd>pain locus of control</kwd>
+            <kwd>coping strategies</kwd>
+         </kwd-group>
+      </article-meta>
+   </front>
+   <body>
+      <p xml:lang="de">Cluster headache (CH) is a member of the trigeminal autonomic cephalalgias which form a
+         group of primary disorders characterized by unilateral trigeminal distribution pain
+         occurring in association with prominent ipsilateral cranial autonomic features. It is an
+         excruciating syndrome, and probably constitutes the most painful condition known to humans
+            (<xref ref-type="bibr" rid="r26">Matharu &amp; Goadsby, 2002</xref>). The prevalence of
+         CH is estimated to be about 0.01-0.03% (<xref ref-type="bibr" rid="r19">Katsarava et al.,
+            2007</xref>; <xref ref-type="bibr" rid="r25">Manzoni &amp; Stovner, 2010</xref>), and
+         more men than women are affected (<xref ref-type="bibr" rid="r24">Manzoni, 1998</xref>;
+            <xref ref-type="bibr" rid="r13">Donnet et al., 2007</xref>; <xref ref-type="bibr"
+            rid="r14">Fischera, Marziniak, Gralow, &amp; Evers, 2008</xref>).</p>
+      <p xml:lang="en">CH is characterized by a striking circannual and circadian periodicity. Its etiology is
+         unknown but physiopathology may involve the trigeminal nociceptive pathways, the autonomic
+         system and the posterior hypothalamic gray matter (<xref ref-type="bibr" rid="r22"
+            >Lanteri-Minet, 2003</xref>). Attacks occur in series (cluster periods)–from once every
+         other day up to eight times a day–lasting for weeks or months, separated by remission
+         periods usually lasting months or years. In episodic CH, cluster periods of one week to one
+         year are separated by pain-free periods of one month or longer, while in chronic CH the
+         attacks may occur for more than one year without remission or remissions lasting less than
+         one month (<xref ref-type="bibr" rid="r16">Headache Classification Subcommittee of the
+            International Headache Society, 2004</xref>).</p>
+      <p>Chronic pain has physical, psychological and social impacts on patients, affecting
+         confidence to cope with pain, accomplish life goals, live a normal lifestyle, and maintain
+         normal social and leisure activities. In order to cope with and adjust to the burden of
+         pain, chronic pain patients develop a range of cognitive, emotional and behavioral
+         strategies, according to pre-existing personality characteristics, some of which (e.g.,
+         passive coping and dramatizing/catastrophizing) eventually play a pejorative role in
+         pain-related disability and depression (<xref ref-type="bibr" rid="r9">Brown &amp;
+            Nicassio, 1987</xref>; <xref ref-type="bibr" rid="r34">Snow-Turek, Norris, &amp; Tan
+            1996</xref>; <xref ref-type="bibr" rid="r2">Arnstein, Caudill, Mandle, Norris, &amp;
+            Beasley, 1999</xref>; <xref ref-type="bibr" rid="r3">Asghari &amp; Nicholas,
+         2001</xref>; <xref ref-type="bibr" rid="r4">Asghari &amp; Nicholas, 2006</xref>; <xref
+            ref-type="bibr" rid="r21">Koleck, Mazaux, Rascle, &amp; Bruchon-Schweitzer, 2006</xref>;
+            <xref ref-type="bibr" rid="r27">Mongini et al., 2009</xref>).</p>
+      <p xml:lang="de">As CH has some specificities among chronic painful pathologies, one of the objectives of
+         the present study was to determine in CH patients, by principal component analysis, the
+         factor structure of two instruments widely used in research and clinics to evaluate
+         perceived control of the disease and pain coping strategies (Cancer Locus of Control
+         Scale–CLCS–and Coping Strategies Questionnaire–CSQ–, respectively) (<xref ref-type="bibr"
+            rid="r33">Rosenstiel &amp; Keefe, 1983</xref>; <xref ref-type="bibr" rid="r28">Pruyn et
+            al., 1988</xref>) and to compare results with the factor structures reported for the
+         same instruments in other categories of chronic pain patients. To the best of our
+         knowledge, CLCS had not been used in CH patients as yet. Since pain patients' attitude
+         towards pain sensations, beside pain intensity, is known to influence psychological
+         outcomes (<xref ref-type="bibr" rid="r2">Arnstein et al., 1999</xref>; <xref
+            ref-type="bibr" rid="r3">Asghari &amp; Nicholas, 2001</xref>), the relationship between
+         perceived pain control and emotional distress was also examined. Finally, hypothesizing
+         that duration and periodicity of pain episodes may affect pain levels and functional
+         outcomes in CH patients, another objective of the study was to compare psychosocial
+         distress and pain coping strategies between subsets of patients with episodic or chronic
+         CH.</p>
+      <sec sec-type="methods" xml:lang="jp">
+         <title>Methods</title>
+         <sec>
+            <title>Study Setting – Participants</title>
+            <p>This was a cross-sectional, observational study carried out from November 2004 to
+               July 2005 among patients consulting at the Emergency headache center (‘Centre
+               d'Urgences Céphalées’–CUC) of Lariboisiere hospital in Paris. Patients who accepted
+               to participate were administered a series of questionnaires exploring emotional
+               status, perceived pain control and social support, pain-related disability and
+               coping. As the survey did not cause any change in disease management, no approval
+               from institutional ethics committee was required. Nevertheless, patients signed
+               informed consent to participate prior to any study procedure was performed.</p>
+            <p>The patients seen at the CUC are those who need urgent medical care, i.e., patients
+               who present with an abrupt recent-onset headache or with an acute recurrent attack of
+               headache not relieved by the usual treatments. Approximately two thirds of these
+               patients suffer from primary headaches and about 5% from CH (<xref ref-type="bibr"
+                  rid="r37">Valade, 2005</xref>). All patients included in the survey had episodic
+               or chronic CH diagnosed according to the International Headache Society criteria
+                  (<xref ref-type="bibr" rid="r16">Headache Classification Subcommittee of the
+                  International Headache Society, 2004</xref>) and had experienced a cluster period
+               within the past three weeks. Possible past or concomitant organic or mental diseases
+               were not taken into account for patient recruitment. Demographic attributes and
+               history of the disease were recorded at patient inclusion.</p>
+         </sec>
+         <sec>
+            <title>Measuring Instruments</title>
+            <p>Emotional status was measured with the French version (<xref ref-type="bibr"
+                  rid="r23">Lépine, Godchau, Brun, &amp; Lemperière, 1985</xref>) of the Hospital
+               Anxiety and Depression (HAD) scale (<xref ref-type="bibr" rid="r41">Zigmond &amp;
+                  Snaith, 1983</xref>). This is a 14-point scale which contains seven questions on
+               anxiety symptoms and seven on depressive symptoms. The depression scale was
+               constructed so that it does not contain items relating to symptoms that may be caused
+               by the physical illness and emphasizes anhedonia (inability to feel pleased). The HAD
+               scale has been in widespread use and is currently recommended by the French national
+               medico-economic evaluation service for use in chronic pain patients (Agence Nationale
+               d'Accréditation et d'Evaluation en Santé (ANAES), 1999). Each item is scored from 0
+               to 3 on the basis of average mood over the last ten days. Scores of 8 or over at the
+               anxiety or depression scale were taken as indicative of anxiety or depression,
+               respectively.</p>
+            <p>Depression was assessed with the French version (<xref ref-type="bibr" rid="r11"
+                  >Collet &amp; Cottraux, 1986</xref>) of the short-form (13-item) of the Beck
+               Depression Inventory (BDI) (<xref ref-type="bibr" rid="r6">Beck, Ward, Mendelson,
+                  Mock, &amp; Erbaugh, 1961</xref>). This validated abbreviated questionnaire
+               contains only the items that are most strongly correlated with total score at the
+               original questionnaire and with clinical evaluation of depression severity. It
+               retains the original cognition triad described by Beck: negative thoughts about
+               oneself, about the external world, and about the future (<xref ref-type="bibr"
+                  rid="r7">Beck, Steer, &amp; Carbin, 1988</xref>). Each item is scored from 0 to 3
+               on the basis of patient's current mood state. For the study, scores of 4-7 were
+               considered indicative of mild depression, scores of 8-15 of moderate depression, and
+               scores of 16 or greater of severe depression.</p>
+            <p>Perceived control was assessed with a French version of the CLCS (<xref
+                  ref-type="bibr" rid="r28">Pruyn et al., 1988</xref>; <xref ref-type="bibr"
+                  rid="r40">Watson, Pruyn, Greer, &amp; Van Den Borne, 1990</xref>) which had
+               previously been used in research in France (<xref ref-type="bibr" rid="r12"
+                  >Cousson-Gélie, 1997</xref>; <xref ref-type="bibr" rid="r20">Koleck, 2000</xref>)
+               in patients suffering from a chronic disease or chronic pain, except that “pain” was
+               taken as “the disease”. The French version has been validated (<xref ref-type="bibr"
+                  rid="r10">Bruchon-Schweitzer, 2001</xref>). This 17-item questionnaire assesses
+               three different types of cognitions: internal or external estimated locus of control
+               of disease progression; internal or external causative attributions of the origin of
+               the disease; ascription of the disease to God and internal/external control through
+               patient's religion. Each item is scored from 0 to 3 according to intensity of patient
+               agreement/disagreement with each statement. A summed score is obtained for each
+               psychological dimension explored by the questionnaire.</p>
+            <p>Perceived social support was assessed with the validated French version (<xref
+                  ref-type="bibr" rid="r30">Rascle et al., 1997</xref>) of the 6-item abbreviated
+               Social Support Questionnaire (SSQ-6). This questionnaire measures the number of
+               people to whom the patients could turn and on whom they could rely in given sets of
+               circumstances (availability: scores 0-9 persons) and the corresponding satisfaction
+               retrieved from the support given (satisfaction: scores 1-6). Different areas of
+               support (emotional, self-esteem, information, practical) are explored. Total scores
+               of availability (0-54) and satisfaction (6-36) are obtained by summing individual
+               scores at the corresponding items.</p>
+            <p>Coping with pain was assessed by the French version (<xref ref-type="bibr" rid="r20"
+                  >Koleck, 2000</xref>; <xref ref-type="bibr" rid="r17">Irachabal, 2002</xref>) of
+               the CSQ (<xref ref-type="bibr" rid="r33">Rosenstiel &amp; Keefe, 1983</xref>). This
+               questionnaire is the most widely used measure of behavioral and emotional adjustment
+               to chronic pain. The original version is comprised of 48 individual items. The French
+               version is comprised of only 21 items and does not contain coping self-statements and
+               behavioral coping. For each item of the questionnaire, patients are invited to score
+               (from 0 to 4) the frequency of use of the proposed strategy. The sum of scores is
+               calculated for each coping strategy.</p>
+            <p>Pain-related disability was assessed by the 6-item Headache Impact Test (HIT-6)
+                  (<xref ref-type="bibr" rid="r5">Bayliss et al., 2003</xref>) which is an
+               abbreviated and validated form of the original 54-item questionnaire (<xref
+                  ref-type="bibr" rid="r8">Bjorner et al., 2003</xref>). HIT was developed by
+               applying the Item Response Theory and other psychometric techniques to widely used
+               questionnaires of headache impact (<xref ref-type="bibr" rid="r39">Ware, Bjorner,
+                  &amp; Kosinski, 2000</xref>). Headache severity and frequency of headache-related
+               disabling symptoms (limitation in activities, tiredness, being fed up or irritated,
+               difficulty in concentrating) in the past four weeks are scored from 0 to 4. For
+               analysis of study data, a total score &gt;55 (score above which an immediate medical
+               appointment is recommended) was considered to indicate a significant disrupting
+               effect of pain on patient's life. A French version (QualityMetric, Inc. and
+               GlaxoSmithKline Group of Companies, 2000) has been used in France to measure the
+               impact of migraine on patient physical, social and emotional functioning (<xref
+                  ref-type="bibr" rid="r38">Vuillaume De Diego &amp; Lanteri-Minet,
+               2005</xref>).</p>
+         </sec>
+         <sec>
+            <title>Statistical Analysis</title>
+            <p>Factor structure of the CLCS was determined in the whole sample of study CH patients
+               by principal component extraction followed by normalized orthogonal varimax rotation
+               to identify clusters of variables (sets of inter-correlated items). Which items were
+               strongly associated with the considered factors was determined by the factor loading:
+               items with a factor loading less than .40 were deleted for analysis. Internal
+               consistency of each identified factor was measured by Cronbach's α coefficient.
+               Factor analysis of the CSQ was determined similarly, except that it was based on an
+                  <italic>a priori</italic> 5-factor (strategy) structure.</p>
+            <p>Secondarily, two subsets of patients with episodic or chronic CH were compared for a
+               series of variables (anxiety and depression, perceived controllability of the
+               disease, perceived social support, coping with pain) after controlling for a number
+               of factors (age, age at disease onset, age at diagnostic, time before diagnostic,
+               disease duration, perceived level of headache-related disability).</p>
+            <p>Relationships between perceived controllability (total score at all items grouped
+               together in the corresponding CLCS factor) and depression (scores at the HAD
+               depression/anhedonia subscale, the HAD global scale, and the BDI) were determined by
+               correlation analyses. Inter-relationships between all depression and anxiety scores
+               were also determined in pairs by computing the relevant correlation coefficients.</p>
+            <p>Continuous variables were summarized by the mean and standard deviation (SD).
+               Homogeneity of variances was assessed by F tests. Data normality was assessed by the
+               Kolmogorov-Smirnov test. Comparison of independent data was performed by Student's t
+               tests. Linear correlations were assessed by the Bravais-Pearson correlation
+               coefficient. Probability values less than or equal to 0.01 were considered to be
+               statistically significant. All statistical analyses were performed with the Statview
+               software version 5.</p>
+         </sec>
+      </sec>
+      <sec sec-type="results">
+         <title>Results</title>
+         <sec>
+            <title>Patient Characteristics and Main Disease Features</title>
+            <p>A total of 73 CH patients (64 men, 87.7%) aged between 21 and 80 years (mean age: 40
+               ± 13 years) participated in the study. Of them, 56 had episodic CH (49 men, 87.5%)
+               and 17 had chronic CH (15 men, 88.2%). Mean age at symptom onset was 29 ± 13 years.
+               Mean disease duration was 11 ± 9 years. Mean time between symptom onset and
+               diagnostic was 5 ± 7 years. Patient characteristics according to CH type (episodic,
+               chronic) are presented in <xref ref-type="table" rid="t1">Table 1</xref>.</p>
+            <table-wrap id="t1" position="float">
+               <label>Table 1</label>
+               <caption>
+                  <title>Demographic Attributes and Main Disease Features of Study Patients
+                     According to the Type (Episodic or Chronic) of Cluster Headache</title>
+               </caption>
+               <table frame="hsides" rules="groups">
+                  <col align="left" width="40%"/>
+                  <col align="center" width="20%"/>
+                  <col align="center" width="20%"/>
+                  <col align="center" width="20%"/>
+                  <thead>
+                     <tr>
+                        <th scope="col" valign="bottom">Patient characteristics</th>
+                        <th scope="col" valign="bottom">Episodic CH<break/>N = 56</th>
+                        <th scope="col" valign="bottom">Chronic CH<break/>N = 17</th>
+                        <th scope="col" valign="bottom">All patients<break/>N = 73</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <tr>
+                        <td scope="row" valign="top">Male sex (n, %)</td>
+                        <td valign="bottom">49 (87.5)</td>
+                        <td valign="bottom">15 (88.2)</td>
+                        <td valign="bottom">64 (87.7)</td>
+                     </tr>
+                     <tr>
+                        <td scope="row" valign="top">Age (mean ± SD)</td>
+                        <td align="char" char="±" valign="top">38 ± 12</td>
+                        <td align="char" char="±" valign="top">46 ± 16</td>
+                        <td align="char" char="±" valign="top">40 ± 13</td>
+                     </tr>
+                     <tr>
+                        <td scope="row" valign="top">Age at symptom onset (mean ± SD)</td>
+                        <td align="char" char="±" valign="top">28 ± 12</td>
+                        <td align="char" char="±" valign="top">32 ± 14</td>
+                        <td align="char" char="±" valign="top">29 ± 13</td>
+                     </tr>
+                     <tr>
+                        <td scope="row" valign="top">Disease duration<sup>a</sup> (mean ± SD)</td>
+                        <td align="char" char="±" valign="top">10 ± 9</td>
+                        <td align="char" char="±" valign="top">14 ± 11</td>
+                        <td align="char" char="±" valign="top">11 ± 9</td>
+                     </tr>
+                     <tr>
+                        <td scope="row" valign="top">Time to diagnostic<sup>b</sup> (mean ± SD)</td>
+                        <td align="char" char="±" valign="top">5 ± 7</td>
+                        <td align="char" char="±" valign="top">5 ± 7</td>
+                        <td align="char" char="±" valign="top">5 ± 7</td>
+                     </tr>
+                  </tbody>
+               </table>
+               <table-wrap-foot>
+                  <p>a: difference between current age and age at symptom onset, b: difference
+                     between age at diagnostic and age at symptom onset, CH indicates cluster
+                     headache, SD indicates standard deviation</p>
+               </table-wrap-foot>
+            </table-wrap>
+         </sec>
+         <sec>
+            <title>Factor Analysis of the CLCS and CSQ Questionnaires in the Whole Sample of CH
+               Patients</title>
+            <p>Results of factor analysis of the CLCS items are presented in <xref ref-type="table"
+                  rid="t2">Table 2</xref>. Items with factor loadings &gt;0.4 were retained for
+               analysis except for item 1 (disease due to fate with no personal control) and item 12
+               (influence of religion on disease progression). Two items were deleted because they
+               failed to load consistently on any factor (item 5: influence of spouse and family on
+               disease progression; item 8: influence of environmental pollution). Factor analysis
+               yielded three varimax factors (factor 1: 9 items; factor 2: 3 items; factor 3: 3
+               items) which together explained 51.8% of total variance. Relatively elevated
+               Cronbach's α coefficients indicate good consistency of the resulting item sets for
+               each factor.</p>
+            <table-wrap id="t2" position="anchor">
+               <label>Table 2</label>
+               <caption>
+                  <title>Factor Analysis of Items of the Cancer Locus of Control Scale (CLCS) in
+                     Cluster Headache Patients</title>
+               </caption>
+               <table frame="hsides" rules="groups">
+                  <col align="right" width="5%"/>
+                  <col align="left" width="50%"/>
+                  <col align="center" width="15%"/>
+                  <col align="center" width="15%"/>
+                  <col align="center" width="15%"/>
+                  <thead>
+                     <tr>
+                        <th align="left" colspan="2" rowspan="2" scope="colgroup" valign="bottom"
+                           >CLCS items</th>
+                        <th align="center" colspan="3" scope="colgroup" valign="bottom">Factor
+                           loading<hr/></th>
+                     </tr>
+                     <tr>
+                        <th align="center" colspan="1" scope="colgroup" valign="bottom">Factor
+                           1</th>
+                        <th align="center" scope="col" valign="bottom">Factor 2</th>
+                        <th align="center" scope="col" valign="bottom">Factor 3</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <tr>
+                        <td scope="row" valign="top">1</td>
+                        <td valign="top">Disease due to fate and no personal control</td>
+                        <td align="char" valign="top">-0.278</td>
+                        <td align="char" valign="top">.</td>
+                        <td align="char" valign="top">.</td>
+                     </tr>
+                     <tr>
+                        <td scope="row" valign="top">2</td>
+                        <td valign="top">Personal ability to influence disease progression</td>
+                        <td align="char" valign="top">0.636</td>
+                        <td align="char" valign="top">.</td>
+                        <td align="char" valign="top">.</td>
+                     </tr>
+                     <tr>
+                        <td scope="row" valign="top">6</td>
+                        <td valign="top">Disease occurrence was due to lifestyle</td>
+                        <td align="char" valign="top">0.713</td>
+                        <td align="char" valign="top">.</td>
+                        <td align="char" valign="top">.</td>
+                     </tr>
+                     <tr>
+                        <td scope="row" valign="top">9</td>
+                        <td valign="top">Disease occurrence is patient's fault</td>
+                        <td align="char" valign="top">0.626</td>
+                        <td align="char" valign="top">.</td>
+                        <td align="char" valign="top">.</td>
+                     </tr>
+                     <tr>
+                        <td scope="row" valign="top">10</td>
+                        <td valign="top">Improved personal care can influence the disease</td>
+                        <td align="char" valign="top">0.697</td>
+                        <td align="char" valign="top">.</td>
+                        <td align="char" valign="top">.</td>
+                     </tr>
+                     <tr>
+                        <td scope="row" valign="top">11</td>
+                        <td valign="top">Events in patient's history promoted the disease</td>
+                        <td align="char" valign="top">0.733</td>
+                        <td align="char" valign="top">.</td>
+                        <td align="char" valign="top">.</td>
+                     </tr>
+                     <tr>
+                        <td scope="row" valign="top">13</td>
+                        <td valign="top">Improving lifestyle might influence the disease</td>
+                        <td align="char" valign="top">0.623</td>
+                        <td align="char" valign="top">.</td>
+                        <td align="char" valign="top">.</td>
+                     </tr>
+                     <tr>
+                        <td scope="row" valign="top">14</td>
+                        <td valign="top">Patient's personality may have promoted the disease</td>
+                        <td align="char" valign="top">0.560</td>
+                        <td align="char" valign="top">.</td>
+                        <td align="char" valign="top">.</td>
+                     </tr>
+                     <tr>
+                        <td scope="row" valign="top">17</td>
+                        <td valign="top">Disease occurrence was related to personal factors</td>
+                        <td align="char" valign="top">0.698</td>
+                        <td align="char" valign="top">.</td>
+                        <td align="char" valign="top">.</td>
+                     </tr>
+                     <tr>
+                        <td scope="row" valign="top">4</td>
+                        <td valign="top">Medical care can influence disease progression</td>
+                        <td align="char" valign="top">.</td>
+                        <td align="char" valign="top">0.783</td>
+                        <td align="char" valign="top">.</td>
+                     </tr>
+                     <tr>
+                        <td scope="row" valign="top">15</td>
+                        <td valign="top">Medical advice may help control disease progression</td>
+                        <td align="char" valign="top">.</td>
+                        <td align="char" valign="top">0.825</td>
+                        <td align="char" valign="top">.</td>
+                     </tr>
+                     <tr>
+                        <td scope="row" valign="top">16</td>
+                        <td valign="top">Struggling may influence disease progression</td>
+                        <td align="char" valign="top">.</td>
+                        <td align="char" valign="top">0.654</td>
+                        <td align="char" valign="top">.</td>
+                     </tr>
+                     <tr>
+                        <td scope="row" valign="top">3</td>
+                        <td valign="top">Pain Disease was due to God's will</td>
+                        <td align="char" valign="top">.</td>
+                        <td align="char" valign="top">.</td>
+                        <td align="char" valign="top">0.900</td>
+                     </tr>
+                     <tr>
+                        <td scope="row" valign="top">7</td>
+                        <td valign="top">God can surely influence disease progression</td>
+                        <td align="char" valign="top">.</td>
+                        <td align="char" valign="top">.</td>
+                        <td align="char" valign="top">0.930</td>
+                     </tr>
+                     <tr style="grey-borders">
+                        <td scope="row" valign="top">12</td>
+                        <td valign="top">Religion may influence disease progression</td>
+                        <td align="char" valign="top">.</td>
+                        <td align="char" valign="top">.</td>
+                        <td align="char" valign="top">0.315</td>
+                     </tr>
+                     <tr>
+                        <td align="left" colspan="2" scope="row" valign="top">Cronbach's α
+                           coefficient</td>
+                        <td valign="top">0.75</td>
+                        <td valign="top">0.68</td>
+                        <td valign="top">0.66</td>
+                     </tr>
+                     <tr>
+                        <td align="left" colspan="2" scope="row" valign="top">Percentage of total
+                           variance explained by the factor</td>
+                        <td valign="top">26.1</td>
+                        <td valign="top">13.8</td>
+                        <td valign="top">11.9</td>
+                     </tr>
+                  </tbody>
+               </table>
+               <table-wrap-foot>
+                  <p>N = 71 patients (2 patients missing)</p>
+               </table-wrap-foot>
+            </table-wrap>
+            <p>On the basis of items with high weight in factor 1, this factor can be interpreted as
+               the perceived internal controllability (beliefs about personal and lifestyle
+               influence on disease progression and about internal causes of the disease). Factor 2
+               can be interpreted as the perceived medical controllability of pain (beliefs about a
+               possible influence on disease progression with the help of medical care). Factor 3
+               represents beliefs about the influence of religion on disease controllability.</p>
+            <p>Results of factor analysis of the CSQ items are presented in <xref ref-type="table"
+                  rid="t3">Table 3</xref>. Factor extraction was carried out on the basis of five
+               hypothesized principal components. The model indicated that the five varimax factors
+               contributed to 64.9% of total variance.</p>
+            <table-wrap id="t3" position="anchor">
+               <label>Table 3</label>
+               <caption>
+                  <title>Factor Analysis of Items of the Coping Strategies Questionnaire (CSQ) in
+                     Cluster Headache Patients</title>
+               </caption>
+               <table frame="hsides" rules="groups">
+                  <col align="right" width="5%"/>
+                  <col align="left" width="50%"/>
+                  <col align="center" width="9%"/>
+                  <col align="center" width="9%"/>
+                  <col align="center" width="9%"/>
+                  <col align="center" width="9%"/>
+                  <col align="center" width="9%"/>
+                  <thead>
+                     <tr>
+                        <th align="left" colspan="2" rowspan="2" scope="colgroup" valign="bottom"
+                           >CSQ items</th>
+                        <th align="center" colspan="5" scope="colgroup" valign="bottom">Factor
+                           loading<hr/></th>
+                     </tr>
+                     <tr>
+                        <th align="center" colspan="1" scope="colgroup" valign="bottom">Factor
+                           1</th>
+                        <th align="center" scope="col" valign="bottom">Factor 2</th>
+                        <th align="center" scope="col" valign="bottom">Factor 3</th>
+                        <th align="center" scope="col" valign="bottom">Factor 4</th>
+                        <th align="center" scope="col" valign="bottom">Factor 5</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <tr>
+                        <td scope="row" valign="top">7</td>
+                        <td valign="top">Not paying attention to pain</td>
+                        <td align="char" valign="top">0.420</td>
+                        <td align="char" valign="top">.</td>
+                        <td align="char" valign="top">.</td>
+                        <td align="char" valign="top">.</td>
+                        <td align="char" valign="top">.</td>
+                     </tr>
+                     <tr>
+                        <td scope="row" valign="top">8</td>
+                        <td valign="top">Doing as if pain did not exist</td>
+                        <td align="char" valign="top">0.650</td>
+                        <td align="char" valign="top">.</td>
+                        <td align="char" valign="top">.</td>
+                        <td align="char" valign="top">.</td>
+                        <td align="char" valign="top">.</td>
+                     </tr>
+                     <tr>
+                        <td scope="row" valign="top">14</td>
+                        <td valign="top">Going on as though nothing occurred</td>
+                        <td align="char" valign="top">0.775</td>
+                        <td align="char" valign="top">.</td>
+                        <td align="char" valign="top">.</td>
+                        <td align="char" valign="top">.</td>
+                        <td align="char" valign="top">.</td>
+                     </tr>
+                     <tr>
+                        <td scope="row" valign="top">15</td>
+                        <td valign="top">Engaging into a pleasant activity</td>
+                        <td align="char" valign="top">0.758</td>
+                        <td align="char" valign="top">.</td>
+                        <td align="char" valign="top">.</td>
+                        <td align="char" valign="top">.</td>
+                        <td align="char" valign="top">.</td>
+                     </tr>
+                     <tr>
+                        <td scope="row" valign="top">17</td>
+                        <td valign="top">Ignoring pain</td>
+                        <td align="char" valign="top">0.671</td>
+                        <td align="char" valign="top">.</td>
+                        <td align="char" valign="top">.</td>
+                        <td align="char" valign="top">.</td>
+                        <td align="char" valign="top">.</td>
+                     </tr>
+                     <tr>
+                        <td scope="row" valign="top">2</td>
+                        <td valign="top">Trying to think about something pleasant</td>
+                        <td align="char" valign="top">.</td>
+                        <td align="char" valign="top">0.781</td>
+                        <td align="char" valign="top">.</td>
+                        <td align="char" valign="top">.</td>
+                        <td align="char" valign="top">.</td>
+                     </tr>
+                     <tr>
+                        <td scope="row" valign="top">10</td>
+                        <td valign="top">Thinking about pleasant things in the past</td>
+                        <td align="char" valign="top">.</td>
+                        <td align="char" valign="top">0.846</td>
+                        <td align="char" valign="top">.</td>
+                        <td align="char" valign="top">.</td>
+                        <td align="char" valign="top">.</td>
+                     </tr>
+                     <tr>
+                        <td scope="row" valign="top">11</td>
+                        <td valign="top">Thinking about persons who are pleasant company</td>
+                        <td align="char" valign="top">.</td>
+                        <td align="char" valign="top">0.834</td>
+                        <td align="char" valign="top">.</td>
+                        <td align="char" valign="top">.</td>
+                        <td align="char" valign="top">.</td>
+                     </tr>
+                     <tr>
+                        <td scope="row" valign="top">20</td>
+                        <td valign="top">Thinking about pleasant activities</td>
+                        <td align="char" valign="top">.</td>
+                        <td align="char" valign="top">0.762</td>
+                        <td align="char" valign="top">.</td>
+                        <td align="char" valign="top">.</td>
+                        <td align="char" valign="top">.</td>
+                     </tr>
+                     <tr>
+                        <td scope="row" valign="top">1</td>
+                        <td valign="top">Trying to distance oneself from pain</td>
+                        <td align="char" valign="top">.</td>
+                        <td align="char" valign="top">.</td>
+                        <td align="char" valign="top">0.739</td>
+                        <td align="char" valign="top">.</td>
+                        <td align="char" valign="top">.</td>
+                     </tr>
+                     <tr>
+                        <td scope="row" valign="top">5</td>
+                        <td valign="top">Trying not to think about pain</td>
+                        <td align="char" valign="top">.</td>
+                        <td align="char" valign="top">.</td>
+                        <td align="char" valign="top">0.524</td>
+                        <td align="char" valign="top">.</td>
+                        <td align="char" valign="top">.</td>
+                     </tr>
+                     <tr>
+                        <td scope="row" valign="top">6</td>
+                        <td valign="top">Trying not to think that pain concerns the body</td>
+                        <td align="char" valign="top">.</td>
+                        <td align="char" valign="top">.</td>
+                        <td align="char" valign="top">0.846</td>
+                        <td align="char" valign="top">.</td>
+                        <td align="char" valign="top">.</td>
+                     </tr>
+                     <tr>
+                        <td scope="row" valign="top">13</td>
+                        <td valign="top">Trying to think that pain is outside the body</td>
+                        <td align="char" valign="top">.</td>
+                        <td align="char" valign="top">.</td>
+                        <td align="char" valign="top">0.896</td>
+                        <td align="char" valign="top">.</td>
+                        <td align="char" valign="top">.</td>
+                     </tr>
+                     <tr>
+                        <td scope="row" valign="top">21</td>
+                        <td valign="top">Doing as though pain was outside the body</td>
+                        <td align="char" valign="top">.</td>
+                        <td align="char" valign="top">.</td>
+                        <td align="char" valign="top">0.703</td>
+                        <td align="char" valign="top">.</td>
+                        <td align="char" valign="top">.</td>
+                     </tr>
+                     <tr>
+                        <td scope="row" valign="top">3</td>
+                        <td valign="top">It's terrifying and will never improve</td>
+                        <td align="char" valign="top">.</td>
+                        <td align="char" valign="top">.</td>
+                        <td align="char" valign="top">.</td>
+                        <td align="char" valign="top">0.746</td>
+                        <td align="char" valign="top">.</td>
+                     </tr>
+                     <tr>
+                        <td scope="row" valign="top">9</td>
+                        <td valign="top">Worrying all the time whether it will stop</td>
+                        <td align="char" valign="top">.</td>
+                        <td align="char" valign="top">.</td>
+                        <td align="char" valign="top">.</td>
+                        <td align="char" valign="top">0.495</td>
+                        <td align="char" valign="top">.</td>
+                     </tr>
+                     <tr>
+                        <td scope="row" valign="top">16</td>
+                        <td valign="top">Feeling that pain is no longer bearable</td>
+                        <td align="char" valign="top">.</td>
+                        <td align="char" valign="top">.</td>
+                        <td align="char" valign="top">.</td>
+                        <td align="char" valign="top">0.659</td>
+                        <td align="char" valign="top">.</td>
+                     </tr>
+                     <tr>
+                        <td scope="row" valign="top">19</td>
+                        <td valign="top">Feeling that going on is no longer possible</td>
+                        <td align="char" valign="top">.</td>
+                        <td align="char" valign="top">.</td>
+                        <td align="char" valign="top">.</td>
+                        <td align="char" valign="top">0.870</td>
+                        <td align="char" valign="top">.</td>
+                     </tr>
+                     <tr>
+                        <td scope="row" valign="top">4</td>
+                        <td valign="top">Praying God that it won't last</td>
+                        <td align="char" valign="top">.</td>
+                        <td align="char" valign="top">.</td>
+                        <td align="char" valign="top">.</td>
+                        <td align="char" valign="top">.</td>
+                        <td align="char" valign="top">0.796</td>
+                     </tr>
+                     <tr>
+                        <td scope="row" valign="top">12</td>
+                        <td valign="top">Praying for pain to disappear</td>
+                        <td align="char" valign="top">.</td>
+                        <td align="char" valign="top">.</td>
+
+                        <td align="char" valign="top">.</td>
+                        <td align="char" valign="top">0.660</td>
+                     </tr>
+                     <tr style="grey-borders">
+                        <td scope="row" valign="top">18</td>
+                        <td valign="top">Relying on faith in God</td>
+                        <td align="char" valign="top">.</td>
+                        <td align="char" valign="top">.</td>
+                        <td align="char" valign="top">.</td>
+                        <td align="char" valign="top">.</td>
+                        <td align="char" valign="top">0.905</td>
+                     </tr>
+                     <tr>
+                        <td align="left" colspan="2" scope="row" valign="top">Cronbach's α
+                           coefficient</td>
+                        <td valign="top">0.69</td>
+                        <td valign="top">0.87</td>
+                        <td valign="top">0.81</td>
+                        <td valign="top">0.73</td>
+                        <td valign="top">0.80</td>
+                     </tr>
+                     <tr>
+                        <td align="left" colspan="2" scope="row" valign="top">Percentage of total
+                           variance explained by the factor</td>
+                        <td valign="top">20.8</td>
+                        <td valign="top">16.7</td>
+                        <td valign="top">11.7</td>
+                        <td valign="top">8.2</td>
+                        <td valign="top">7.5</td>
+                     </tr>
+                  </tbody>
+               </table>
+               <table-wrap-foot>
+                  <p>N = 73 patients</p>
+               </table-wrap-foot>
+            </table-wrap>
+            <p>On account of the five items allocated to factor 1, this factor may be interpreted as
+               indicating attempts to ignore pain (by denying, disregarding or overlooking pain).
+               The four items allocated to factor 2 appear to reflect diverting attention from pain
+               by imagining scenes incompatible with pain (pleasant images or thoughts) or mental
+               activity. The five-item set in factor 3 may be interpreted as reflecting attempts to
+               reinterpret painful sensations (by conceiving and describing the painful sensations
+               differently). The four items grouped in factor 4 and the three items in factor 5
+               appear to represent tendencies to dramatize pain (catastrophizing thoughts and
+               ideation, by focusing on the negative emotional component of pain) and to rely on God
+               or religion or good luck to cure and end the pain (Praying and Hoping) for pain
+               adjustment.</p>
+         </sec>
+         <sec>
+            <title>Relationships Between Perceived Internal Controllability of Pain and Emotional
+               Distress, and Between the Components of Emotional Distress Themselves</title>
+            <p>A positive relationship was observed between perceived internal controllability (as
+               assessed by the summed score of the nine items of CLCS factor 1) and emotional
+               distress (as assessed by the scores at the HAD global scale, the HAD anxiety and HAD
+               depression/ anhedonia subscales, and the BDI) in the 73 study patients with either
+               episodic or chronic CH (<xref ref-type="table" rid="t4">Table 4</xref>). Although
+               generally weak, the correlation was highly significant, except for the correlation
+               with anxiety alone (which closely neared significance, however: p = 0.0514). Thus, it
+               appears that emotional distress increases with increasing level of perceived internal
+               controllability of the disease.</p>
+            <table-wrap id="t4" position="anchor">
+               <label>Table 4</label>
+               <caption>
+                  <title>Relationships Between Perceived Internal Controllability of Pain and
+                     Anxiety Alone, Depression/anhedonia, Depression Alone or Anxiety and/or
+                     Depression, and Between the Components of Emotional Distress Themselves, in
+                     Cluster Headache Patients</title>
+               </caption>
+               <table frame="hsides" rules="groups">
+                  <col align="left" width="30%"/>
+                  <col align="left" width="20%"/>
+                  <col align="center" width="17%"/>
+                  <col align="center" width="17%"/>
+                  <col align="center" width="17%"/>
+                  <thead>
+                     <tr>
+                        <th scope="col" valign="bottom">Variable analyzed</th>
+                        <th scope="col" valign="bottom">versus:</th>
+                        <th scope="col" valign="bottom">Correlation coefficient</th>
+                        <th scope="col" valign="bottom">99% CI </th>
+                        <th scope="col" valign="bottom">Significance</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <tr>
+                        <td rowspan="4" scope="row" valign="top">Perceived internal controllability
+                           of pain</td>
+                        <td valign="top">Anxiety<sup>a</sup></td>
+                        <td valign="top">0.229</td>
+                        <td align="char" char=";" valign="top">-0.075;0.494</td>
+                        <td valign="top">NS</td>
+                     </tr>
+                     <tr>
+                        <td valign="top">Depression/anhedonia<sup>b</sup></td>
+                        <td valign="top">0.339</td>
+                        <td align="char" char=";" valign="top">0.045;0.579</td>
+                        <td align="char" char="=" valign="top">p = 0.003</td>
+                     </tr>
+                     <tr>
+                        <td valign="top">Depression<sup>c</sup></td>
+                        <td valign="top">0.336</td>
+                        <td align="char" char=";" valign="top">0.041;0.576</td>
+                        <td align="char" char="=" valign="top">p = 0.004</td>
+                     </tr>
+                     <tr>
+                        <td valign="top">Anxiety and/or depression<sup>d</sup></td>
+                        <td valign="top">0.339</td>
+                        <td align="char" char=";" valign="top">0.045;0.579</td>
+                        <td align="char" char="=" valign="top">p = 0.003</td>
+                     </tr>
+                     <tr style="grey-borders-top">
+                        <td rowspan="3" scope="row" valign="top">Anxiety<sup>a</sup></td>
+                        <td valign="top">Depression/anhedonia<sup>b</sup></td>
+                        <td valign="top">0.417</td>
+                        <td align="char" char=";" valign="top">0.135;0.636</td>
+                        <td align="char" char="=" valign="top">p = 0.0002</td>
+                     </tr>
+                     <tr>
+                        <td valign="top">Depression<sup>c</sup></td>
+                        <td valign="top">0.375</td>
+                        <td align="char" char=";" valign="top">0.086;0.606</td>
+                        <td align="char" char="=" valign="top">p = 0.001</td>
+                     </tr>
+                     <tr>
+                        <td valign="top">Anxiety and/or depression<sup>d</sup></td>
+                        <td valign="top">0.829</td>
+                        <td align="char" char=";" valign="top">0.706;0.904</td>
+                        <td align="char" char="&lt;" valign="top">p &lt; 0.0001</td>
+                     </tr>
+                     <tr>
+                        <td rowspan="2" scope="row" valign="top"
+                           >Depression/anhedonia<sup>b</sup></td>
+                        <td valign="top">Depression<sup>c</sup></td>
+                        <td valign="top">0.523</td>
+                        <td align="char" char=";" valign="top">0.266;0.711</td>
+                        <td align="char" char="&lt;" valign="top">p &lt; 0.0001</td>
+                     </tr>
+                     <tr>
+                        <td valign="top">Anxiety and/or depression<sup>d</sup></td>
+                        <td valign="top">0.854</td>
+                        <td align="char" char=";" valign="top">0.745;0.918</td>
+                        <td align="char" char="&lt;" valign="top">p &lt; 0.0001</td>
+                     </tr>
+                     <tr>
+                        <td scope="row" valign="top">Anxiety and/or depression<sup>c</sup></td>
+                        <td valign="top">Depression<sup>c</sup></td>
+                        <td valign="top">0.536</td>
+                        <td align="char" char=";" valign="top">0.283;0.720</td>
+                        <td align="char" char="&lt;" valign="top">p &lt; 0.0001</td>
+                     </tr>
+                  </tbody>
+               </table>
+               <table-wrap-foot>
+                  <p>99% CI indicates confidence interval of the correlation coefficient at 99%
+                     probability</p>
+                  <p><sup>a</sup>: as assessed by the score at the HAD anxiety subscale;
+                        <sup>b</sup>: as assessed by the score at the HAD depression/anhedonia
+                     subscale; <sup>c</sup>: as assessed by the score at the Beck Depression
+                     Inventory (BDI); <sup>d</sup>: as assessed by the score at the HAD global
+                     scale</p>
+                  <p>N = 73 patients</p>
+               </table-wrap-foot>
+            </table-wrap>
+            <p>Examination of individual data revealed that beliefs pertaining to internal causative
+               attributions of the origin of the disease and to internal controllability constitute
+               the greatest part of total CLCS score when the summed score at CLCS factor 1 is
+               greater than 19 (possible range: 9-36), whereas the relative weight of these beliefs
+               is less important when the factor-1 summed score is less than 12.</p>
+            <p>Inter-relationships between all anxiety and depression variables were also
+               significant. Highest correlation coefficients were observed for the relationships
+               between HAD global score and the scores at the HAD anxiety or HAD
+               depression/anhedonia subscales (<xref ref-type="table" rid="t4">Table 4</xref>).</p>
+         </sec>
+         <sec>
+            <title>Comparison of the Groups of Patients with Episodic and Chronic Cluster
+               Headache</title>
+            <p>The comparison between patients with episodic and chronic CH was carried out on a
+               subset of 32 patients (30 men and 2 women, 16 patients in each group). Mean age was
+               44 years in both groups and patient groups did not noticeably differentiate by mean
+               age at symptom onset (31 or 32 years), mean age at diagnostic (37 years in both
+               groups), mean time to diagnostic after symptom onset (about 6 years in both groups),
+               and mean disease duration (12 or 13 years). Perceived pain-related disability (HIT-6)
+               was scored at 66 ± 5.6 for patients with chronic CH and 69 ± 6.2 for patients with
+               episodic CH. Most patients were anxious (87% had a score of 8 or higher at the HAD
+               anxiety subscale), half of them had anhedonia (53% had a score of 8 or higher at the
+               HAD depression/anhedonia subscale), and two thirds were depressive (63% had a score
+               of 4 or higher at the BDI).</p>
+            <p>There were only modest differences between the groups of patients with episodic or
+               chronic CH with respect to emotional status, with only slightly (but not
+               significantly) higher scores for anxiety in patients with episodic CH and for
+               depression/anhedonia and depression in patients with chronic CH (<xref
+                  ref-type="table" rid="t5">Table 5</xref>).</p>
+            <table-wrap id="t5" position="anchor">
+               <label>Table 5</label>
+               <caption>
+                  <title>Comparison of the Groups of Patients with Episodic or Chronic Cluster
+                     Headache</title>
+               </caption>
+               <table frame="hsides" rules="groups">
+                  <col align="left" width="25%"/>
+                  <col align="center" width="25%"/>
+                  <col align="center" width="25%"/>
+                  <col align="center" width="25%"/>
+                  <thead>
+                     <tr>
+                        <th scope="col" valign="bottom">Patient attributes</th>
+                        <th scope="col" valign="bottom">Patients with episodic CH<break/>N = 16</th>
+                        <th scope="col" valign="bottom">Patients with chronic CH<break/>N = 16</th>
+                        <th scope="col" valign="bottom">Statistical significance*</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <tr>
+                        <th colspan="4" scope="col" valign="top">Emotional status</th>
+                     </tr>
+                     <tr>
+                        <td scope="row" valign="top">Anxiety<sup>a</sup></td>
+                        <td align="char" char="±" scope="row" valign="top">11 ± 3</td>
+                        <td align="char" char="±" scope="row" valign="top">9 ± 4</td>
+                        <td scope="row" valign="top">NS</td>
+                     </tr>
+                     <tr>
+                        <td scope="row" valign="top">Depression/anhedonia<sup>b</sup></td>
+                        <td align="char" char="±" valign="top">7 ± 4</td>
+                        <td align="char" char="±" valign="top">8 ± 5</td>
+                        <td valign="top">NS</td>
+                     </tr>
+                     <tr>
+                        <td scope="row" valign="top">Depression severity<sup>c</sup></td>
+                        <td align="char" char="±" valign="top">7 ± 5</td>
+                        <td align="char" char="±" valign="top">9 ± 8</td>
+                        <td valign="top">NS</td>
+                     </tr>
+                     <tr>
+                        <th colspan="4" scope="col" valign="top">Perceived locus of control of
+                           pain:</th>
+                     </tr>
+                     <tr>
+                        <td scope="row" valign="top">Internal control</td>
+                        <td align="char" char="±" valign="top">19 ± 5</td>
+                        <td align="char" char="±" valign="top">18 ± 5</td>
+                        <td valign="top">NS</td>
+                     </tr>
+                     <tr>
+                        <td scope="row" valign="top">Medical control</td>
+                        <td align="char" char="±" valign="top">9 ± 2</td>
+                        <td align="char" char="±" valign="top">9 ± 2</td>
+                        <td valign="top">NS</td>
+                     </tr>
+                     <tr>
+                        <td scope="row" valign="top">Religious control</td>
+                        <td align="char" char="±" valign="top">6 ± 2</td>
+                        <td align="char" char="±" valign="top">7 ± 3</td>
+                        <td valign="top">NS</td>
+                     </tr>
+                     <tr>
+                        <th colspan="4" scope="col" valign="top">Perceived social support:</th>
+                     </tr>
+                     <tr>
+                        <td scope="row" valign="top">Availability</td>
+                        <td align="char" char="±" valign="top">18 ± 11</td>
+                        <td align="char" char="±" valign="top">12 ± 8</td>
+                        <td valign="top">NS</td>
+                     </tr>
+                     <tr>
+                        <td scope="row" valign="top">Satisfaction with support</td>
+                        <td align="char" char="±" valign="top">31 ± 5</td>
+                        <td align="char" char="±" valign="top">26 ± 8</td>
+                        <td valign="top">NS</td>
+                     </tr>
+                     <tr>
+                        <th colspan="4" scope="col" valign="top">Coping strategies:</th>
+                     </tr>
+                     <tr>
+                        <td scope="row" valign="top">Ignoring pain sensations</td>
+                        <td align="char" char="±" valign="top">6 ± 2</td>
+                        <td align="char" char="±" valign="top">8 ± 3</td>
+                        <td valign="top">NS</td>
+                     </tr>
+                     <tr>
+                        <td scope="row" valign="top">Distraction</td>
+                        <td align="char" char="±" valign="top">8 ± 3</td>
+                        <td align="char" char="±" valign="top">7 ± 3</td>
+                        <td valign="top">NS</td>
+                     </tr>
+                     <tr>
+                        <td scope="row" valign="top">Reinterpreting pain sensations</td>
+                        <td align="char" char="±" valign="top">11 ± 4</td>
+                        <td align="char" char="±" valign="top">8 ± 2</td>
+                        <td valign="top">p = 0.007</td>
+                     </tr>
+                     <tr>
+                        <td scope="row" valign="top">Catastrophizing</td>
+                        <td align="char" char="±" valign="top">11 ± 3</td>
+                        <td align="char" char="±" valign="top">11 ± 3</td>
+                        <td valign="top">NS</td>
+                     </tr>
+                     <tr>
+                        <td scope="row" valign="top">Praying and Hoping</td>
+                        <td align="char" char="±" valign="top">6 ± 3</td>
+                        <td align="char" char="±" valign="top">6 ± 3</td>
+                        <td valign="top">NS</td>
+                     </tr>
+                  </tbody>
+               </table>
+               <table-wrap-foot>
+                  <p><sup>a</sup>: as assessed by the HAD anxiety subscale; <sup>b</sup>: as
+                     assessed by the HAD depression/anhedonia subscale; <sup>c</sup>: as assessed by
+                     the Beck Depression inventory (BDI); *: multiple regression analysis; CH
+                     indicates cluster headache</p>
+               </table-wrap-foot>
+            </table-wrap>
+            <p>There was no substantial difference between the two patient groups with respect to
+               perceived control of the disease. On the other hand, perceived social support and
+               satisfaction with support appeared somewhat higher for patients with episodic CH
+               compared with those with chronic CH, but the between-group differences were not
+               significant.</p>
+            <p>Regarding coping with pain, the two groups of patients did not differentiate on the
+               strategies of Distraction, Catastrophizing, Ignoring pain sensations, and Praying and
+               Hoping. Conversely, patients with episodic CH used significantly more frequently the
+               strategy of Reinterpreting pain sensations compared with patients with chronic CH (p
+               = 0.007). The type of CH (episodic or chronic) accounted for 21% of the variance of
+               individual data for this strategy.</p>
+         </sec>
+      </sec>
+      <sec sec-type="discussion">
+         <title>Discussion</title>
+         <p>This study determined, in CH patients seen in an emergency headache center, the factor
+            structures of a scale of perceived disease control (CLCS) and of a coping questionnaire
+            (CSQ), and data were used to compare two subsets of patients with episodic or chronic
+            CH. Factor analysis of CLCS identified three components corresponding to perceived
+            internal controllability of the disease, medical controllability, and religious
+            controllability, respectively, and these components differ from the three subscales
+            described for the original scale (internal/external controllability of disease
+            progression, internal/external attribution of the origin of the disease, religious
+            controllability). Perceived internal controllability was significantly correlated with
+            depression variables (BDI, HAD depression/anhedonia subscale, HAD global scale). Factor
+            analysis of CSQ revealed a similar item allocation to that previously described for the
+            French version of the questionnaire, with only minor differences in individual item
+            allocation to the factors. Comparison of subsets of patients with episodic or chronic CH
+            did not show significant differences in emotional status, perceived locus of control of
+            the disease and perceived social support or coping strategies, except for the strategy
+            of Reinterpreting pain sensations which was more frequently used by patients with
+            episodic CH than chronic CH.</p>
+         <p>Of the three CLCS components identified by factor analysis in CH patients, the nine-item
+            component groups together items relating to both beliefs about personal responsibility
+            in disease progression (through personal efforts and changes in lifestyle) and beliefs
+            about internal attributions of the origin of the disease (lifestyle, patient's history
+            or personality or other personal factors). This component corresponds to two distinct
+            subscales in the original CLCS structure. Conversely, the second component identified
+            contains three items related to medical support and willingness to control the disease,
+            and may thus be interpreted as reflecting ‘fighting spirit’ (<xref ref-type="bibr"
+               rid="r40">Watson et al., 1990</xref>). The three items of the second component
+            identified in CH patients are also allocated to two different subscales (internal and
+            external locus of control subscales) in the original CLCS structure. Finally, the
+            three-item third component (‘religious control’) identified in CH patients matches the
+            corresponding original CLCS subscale.</p>
+         <p>Different reasons may potentially account for the differences between the factor
+            structure observed in our patient sample and the original CLCS subscales. One of them
+            may be the number of questionnaires patients were administered. Although the CLCS
+            appeared well understandable to patients, some of them seemed to get confused when asked
+            to distinguish between the causes and consequences of the disease and about links with
+            lifestyle. Generally speaking, patients appeared to acknowledge either some
+            responsibility in the disease or no responsibility at all. This may explain the observed
+            grouping in a single component of CLCS items relating to internal/external locus of
+            control or causative attributions. Similarly, responses to items pertaining to pollution
+            and role of close relations were generally dichotomized and were excluded from analysis.
+            Association of medical support with definite willingness to fight against the disease
+            may originate, in the particular case of CH patients, in the efficacy of injectable
+            sumatriptan for the control or ajustment of attacks.</p>
+         <p>The CLCS factor 1 identified in CH patients contained chiefly items relating to internal
+            control (except item 1–role of fate–which in fact falls on the negative side of the
+            belief). Of the nine items of factor 1, five pertain to internal attribution of the
+            origin of the disease, and three to personal efforts required to control disease
+            progression. High perceived internal control over the <italic>cause</italic> of the
+            illness is associated with an ‘anxious preoccupation’ about the disease (<xref
+               ref-type="bibr" rid="r40">Watson et al., 1990</xref>) and may ultimately lead to
+            depression. In fact, correlations between factor 1 summed score and measures of
+            depression (HAD depression/anhedonia subscale, BDI score) were highly significant in CH
+            patients, while the correlation with anxiety (HAD anxiety subscale) approached
+            significance. Moreover, all measures of depression and anxiety were found to be
+            significantly inter-correlated, confirming that anxiety and depression are linked in
+            pain patients.</p>
+         <p>CSQ factor structure was analyzed on an <italic>a priori</italic> basis of five
+            cognitive and behavioral pain coping strategies. Three main factors (cognitive coping
+            and suppression, helplessness, and Diverting attention or Praying) were initially
+            reported by the authors of the instrument (<xref ref-type="bibr" rid="r33">Rosenstiel
+               &amp; Keefe, 1983</xref>), but varied numbers of factors (5, 6 or 7 factors) were
+            subsequently identified with the original 48-item version of the questionnaire (<xref
+               ref-type="bibr" rid="r36">Swartzman, Gwadry, Shapiro, &amp; Teasell, 1994</xref>;
+               <xref ref-type="bibr" rid="r31">Riley &amp; Robinson, 1997</xref>; <xref
+               ref-type="bibr" rid="r32">Robinson et al., 1997</xref>). The five-factor structure
+            retained for analysis in the present study corresponds to the five-factor structure
+            previously observed for the 21-item French version of the questionnaire (<xref
+               ref-type="bibr" rid="r17">Irachabal, 2002</xref>). Absence of self-statements in the
+            French version does not appear to alter the factor structure of the scale, although
+            negative self-statements were reported to be more predictive of psychosocial functioning
+            than pain beliefs in chronic pain patients (<xref ref-type="bibr" rid="r35">Stroud,
+               Thorn, Jensen, &amp; Boothby, 2000</xref>). In the present study, factor allocation
+            of two items differed from previous results with the French CSQ version: item 5 (Trying
+            not to think about pain) was allocated to the reinterpretation strategy (instead of
+            Ignoring pain sensations) and item 15 (Engaging into a pleasant activity) to the
+            Ignoring pain sensations strategy (instead of Distraction). The other strategies used by
+            CH patients appeared to contain the same items as those noted in the previous French
+            study in patients with other painful pathologies (<xref ref-type="bibr" rid="r17"
+               >Irachabal, 2002</xref>).</p>
+         <p>Regarding the comparison of the two subsets of patients with episodic or chronic CH,
+            analysis revealed no significant difference in emotional status, perceived
+            controllability of the disease (internal, medical, religious) and perceived social
+            support. The only significant difference between the two types of CH concerned the use
+            of the Reinterpreting pain sensations strategy (more frequently used by patients with
+            episodic CH). In contrast to what might have been expected, the absence of difference in
+            perceived controllability indicated a similar degree of helplessness leading to
+            hopelessness between the two groups of patients who also shared similar beliefs about
+            the role of medical attention.</p>
+         <p>Nevertheless, some noticeable trends were detectable. Anxiety seemed slightly higher in
+            patients with episodic CH, whereas depression seemed slightly higher in those with
+            chronic CH. Drawing a parallel with migraine, uncertainty about the possible occurrence
+            of attacks may be hypothesized to generate more anxiety in patients with episodic CH,
+            whereas protracted periods of attacks may cause more depression in patients with chronic
+            CH. Patients with episodic CH seemed to benefit more from social support. Slightly more
+            patients with chronic CH used the Ignoring pain sensations strategy. These differences
+            did not reach significance, however, probably due to the limited size of each patient
+            subset (16 patients per group) and relatively large inter-individual variability. It
+            needs also to be recalled that data differences between groups were analyzed after
+            controlling for disability. Nevertheless, although limited in size and number, the
+            differences observed between the two types of CH suggest a more ‘active’ profile for
+            patients with episodic CH (more anxiety, greater reliance on social support, more
+            reinterpretation of pain sensations) and a more ‘passive’ profile for patients with
+            chronic CH (more depression, less social support, more attempts to ignore pain).</p>
+         <p>One possible limitation of the study is that it was conducted among CH patients seen in
+            an emergency headache center, which may have influenced in some way the characteristics
+            of the patient sample. Another limitation may be the small number of patients included
+            in the subsets of patients with episodic or chronic CH (a consequence of the need for
+            obtaining well-matched patient subsets with respect to patients' characteristics).
+            Furthermore, a single instrument was used for the exploration of coping strategies. In
+            fact, CSQ only explores <italic>cognitive</italic> coping strategies but let aside
+               <italic>behavioral</italic> coping strategies. Complementary use of Chronic Pain
+            Coping Inventory (<xref ref-type="bibr" rid="r18">Jensen, Turner, Romano, &amp; Strom,
+               1995</xref>; <xref ref-type="bibr" rid="r15">Hadjistavropoulos, MacLeod, &amp;
+               Asmundson 1999</xref>), which is more strongly oriented to functioning and behavioral
+            strategies of coping with pain, would perhaps have contributed to a more distinct
+            differentiation of the respective profiles of episodic and chronic CH patients. However,
+            time constraints forced to limit the number of questionnaires administered to study
+            patients (an average of two hours was required to administer the whole battery of study
+            questionnaires, taking account of resting intervals and time for medical support and for
+            advice and possible referral). On the other hand, a possible strength of the study may
+            be the relatively short duration of data collection (nine months), due to unique
+            recruitment facilities (more than 8 000 patients are seen in the Emergency headache
+            center in a year, of whom about 400 are CH patients), which ensures relative homogeneity
+            of measures.</p>
+         <p>In conclusion, this study showed that the factor structure of perceived disease
+            controllability in CH patients may be somewhat different from that reported for other
+            painful pathologies. This difference may be linked with specificities of the disease,
+            especially the excruciating intensity of CH pain. However, the coping strategies used by
+            CH patients do not seem to diverge noticeably from other painful diseases. Finally,
+            comparison of subsets of patients with episodic or chronic CH suggested a more passive
+            profile for those with chronic CH and this deserves substantiation in further studies
+            involving larger groups of patients.</p>
+      </sec>
+   </body>
+   <sub-article article-type="abstract" xml:lang="jp" id="sym-001">
+      <front-stub>
+         <article-categories>
+            <subj-group>
+               <subject>Oral Presentation</subject>
+            </subj-group>
+         </article-categories>
+         <title-group>
+            <article-title>A Cross-Cultural Study of the Positive and Negative Aspects of Being
+               LGB</article-title>
+         </title-group>
+         <contrib-group>
+            <contrib contrib-type="author">
+               <name name-style="western">
+                  <surname>Strizzi</surname>
+                  <given-names>Jenna Marie</given-names>
+               </name>
+               <xref ref-type="aff" rid="aff1-1">
+                  <sup>a</sup>
+               </xref>
+            </contrib>
+            <contrib contrib-type="author">
+               <name name-style="western">
+                  <surname>Agis</surname>
+                  <given-names>Inmaculada Fernandez</given-names>
+               </name>
+               <xref ref-type="aff" rid="aff1-1">
+                  <sup>a</sup>
+               </xref>
+            </contrib>
+            <contrib contrib-type="author">
+               <name name-style="western">
+                  <surname>Rodríguez</surname>
+                  <given-names>Raquel Alarcón</given-names>
+               </name>
+               <xref ref-type="aff" rid="aff1-1">
+                  <sup>a</sup>
+               </xref>
+            </contrib>
+            <contrib contrib-type="author">
+               <name name-style="western">
+                  <surname>Carreño</surname>
+                  <given-names>Tesifon Parrón</given-names>
+               </name>
+               <xref ref-type="aff" rid="aff1-1">
+                  <sup>a</sup>
+               </xref>
+            </contrib>
+            <aff id="aff1-1">
+               <label>[a]</label>University of Almería, SPAIN</aff>
+         </contrib-group>
+         <author-notes>
+            <corresp id="cor1-1">
+               <email xlink:href="jenna.strizzi@gmail.com" xlink:type="simple"
+                  >jenna.strizzi@gmail.com</email>
+            </corresp>
+         </author-notes>
+      </front-stub>
+      <body>
+         <p xml:lang="en">The final aim is cross-cultural study on the positive and negative aspects of being gay,
+            lesbian and bisexual in the United States and Spain. The authors seek to repudiate the
+            tendency to study non-heterosexual sexual orientations from a marked pathological
+            viewpoint and create a method which more adequately represents the everyday experiences
+            of this population. 10 scales were selected, all which had been validated in English by
+            other authors. All those not previously validated in Spanish were translated and
+            validated through this study. Positive aspects are operationally defined as social
+            support, self-esteem, social activism and justice, and sexual satisfaction. While
+            negative aspects are defined as: violence, social stigma, homo/bi negativity, and
+            depression (which was measured through subjective happiness). The validation of the New
+            Sexual Satisfaction Scale in Spanish marks the first scale in this language to measure
+            sexual satisfaction in the LGB population. While negative aspects, such as violent
+            incidents, were suffered by nearly 15% of participants in both countries, almost 80%
+            reported having been discriminated for their sexual orientation in the past year.
+            Positive aspects including social support, self-esteem, and subjective happiness were
+            quite high suggesting minority resilience. </p>
+      </body>
+   </sub-article>
+   <back>
+      <ref-list>
+         <title>References</title>
+         <ref id="r1">
+            <mixed-citation publication-type="web">Agence Nationale d'Accréditation et d'Evaluation
+               en Santé (ANAES) (2006). <italic>Evaluation and follow-up of ambulatory patients with
+                  chronic pain</italic>. Retrieved from: <ext-link ext-link-type="uri"
+                  xlink:href="http://www.anaes.fr">http://www.anaes.fr</ext-link></mixed-citation>
+         </ref>
+         <ref id="r2">
+            <mixed-citation publication-type="journal"><person-group person-group-type="author"
+                        ><name><surname>Arnstein</surname><given-names>P.</given-names></name><name><surname>Caudill</surname><given-names>M.</given-names></name><name><surname>Mandle</surname><given-names>C.
+                        L.</given-names></name><name><surname>Norris</surname><given-names>A.</given-names></name><name><surname>Beasley</surname><given-names>R.</given-names></name></person-group>
+                  (<year>1999</year>). <article-title>Self efficacy as a mediator of the
+                  relationship between pain intensity, disability and depression in chronic pain
+                  patients.</article-title>
+               <source>Pain</source>, <volume>80</volume>, <fpage>483</fpage> –<lpage>491</lpage>.
+                  <pub-id pub-id-type="doi">10.1016/S0304-3959(98)00220-6</pub-id><pub-id
+                  pub-id-type="pmid">10342410</pub-id></mixed-citation>
+         </ref>
+         <ref id="r3">
+            <mixed-citation publication-type="journal"><person-group person-group-type="author"
+                        ><name><surname>Asghari</surname><given-names>A.</given-names></name><name><surname>Nicholas</surname><given-names>M.
+                        K.</given-names></name></person-group> (<year>2001</year>).
+                  <article-title>Pain self-efficacy beliefs and pain behavior: A prospective
+                  study.</article-title>
+               <source>Pain</source>, <volume>94</volume>, 
+                  <fpage>85</fpage>
+                  –
+                  <lpage>100</lpage>.
+                  <pub-id pub-id-type="doi">10.1016/S0304-3959(01)00344-X</pub-id><pub-id
+                  pub-id-type="pmid">11576748</pub-id></mixed-citation>
+         </ref>
+         <ref id="r4">
+            <mixed-citation publication-type="thesis">Cousson-Gélie, F. (1997). <italic>Differential
+               evolution of the disease and health-related quality of life in breast-cancer
+               patients: Role of psychological, biological and social factors</italic> (Doctoral
+               dissertation). Bordeaux-2 University, Bordeaux (France).</mixed-citation>
+         </ref>
+         <ref id="r5">
+            <mixed-citation publication-type="book">
+               <edition>7</edition>
+               <person-group person-group-type="author"><name
+                     name-style="western"><surname>Bayliss</surname><given-names>M.
+                     S.</given-names></name><name name-style="western"
+                        ><surname>Bjorner</surname><given-names>J. B.</given-names></name><name
+                     name-style="western"
+                     ><surname>Kosinski</surname><given-names>M.</given-names></name><name
+                     name-style="western"
+                     ><surname>Dowson</surname><given-names>A.</given-names></name><name
+                     name-style="western"><surname>Cady</surname><given-names>R.
+                     K.</given-names></name><name name-style="western"
+                        ><surname>Batenhorst</surname><given-names>A.
+                  S.</given-names></name></person-group> (<year>2003</year>).
+                  <chapter-title>Development of HIT-6, a paper-based short form for measuring
+                  headache impact.</chapter-title><person-group person-group-type="editor"><name
+                     name-style="western"
+                     ><surname>Olesen</surname><given-names>J.</given-names></name><name
+                     name-style="western"><surname>Steiner</surname><given-names>T.
+                     J.</given-names></name><name name-style="western"
+                        ><surname>Lipton</surname><given-names>R.</given-names></name></person-group><source>Frontiers
+                  in Headache Research Series: Vol. 11. Reducing the burden of headache</source>
+               (pp. 386-390). New York: Oxford University Press.</mixed-citation>
+         </ref>
+         <ref id="r6">
+            <mixed-citation publication-type="journal"><person-group person-group-type="author"
+                        ><name><surname>Beck</surname><given-names>A.
+                        T.</given-names></name><name><surname>Ward</surname><given-names>C.
+                        H.</given-names></name><name><surname>Mendelson</surname><given-names>M.</given-names></name><name><surname>Mock</surname><given-names>J.</given-names></name><name><surname>Erbaugh</surname><given-names>J.</given-names></name></person-group>
+                  (<year>1961</year>). <article-title>An inventory for measuring
+                  depression.</article-title>
+               <source>Archives of General Psychiatry</source>, <volume>4</volume>,
+                  <fpage>561</fpage>–<lpage>571</lpage>. <pub-id pub-id-type="doi"
+                  >10.1001/archpsyc.1961.01710120031004</pub-id><pub-id pub-id-type="pmid"
+                  >13688369</pub-id></mixed-citation>
+         </ref>
+         <ref id="r7">
+            <mixed-citation publication-type="journal"><person-group person-group-type="author"
+                        ><name><surname>Beck</surname><given-names>A.
+                        T.</given-names></name><name><surname>Steer</surname><given-names>R.
+                        A.</given-names></name><name><surname>Carbin</surname><given-names>M.
+                        G.</given-names></name></person-group> (<year>1988</year>).
+                  <article-title>Psychometric properties of the Beck Depression Inventory:
+                  Twenty-five years of evaluation.</article-title>
+               <source>Clinical Psychology Review</source>, <volume>8</volume>,
+                  <fpage>77</fpage>–<lpage>100</lpage>. <pub-id pub-id-type="doi"
+                  >10.1016/0272-7358(88)90050-5</pub-id></mixed-citation>
+         </ref>
+         <ref id="r8">
+            <mixed-citation publication-type="book"><person-group person-group-type="author"><name
+                     name-style="western"><surname>Bjorner</surname><given-names>J.
+                     B.</given-names></name><name name-style="western"
+                        ><surname>Ware</surname><given-names>J. E.</given-names></name><name
+                     name-style="western"
+                     ><surname>Kosinski</surname><given-names>M.</given-names></name><name
+                     name-style="western"
+                     ><surname>Diamond</surname><given-names>M.</given-names></name><name
+                     name-style="western"
+                     ><surname>Tepper</surname><given-names>S.</given-names></name><name
+                     name-style="western"
+                     ><surname>Dowson</surname><given-names>A.</given-names></name><name
+                     name-style="western"><surname>Batenhorst</surname><given-names>A.
+                        S.</given-names></name></person-group> (<year>2003</year>).
+                  <source>Validation of the Headache Impact Test using patient-reported symptoms and
+                  headache severity.</source></mixed-citation>
+         </ref>
+         <ref id="r9">
+            <mixed-citation publication-type="journal"><person-group person-group-type="author"
+                        ><name><surname>Brown</surname><given-names>G.
+                        K.</given-names></name><name><surname>Nicassio</surname><given-names>P.
+                        M.</given-names></name></person-group> (<year>1987</year>).
+                  <article-title>Development of a questionnaire for the assessment of active and
+                  passive coping strategies in chronic pain patients.</article-title>
+               <source>Pain</source>, <volume>31</volume>, <fpage>53</fpage>–<lpage>64</lpage>.
+                  <pub-id pub-id-type="doi">10.1016/0304-3959(87)90006-6</pub-id><pub-id
+                  pub-id-type="pmid">3696743</pub-id></mixed-citation>
+         </ref>
+         <ref id="r10">
+            <mixed-citation publication-type="book"><person-group person-group-type="author"><name
+                     name-style="western"
+                     ><surname>Schweitzer</surname><given-names>M.</given-names></name></person-group>
+                  (<year>2001</year>). <source>Vulnerability and resistance to diseases.</source>.
+               Role of psychosocial factors. In M. Bruchon-Schweitzer &amp; B. Quintard (Eds.),
+               Personality and diseases: Stress, coping and adjustment (pp. 3-22). Paris:
+               Dunod.</mixed-citation>
+         </ref>
+         <ref id="r11">
+            <mixed-citation publication-type="journal"><person-group person-group-type="author"
+                        ><name><surname>Collet</surname><given-names>L.</given-names></name><name><surname>Cottraux</surname><given-names>J.</given-names></name></person-group>
+                  (<year>1986</year>). <article-title>The shortened Beck depression inventory (13
+                  items). Study of the concurrent validity with the Hamilton scale and Widlocher's
+                  retardation scale.</article-title>
+               <source>L'Encéphale</source>, <volume>12</volume>,
+                  <fpage>77</fpage>–<lpage>79</lpage>.<pub-id pub-id-type="pmid"
+               >3743520</pub-id></mixed-citation>
+         </ref>
+         <ref id="r13">
+            <mixed-citation publication-type="journal"><person-group person-group-type="author"
+                        ><name><surname>Donnet</surname><given-names>A.</given-names></name><name><surname>Lanteri-Minet</surname><given-names>M.</given-names></name><name><surname>Guegan-Massardier</surname><given-names>E.</given-names></name><name><surname>Mick</surname><given-names>G.</given-names></name><name><surname>Fabre</surname><given-names>N.</given-names></name><name><surname>Geraud</surname><given-names>G.</given-names></name><etal/><name><surname>Valade</surname><given-names>D.</given-names></name></person-group>
+                  (<year>2007</year>). <article-title>Chronic cluster headache: A French clinical
+                  descriptive study</article-title>. <source>Journal of Neurology, Neurosurgery, and
+                  Psychiatry</source>, <volume>78</volume>, <fpage>1354</fpage>–<lpage>1358</lpage>.
+                  <pub-id pub-id-type="doi">10.1136/jnnp.2006.112037</pub-id><pub-id
+                  pub-id-type="pmid">17442761</pub-id></mixed-citation>
+         </ref>
+         <ref id="r14">
+            <mixed-citation publication-type="journal"><person-group person-group-type="author"
+                        ><name><surname>Fischera</surname><given-names>M.</given-names></name><name><surname>Marziniak</surname><given-names>M.</given-names></name><name><surname>Gralow</surname><given-names>I.</given-names></name><name><surname>Evers</surname><given-names>S.</given-names></name></person-group>
+                  (<year>2008</year>). <article-title>The incidence and prevalence of cluster
+                  headache: A meta-analysis of population-based studies.</article-title>
+               <source>Cephalalgia</source>, <volume>28</volume>,
+                  <fpage>614</fpage>–<lpage>618</lpage>. <pub-id pub-id-type="doi"
+                  >10.1111/j.1468-2982.2008.01592.x</pub-id><pub-id pub-id-type="pmid"
+                  >18422717</pub-id></mixed-citation>
+         </ref>
+         <ref id="r15">
+            <mixed-citation publication-type="journal"><person-group person-group-type="author"
+                        ><name><surname>Hadjistavropoulos</surname><given-names>H.
+                     D.</given-names></name><name><surname>MacLeod</surname><given-names>F.
+                        K.</given-names></name><name><surname>Asmundson</surname><given-names>G.
+                        J.</given-names></name></person-group> (<year>1999</year>).
+                  <article-title>Validation of the Chronic Pain Coping Inventory.</article-title>
+               <source>Pain</source>, <volume>80</volume>, <fpage>471</fpage>–<lpage>481</lpage>.
+                  <pub-id pub-id-type="doi">10.1016/S0304-3959(98)00224-3</pub-id><pub-id
+                  pub-id-type="pmid">10342409</pub-id></mixed-citation>
+         </ref>
+         <ref id="r16">
+            <mixed-citation publication-type="journal"><person-group person-group-type="author"
+                     ><collab>Headache Classification Subcommittee of the International Headache
+                     Society</collab></person-group>. (<year>2004</year>). International
+               Classification of Headache Disorders: 2nd edition (ICHD-II).
+                  <source>Cephalalgia</source><italic>,</italic>
+               <volume>24</volume>(<supplement>Suppl 1</supplement>),
+                  <fpage>1</fpage>-<lpage>160</lpage>.</mixed-citation>
+         </ref>
+         <ref id="r17">
+            <mixed-citation publication-type="thesis"><person-group person-group-type="author"><name
+                     name-style="western"
+                     ><surname>Irachabal</surname><given-names>S.</given-names></name></person-group>
+                  (<year>2002</year>). <source>Cognitive and behavioral reactions of chronic pain
+                  patients cared for in a specialty clinic (Doctoral dissertation).</source>.
+               Bordeaux-2 University, Bordeaux (France).</mixed-citation>
+         </ref>
+         <ref id="r18">
+            <mixed-citation publication-type="journal"><person-group person-group-type="author"
+                        ><name><surname>Jensen</surname><given-names>M.
+                        P.</given-names></name><name><surname>Turner</surname><given-names>J.
+                        A.</given-names></name><name><surname>Romano</surname><given-names>J.
+                        M.</given-names></name><name><surname>Strom</surname><given-names>S.
+                        E.</given-names></name></person-group> (<year>1995</year>).
+                  <article-title>The Chronic Pain Coping Inventory: Development and preliminary
+                  validation.</article-title>
+               <source>Pain</source>, <volume>60</volume>, <fpage>203</fpage>–<lpage>216</lpage>.
+                  <pub-id pub-id-type="doi">10.1016/0304-3959(94)00118-X</pub-id><pub-id
+                  pub-id-type="pmid">7784106</pub-id></mixed-citation>
+         </ref>
+         <ref id="r19">
+            <mixed-citation publication-type="journal"><person-group person-group-type="author"
+                        ><name><surname>Katsarava</surname><given-names>Z.</given-names></name><name><surname>Obermann</surname><given-names>M.</given-names></name><name><surname>Yoon</surname><given-names>M.
+                        S.</given-names></name><name><surname>Dommes</surname><given-names>P.</given-names></name><name><surname>Kuznetsova</surname><given-names>C.</given-names></name><name><surname>Weimar</surname><given-names>C.</given-names></name><name><surname>Diener</surname><given-names>H.
+                        C.</given-names></name></person-group> (<year>2007</year>).
+                  <article-title>Prevalence of cluster headache in a population-based sample in
+                  Germany.</article-title>
+               <source>Cephalalgia</source>, <volume>27</volume>,
+                  <fpage>1014</fpage>–<lpage>1019</lpage>. <pub-id pub-id-type="doi"
+                  >10.1111/j.1468-2982.2007.01380.x</pub-id><pub-id pub-id-type="pmid"
+                  >17666085</pub-id></mixed-citation>
+         </ref>
+         <ref id="r20">
+            <mixed-citation publication-type="thesis"><person-group person-group-type="author"><name
+                     name-style="western"
+                     ><surname>Koleck</surname><given-names>M.</given-names></name></person-group>
+                  (<year>2000</year>). <source>Role of psychosocial factors in the evolution of
+                  ordinary low back pain.</source>. A semi-prospective study in health psychology
+               (Doctoral dissertation). Bordeaux-2 University, Bordeaux (France).</mixed-citation>
+         </ref>
+         <ref id="r21">
+            <mixed-citation publication-type="journal"><person-group person-group-type="author"
+                        ><name><surname>Koleck</surname><given-names>M.</given-names></name><name><surname>Mazaux</surname><given-names>J.
+                        M.</given-names></name><name><surname>Rascle</surname><given-names>N.</given-names></name><name><surname>Bruchon-Schweitzer</surname><given-names>M.</given-names></name></person-group>
+                  (<year>2006</year>). <article-title>Psycho-social factors and coping strategies as
+                  predictors of chronic evolution and quality of life in patients with low back
+                  pain: A prospective study.</article-title>
+               <source>European Journal of Pain (London, England)</source>, <volume>10</volume>,
+                  <fpage>1</fpage>–<lpage>11</lpage>. <pub-id pub-id-type="doi"
+                  >10.1016/j.ejpain.2005.01.003</pub-id><pub-id pub-id-type="pmid"
+               >16291293</pub-id></mixed-citation>
+         </ref>
+         <ref id="r22">
+            <mixed-citation publication-type="journal"><person-group person-group-type="author"
+                        ><name><surname>Lanteri-Minet</surname><given-names>M.</given-names></name></person-group>
+                  (<year>2003</year>). <article-title>Pathophysiology of cluster
+                  headache.</article-title>
+               <source>Revue Neurologique</source>, <volume>159</volume>,
+                  <fpage>1113</fpage>–<lpage>1124</lpage>.<pub-id pub-id-type="pmid"
+                  >14978412</pub-id></mixed-citation>
+         </ref>
+         <ref id="r23">
+            <mixed-citation publication-type="journal"><person-group person-group-type="author"
+                        ><name><surname>Lépine</surname><given-names>J.
+                        P.</given-names></name><name><surname>Godchau</surname><given-names>M.</given-names></name><name><surname>Brun</surname><given-names>P.</given-names></name><name><surname>Lemperière</surname><given-names>T.</given-names></name></person-group>
+                  (<year>1985</year>). <article-title>Evaluation de l'anxiété et de la dépression
+                  chez des patients hospitalisés dans un service de médecine
+                  interne.</article-title>
+               <source>Annales Médico-Psychologiques</source>, <volume>143</volume>,
+                  <fpage>175</fpage>–<lpage>189</lpage>.<pub-id pub-id-type="pmid"
+               >4037594</pub-id></mixed-citation>
+         </ref>
+         <ref id="r24">
+            <mixed-citation publication-type="journal"><person-group person-group-type="author"
+                        ><name><surname>Manzoni</surname><given-names>G.
+                  C.</given-names></name></person-group> (<year>1998</year>). <article-title>Gender
+                  ratio of cluster headache over the years: A possible role of changes in
+                  lifestyle.</article-title>
+               <source>Cephalalgia</source>, <volume>18</volume>,
+                  <fpage>138</fpage>–<lpage>142</lpage>. <pub-id pub-id-type="doi"
+                  >10.1046/j.1468-2982.1998.1803138.x</pub-id><pub-id pub-id-type="pmid"
+                  >9595206</pub-id></mixed-citation>
+         </ref>
+         <ref id="r25">
+            <mixed-citation publication-type="book"><person-group person-group-type="author"><name
+                     name-style="western"><surname>Manzoni</surname><given-names>G.
+                     C.</given-names></name><name name-style="western"
+                        ><surname>Stovner</surname><given-names>L.
+                  J.</given-names></name></person-group> (<year>2010</year>).
+                  <chapter-title>Epidemiology of headache.</chapter-title><person-group
+                  person-group-type="editor"><name name-style="western"
+                        ><surname>Vinken</surname><given-names>P. J.</given-names></name><name
+                     name-style="western"><surname>Bruyn</surname><given-names>G.
+                     W.</given-names></name></person-group><source>Handbook of clinical
+                  neurology</source> (Vol. 97, pp. 3-22). Amsterdam: North-Holland Publishing
+               Company.</mixed-citation>
+         </ref>
+         <ref id="r26">
+            <mixed-citation publication-type="journal"><person-group person-group-type="author"
+                        ><name><surname>Matharu</surname><given-names>M.
+                        S.</given-names></name><name><surname>Goadsby</surname><given-names>P.
+                        J.</given-names></name></person-group> (<year>2002</year>).
+                  <article-title>Trigeminal autonomic cephalgias.</article-title>
+               <source>Journal of Neurology, Neurosurgery, and Psychiatry</source>,
+                  <volume>72</volume>(<supplement>Suppl 2</supplement>),
+                  <fpage>ii19</fpage>–<lpage>ii26</lpage>.<pub-id pub-id-type="pmid"
+                  >12122199</pub-id></mixed-citation>
+         </ref>
+         <ref id="r27">
+            <mixed-citation publication-type="journal"><person-group person-group-type="author"
+                        ><name><surname>Mongini</surname><given-names>F.</given-names></name><name><surname>Rota</surname><given-names>E.</given-names></name><name><surname>Evangelista</surname><given-names>A.</given-names></name><name><surname>Ciccone</surname><given-names>G.</given-names></name><name><surname>Milani</surname><given-names>C.</given-names></name><name><surname>Ugolini</surname><given-names>A.</given-names></name><etal/><name><surname>Rosato</surname><given-names>R.</given-names></name></person-group>
+                  (<year>2009</year>). <article-title>Personality profiles and subjective perception
+                  of pain in head pain patients.</article-title>
+               <source>Pain</source>, <volume>144</volume>(<issue>1-2</issue>),
+                  <fpage>125</fpage>–<lpage>129</lpage>. <pub-id pub-id-type="doi"
+                  >10.1016/j.pain.2009.03.026</pub-id><pub-id pub-id-type="pmid"
+               >19394764</pub-id></mixed-citation>
+         </ref>
+         <ref id="r28">
+            <mixed-citation publication-type="journal"><person-group person-group-type="author"
+                        ><name><surname>Pruyn</surname><given-names>J.
+                        F.</given-names></name><name><surname>Van Den Borne</surname><given-names>H.
+                        W.</given-names></name><name><surname>De Ruever</surname><given-names>R.
+                        S.</given-names></name><name><surname>De Boer</surname><given-names>M.
+                        F.</given-names></name><name><surname>Bosman</surname><given-names>L.
+                        J.</given-names></name><name><surname>De Jong</surname><given-names>P.
+                        C.</given-names></name></person-group> (<year>1988</year>).
+                  <article-title>The Locus of Control Scale for cancer patients.</article-title>
+               <source>Tijdschift Woor Sociales Gezondheidszorj</source>, <volume>66</volume>,
+                  <fpage>404</fpage>–<lpage>408</lpage>.</mixed-citation>
+         </ref>
+         <ref id="r29">
+            <mixed-citation publication-type="web"><person-group person-group-type="author"><name
+                     name-style="western"
+                     ><surname>Metric</surname><given-names>Inc</given-names></name></person-group>
+                  (<year>2006</year>). <source>HIT-6 France (French) version 1.1.</source>. 2000.
+               Questionnaire sur l'impact des maux de tête. Retrieved from: URL:
+               http://www.headachetest.com/HIT6/PDFS/French.pdf.</mixed-citation>
+         </ref>
+         <ref id="r30">
+            <mixed-citation publication-type="journal"><person-group person-group-type="author"
+                        ><name><surname>Rascle</surname><given-names>N.</given-names></name><name><surname>Aguerre</surname><given-names>C.</given-names></name><name><surname>Bruchon-Schweitzer</surname><given-names>M.</given-names></name><name><surname>Nuissier</surname><given-names>J.</given-names></name><name><surname>Cousson-Gélie</surname><given-names>F.</given-names></name><name><surname>Gilliard</surname><given-names>J.</given-names></name><name><surname>Quintard</surname><given-names>B.</given-names></name></person-group>
+                  (<year>1997</year>). <article-title>Social support and health: French adaptation
+                  of SSQ, the Sarason's social support questionnaire.</article-title>
+               <source>Cahiers Internationaux de Psychologie Sociale</source>, <volume>33</volume>,
+                  <fpage>35</fpage>–<lpage>51</lpage>.</mixed-citation>
+         </ref>
+         <ref id="r31">
+            <mixed-citation publication-type="journal"><person-group person-group-type="author"
+                        ><name><surname>Riley</surname><given-names>J.
+                        L.</given-names></name><name><surname>Robinson</surname><given-names>M.
+                        E.</given-names></name></person-group> (<year>1997</year>).
+                  <article-title>CSQ: Five factors or fiction?</article-title>
+               <source>The Clinical Journal of Pain</source>, <volume>13</volume>,
+                  <fpage>156</fpage>–<lpage>162</lpage>. <pub-id pub-id-type="doi"
+                  >10.1097/00002508-199706000-00010</pub-id><pub-id pub-id-type="pmid"
+                  >9186023</pub-id></mixed-citation>
+         </ref>
+         <ref id="r32">
+            <mixed-citation publication-type="journal"><person-group person-group-type="author"
+                        ><name><surname>Robinson</surname><given-names>M.
+                        E.</given-names></name><name><surname>Riley</surname><given-names>J.
+                        L.</given-names></name><name><surname>Myers</surname><given-names>C.
+                        D.</given-names></name><name><surname>Sadler</surname><given-names>I.
+                        J.</given-names></name><name><surname>Kvaal</surname><given-names>S.
+                        A.</given-names></name><name><surname>Geisser</surname><given-names>M.
+                        E.</given-names></name><name><surname>Keefe</surname><given-names>F.
+                        J.</given-names></name></person-group> (<year>1997</year>).
+                  <article-title>The Coping Strategies Questionnaire: A large sample, item level
+                  factor analysis.</article-title>
+               <source>The Clinical Journal of Pain</source>, <volume>13</volume>,
+                  <fpage>43</fpage>–<lpage>49</lpage>. <pub-id pub-id-type="doi"
+                  >10.1097/00002508-199703000-00007</pub-id><pub-id pub-id-type="pmid"
+                  >9084951</pub-id></mixed-citation>
+         </ref>
+         <ref id="r33">
+            <mixed-citation publication-type="journal"><person-group person-group-type="author"
+                        ><name><surname>Rosenstiel</surname><given-names>A.
+                        K.</given-names></name><name><surname>Keefe</surname><given-names>F.
+                        J.</given-names></name></person-group> (<year>1983</year>).
+                  <article-title>The use of coping strategies in chronic low back pain patients:
+                  Relationship to patient characteristics and current adjustment.</article-title>
+               <source>Pain</source>, <volume>17</volume>, <fpage>33</fpage>–<lpage>44</lpage>.
+                  <pub-id pub-id-type="doi">10.1016/0304-3959(83)90125-2</pub-id><pub-id
+                  pub-id-type="pmid">6226916</pub-id></mixed-citation>
+         </ref>
+         <ref id="r34">
+            <mixed-citation publication-type="journal"><person-group person-group-type="author"
+                        ><name><surname>Snow-Turek</surname><given-names>A.
+                        L.</given-names></name><name><surname>Norris</surname><given-names>M.
+                        P.</given-names></name><name><surname>Tan</surname><given-names>G.</given-names></name></person-group>
+                  (<year>1996</year>). <article-title>Active and passive coping strategies in
+                  chronic pain patients.</article-title>
+               <source>Pain</source>, <volume>64</volume>, <fpage>455</fpage>–<lpage>462</lpage>.
+                  <pub-id pub-id-type="doi">10.1016/0304-3959(95)00190-5</pub-id><pub-id
+                  pub-id-type="pmid">8783309</pub-id></mixed-citation>
+         </ref>
+         <ref id="r35">
+            <mixed-citation publication-type="journal"><person-group person-group-type="author"
+                        ><name><surname>Stroud</surname><given-names>M.
+                        W.</given-names></name><name><surname>Thorn</surname><given-names>B.
+                        E.</given-names></name><name><surname>Jensen</surname><given-names>M.
+                        P.</given-names></name><name><surname>Boothby</surname><given-names>J.
+                        L.</given-names></name></person-group> (<year>2000</year>).
+                  <article-title>The relation between pain beliefs, negative thoughts, and
+                  psychosocial functioning in chronic pain patients.</article-title>
+               <source>Pain</source>, <volume>84</volume>, <fpage>347</fpage>–<lpage>352</lpage>.
+                  <pub-id pub-id-type="doi">10.1016/S0304-3959(99)00226-2</pub-id><pub-id
+                  pub-id-type="pmid">10666540</pub-id></mixed-citation>
+         </ref>
+         <ref id="r36">
+            <mixed-citation publication-type="journal"><person-group person-group-type="author"
+                        ><name><surname>Swartzman</surname><given-names>L.
+                        C.</given-names></name><name><surname>Gwadry</surname><given-names>F.
+                        G.</given-names></name><name><surname>Shapiro</surname><given-names>A.
+                        P.</given-names></name><name><surname>Teasell</surname><given-names>R.
+                        W.</given-names></name></person-group> (<year>1994</year>).
+                  <article-title>The factor structure of the Coping Strategies
+                  Questionnaire.</article-title>
+               <source>Pain</source>, <volume>57</volume>, <fpage>311</fpage>–<lpage>316</lpage>.
+                  <pub-id pub-id-type="doi">10.1016/0304-3959(94)90006-X</pub-id><pub-id
+                  pub-id-type="pmid">7936709</pub-id></mixed-citation>
+         </ref>
+         <ref id="r37">
+            <mixed-citation publication-type="journal"><person-group person-group-type="author"
+                        ><name><surname>Valade</surname><given-names>D.</given-names></name></person-group>
+                  (<year>2005</year>). <article-title>Headache presenting to a casualty service:
+                  Four-year experience at an Emergency Headache Center.</article-title>
+               <source>Revue Neurologique</source>, <volume>161</volume>,
+                  <fpage>729</fpage>–<lpage>731</lpage>. <pub-id pub-id-type="doi"
+                  >10.1016/S0035-3787(05)85131-8</pub-id><pub-id pub-id-type="pmid"
+                  >16141973</pub-id></mixed-citation>
+         </ref>
+         <ref id="r38">
+            <mixed-citation publication-type="journal"><person-group person-group-type="author"
+                        ><name><surname>Vuillaume De
+                     Diego</surname><given-names>E.</given-names></name><name><surname>Lanteri-Minet</surname><given-names>M.</given-names></name></person-group>
+                  (<year>2005</year>). <article-title>Recognition and management of migraine in
+                  primary care: Influence of functional impact measured by the Headache Impact test
+                  (HIT).</article-title>
+               <source>Cephalalgia</source>, <volume>25</volume>,
+                  <fpage>184</fpage>–<lpage>190</lpage>. <pub-id pub-id-type="doi"
+                  >10.1111/j.1468-2982.2004.00820.x</pub-id><pub-id pub-id-type="pmid"
+                  >15689193</pub-id></mixed-citation>
+         </ref>
+         <ref id="r39">
+            <mixed-citation publication-type="journal"><person-group person-group-type="author"
+                        ><name><surname>Ware</surname><given-names>J.
+                        E.</given-names></name><name><surname>Bjorner</surname><given-names>J.
+                        B.</given-names></name><name><surname>Kosinski</surname><given-names>M.</given-names></name></person-group>
+                  (<year>2000</year>). <article-title>Practical implications of item response theory
+                  and computerized adaptive testing: A brief summary of ongoing studies of widely
+                  used headache impact scales.</article-title>
+               <source>Medical Care</source>, <volume>38</volume>(<issue>9</issue>
+               <supplement>Suppl. 2</supplement>),
+               <fpage>II-73</fpage>–<lpage>II-82</lpage>.</mixed-citation>
+         </ref>
+         <ref id="r40">
+            <mixed-citation publication-type="journal"><person-group person-group-type="author"
+                        ><name><surname>Watson</surname><given-names>M.</given-names></name><name><surname>Pruyn</surname><given-names>J.</given-names></name><name><surname>Greer</surname><given-names>S.</given-names></name><name><surname>Van
+                        Den Borne</surname><given-names>B.</given-names></name></person-group>
+                  (<year>1990</year>). <article-title>Locus of control and adjustment to
+                  cancer.</article-title>
+               <source>Psychological Reports</source>, <volume>66</volume>,
+                  <fpage>39</fpage>–<lpage>48</lpage>. <pub-id pub-id-type="doi"
+                  >10.2466/pr0.1990.66.1.39</pub-id><pub-id pub-id-type="pmid"
+               >2326428</pub-id></mixed-citation>
+         </ref>
+         <ref id="r41">
+            <mixed-citation publication-type="journal"><person-group person-group-type="author"
+                        ><name><surname>Zigmond</surname><given-names>A.
+                        S.</given-names></name><name><surname>Snaith</surname><given-names>R.
+                        P.</given-names></name></person-group> (<year>1983</year>).
+                  <article-title>The hospital anxiety and depression scale.</article-title>
+               <source>Acta Psychiatrica Scandinavica</source>, <volume>67</volume>,
+                  <fpage>361</fpage>–<lpage>370</lpage>. <pub-id pub-id-type="doi"
+                  >10.1111/j.1600-0447.1983.tb09716.x</pub-id><pub-id pub-id-type="pmid"
+                  >6880820</pub-id></mixed-citation>
+         </ref>
+         <ref id="r90">
+            <mixed-citation publication-type="book"><person-group person-group-type="author"><name
+                     name-style="western"
+                     ><surname>Bussey</surname><given-names>K.</given-names></name><name
+                     name-style="western"><surname>Grimbeek</surname><given-names>E.
+                        J.</given-names></name></person-group> (<year>1995</year>).
+                  <chapter-title>Disclosure processes: Issues for child sexual abuse
+                  victims.</chapter-title><person-group person-group-type="editor"><name
+                     name-style="western"><surname>Rotenberg</surname><given-names>K.
+                        J.</given-names></name></person-group><source>Disclosure processes in
+                  children and adolescents</source> (pp. 166-203). New York, NY: Cambridge
+               University Press.</mixed-citation>
+         </ref>
+         <ref id="r91">
+            <mixed-citation publication-type="book"><person-group person-group-type="author"><name
+                     name-style="western"><surname>Faller</surname><given-names>K.
+                     C.</given-names></name></person-group> (<year>2007</year>).
+                  <chapter-title>Questioning techniques.</chapter-title><person-group
+                  person-group-type="editor"><name name-style="western"
+                        ><surname>Faller</surname><given-names>K.
+                  C.</given-names></name></person-group><source>Interviewing children about sexual
+                  abuse: Controversies and best practice</source> (pp. 90-109). Oxford, England:
+               Oxford University Press.</mixed-citation>
+         </ref>
+         <ref id="r92">
+            <mixed-citation publication-type="journal"><person-group person-group-type="author"
+                     ><collab>American Psychological Association</collab></person-group>.
+                  (<year>2003</year>). <article-title>Guidelines on multicultural education,
+                  training, research, practice, and organizational change for
+                  Psychologists.</article-title>
+               <source>The American Psychologist</source>, <volume>58</volume>(<issue>5</issue>),
+                  <fpage>377</fpage>–<lpage>402</lpage>. doi:. <pub-id pub-id-type="doi"
+                  >10.1037/0003-066X.58.5.377</pub-id><pub-id pub-id-type="pmid"
+               >12971086</pub-id></mixed-citation>
+         </ref>
+         <ref id="r93">
+            <mixed-citation publication-type="journal"><person-group person-group-type="author"
+                        ><name><surname>Riemann</surname><given-names>G.</given-names></name></person-group>
+                  (<year>2003</year>). <article-title>A joint project against the backdrop of a
+                  research tradition: An introduction to &quot;doing biographical
+                  research&quot;.</article-title>
+               <source>Forum Qualitative Sozial Forschung</source>,
+                  <volume>4</volume>(<issue>3</issue>), <elocation-id>18</elocation-id>.
+                  <comment>Retrieved from </comment><ext-link ext-link-type="uri"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  xlink:href="http://nbn-resolving.de/urn:nbn:de:0114-fqs0303185"
+                  >http://nbn-resolving.de/urn:nbn:de:0114-fqs0303185</ext-link>.</mixed-citation>
+         </ref>
+         <ref id="r94">
+            <mixed-citation publication-type="journal"><person-group person-group-type="author"
+                     ><name name-style="western"
+                        ><surname>Plous</surname><given-names>S.</given-names></name></person-group>
+                  (<year>2009</year>). <article-title>Are you an action teacher? Win $1,000 while
+                  making the world a better place.</article-title>
+               <source>Psychology Teacher Network</source><italic>,</italic>
+               <volume>18</volume>, <fpage>1</fpage><lpage>11</lpage><page-range>1, 4, 8,
+                  10-11</page-range>.</mixed-citation>
+         </ref>
+         <ref id="r95">
+            <mixed-citation publication-type="journal"><person-group person-group-type="author"
+                     ><name name-style="western"><surname>Lambert</surname><given-names>E.
+                        G.</given-names></name><name name-style="western"
+                        ><surname>Paoline</surname><given-names>E.
+                        A.</given-names><suffix>III</suffix></name><name name-style="western"
+                        ><surname>Hogan</surname><given-names>N. L.</given-names></name><name
+                     name-style="western"><surname>Baker</surname><given-names>D.
+                     N.</given-names></name></person-group> (<year>2007</year>).
+                  <article-title>Gender similarities and differences in correctional staff work
+                  attitudes and perceptions of the work environment.</article-title>
+               <source>Western Criminology Review</source>, <volume>8</volume>(<issue>1</issue>),
+                  <fpage>16</fpage>–<lpage>31</lpage>.</mixed-citation>
+         </ref>
+         <ref id="r96">
+            <mixed-citation publication-type="web">Lang, J., &amp; De Sterck, H. (2012). <italic>The
+                  Arab Spring: A simple compartmental model for the dynamics of a
+                  revolution.</italic> arXiv:1210.1841v1</mixed-citation>
+         </ref>
+      </ref-list>
+      <bio>
+         <p><bold>Dominique Valade</bold>, M. D., Ph. D., is a neurologist. He has created “The
+            Emergency Headache Centre of the Paris hospital-Lariboisière”. He is actually the
+            President of the European Headache federation.</p>
+      </bio>
+      <bio>
+         <p><bold>Frédéric Fontenelle</bold> is a psychologist. He practices cognitive and
+            behavioral therapies.</p>
+      </bio>
+      <bio>
+         <p><bold>Caroline Roos</bold>, M. D., is a neurologist at the Hospital Lariboisière in
+            Paris.</p>
+      </bio>
+      <bio>
+         <p><bold>Céline Rousseau-Salvador</bold> Ph. D., is a psychologist. She practices cognitive
+            and behavioral therapies.</p>
+      </bio>
+      <bio>
+         <p><bold>Anne Ducros</bold>, M. D., Ph.D., is a neurologist in "The Emergency Headache
+            Centre of the Lariboisiere Hospital" in Paris and the Pr elect of Neurology in the
+            faculty of medecine in Montpellier.</p>
+      </bio>
+      <bio>
+         <p><bold>Stéphane Rusinek</bold>, Ph. D., is a professor of psychology at the University of
+            Lille (PSITEC Laboratory).</p>
+      </bio>
+   </back>
+</article>

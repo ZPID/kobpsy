@@ -1,0 +1,896 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<article xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink"
+   article-type="announcement" dtd-version="0.4" xml:lang="de">
+   <?release-delay 0|0?>
+   <front>
+      <journal-meta>
+         <journal-id journal-id-type="publisher-id">EJOP</journal-id>
+         <journal-id journal-id-type="nlm-ta">Eur J Psychol</journal-id>
+         <journal-title-group>
+            <journal-title>Europe's Journal of Psychology</journal-title>
+            <abbrev-journal-title abbrev-type="pubmed">Eur. J. Psychol.</abbrev-journal-title>
+         </journal-title-group>
+         <issn pub-type="epub">1841-0413</issn>
+         <publisher>
+            <publisher-name>PsychOpen</publisher-name>
+         </publisher>
+      </journal-meta>
+      <article-meta>
+         <article-id pub-id-type="publisher-id">ejop.v8i3.308</article-id>
+         <article-id pub-id-type="doi">10.5964/ejop.v8i3.308</article-id>
+         <article-categories>
+            <subj-group subj-group-type="heading">
+               <subject>Research Reports</subject>
+            </subj-group>
+         </article-categories>
+         <title-group>
+            <article-title>Emotional Status, Perceived Control of Pain, and Pain Coping Strategies
+               in Episodic and Chronic Cluster Headache</article-title>
+            <trans-title-group xml:lang="de">
+               <trans-title>Emotional Communication on Romantic Relationships: Design and Validation
+                  of a Measure in Mexico</trans-title>
+            </trans-title-group>
+            <alt-title alt-title-type="right-running">Cluster Headache</alt-title>
+         </title-group>
+         <contrib-group>
+            <contrib contrib-type="editor">
+               <name>
+                  <surname>Allen</surname>
+                  <given-names>Andrew</given-names>
+               </name>
+               <xref ref-type="aff" rid="aff2"/>
+            </contrib>
+            <contrib contrib-type="author" corresp="yes" id="contnr1" xlink:href="ejop.v10i2.810-f1">
+               <name name-style="western">
+                  <surname>Zahavi</surname>
+                  <given-names>Dan</given-names>
+               </name>
+
+               <bio>
+                  <p xml:lang="de"><bold>Dan Zahavi</bold> is Professor of Philosophy and Director of the Center
+                     for Subjectivity Research at the University of Copenhagen. He obtained his
+                     Ph.D. from Katholieke Universiteit Leuven in 1994 and his Dr.phil.
+                     (Habilitation) from University of Copenhagen in 1999. He has served as
+                     president of the Nordic Society for Phenomenology in the years 2001-2007, and
+                     is currently co-editor in chief of the journal Phenomenology and the Cognitive
+                     Sciences. In his systematic work, Zahavi has mainly been investigating the
+                     nature of selfhood, self-consciousness and intersubjectivity. His most
+                     important publications include <italic>Husserl und die transzendentale
+                        Intersubjektivität</italic> (Kluwer 1996), <italic>Self-awareness and
+                        Alterity</italic> (Northwestern University Press 1999), <italic>Husserl’s
+                        Phenomenology</italic> (Stanford University Press 2003),
+                        <italic>Subjectivity and Selfhood</italic> (MIT Press 2005), and together
+                     with Shaun Gallagher <italic>The Phenomenological Mind</italic> (Routledge
+                     2008).</p>
+               </bio>
+               <xref ref-type="corresp" rid="cor1">
+                  <sup>*</sup>
+               </xref>
+               <xref ref-type="aff" rid="aff1">
+                  <sup>a</sup>
+               </xref>
+            </contrib>
+            <contrib contrib-type="author">
+               <name>
+                  <surname>Valade</surname>
+                  <given-names>Dominique</given-names>
+               </name>
+               <xref ref-type="aff" rid="aff1">
+                  <sup>a</sup>
+               </xref>
+            </contrib>
+            <contrib contrib-type="author">
+               <name>
+                  <surname>Fontenelle</surname>
+                  <given-names>Frédéric</given-names>
+               </name>
+               <xref ref-type="aff" rid="aff2">
+                  <sup>b</sup>
+               </xref>
+            </contrib>
+            <contrib contrib-type="author">
+               <name>
+                  <surname>Roos</surname>
+                  <given-names>Caroline</given-names>
+               </name>
+               <xref ref-type="aff" rid="aff1">
+                  <sup>a</sup>
+               </xref>
+            </contrib>
+            <contrib contrib-type="author">
+               <name>
+                  <surname>Rousseau-Salvador</surname>
+                  <given-names>Céline</given-names>
+               </name>
+               <xref ref-type="aff" rid="aff2">
+                  <sup>b</sup>
+               </xref>
+               <xref ref-type="aff" rid="aff3">
+                  <sup>c</sup>
+               </xref>
+            </contrib>
+            <contrib contrib-type="author">
+               <name>
+                  <surname>Ducros</surname>
+                  <given-names>Anne</given-names>
+               </name>
+               <xref ref-type="aff" rid="aff1">
+                  <sup>a</sup>
+               </xref>
+            </contrib>
+
+            <contrib contrib-type="author" corresp="yes">
+               <name>
+                  <surname>Rusinek</surname>
+                  <given-names>Stéphane</given-names>
+               </name>
+               <xref ref-type="corresp" rid="cor1">
+                  <sup>*</sup>
+               </xref>
+               <xref ref-type="aff" rid="aff2">
+                  <sup>b</sup>
+               </xref>
+            </contrib>
+
+            <aff id="aff1"><label>a</label>Emergency Headache Centre, Lariboisiere Hospital, Paris,
+               France</aff>
+            <aff id="aff2"><label>b</label>Department of Psychology, University of Lille
+               Nord-de-France, UDL3, Villeneuve d’Ascq, France</aff>
+            <aff id="aff3"><label>c</label>Service of Pediatric Hematology and Oncology, Trousseau
+               Hospital, Paris, France<country>France</country></aff>
+         </contrib-group>
+         <author-notes>
+            <corresp id="cor1"><label>*</label>Laboratoire PSITEC, Université de Lille
+               Nord-de-France, UDL3, B.P. 06149, 59 653 Villeneuve d’Ascq Cedex, France, email:
+                  <email xlink:href="stephane.rusinek@univ-lille3.fr">stephane.rusinek@univ-lille3.fr</email>, 
+                  <email xlink:href="smit.indoo@gmail.com">smit.indoo@gmail.com</email>, 
+                  <email xlink:href="singhindu64@rediffmail.com">singhindu64@rediffmail.com</email> tel.: + 33 3 20 41 67 87</corresp>
+         </author-notes>
+         <pub-date pub-type="ppub">
+            <day>29</day>
+            <month>08</month>
+            <year>2012</year>
+         </pub-date>
+         <volume>8</volume>
+         <issue>3</issue>
+         <fpage>461</fpage>
+         <lpage>474</lpage>
+         <history>
+            <date date-type="received">
+               <day>14</day>
+               <month>03</month>
+               <year>2012</year>
+            </date>
+            <date date-type="accepted">
+               <day>27</day>
+               <month>05</month>
+               <year>2012</year>
+            </date>
+            <date date-type="corrected">
+               <day>30</day>
+               <month>08</month>
+               <year>2013</year>
+            </date>
+         </history>
+         <product product-type="book" id="p1">
+            <person-group person-group-type="author">
+               <name name-style="western">
+                  <surname>Hatfield</surname>
+                  <given-names>Gary</given-names>
+               </name>
+               <name name-style="western">
+                  <surname>Allred</surname>
+                  <given-names>Sarah</given-names>
+               </name>
+            </person-group>
+            <role>Eds.</role>
+            <source>Visual Experience: Sensation, Cognition and Constancy</source>
+            <publisher-loc>Oxford, United Kingdom</publisher-loc>
+            <publisher-name>Oxford University Press</publisher-name>
+            <year>2012</year>
+            <size units="page">264</size>
+            <isbn>9780199597277</isbn>
+            <inline-graphic xlink:href="ejop.v10i1.731-f1"/>
+         </product>
+
+         <permissions>
+            <copyright-year/>
+            <copyright-holder/>
+            <license license-type="open-access"
+               xlink:href="http://creativecommons.org/licenses/by/3.0/">
+               <license-p>This is an open-access article distributed under the terms of the Creative
+                  Commons Attribution License, which permits unrestricted use, distribution, and
+                  reproduction in any medium, provided the original work is properly
+                  cited.</license-p>
+            </license>
+         </permissions>
+         <abstract xml:lang="fr">
+            <p>Cluster headache (CH) is a chronic syndrome characterized by excruciatingly painful
+               attacks occurring with circadian and circannual periodicity. The objectives of the
+               present study were, in CH patients, to determine by principal component analysis the
+               factor structure of two instruments commonly used in clinics to evaluate pain locus
+               of control (Cancer Locus of Control Scale–CLCS) and coping strategies (Coping
+               Strategies Questionnaire–CSQ), to examine the relationship between internal pain
+               controllability and emotional distress, and to compare psychosocial distress and
+               coping strategies between two subsets of patients with episodic or chronic CH.
+               Results indicate, for CLCS, a 3-factor structure (internal controllability, medical
+               controllability, religious controllability) noticeably different in CH patients from
+               the structure reported in patients with other painful pathologies and, for CSQ, a
+               5-factor structure of CSQ which did not markedly diverge from the classical
+               structure. Perceived internal controllability of pain was strongly correlated with
+               study measures of depression (HAD depression/anhedonia subscale, Beck Depression
+               Inventory). Comparison between subsets of patients with episodic or chronic CH of
+               emotional status, pain locus of control, perceived social support and coping
+               strategies did not reveal significant differences apart for the Reinterpreting pain
+               sensations strategy which was more often used by episodic CH patients. Observed
+               tendencies for increased anxiety and perceived social support in patients with
+               episodic CH, and for increased depression and more frequent use of the Ignoring pain
+               sensations strategy in patients with chronic CH, warrant confirmation in larger
+               groups of patients.</p>
+         </abstract>
+         <kwd-group kwd-group-type="author" xml:lang="EN">
+            <kwd>cluster headache</kwd>
+            <kwd>anxiety</kwd>
+            <kwd>depression</kwd>
+            <kwd>pain locus of control</kwd>
+            <kwd>coping strategies</kwd>
+         </kwd-group>
+      </article-meta>
+   </front>
+   <body>
+      <!-- paragraph with missing end-tag -->
+      <p><italic>a) Encoding-Disrupting Factors.</italic>
+      <list list-type="bullet">
+         <list-item>
+      <p><bold>Brief Exposure to KSI.</bold></p>
+         </list-item>
+      </list>
+      <p>Cluster headache (CH) is a member of the trigeminal autonomic cephalalgias which form a
+         group of primary disorders characterized by unilateral trigeminal distribution pain
+         occurring in association with prominent ipsilateral cranial autonomic features. It is an
+         excruciating syndrome, and probably constitutes the most painful condition known to humans
+            (<xref ref-type="bibr" rid="r26">Matharu &amp; Goadsby, 2002</xref>). The prevalence of
+         CH is estimated to be about 0.01-0.03% (<xref ref-type="bibr" rid="r19">Katsarava et al.,
+            2007</xref>; <xref ref-type="bibr" rid="r25">Manzoni &amp; Stovner, 2010</xref>), and
+         more men than women are affected (<xref ref-type="bibr" rid="r24">Manzoni, 1998</xref>;
+            <xref ref-type="bibr" rid="r13">Donnet et al., 2007</xref>; <xref ref-type="bibr"
+            rid="r14">Fischera, Marziniak, Gralow, &amp; Evers, 2008</xref>).</p>
+   </body>
+   <sub-article article-type="abstract" xml:lang="jp" id="sym-001">
+      <front-stub>
+         <article-categories>
+            <subj-group>
+               <subject>Oral Presentation</subject>
+            </subj-group>
+         </article-categories>
+         <title-group>
+            <article-title>A Cross-Cultural Study of the Positive and Negative Aspects of Being
+               LGB</article-title>
+         </title-group>
+         <contrib-group>
+            <contrib contrib-type="author">
+               <name name-style="western">
+                  <surname>Strizzi</surname>
+                  <given-names>Jenna Marie</given-names>
+               </name>
+               <xref ref-type="aff" rid="aff1-1">
+                  <sup>a</sup>
+               </xref>
+            </contrib>
+            <contrib contrib-type="author">
+               <name name-style="western">
+                  <surname>Agis</surname>
+                  <given-names>Inmaculada Fernandez</given-names>
+               </name>
+               <xref ref-type="aff" rid="aff1-1">
+                  <sup>a</sup>
+               </xref>
+            </contrib>
+            <contrib contrib-type="author">
+               <name name-style="western">
+                  <surname>Rodríguez</surname>
+                  <given-names>Raquel Alarcón</given-names>
+               </name>
+               <xref ref-type="aff" rid="aff1-1">
+                  <sup>a</sup>
+               </xref>
+            </contrib>
+            <contrib contrib-type="author">
+               <name name-style="western">
+                  <surname>Carreño</surname>
+                  <given-names>Tesifon Parrón</given-names>
+               </name>
+               <xref ref-type="aff" rid="aff1-1">
+                  <sup>a</sup>
+               </xref>
+            </contrib>
+            <aff id="aff1-1">
+               <label>[a]</label>University of Almería, SPAIN</aff>
+         </contrib-group>
+         <author-notes>
+            <corresp id="cor1-1">
+               <email xlink:href="jenna.strizzi@gmail.com" xlink:type="simple"
+                  >jenna.strizzi@gmail.com</email>
+            </corresp>
+         </author-notes>
+      </front-stub>
+      <body>
+         <p xml:lang="en">The final aim is cross-cultural study on the positive and negative aspects of being gay,
+            lesbian and bisexual in the United States and Spain. The authors seek to repudiate the
+            tendency to study non-heterosexual sexual orientations from a marked pathological
+            viewpoint and create a method which more adequately represents the everyday experiences
+            of this population. 10 scales were selected, all which had been validated in English by
+            other authors. All those not previously validated in Spanish were translated and
+            validated through this study. Positive aspects are operationally defined as social
+            support, self-esteem, social activism and justice, and sexual satisfaction. While
+            negative aspects are defined as: violence, social stigma, homo/bi negativity, and
+            depression (which was measured through subjective happiness). The validation of the New
+            Sexual Satisfaction Scale in Spanish marks the first scale in this language to measure
+            sexual satisfaction in the LGB population. While negative aspects, such as violent
+            incidents, were suffered by nearly 15% of participants in both countries, almost 80%
+            reported having been discriminated for their sexual orientation in the past year.
+            Positive aspects including social support, self-esteem, and subjective happiness were
+            quite high suggesting minority resilience. </p>
+      </body>
+   </sub-article>
+   <back>
+      <ref-list>
+         <title>References</title>
+         <ref id="r1">
+            <mixed-citation publication-type="web">Agence Nationale d'Accréditation et d'Evaluation
+               en Santé (ANAES) (2006). <italic>Evaluation and follow-up of ambulatory patients with
+                  chronic pain</italic>. Retrieved from: <ext-link ext-link-type="uri"
+                  xlink:href="http://www.anaes.fr">http://www.anaes.fr</ext-link></mixed-citation>
+         </ref>
+         <ref id="r2">
+            <mixed-citation publication-type="journal"><person-group person-group-type="author"
+                        ><name><surname>Arnstein</surname><given-names>P.</given-names></name><name><surname>Caudill</surname><given-names>M.</given-names></name><name><surname>Mandle</surname><given-names>C.
+                        L.</given-names></name><name><surname>Norris</surname><given-names>A.</given-names></name><name><surname>Beasley</surname><given-names>R.</given-names></name></person-group>
+                  (<year>1999</year>). <article-title>Self efficacy as a mediator of the
+                  relationship between pain intensity, disability and depression in chronic pain
+                  patients.</article-title>
+               <source>Pain</source>, <volume>80</volume>, <fpage>483</fpage> –<lpage>491</lpage>.
+                  <pub-id pub-id-type="doi">10.1016/S0304-3959(98)00220-6</pub-id><pub-id
+                  pub-id-type="pmid">10342410</pub-id></mixed-citation>
+         </ref>
+         <ref id="r3">
+            <mixed-citation publication-type="journal"><person-group person-group-type="author"
+                        ><name><surname>Asghari</surname><given-names>A.</given-names></name><name><surname>Nicholas</surname><given-names>M.
+                        K.</given-names></name></person-group> (<year>2001</year>).
+                  <article-title>Pain self-efficacy beliefs and pain behavior: A prospective
+                  study.</article-title>
+               <source>Pain</source>, <volume>94</volume>, 
+                  <fpage>85</fpage>
+                  –
+                  <lpage>100</lpage>.
+                  <pub-id pub-id-type="doi">10.1016/S0304-3959(01)00344-X</pub-id><pub-id
+                  pub-id-type="pmid">11576748</pub-id></mixed-citation>
+         </ref>
+         <ref id="r4">
+            <mixed-citation publication-type="thesis">Cousson-Gélie, F. (1997). <italic>Differential
+               evolution of the disease and health-related quality of life in breast-cancer
+               patients: Role of psychological, biological and social factors</italic> (Doctoral
+               dissertation). Bordeaux-2 University, Bordeaux (France).</mixed-citation>
+         </ref>
+         <ref id="r5">
+            <mixed-citation publication-type="book">
+               <edition>7</edition>
+               <person-group person-group-type="author"><name
+                     name-style="western"><surname>Bayliss</surname><given-names>M.
+                     S.</given-names></name><name name-style="western"
+                        ><surname>Bjorner</surname><given-names>J. B.</given-names></name><name
+                     name-style="western"
+                     ><surname>Kosinski</surname><given-names>M.</given-names></name><name
+                     name-style="western"
+                     ><surname>Dowson</surname><given-names>A.</given-names></name><name
+                     name-style="western"><surname>Cady</surname><given-names>R.
+                     K.</given-names></name><name name-style="western"
+                        ><surname>Batenhorst</surname><given-names>A.
+                  S.</given-names></name></person-group> (<year>2003</year>).
+                  <chapter-title>Development of HIT-6, a paper-based short form for measuring
+                  headache impact.</chapter-title><person-group person-group-type="editor"><name
+                     name-style="western"
+                     ><surname>Olesen</surname><given-names>J.</given-names></name><name
+                     name-style="western"><surname>Steiner</surname><given-names>T.
+                     J.</given-names></name><name name-style="western"
+                        ><surname>Lipton</surname><given-names>R.</given-names></name></person-group><source>Frontiers
+                  in Headache Research Series: Vol. 11. Reducing the burden of headache</source>
+               (pp. 386-390). New York: Oxford University Press.</mixed-citation>
+         </ref>
+         <ref id="r6">
+            <mixed-citation publication-type="journal"><person-group person-group-type="author"
+                        ><name><surname>Beck</surname><given-names>A.
+                        T.</given-names></name><name><surname>Ward</surname><given-names>C.
+                        H.</given-names></name><name><surname>Mendelson</surname><given-names>M.</given-names></name><name><surname>Mock</surname><given-names>J.</given-names></name><name><surname>Erbaugh</surname><given-names>J.</given-names></name></person-group>
+                  (<year>1961</year>). <article-title>An inventory for measuring
+                  depression.</article-title>
+               <source>Archives of General Psychiatry</source>, <volume>4</volume>,
+                  <fpage>561</fpage>–<lpage>571</lpage>. <pub-id pub-id-type="doi"
+                  >10.1001/archpsyc.1961.01710120031004</pub-id><pub-id pub-id-type="pmid"
+                  >13688369</pub-id></mixed-citation>
+         </ref>
+         <ref id="r7">
+            <mixed-citation publication-type="journal"><person-group person-group-type="author"
+                        ><name><surname>Beck</surname><given-names>A.
+                        T.</given-names></name><name><surname>Steer</surname><given-names>R.
+                        A.</given-names></name><name><surname>Carbin</surname><given-names>M.
+                        G.</given-names></name></person-group> (<year>1988</year>).
+                  <article-title>Psychometric properties of the Beck Depression Inventory:
+                  Twenty-five years of evaluation.</article-title>
+               <source>Clinical Psychology Review</source>, <volume>8</volume>,
+                  <fpage>77</fpage>–<lpage>100</lpage>. <pub-id pub-id-type="doi"
+                  >10.1016/0272-7358(88)90050-5</pub-id></mixed-citation>
+         </ref>
+         <ref id="r8">
+            <mixed-citation publication-type="book"><person-group person-group-type="author"><name
+                     name-style="western"><surname>Bjorner</surname><given-names>J.
+                     B.</given-names></name><name name-style="western"
+                        ><surname>Ware</surname><given-names>J. E.</given-names></name><name
+                     name-style="western"
+                     ><surname>Kosinski</surname><given-names>M.</given-names></name><name
+                     name-style="western"
+                     ><surname>Diamond</surname><given-names>M.</given-names></name><name
+                     name-style="western"
+                     ><surname>Tepper</surname><given-names>S.</given-names></name><name
+                     name-style="western"
+                     ><surname>Dowson</surname><given-names>A.</given-names></name><name
+                     name-style="western"><surname>Batenhorst</surname><given-names>A.
+                        S.</given-names></name></person-group> (<year>2003</year>).
+                  <source>Validation of the Headache Impact Test using patient-reported symptoms and
+                  headache severity.</source></mixed-citation>
+         </ref>
+         <ref id="r9">
+            <mixed-citation publication-type="journal"><person-group person-group-type="author"
+                        ><name><surname>Brown</surname><given-names>G.
+                        K.</given-names></name><name><surname>Nicassio</surname><given-names>P.
+                        M.</given-names></name></person-group> (<year>1987</year>).
+                  <article-title>Development of a questionnaire for the assessment of active and
+                  passive coping strategies in chronic pain patients.</article-title>
+               <source>Pain</source>, <volume>31</volume>, <fpage>53</fpage>–<lpage>64</lpage>.
+                  <pub-id pub-id-type="doi">10.1016/0304-3959(87)90006-6</pub-id><pub-id
+                  pub-id-type="pmid">3696743</pub-id></mixed-citation>
+         </ref>
+         <ref id="r10">
+            <mixed-citation publication-type="book"><person-group person-group-type="author"><name
+                     name-style="western"
+                     ><surname>Schweitzer</surname><given-names>M.</given-names></name></person-group>
+                  (<year>2001</year>). <source>Vulnerability and resistance to diseases.</source>.
+               Role of psychosocial factors. In M. Bruchon-Schweitzer &amp; B. Quintard (Eds.),
+               Personality and diseases: Stress, coping and adjustment (pp. 3-22). Paris:
+               Dunod.</mixed-citation>
+         </ref>
+         <ref id="r11">
+            <mixed-citation publication-type="journal"><person-group person-group-type="author"
+                        ><name><surname>Collet</surname><given-names>L.</given-names></name><name><surname>Cottraux</surname><given-names>J.</given-names></name></person-group>
+                  (<year>1986</year>). <article-title>The shortened Beck depression inventory (13
+                  items). Study of the concurrent validity with the Hamilton scale and Widlocher's
+                  retardation scale.</article-title>
+               <source>L'Encéphale</source>, <volume>12</volume>,
+                  <fpage>77</fpage>–<lpage>79</lpage>.<pub-id pub-id-type="pmid"
+               >3743520</pub-id></mixed-citation>
+         </ref>
+         <ref id="r13">
+            <mixed-citation publication-type="journal"><person-group person-group-type="author"
+                        ><name><surname>Donnet</surname><given-names>A.</given-names></name><name><surname>Lanteri-Minet</surname><given-names>M.</given-names></name><name><surname>Guegan-Massardier</surname><given-names>E.</given-names></name><name><surname>Mick</surname><given-names>G.</given-names></name><name><surname>Fabre</surname><given-names>N.</given-names></name><name><surname>Geraud</surname><given-names>G.</given-names></name><etal/><name><surname>Valade</surname><given-names>D.</given-names></name></person-group>
+                  (<year>2007</year>). <article-title>Chronic cluster headache: A French clinical
+                  descriptive study</article-title>. <source>Journal of Neurology, Neurosurgery, and
+                  Psychiatry</source>, <volume>78</volume>, <fpage>1354</fpage>–<lpage>1358</lpage>.
+                  <pub-id pub-id-type="doi">10.1136/jnnp.2006.112037</pub-id><pub-id
+                  pub-id-type="pmid">17442761</pub-id></mixed-citation>
+         </ref>
+         <ref id="r14">
+            <mixed-citation publication-type="journal"><person-group person-group-type="author"
+                        ><name><surname>Fischera</surname><given-names>M.</given-names></name><name><surname>Marziniak</surname><given-names>M.</given-names></name><name><surname>Gralow</surname><given-names>I.</given-names></name><name><surname>Evers</surname><given-names>S.</given-names></name></person-group>
+                  (<year>2008</year>). <article-title>The incidence and prevalence of cluster
+                  headache: A meta-analysis of population-based studies.</article-title>
+               <source>Cephalalgia</source>, <volume>28</volume>,
+                  <fpage>614</fpage>–<lpage>618</lpage>. <pub-id pub-id-type="doi"
+                  >10.1111/j.1468-2982.2008.01592.x</pub-id><pub-id pub-id-type="pmid"
+                  >18422717</pub-id></mixed-citation>
+         </ref>
+         <ref id="r15">
+            <mixed-citation publication-type="journal"><person-group person-group-type="author"
+                        ><name><surname>Hadjistavropoulos</surname><given-names>H.
+                     D.</given-names></name><name><surname>MacLeod</surname><given-names>F.
+                        K.</given-names></name><name><surname>Asmundson</surname><given-names>G.
+                        J.</given-names></name></person-group> (<year>1999</year>).
+                  <article-title>Validation of the Chronic Pain Coping Inventory.</article-title>
+               <source>Pain</source>, <volume>80</volume>, <fpage>471</fpage>–<lpage>481</lpage>.
+                  <pub-id pub-id-type="doi">10.1016/S0304-3959(98)00224-3</pub-id><pub-id
+                  pub-id-type="pmid">10342409</pub-id></mixed-citation>
+         </ref>
+         <ref id="r16">
+            <mixed-citation publication-type="journal"><person-group person-group-type="author"
+                     ><collab>Headache Classification Subcommittee of the International Headache
+                     Society</collab></person-group>. (<year>2004</year>). International
+               Classification of Headache Disorders: 2nd edition (ICHD-II).
+                  <source>Cephalalgia</source><italic>,</italic>
+               <volume>24</volume>(<supplement>Suppl 1</supplement>),
+                  <fpage>1</fpage>-<lpage>160</lpage>.</mixed-citation>
+         </ref>
+         <ref id="r17">
+            <mixed-citation publication-type="thesis"><person-group person-group-type="author"><name
+                     name-style="western"
+                     ><surname>Irachabal</surname><given-names>S.</given-names></name></person-group>
+                  (<year>2002</year>). <source>Cognitive and behavioral reactions of chronic pain
+                  patients cared for in a specialty clinic (Doctoral dissertation).</source>.
+               Bordeaux-2 University, Bordeaux (France).</mixed-citation>
+         </ref>
+         <ref id="r18">
+            <mixed-citation publication-type="journal"><person-group person-group-type="author"
+                        ><name><surname>Jensen</surname><given-names>M.
+                        P.</given-names></name><name><surname>Turner</surname><given-names>J.
+                        A.</given-names></name><name><surname>Romano</surname><given-names>J.
+                        M.</given-names></name><name><surname>Strom</surname><given-names>S.
+                        E.</given-names></name></person-group> (<year>1995</year>).
+                  <article-title>The Chronic Pain Coping Inventory: Development and preliminary
+                  validation.</article-title>
+               <source>Pain</source>, <volume>60</volume>, <fpage>203</fpage>–<lpage>216</lpage>.
+                  <pub-id pub-id-type="doi">10.1016/0304-3959(94)00118-X</pub-id><pub-id
+                  pub-id-type="pmid">7784106</pub-id></mixed-citation>
+         </ref>
+         <ref id="r19">
+            <mixed-citation publication-type="journal"><person-group person-group-type="author"
+                        ><name><surname>Katsarava</surname><given-names>Z.</given-names></name><name><surname>Obermann</surname><given-names>M.</given-names></name><name><surname>Yoon</surname><given-names>M.
+                        S.</given-names></name><name><surname>Dommes</surname><given-names>P.</given-names></name><name><surname>Kuznetsova</surname><given-names>C.</given-names></name><name><surname>Weimar</surname><given-names>C.</given-names></name><name><surname>Diener</surname><given-names>H.
+                        C.</given-names></name></person-group> (<year>2007</year>).
+                  <article-title>Prevalence of cluster headache in a population-based sample in
+                  Germany.</article-title>
+               <source>Cephalalgia</source>, <volume>27</volume>,
+                  <fpage>1014</fpage>–<lpage>1019</lpage>. <pub-id pub-id-type="doi"
+                  >10.1111/j.1468-2982.2007.01380.x</pub-id><pub-id pub-id-type="pmid"
+                  >17666085</pub-id></mixed-citation>
+         </ref>
+         <ref id="r20">
+            <mixed-citation publication-type="thesis"><person-group person-group-type="author"><name
+                     name-style="western"
+                     ><surname>Koleck</surname><given-names>M.</given-names></name></person-group>
+                  (<year>2000</year>). <source>Role of psychosocial factors in the evolution of
+                  ordinary low back pain.</source>. A semi-prospective study in health psychology
+               (Doctoral dissertation). Bordeaux-2 University, Bordeaux (France).</mixed-citation>
+         </ref>
+         <ref id="r21">
+            <mixed-citation publication-type="journal"><person-group person-group-type="author"
+                        ><name><surname>Koleck</surname><given-names>M.</given-names></name><name><surname>Mazaux</surname><given-names>J.
+                        M.</given-names></name><name><surname>Rascle</surname><given-names>N.</given-names></name><name><surname>Bruchon-Schweitzer</surname><given-names>M.</given-names></name></person-group>
+                  (<year>2006</year>). <article-title>Psycho-social factors and coping strategies as
+                  predictors of chronic evolution and quality of life in patients with low back
+                  pain: A prospective study.</article-title>
+               <source>European Journal of Pain (London, England)</source>, <volume>10</volume>,
+                  <fpage>1</fpage>–<lpage>11</lpage>. <pub-id pub-id-type="doi"
+                  >10.1016/j.ejpain.2005.01.003</pub-id><pub-id pub-id-type="pmid"
+               >16291293</pub-id></mixed-citation>
+         </ref>
+         <ref id="r22">
+            <mixed-citation publication-type="journal"><person-group person-group-type="author"
+                        ><name><surname>Lanteri-Minet</surname><given-names>M.</given-names></name></person-group>
+                  (<year>2003</year>). <article-title>Pathophysiology of cluster
+                  headache.</article-title>
+               <source>Revue Neurologique</source>, <volume>159</volume>,
+                  <fpage>1113</fpage>–<lpage>1124</lpage>.<pub-id pub-id-type="pmid"
+                  >14978412</pub-id></mixed-citation>
+         </ref>
+         <ref id="r23">
+            <mixed-citation publication-type="journal"><person-group person-group-type="author"
+                        ><name><surname>Lépine</surname><given-names>J.
+                        P.</given-names></name><name><surname>Godchau</surname><given-names>M.</given-names></name><name><surname>Brun</surname><given-names>P.</given-names></name><name><surname>Lemperière</surname><given-names>T.</given-names></name></person-group>
+                  (<year>1985</year>). <article-title>Evaluation de l'anxiété et de la dépression
+                  chez des patients hospitalisés dans un service de médecine
+                  interne.</article-title>
+               <source>Annales Médico-Psychologiques</source>, <volume>143</volume>,
+                  <fpage>175</fpage>–<lpage>189</lpage>.<pub-id pub-id-type="pmid"
+               >4037594</pub-id></mixed-citation>
+         </ref>
+         <ref id="r24">
+            <mixed-citation publication-type="journal"><person-group person-group-type="author"
+                        ><name><surname>Manzoni</surname><given-names>G.
+                  C.</given-names></name></person-group> (<year>1998</year>). <article-title>Gender
+                  ratio of cluster headache over the years: A possible role of changes in
+                  lifestyle.</article-title>
+               <source>Cephalalgia</source>, <volume>18</volume>,
+                  <fpage>138</fpage>–<lpage>142</lpage>. <pub-id pub-id-type="doi"
+                  >10.1046/j.1468-2982.1998.1803138.x</pub-id><pub-id pub-id-type="pmid"
+                  >9595206</pub-id></mixed-citation>
+         </ref>
+         <ref id="r25">
+            <mixed-citation publication-type="book"><person-group person-group-type="author"><name
+                     name-style="western"><surname>Manzoni</surname><given-names>G.
+                     C.</given-names></name><name name-style="western"
+                        ><surname>Stovner</surname><given-names>L.
+                  J.</given-names></name></person-group> (<year>2010</year>).
+                  <chapter-title>Epidemiology of headache.</chapter-title><person-group
+                  person-group-type="editor"><name name-style="western"
+                        ><surname>Vinken</surname><given-names>P. J.</given-names></name><name
+                     name-style="western"><surname>Bruyn</surname><given-names>G.
+                     W.</given-names></name></person-group><source>Handbook of clinical
+                  neurology</source> (Vol. 97, pp. 3-22). Amsterdam: North-Holland Publishing
+               Company.</mixed-citation>
+         </ref>
+         <ref id="r26">
+            <mixed-citation publication-type="journal"><person-group person-group-type="author"
+                        ><name><surname>Matharu</surname><given-names>M.
+                        S.</given-names></name><name><surname>Goadsby</surname><given-names>P.
+                        J.</given-names></name></person-group> (<year>2002</year>).
+                  <article-title>Trigeminal autonomic cephalgias.</article-title>
+               <source>Journal of Neurology, Neurosurgery, and Psychiatry</source>,
+                  <volume>72</volume>(<supplement>Suppl 2</supplement>),
+                  <fpage>ii19</fpage>–<lpage>ii26</lpage>.<pub-id pub-id-type="pmid"
+                  >12122199</pub-id></mixed-citation>
+         </ref>
+         <ref id="r27">
+            <mixed-citation publication-type="journal"><person-group person-group-type="author"
+                        ><name><surname>Mongini</surname><given-names>F.</given-names></name><name><surname>Rota</surname><given-names>E.</given-names></name><name><surname>Evangelista</surname><given-names>A.</given-names></name><name><surname>Ciccone</surname><given-names>G.</given-names></name><name><surname>Milani</surname><given-names>C.</given-names></name><name><surname>Ugolini</surname><given-names>A.</given-names></name><etal/><name><surname>Rosato</surname><given-names>R.</given-names></name></person-group>
+                  (<year>2009</year>). <article-title>Personality profiles and subjective perception
+                  of pain in head pain patients.</article-title>
+               <source>Pain</source>, <volume>144</volume>(<issue>1-2</issue>),
+                  <fpage>125</fpage>–<lpage>129</lpage>. <pub-id pub-id-type="doi"
+                  >10.1016/j.pain.2009.03.026</pub-id><pub-id pub-id-type="pmid"
+               >19394764</pub-id></mixed-citation>
+         </ref>
+         <ref id="r28">
+            <mixed-citation publication-type="journal"><person-group person-group-type="author"
+                        ><name><surname>Pruyn</surname><given-names>J.
+                        F.</given-names></name><name><surname>Van Den Borne</surname><given-names>H.
+                        W.</given-names></name><name><surname>De Ruever</surname><given-names>R.
+                        S.</given-names></name><name><surname>De Boer</surname><given-names>M.
+                        F.</given-names></name><name><surname>Bosman</surname><given-names>L.
+                        J.</given-names></name><name><surname>De Jong</surname><given-names>P.
+                        C.</given-names></name></person-group> (<year>1988</year>).
+                  <article-title>The Locus of Control Scale for cancer patients.</article-title>
+               <source>Tijdschift Woor Sociales Gezondheidszorj</source>, <volume>66</volume>,
+                  <fpage>404</fpage>–<lpage>408</lpage>.</mixed-citation>
+         </ref>
+         <ref id="r29">
+            <mixed-citation publication-type="web"><person-group person-group-type="author"><name
+                     name-style="western"
+                     ><surname>Metric</surname><given-names>Inc</given-names></name></person-group>
+                  (<year>2006</year>). <source>HIT-6 France (French) version 1.1.</source>. 2000.
+               Questionnaire sur l'impact des maux de tête. Retrieved from: URL:
+               http://www.headachetest.com/HIT6/PDFS/French.pdf.</mixed-citation>
+         </ref>
+         <ref id="r30">
+            <mixed-citation publication-type="journal"><person-group person-group-type="author"
+                        ><name><surname>Rascle</surname><given-names>N.</given-names></name><name><surname>Aguerre</surname><given-names>C.</given-names></name><name><surname>Bruchon-Schweitzer</surname><given-names>M.</given-names></name><name><surname>Nuissier</surname><given-names>J.</given-names></name><name><surname>Cousson-Gélie</surname><given-names>F.</given-names></name><name><surname>Gilliard</surname><given-names>J.</given-names></name><name><surname>Quintard</surname><given-names>B.</given-names></name></person-group>
+                  (<year>1997</year>). <article-title>Social support and health: French adaptation
+                  of SSQ, the Sarason's social support questionnaire.</article-title>
+               <source>Cahiers Internationaux de Psychologie Sociale</source>, <volume>33</volume>,
+                  <fpage>35</fpage>–<lpage>51</lpage>.</mixed-citation>
+         </ref>
+         <ref id="r31">
+            <mixed-citation publication-type="journal"><person-group person-group-type="author"
+                        ><name><surname>Riley</surname><given-names>J.
+                        L.</given-names></name><name><surname>Robinson</surname><given-names>M.
+                        E.</given-names></name></person-group> (<year>1997</year>).
+                  <article-title>CSQ: Five factors or fiction?</article-title>
+               <source>The Clinical Journal of Pain</source>, <volume>13</volume>,
+                  <fpage>156</fpage>–<lpage>162</lpage>. <pub-id pub-id-type="doi"
+                  >10.1097/00002508-199706000-00010</pub-id><pub-id pub-id-type="pmid"
+                  >9186023</pub-id></mixed-citation>
+         </ref>
+         <ref id="r32">
+            <mixed-citation publication-type="journal"><person-group person-group-type="author"
+                        ><name><surname>Robinson</surname><given-names>M.
+                        E.</given-names></name><name><surname>Riley</surname><given-names>J.
+                        L.</given-names></name><name><surname>Myers</surname><given-names>C.
+                        D.</given-names></name><name><surname>Sadler</surname><given-names>I.
+                        J.</given-names></name><name><surname>Kvaal</surname><given-names>S.
+                        A.</given-names></name><name><surname>Geisser</surname><given-names>M.
+                        E.</given-names></name><name><surname>Keefe</surname><given-names>F.
+                        J.</given-names></name></person-group> (<year>1997</year>).
+                  <article-title>The Coping Strategies Questionnaire: A large sample, item level
+                  factor analysis.</article-title>
+               <source>The Clinical Journal of Pain</source>, <volume>13</volume>,
+                  <fpage>43</fpage>–<lpage>49</lpage>. <pub-id pub-id-type="doi"
+                  >10.1097/00002508-199703000-00007</pub-id><pub-id pub-id-type="pmid"
+                  >9084951</pub-id></mixed-citation>
+         </ref>
+         <ref id="r33">
+            <mixed-citation publication-type="journal"><person-group person-group-type="author"
+                        ><name><surname>Rosenstiel</surname><given-names>A.
+                        K.</given-names></name><name><surname>Keefe</surname><given-names>F.
+                        J.</given-names></name></person-group> (<year>1983</year>).
+                  <article-title>The use of coping strategies in chronic low back pain patients:
+                  Relationship to patient characteristics and current adjustment.</article-title>
+               <source>Pain</source>, <volume>17</volume>, <fpage>33</fpage>–<lpage>44</lpage>.
+                  <pub-id pub-id-type="doi">10.1016/0304-3959(83)90125-2</pub-id><pub-id
+                  pub-id-type="pmid">6226916</pub-id></mixed-citation>
+         </ref>
+         <ref id="r34">
+            <mixed-citation publication-type="journal"><person-group person-group-type="author"
+                        ><name><surname>Snow-Turek</surname><given-names>A.
+                        L.</given-names></name><name><surname>Norris</surname><given-names>M.
+                        P.</given-names></name><name><surname>Tan</surname><given-names>G.</given-names></name></person-group>
+                  (<year>1996</year>). <article-title>Active and passive coping strategies in
+                  chronic pain patients.</article-title>
+               <source>Pain</source>, <volume>64</volume>, <fpage>455</fpage>–<lpage>462</lpage>.
+                  <pub-id pub-id-type="doi">10.1016/0304-3959(95)00190-5</pub-id><pub-id
+                  pub-id-type="pmid">8783309</pub-id></mixed-citation>
+         </ref>
+         <ref id="r35">
+            <mixed-citation publication-type="journal"><person-group person-group-type="author"
+                        ><name><surname>Stroud</surname><given-names>M.
+                        W.</given-names></name><name><surname>Thorn</surname><given-names>B.
+                        E.</given-names></name><name><surname>Jensen</surname><given-names>M.
+                        P.</given-names></name><name><surname>Boothby</surname><given-names>J.
+                        L.</given-names></name></person-group> (<year>2000</year>).
+                  <article-title>The relation between pain beliefs, negative thoughts, and
+                  psychosocial functioning in chronic pain patients.</article-title>
+               <source>Pain</source>, <volume>84</volume>, <fpage>347</fpage>–<lpage>352</lpage>.
+                  <pub-id pub-id-type="doi">10.1016/S0304-3959(99)00226-2</pub-id><pub-id
+                  pub-id-type="pmid">10666540</pub-id></mixed-citation>
+         </ref>
+         <ref id="r36">
+            <mixed-citation publication-type="journal"><person-group person-group-type="author"
+                        ><name><surname>Swartzman</surname><given-names>L.
+                        C.</given-names></name><name><surname>Gwadry</surname><given-names>F.
+                        G.</given-names></name><name><surname>Shapiro</surname><given-names>A.
+                        P.</given-names></name><name><surname>Teasell</surname><given-names>R.
+                        W.</given-names></name></person-group> (<year>1994</year>).
+                  <article-title>The factor structure of the Coping Strategies
+                  Questionnaire.</article-title>
+               <source>Pain</source>, <volume>57</volume>, <fpage>311</fpage>–<lpage>316</lpage>.
+                  <pub-id pub-id-type="doi">10.1016/0304-3959(94)90006-X</pub-id><pub-id
+                  pub-id-type="pmid">7936709</pub-id></mixed-citation>
+         </ref>
+         <ref id="r37">
+            <mixed-citation publication-type="journal"><person-group person-group-type="author"
+                        ><name><surname>Valade</surname><given-names>D.</given-names></name></person-group>
+                  (<year>2005</year>). <article-title>Headache presenting to a casualty service:
+                  Four-year experience at an Emergency Headache Center.</article-title>
+               <source>Revue Neurologique</source>, <volume>161</volume>,
+                  <fpage>729</fpage>–<lpage>731</lpage>. <pub-id pub-id-type="doi"
+                  >10.1016/S0035-3787(05)85131-8</pub-id><pub-id pub-id-type="pmid"
+                  >16141973</pub-id></mixed-citation>
+         </ref>
+         <ref id="r38">
+            <mixed-citation publication-type="journal"><person-group person-group-type="author"
+                        ><name><surname>Vuillaume De
+                     Diego</surname><given-names>E.</given-names></name><name><surname>Lanteri-Minet</surname><given-names>M.</given-names></name></person-group>
+                  (<year>2005</year>). <article-title>Recognition and management of migraine in
+                  primary care: Influence of functional impact measured by the Headache Impact test
+                  (HIT).</article-title>
+               <source>Cephalalgia</source>, <volume>25</volume>,
+                  <fpage>184</fpage>–<lpage>190</lpage>. <pub-id pub-id-type="doi"
+                  >10.1111/j.1468-2982.2004.00820.x</pub-id><pub-id pub-id-type="pmid"
+                  >15689193</pub-id></mixed-citation>
+         </ref>
+         <ref id="r39">
+            <mixed-citation publication-type="journal"><person-group person-group-type="author"
+                        ><name><surname>Ware</surname><given-names>J.
+                        E.</given-names></name><name><surname>Bjorner</surname><given-names>J.
+                        B.</given-names></name><name><surname>Kosinski</surname><given-names>M.</given-names></name></person-group>
+                  (<year>2000</year>). <article-title>Practical implications of item response theory
+                  and computerized adaptive testing: A brief summary of ongoing studies of widely
+                  used headache impact scales.</article-title>
+               <source>Medical Care</source>, <volume>38</volume>(<issue>9</issue>
+               <supplement>Suppl. 2</supplement>),
+               <fpage>II-73</fpage>–<lpage>II-82</lpage>.</mixed-citation>
+         </ref>
+         <ref id="r40">
+            <mixed-citation publication-type="journal"><person-group person-group-type="author"
+                        ><name><surname>Watson</surname><given-names>M.</given-names></name><name><surname>Pruyn</surname><given-names>J.</given-names></name><name><surname>Greer</surname><given-names>S.</given-names></name><name><surname>Van
+                        Den Borne</surname><given-names>B.</given-names></name></person-group>
+                  (<year>1990</year>). <article-title>Locus of control and adjustment to
+                  cancer.</article-title>
+               <source>Psychological Reports</source>, <volume>66</volume>,
+                  <fpage>39</fpage>–<lpage>48</lpage>. <pub-id pub-id-type="doi"
+                  >10.2466/pr0.1990.66.1.39</pub-id><pub-id pub-id-type="pmid"
+               >2326428</pub-id></mixed-citation>
+         </ref>
+         <ref id="r41">
+            <mixed-citation publication-type="journal"><person-group person-group-type="author"
+                        ><name><surname>Zigmond</surname><given-names>A.
+                        S.</given-names></name><name><surname>Snaith</surname><given-names>R.
+                        P.</given-names></name></person-group> (<year>1983</year>).
+                  <article-title>The hospital anxiety and depression scale.</article-title>
+               <source>Acta Psychiatrica Scandinavica</source>, <volume>67</volume>,
+                  <fpage>361</fpage>–<lpage>370</lpage>. <pub-id pub-id-type="doi"
+                  >10.1111/j.1600-0447.1983.tb09716.x</pub-id><pub-id pub-id-type="pmid"
+                  >6880820</pub-id></mixed-citation>
+         </ref>
+         <ref id="r90">
+            <mixed-citation publication-type="book"><person-group person-group-type="author"><name
+                     name-style="western"
+                     ><surname>Bussey</surname><given-names>K.</given-names></name><name
+                     name-style="western"><surname>Grimbeek</surname><given-names>E.
+                        J.</given-names></name></person-group> (<year>1995</year>).
+                  <chapter-title>Disclosure processes: Issues for child sexual abuse
+                  victims.</chapter-title><person-group person-group-type="editor"><name
+                     name-style="western"><surname>Rotenberg</surname><given-names>K.
+                        J.</given-names></name></person-group><source>Disclosure processes in
+                  children and adolescents</source> (pp. 166-203). New York, NY: Cambridge
+               University Press.</mixed-citation>
+         </ref>
+         <ref id="r91">
+            <mixed-citation publication-type="book"><person-group person-group-type="author"><name
+                     name-style="western"><surname>Faller</surname><given-names>K.
+                     C.</given-names></name></person-group> (<year>2007</year>).
+                  <chapter-title>Questioning techniques.</chapter-title><person-group
+                  person-group-type="editor"><name name-style="western"
+                        ><surname>Faller</surname><given-names>K.
+                  C.</given-names></name></person-group><source>Interviewing children about sexual
+                  abuse: Controversies and best practice</source> (pp. 90-109). Oxford, England:
+               Oxford University Press.</mixed-citation>
+         </ref>
+         <ref id="r92">
+            <mixed-citation publication-type="journal"><person-group person-group-type="author"
+                     ><collab>American Psychological Association</collab></person-group>.
+                  (<year>2003</year>). <article-title>Guidelines on multicultural education,
+                  training, research, practice, and organizational change for
+                  Psychologists.</article-title>
+               <source>The American Psychologist</source>, <volume>58</volume>(<issue>5</issue>),
+                  <fpage>377</fpage>–<lpage>402</lpage>. doi:. <pub-id pub-id-type="doi"
+                  >10.1037/0003-066X.58.5.377</pub-id><pub-id pub-id-type="pmid"
+               >12971086</pub-id></mixed-citation>
+         </ref>
+         <ref id="r93">
+            <mixed-citation publication-type="journal"><person-group person-group-type="author"
+                        ><name><surname>Riemann</surname><given-names>G.</given-names></name></person-group>
+                  (<year>2003</year>). <article-title>A joint project against the backdrop of a
+                  research tradition: An introduction to &quot;doing biographical
+                  research&quot;.</article-title>
+               <source>Forum Qualitative Sozial Forschung</source>,
+                  <volume>4</volume>(<issue>3</issue>), <elocation-id>18</elocation-id>.
+                  <comment>Retrieved from </comment><ext-link ext-link-type="uri"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  xlink:href="http://nbn-resolving.de/urn:nbn:de:0114-fqs0303185"
+                  >http://nbn-resolving.de/urn:nbn:de:0114-fqs0303185</ext-link>.</mixed-citation>
+         </ref>
+         <ref id="r94">
+            <mixed-citation publication-type="journal"><person-group person-group-type="author"
+                     ><name name-style="western"
+                        ><surname>Plous</surname><given-names>S.</given-names></name></person-group>
+                  (<year>2009</year>). <article-title>Are you an action teacher? Win $1,000 while
+                  making the world a better place.</article-title>
+               <source>Psychology Teacher Network</source><italic>,</italic>
+               <volume>18</volume>, <fpage>1</fpage><lpage>11</lpage><page-range>1, 4, 8,
+                  10-11</page-range>.</mixed-citation>
+         </ref>
+         <ref id="r95">
+            <mixed-citation publication-type="journal"><person-group person-group-type="author"
+                     ><name name-style="western"><surname>Lambert</surname><given-names>E.
+                        G.</given-names></name><name name-style="western"
+                        ><surname>Paoline</surname><given-names>E.
+                        A.</given-names><suffix>III</suffix></name><name name-style="western"
+                        ><surname>Hogan</surname><given-names>N. L.</given-names></name><name
+                     name-style="western"><surname>Baker</surname><given-names>D.
+                     N.</given-names></name></person-group> (<year>2007</year>).
+                  <article-title>Gender similarities and differences in correctional staff work
+                  attitudes and perceptions of the work environment.</article-title>
+               <source>Western Criminology Review</source>, <volume>8</volume>(<issue>1</issue>),
+                  <fpage>16</fpage>–<lpage>31</lpage>.</mixed-citation>
+         </ref>
+         <ref id="r96">
+            <mixed-citation publication-type="web">Lang, J., &amp; De Sterck, H. (2012). <italic>The
+                  Arab Spring: A simple compartmental model for the dynamics of a
+                  revolution.</italic> arXiv:1210.1841v1</mixed-citation>
+         </ref>
+      </ref-list>
+      <bio>
+         <p><bold>Dominique Valade</bold>, M. D., Ph. D., is a neurologist. He has created “The
+            Emergency Headache Centre of the Paris hospital-Lariboisière”. He is actually the
+            President of the European Headache federation.</p>
+      </bio>
+      <bio>
+         <p><bold>Frédéric Fontenelle</bold> is a psychologist. He practices cognitive and
+            behavioral therapies.</p>
+      </bio>
+      <bio>
+         <p><bold>Caroline Roos</bold>, M. D., is a neurologist at the Hospital Lariboisière in
+            Paris.</p>
+      </bio>
+      <bio>
+         <p><bold>Céline Rousseau-Salvador</bold> Ph. D., is a psychologist. She practices cognitive
+            and behavioral therapies.</p>
+      </bio>
+      <bio>
+         <p><bold>Anne Ducros</bold>, M. D., Ph.D., is a neurologist in "The Emergency Headache
+            Centre of the Lariboisiere Hospital" in Paris and the Pr elect of Neurology in the
+            faculty of medecine in Montpellier.</p>
+      </bio>
+      <bio>
+         <p><bold>Stéphane Rusinek</bold>, Ph. D., is a professor of psychology at the University of
+            Lille (PSITEC Laboratory).</p>
+      </bio>
+   </back>
+</article>
