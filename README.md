@@ -19,7 +19,7 @@ workflow. Contains the main class "SE4OJSRdfizer".
 - **textStructure-module:** RDFizes the textual structure, i.e. sections, paragraph, paragraph text and in-text citations. Produces the in-text citation count for each reference. Outputs a second .rdf-file to the output directory containing this information.
 - **annotation-common-module:** Contains shared classes used by all content-annotation components.
 - **annotation-ncbo-module:** Automatically annotates the textual content of the article with user-defined bioportal ontologies, using the [NCBO annotator web-service](http://data.bioontology.org/documentation#nav_annotator). Creates an annotation context, relating the concept to the text location where it occurs. Keeps track of the frequency of occurrence of each concept. Outputs a third rdf-file containing this information.
-- **annotation-umls-module:** Automatically annotates the textual content of the article with user-defined UMLS ontologies, using the java api of the MetaMap tool. It is a prerequisite to running this module that an accessible MetaMap service is running. Produces the same annotations and output like the annotation-ncbo module.
+- **annotation-umls-module:** Automatically annotates the textual content of the article with user-defined UMLS ontologies, using the [java api](http://metamap.nlm.nih.gov/JavaApi.shtml) of the [MetaMap](http://metamap.nlm.nih.gov/) tool. It is a prerequisite to running this module that an accessible MetaMap server is running (if installed on another machine, the code must be adapted, since the MetaMap server location is not user-configurable yet). Produces the same annotations and output like the annotation-ncbo module.
 
 All rdfization steps are optional. But both annotators depend on the text-structure rdfization step.
 The annotators try to ignore text in other languages than English. This is achieved by checking whether the section or paragraph containing the text has a language attribute-value that specifies another language than English. Once such an attribute-value is encountered, the annotator skips this textual element including all its child-elements.   
@@ -61,7 +61,7 @@ ncbo.annotator.ontologies=ONTOAD,NIFSTD,GALEN,SIO,BIOMO,AURA,RADLEX
 ### Sample Setup for Eclipse
 - Import the maven projects into Eclipse (first install the projects with maven from the commandline (`mvn clean:install`); run maven's eclipse plugin  `mvn eclipse:eclipse`, then import the projects into the IDE; In Eclipse Luna: `File->Import->Existing Maven projects`
 - Create an Eclipse-Run-Configuration:
-#### Sample Eclipse Run-configuration (includes all possible rdfization steps).
+#####Sample Eclipse Run-configuration (includes all possible rdfization steps).
 ![img1](se4ojs/resources/doc/se4ojsRunConfig1.JPG)
 ![img2](se4ojs/resources/doc/se4ojsRunConfig2.PNG)
 
