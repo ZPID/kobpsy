@@ -62,8 +62,8 @@ ncbo.annotator.ontologies=ONTOAD,NIFSTD,GALEN,SIO,BIOMO,AURA,RADLEX
 - Import the maven projects into Eclipse (first install the projects with maven from the commandline (`mvn clean:install`); run maven's eclipse plugin  `mvn eclipse:eclipse`, then import the projects into the IDE; In Eclipse Luna: `File->Import->Existing Maven projects`
 - Create an Eclipse-Run-Configuration:
 #### Sample Eclipse Run-configuration (includes all possible rdfization steps).
-[img1](se4ojs/resources/doc/se4ojsRunConfig1.jpg)
-[img2](se4ojs/resources/doc/se4ojsRunConfig2.png)
+![img1](se4ojs/resources/doc/se4ojsRunConfig1.jpg)
+![img2](se4ojs/resources/doc/se4ojsRunConfig2.png)
 
 
 
