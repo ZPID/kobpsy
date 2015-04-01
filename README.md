@@ -45,7 +45,7 @@ The annotators try to ignore text in other languages than English. This is achie
 	- `“-ncboAnnotator”`		Optional; must be used in conjunction with “-structure”
 	
 	- `“-umlsAnnotator”`	MetaMap must be set up and 	Optional; must be used in conjunction with “-structure”
-- **Configuration**
+**Configuration**
 	</br> The configuration file is located at: </br>
     *client/src/main/resources/config.properties*
 	- **Article language** (comma-separated list of  ISO 639 2 or character language codes). Articles in other languages are skipped and are not being processed. </br> Example: `languagesIncluded=en,de,fr`
@@ -62,7 +62,7 @@ ncbo.annotator.ontologies=ONTOAD,NIFSTD,GALEN,SIO,BIOMO,AURA,RADLEX
 - Import the maven projects into Eclipse (first install the projects with maven from the commandline (`mvn clean:install`); run maven's eclipse plugin  `mvn eclipse:eclipse`, then import the projects into the IDE; In Eclipse Luna: `File->Import->Existing Maven projects`
 - Create an Eclipse-Run-Configuration:
 ##### Sample Eclipse Run-configuration (includes all possible rdfization steps).
-![img1](https://github.com/isabelbarth/kobpsy/tree/master/se4ojs/resources/doc/se4ojsRunConfig1)
-![img2](https://github.com/isabelbarth/kobpsy/tree/master/se4ojs/resources/doc/se4ojsRunConfig2)
+![img1](se4ojs/resources/doc/se4ojsRunConfig1.jpg)
+![img2](se4ojs/resources/doc/se4ojsRunConfig2.png)
 
 
