@@ -63,6 +63,6 @@ ncbo.annotator.ontologies=ONTOAD,NIFSTD,GALEN,SIO,BIOMO,AURA,RADLEX
 - Create an Eclipse-Run-Configuration:
 #### Sample Eclipse Run-configuration (includes all possible rdfization steps).
 ![img1](se4ojs/resources/doc/se4ojsRunConfig1.jpg)
-![img2](hse4ojs/resources/doc/se4ojsRunConfig2.png)
+![img2](se4ojs/resources/doc/se4ojsRunConfig2.png)
 
 
