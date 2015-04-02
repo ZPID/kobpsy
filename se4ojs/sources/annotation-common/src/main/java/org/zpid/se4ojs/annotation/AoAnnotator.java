@@ -131,7 +131,10 @@ public abstract class AoAnnotator {
 				try {
 					String text = p.getText().replaceAll("[\\t\\n\\r]"," ");
 					if (!StringUtils.isEmpty(text) && text.trim().length() > 0  && isSupportedLanguage(p)) {
-						annotations.addAll(annotateText(model, text, subElementUri));
+						List<BOAnnotation> paragraphAnnotations = annotateText(model, text, subElementUri);
+						if (paragraphAnnotations != null) {
+							annotations.addAll(paragraphAnnotations);
+						}
 					}
 				} catch (Exception e) {
 					log.error("Error annotating paragraph " + subElementUri + " : " + e.getLocalizedMessage());
