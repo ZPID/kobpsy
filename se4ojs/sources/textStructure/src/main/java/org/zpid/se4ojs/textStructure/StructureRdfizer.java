@@ -116,22 +116,33 @@ public class StructureRdfizer {
 	private void rdfizeCitations(String subElementUri, BOParagraph p, Model model) {
 		int counter = 0;
 		for (BOCitation citation : p.getCitations()) {
-			String refPointerUri = createUriString(subElementUri, citation.getRid(), Integer.toString(++counter));
-			createResourceTriple(refPointerUri, RDF_TYPE_PROPERTY, 
-					createUriString(Prefix.C4O.getURL(), C4O_TEXT_REF_PTR) , model);
-			String refUri = createUriString(articleUri, "reference-" + citation.getRid());
-			createResourceTriple(refPointerUri, createPropertyString(Prefix.C4O, C4O_DENOTES), 
-					refUri , model);
+			StringBuilder ridUriPartBuilder = new StringBuilder();
+			int ridcount = 0;
+			for (String rid : citation.getRids()) {
+				ridUriPartBuilder.append(rid);
+				if (citation.getRids().size() > 1 && ridcount++ < citation.getRids().size()) {
+					ridUriPartBuilder.append("_");
+				}
+			}
+			String refPointerUri = createUriString(subElementUri, ridUriPartBuilder.toString(), Integer.toString(++counter));
 			createResourceTriple(refPointerUri, createPropertyString(Prefix.C4O, C4O_HAS_CONTEXT), 
 					subElementUri , model);
 			createLiteralTriple(refPointerUri, createPropertyString(Prefix.C4O, C4O_HAS_CONTENT), 
 					citation.getText() , model);
-			Integer count = citationCounts.get(citation.getRid());
-			if (count != null) {
-				createLiteralTriple(refUri, createPropertyString(Prefix.C4O, C4O_HAS_IN_TEXT_FREQ), 
-						Integer.toString(count), XSD.nonNegativeInteger, model);
-				citationCounts.remove(citation.getRid());		
+			createResourceTriple(refPointerUri, RDF_TYPE_PROPERTY, 
+					createUriString(Prefix.C4O.getURL(), C4O_TEXT_REF_PTR) , model);
+			for (String rid : citation.getRids()) {
+				String refUri = createUriString(articleUri, "reference-" + rid);
+				createResourceTriple(refPointerUri, createPropertyString(Prefix.C4O, C4O_DENOTES), 
+						refUri , model);
+				Integer count = citationCounts.get(rid);
+				if (count != null) {
+					createLiteralTriple(refUri, createPropertyString(Prefix.C4O, C4O_HAS_IN_TEXT_FREQ), 
+							Integer.toString(count), XSD.nonNegativeInteger, model);
+					citationCounts.remove(rid);		
+				}
 			}
+
 		}
 		
 	}

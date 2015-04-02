@@ -3,13 +3,15 @@
  */
 package org.zpid.se4ojs.textStructure.bo;
 
+import java.util.List;
+
 /**
  * @author barth
  *
  */
 public class BOCitation {
 
-	private String rid;
+	private List<String> rids;
 	
 	private String text;
 	
@@ -17,12 +19,12 @@ public class BOCitation {
 
 	private String endPage;
 
-	public String getRid() {
-		return rid;
+	public List<String> getRids() {
+		return rids;
 	}
 
-	public void setRid(String rid) {
-		this.rid = rid;
+	public void setRids(List<String> rids) {
+		this.rids = rids;
 	}
 
 	public String getText() {
@@ -48,7 +50,5 @@ public class BOCitation {
 	public String getEndPage() {
 		return endPage;
 	}
-	
-	
 	
 }

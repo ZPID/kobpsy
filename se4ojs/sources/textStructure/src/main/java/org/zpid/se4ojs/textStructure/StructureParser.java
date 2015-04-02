@@ -192,18 +192,26 @@ public class StructureParser {
 			if (refType.equals("bibr")){
 				BOCitation citation = createCitation(xref);
 				paraBo.addCitation(citation);
-				Integer count = internalCitationCounts.get(citation.getRid());
-				if (count == null) {
-					count = 0;
+				for (String rid : citation.getRids()) {
+					Integer count = internalCitationCounts.get(rid);
+					if (count == null) {
+						count = 0;
+					}
+					internalCitationCounts.put(rid, ++count);
 				}
-				internalCitationCounts.put(citation.getRid(), ++count);
 			}
 		}
 	}
 
 	private BOCitation createCitation(Element xref) {
 		BOCitation citation = new BOCitation();
-		citation.setRid(xref.getAttributeValue("rid"));
+		String ridVal = xref.getAttributeValue("rid");
+		List<String> rids = new ArrayList<>();
+		StringTokenizer tokenizer = new StringTokenizer(ridVal, " ");
+		while(tokenizer.hasMoreTokens()) {
+			rids.add(tokenizer.nextToken().trim());
+		}
+		citation.setRids(rids);
 		citation.setText(xref.getText());
 		return citation;
 	}
