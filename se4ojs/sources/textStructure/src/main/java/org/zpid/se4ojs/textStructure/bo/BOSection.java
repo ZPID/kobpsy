@@ -37,9 +37,14 @@ public class BOSection extends StructureElement {
 	
 	public static String createUriTitle(String titleTagValue, List<SectionType> types,
 			int idx, String parentTitle) {
-		String uriTitle = titleTagValue.replaceAll(CHAR_NOT_ALLOWED, "-");
-		uriTitle = uriTitle.replaceAll("[-]+", "-");
-		if (uriTitle.length() > ARBITRARY_TITLE_LENGTH) {
+		
+		String uriTitle = null;
+		if (!StringUtils.isEmpty(titleTagValue)) { 
+			uriTitle = titleTagValue.replaceAll(CHAR_NOT_ALLOWED, "-");
+			uriTitle = uriTitle.replaceAll("[-]+", "-");
+		}
+		if (!StringUtils.isEmpty(uriTitle)
+				&& uriTitle.length() > ARBITRARY_TITLE_LENGTH) {
 			uriTitle = uriTitle.substring(0, ARBITRARY_TITLE_LENGTH - 1);
 		}
 		StringBuilder strBuilder = new StringBuilder();
