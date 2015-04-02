@@ -6,6 +6,7 @@ import java.io.DataOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
@@ -57,7 +58,7 @@ public class NcboAnnotator extends AoAnnotator{
 
 	@Override
 	public List<BOAnnotation> annotateText(Model model, String text,
-			String subElementUri) throws Exception {
+			String subElementUri) throws UnsupportedEncodingException  {
 		List<BOAnnotation> annotations = new ArrayList<>();
 		StringBuilder urlParameters = new StringBuilder();
 		JsonNode results;
