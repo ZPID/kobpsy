@@ -35,8 +35,8 @@ public class SE4OJSAccessHelper {
 	private Logger logger = Logger.getLogger(SE4OJSAccessHelper.class);
 
 	private Path directory;
-	private Path outPaper;
-	private File inPaper;
+	private final Object ncboLock = new Object();
+	private final Object umlsLock = new Object();
 
 	//The system file separator. 
 	static final String FILE_SEPARATOR = System.getProperty("file.separator");
@@ -55,10 +55,11 @@ public class SE4OJSAccessHelper {
 	 * The result is stored in a separate file to prevent the original input from being manipulated.
 	 */
 	public Path structureReferences(Path paperPath, Path outputDir) {
+		Path outPaper = null;
 		try{
 			directory = Files.createDirectories(outputDir);
 			outPaper = Paths.get(directory.toString(), paperPath.getFileName().toString());
-			inPaper = paperPath.toFile();
+			File inPaper = paperPath.toFile();
 			logger.info("=== Structuring References of file: " + paperPath.toString() + "===");
 			ReferenceStructurer refStructurer = new ReferenceStructurer(inPaper, outPaper.toFile(), GlobalResources.BASE_URL);
 			refStructurer.extractReferences();
@@ -108,16 +109,19 @@ public class SE4OJSAccessHelper {
 	 * @param outRDF File to be annotated
 	 * @param outputDir Output dir for the annotated RDF (output located at /AO_annotations subfolder)
 	 * @param pmc Article (file) id
+	 * @throws IOException 
 	 * @throws Exception
 	 */
-	public void annotateFileWithNCBOAnnotator(File paper, List<StructureElement> topLevelElements, String outputDir) throws Exception {
-		logger.info("Starting annotation with NCBO Annotator for paper: " + paper);
-		String ontologyProperties = getOntologyProperties(NCBO);
-		logger.info("Ontologies used for annotation: \n\t" + ontologyProperties);
-		NcboAnnotator ncboAnnotator = new NcboAnnotator(ontologyProperties);
-//		ncboAnnotator.annotateWithApaClusters(paper, topLevelElements, outputDir);
-		ncboAnnotator.annotate(Config.getBaseURI(), paper, topLevelElements, Paths.get(outputDir));
-	}
+	public void annotateFileWithNCBOAnnotator(File paper, List<StructureElement> topLevelElements, String outputDir) throws IOException {
+		    synchronized(ncboLock) { 
+				logger.info("Starting annotation with NCBO Annotator for paper: " + paper);
+				String ontologyProperties = getOntologyProperties(NCBO);
+				logger.info("Ontologies used for annotation: \n\t" + ontologyProperties);
+				NcboAnnotator ncboAnnotator = new NcboAnnotator(ontologyProperties);
+//				ncboAnnotator.annotateWithApaClusters(paper, topLevelElements, outputDir);
+				ncboAnnotator.annotate(Config.getBaseURI(), paper, topLevelElements, Paths.get(outputDir));
+		    } 
+		}
 
 	public List<StructureElement> rdfizeSections(File paper, String outputDir) throws JDOMException, IOException {
 		StructureTransformer structureTransformer = new StructureTransformer(Config.getBaseURI(), Config.getLanguages());
@@ -127,15 +131,16 @@ public class SE4OJSAccessHelper {
 	}
 
 	public void annotateFileWithUmlsAnnotator(File paper, List<StructureElement> topLevelElements, String outputDir) throws IOException {
-		logger.info("Starting annotation with UMLS Annotator for paper: " + paper);
-		String ontologyProperties = getOntologyProperties(UMLS);
-		logger.info("Ontologies used for annotation: \n\t" + ontologyProperties);
-		UmlsAnnotator umlsAnnotator = new UmlsAnnotator(ontologyProperties);
-	    umlsAnnotator.annotate(Config.getBaseURI(), paper, topLevelElements, outputDir);
+	    synchronized(umlsLock) { 
+			logger.info("Starting annotation with UMLS Annotator for paper: " + paper);
+			String ontologyProperties = getOntologyProperties(UMLS);
+			logger.info("Ontologies used for annotation: \n\t" + ontologyProperties);
+			UmlsAnnotator umlsAnnotator = new UmlsAnnotator(ontologyProperties);
+		    umlsAnnotator.annotate(Config.getBaseURI(), paper, topLevelElements, outputDir);
+	    }
 	}
 
 	private String getOntologyProperties(String annotator) {
-//		List<String> ontologies = new ArrayList<>();
 		String ontos = null;
 		Properties properties = new Properties();
 		InputStream inputStream = getClass().getClassLoader().getResourceAsStream("config.properties");
@@ -154,10 +159,7 @@ public class SE4OJSAccessHelper {
 			} else if (annotator.equals(NCBO)) {
 				ontos = (String) properties.get("ncbo.annotator.ontologies");		
 			}
-//			StringTokenizer tokenizer = new StringTokenizer(ontos, ",");
-//			while (tokenizer.hasMoreTokens()) {
-//				ontologies.add(tokenizer.nextToken());
-//			}
+
 			if (StringUtils.isEmpty(ontos)) {
 				logger.error("Unable to annotate files. No ontologies have been specified."
 						+ "Please check properties file:"

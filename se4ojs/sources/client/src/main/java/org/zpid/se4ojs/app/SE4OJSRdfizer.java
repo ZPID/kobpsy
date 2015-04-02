@@ -1,5 +1,6 @@
 package org.zpid.se4ojs.app;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -7,6 +8,7 @@ import java.nio.file.Paths;
 import java.util.List;
 import java.util.SortedSet;
 import java.util.TreeSet;
+import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.LinkedBlockingQueue;
@@ -48,7 +50,8 @@ public class SE4OJSRdfizer {
 	protected final LinkedBlockingQueue<Runnable> queue = new LinkedBlockingQueue<Runnable>();
 	private Logger logger = Logger.getLogger(SE4OJSRdfizer.class);
 	private SE4OJSAccessHelper helper;
-	private List<StructureElement> topLevelElements;
+
+	private int annotationTaskCount;
 	
 	/**
 	 * Default constructor, it defines an initial pool with 5 threads, a maximum
@@ -142,6 +145,7 @@ public class SE4OJSRdfizer {
 				|| processingTasks.contains(ProcessingTask.ALL)) {
 			processingTasks = ProcessingTask.getAllTasks();
 		}
+		processingTasks = ProcessingTask.checkContainsAllAnnotators(processingTasks);
 		if ((inputDir == null) || (outputDir == null)) {
 			System.out
 					.println(USAGE_INFO);
@@ -222,28 +226,48 @@ public class SE4OJSRdfizer {
 	 * @param helper
 	 * @return true, if the file could be processed, false otherwise
 	 */
-	boolean doProcess(Path path, SE4OJSAccessHelper helper) {
+	void doProcess(final Path path, final SE4OJSAccessHelper helper) {
 		try {
+			CountDownLatch doneSignal = null;
+			List<StructureElement> topLevelElements = null;
 			for (ProcessingTask task : processingTasks) {
 				switch (task) {
 				case RDF:
 					if (!helper.rdfizeFile(path.toFile(), outputDir)) {
-						return false;
+						return;
 					}
 					break;
 				case STRUCTURE:
 					topLevelElements = helper.rdfizeSections(path.toFile(), outputDir);
 					break;
-				case NCBO_ANNOTATOR:
-					helper.annotateFileWithNCBOAnnotator(path.toFile(), topLevelElements, outputDir);
-					break;
-				case UMLS_ANNOTATOR:
+				case ALL_ANNOTATORS:
 					if (topLevelElements != null) {
-						helper.annotateFileWithUmlsAnnotator(path.toFile(), topLevelElements, outputDir);						
+						doneSignal = new CountDownLatch(ProcessingTask.ANNOTATION_TASK_COUNT);
+						ProcessingTask annoTask = null;
+						for (int i = 0; i < ProcessingTask.ANNOTATION_TASK_COUNT; i++) {
+							if (++annotationTaskCount % 2 == 0) {
+								annoTask = ProcessingTask.UMLS_ANNOTATOR;
+							} else {
+								annoTask = ProcessingTask.NCBO_ANNOTATOR;
+							}
+						    annotate(helper, path.toFile(), outputDir, topLevelElements, annoTask, doneSignal);
+						}	
+					    doneSignal.await();
 					} else {
-						logger.error("Unable to annotate input file - please process the sections, too");
+						logger.error("Unable to annotate input file - please process the sections, too");						
 					}
-
+					break;
+				case NCBO_ANNOTATOR:
+				case UMLS_ANNOTATOR:
+					doneSignal = new CountDownLatch(1);
+					if (!processingTasks.contains(ProcessingTask.ALL_ANNOTATORS)) {
+						if (topLevelElements != null) {
+							annotate(helper, path.toFile(), outputDir, topLevelElements, task, doneSignal);
+							doneSignal.await();
+						} else {
+							logger.error("Unable to annotate input file - please process the sections, too");						
+						}
+					}
 					break;
 				default:
 					break;
@@ -253,11 +277,18 @@ public class SE4OJSRdfizer {
 			logger.error(path.getFileName()
 					+ " FILE could not be processed: " + e.getMessage());
 			e.printStackTrace();
-			return false;
 		}
-		return true;
 	}
 	
+	private void annotate(SE4OJSAccessHelper helper, File file,
+			String outputDir, List<StructureElement> topLevelElements,
+			ProcessingTask task, CountDownLatch doneSignal) {
+		
+		AnnotationTask annotationTask = 
+				new AnnotationTask(helper, file, outputDir, topLevelElements, task, doneSignal);
+		annotationTask.run();
+	}
+
 	public Path getPreprocessedXmlDir() {
 		return preProcessedDir;
 	}
@@ -266,4 +297,49 @@ public class SE4OJSRdfizer {
 		return limit;
 	}
 
+}
+
+class AnnotationTask implements Runnable {
+
+	SE4OJSAccessHelper helper;
+	File paper;
+	private String outputDir;
+	private List<StructureElement> structureElements;
+	private Exception exception;
+	private ProcessingTask processingTask;
+	private CountDownLatch doneSignal;
+	
+	public AnnotationTask(SE4OJSAccessHelper helper, File file,
+			String outputDir, List<StructureElement> structureElements,
+			ProcessingTask processingTask, CountDownLatch doneSignal) {
+		
+		this.helper = helper;
+		this.paper = file;
+		this.outputDir = outputDir;
+		this.structureElements = structureElements;
+		this.processingTask = processingTask;
+		this.doneSignal = doneSignal;
+	}
+
+	@Override
+	public void run() {
+		try {
+			if (processingTask.equals(ProcessingTask.NCBO_ANNOTATOR)) {
+				helper.annotateFileWithNCBOAnnotator(paper, structureElements, outputDir);			
+			}
+			if (processingTask.equals(ProcessingTask.UMLS_ANNOTATOR)) {
+				helper.annotateFileWithUmlsAnnotator(paper, structureElements, outputDir);			
+			}
+			doneSignal.countDown();
+		} catch (IOException e) {
+			exception = new Exception(paper.getName()
+					+ "could not be fully annotated: " + e.getMessage());
+			e.printStackTrace();
+		}
+	}
+	
+	public Exception getException() {
+		return exception;
+	}
+	
 }
