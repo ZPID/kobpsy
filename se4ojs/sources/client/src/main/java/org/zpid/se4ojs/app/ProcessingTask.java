@@ -12,8 +12,11 @@ import org.apache.commons.lang3.StringUtils;
  *
  */
 public enum ProcessingTask {
-	REFERENCE_PREPROCESSING, RDF, STRUCTURE, NCBO_ANNOTATOR, UMLS_ANNOTATOR, ALL;
+	REFERENCE_PREPROCESSING, RDF, STRUCTURE, NCBO_ANNOTATOR, UMLS_ANNOTATOR, ALL, ALL_ANNOTATORS;
 
+	/** The number of Processing Tasks that are of type annotation task. */
+	public static final int ANNOTATION_TASK_COUNT = 2;
+	
 	@Override
 	public String toString() {
 		switch (this) {
@@ -29,6 +32,8 @@ public enum ProcessingTask {
 			return " UMLS annotator";
 		case ALL:
 			return " all";
+		case ALL_ANNOTATORS:
+			return " all annotators";
 		default:
 			return StringUtils.EMPTY;
 		}
@@ -40,6 +45,21 @@ public enum ProcessingTask {
 		tasks.remove(ProcessingTask.ALL);
 		return tasks;
 	}
+
+	public static SortedSet<ProcessingTask> checkContainsAllAnnotators(
+			SortedSet<ProcessingTask> processingTasks) {
+		if (processingTasks.contains(ProcessingTask.NCBO_ANNOTATOR)
+				&& processingTasks.contains(ProcessingTask.UMLS_ANNOTATOR)) {
+			processingTasks.add(ALL_ANNOTATORS);
+		}
+		return processingTasks;
+	}
+
+	public int getAnnotationTaskCount() {
+		return ANNOTATION_TASK_COUNT;
+	}
+	
+
 	
 }
 
