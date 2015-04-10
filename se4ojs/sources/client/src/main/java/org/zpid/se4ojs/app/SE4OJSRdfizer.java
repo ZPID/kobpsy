@@ -6,6 +6,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
+import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
 import java.util.concurrent.CountDownLatch;
@@ -242,13 +243,20 @@ public class SE4OJSRdfizer {
 					break;
 				case ALL_ANNOTATORS:
 					if (topLevelElements != null) {
-						doneSignal = new CountDownLatch(ProcessingTask.ANNOTATION_TASK_COUNT);
+						doneSignal = new CountDownLatch(ProcessingTask.getAnnotationTaskCount());
 						ProcessingTask annoTask = null;
-						for (int i = 0; i < ProcessingTask.ANNOTATION_TASK_COUNT; i++) {
-							if (++annotationTaskCount % 2 == 0) {
-								annoTask = ProcessingTask.UMLS_ANNOTATOR;
+						Set<ProcessingTask> annotators = ProcessingTask.getAllAnnotators();
+						for (int i = 0; i < ProcessingTask.getAnnotationTaskCount(); i++) {
+							++annotationTaskCount;
+							if (i == 0) {
+								if (annotationTaskCount % 2 == 0) {
+									annoTask = ProcessingTask.UMLS_ANNOTATOR;
+								} else {
+									annoTask = ProcessingTask.NCBO_ANNOTATOR;
+								}
+								annotators.remove(annoTask);
 							} else {
-								annoTask = ProcessingTask.NCBO_ANNOTATOR;
+								annoTask = annotators.iterator().next();
 							}
 						    annotate(helper, path.toFile(), outputDir, topLevelElements, annoTask, doneSignal);
 						}	

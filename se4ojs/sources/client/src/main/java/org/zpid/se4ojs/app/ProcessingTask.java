@@ -12,11 +12,10 @@ import org.apache.commons.lang3.StringUtils;
  *
  */
 public enum ProcessingTask {
-	REFERENCE_PREPROCESSING, RDF, STRUCTURE, NCBO_ANNOTATOR, UMLS_ANNOTATOR, ALL, ALL_ANNOTATORS;
+	REFERENCE_PREPROCESSING, RDF, STRUCTURE, NCBO_ANNOTATOR, UMLS_ANNOTATOR, ALL, 
+	/** Special "marker"-processing task, if all annotators are to be used. */
+	ALL_ANNOTATORS;
 
-	/** The number of Processing Tasks that are of type annotation task. */
-	public static final int ANNOTATION_TASK_COUNT = 2;
-	
 	@Override
 	public String toString() {
 		switch (this) {
@@ -46,17 +45,35 @@ public enum ProcessingTask {
 		return tasks;
 	}
 
+	/**
+	 * Checks whether the passed in set of {@link ProcessingTask}s contains
+	 * all tasks identified as "Annotators". 
+	 * If it does, a "marker" task, "ALL_ANNOTATORS", is added to the set and 
+	 * the modified set is returned.
+	 * 
+	 * @param processingTasks the set of tasks to check
+	 * @return the set of passed in tasks, or the set plus task "All_annotators" if the check has been successful
+	 */
 	public static SortedSet<ProcessingTask> checkContainsAllAnnotators(
 			SortedSet<ProcessingTask> processingTasks) {
-		if (processingTasks.contains(ProcessingTask.NCBO_ANNOTATOR)
-				&& processingTasks.contains(ProcessingTask.UMLS_ANNOTATOR)) {
+		if (processingTasks.containsAll(getAllAnnotators())) {
 			processingTasks.add(ALL_ANNOTATORS);
 		}
 		return processingTasks;
 	}
 
-	public int getAnnotationTaskCount() {
-		return ANNOTATION_TASK_COUNT;
+	public static int getAnnotationTaskCount() {
+		return getAllAnnotators().size();
+	}
+
+	/**
+	 * Returns the tasks marked as "annotators".
+	 * 
+	 * @return a set containing all annotators
+	 */
+	public static SortedSet<ProcessingTask> getAllAnnotators() {
+		ProcessingTask[] annotators = new ProcessingTask[] {ProcessingTask.NCBO_ANNOTATOR, ProcessingTask.UMLS_ANNOTATOR};
+		return new TreeSet<ProcessingTask>(Arrays.asList(annotators));
 	}
 	
 
