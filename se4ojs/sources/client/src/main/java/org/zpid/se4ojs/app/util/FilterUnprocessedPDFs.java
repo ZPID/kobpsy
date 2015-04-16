@@ -24,11 +24,13 @@ import org.apache.log4j.Logger;
  * Files that have not been processed, because the article language is not supported according
  * to the specification in the config.properties file, are filtered and not copied.
  * </p>
+
  * <p>
  * Arguments:
  * <li>Input folder:
  * The script assumes that the given input folder or it sub-folders contain the
  * pdf-files. Please provide a writable folder - The unprocessed PDF-files identified will be deleted.
+ * It is expected that the pdfs' names are equivalent to the xmls' file names.
  * </li>
  * <li>
  * Log-file extract: The scripts expects a file that contains a log-message excerpt.
