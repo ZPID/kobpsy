@@ -17,7 +17,7 @@
 		<module>client</module>
 		<module>jats2spar</module>
 		<module>refStructuring</module>
-		<!-->module>common</module -->
+		<module>common</module>
 		<module>textStructure</module>
 		<module>annotation-ncbo</module>
 		<module>annotation-umls</module>
