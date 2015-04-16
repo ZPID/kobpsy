@@ -6,22 +6,18 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+import org.zpid.se4ojs.app.Config;
+
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class NcboUtils {
-	 public static final String API_KEY = "691c0a68-9a70-4669-9ba2-f2bb3af2047a";
-	 static final String REST_URL = "http://data.bioontology.org";
-	   static final ObjectMapper mapper = new ObjectMapper(); 
-//	 static final String CHAR_NOT_ALLOWED = "[^A-Za-z0-9]";
-//	 
-//	 static String cleanUri(String uriCandidate) {
-//		 
-//		 
-//		 String uri = uriCandidate.replaceAll(CHAR_NOT_ALLOWED, "+");
-//	     uri = uri.replaceAll("[-]+", "-");
-//		 return uri;
+	
+	 public static final String API_KEY = Config.getNCBOAPIKey();
+	 static final String REST_URL = Config.getNCBOAnnotatorURL();
+	 static final ObjectMapper mapper = new ObjectMapper(); 
+
 	    
 	   static String get(String urlToGet) {
 	        URL url;
