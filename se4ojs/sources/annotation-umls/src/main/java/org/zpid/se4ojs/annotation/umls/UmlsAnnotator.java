@@ -87,12 +87,8 @@ public class UmlsAnnotator extends AoAnnotator {
 					for (Mapping map : pcm.getMappingList()) {
 						for (Ev mapEv : map.getEvList()) {
 							BOAnnotation annotation = new BOAnnotation();
-							String url = createExactQualifier(model,
-									mapEv.getConceptId(),
-									mapEv.getPreferredName()
-									);
-							mapEv.getTerm().getName();
-							annotation.setConceptUri(url);
+							String url = setConceptUris(model, mapEv,
+									annotation);
 							addToConceptCount(url);
 							BOContext context = addContexts(model, url,
 									subElementUri, mapEv.getConceptId(), mapEv);
@@ -107,6 +103,40 @@ public class UmlsAnnotator extends AoAnnotator {
 			}
 		}
 		return annotations;
+	}
+
+	/**
+	 * TODO adapt concept count? Do we count each metathesaurus concept or each atom?
+	 * Do we really list each atom?
+	 * 
+	 * @param model
+	 * @param mapEv
+	 * @param annotation
+	 * @return
+	 * @throws Exception
+	 */
+	private String setConceptUris(Model model, Ev mapEv, BOAnnotation annotation)
+			throws Exception {
+		mapMetathesaurusCuiToAtomIDs(model, mapEv, annotation);
+		return setMetathesaurusUri(model, mapEv, annotation);
+		
+	}
+
+	private void mapMetathesaurusCuiToAtomIDs(Model model, Ev mapEv,
+			BOAnnotation annotation) {
+		
+		
+	}
+
+	private String setMetathesaurusUri(Model model, Ev mapEv,
+			BOAnnotation annotation) throws Exception {
+		String url = createExactQualifier(model,
+				mapEv.getConceptId(),
+				mapEv.getPreferredName()
+				);
+		mapEv.getTerm().getName();
+		annotation.setConceptUri(url);
+		return url;
 	}
 
 	private BOContext addContexts(Model model, String url, String subElementUri,
