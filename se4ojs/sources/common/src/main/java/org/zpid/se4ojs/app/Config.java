@@ -6,6 +6,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 
 public class Config {
+	
 	private static ResourceBundle res = ResourceBundle.getBundle("config");
 	private static Logger logger = Logger.getLogger(Config.class);
     public static boolean useBio2RDF = false;
@@ -66,11 +67,7 @@ public class Config {
     public static String getNCBOServiceURL(){
     	return (Config.getProperty("ncbo.service.url"));
     }
-    
-    public static String getNCBOAnnotatorURL(){
-    	return (Config.getProperty("ncbo.annotator.url"));
-    }
-    
+
     public static String getNCBOAPIKey(){
     	return (Config.getProperty("ncbo.apikey"));
     }
