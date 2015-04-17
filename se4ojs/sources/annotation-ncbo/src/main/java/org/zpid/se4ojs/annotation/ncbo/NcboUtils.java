@@ -15,7 +15,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class NcboUtils {
 	
 	 public static final String API_KEY = Config.getNCBOAPIKey();
-	 static final String REST_URL = Config.getNCBOAnnotatorURL();
+	 static final String REST_URL = Config.getNCBOServiceURL();
 	 static final ObjectMapper mapper = new ObjectMapper(); 
 
 	    
