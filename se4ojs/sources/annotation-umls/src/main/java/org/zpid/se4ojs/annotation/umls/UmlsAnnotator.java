@@ -15,11 +15,9 @@ import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashSet;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
-import java.util.StringTokenizer;
 
 import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.apache.commons.lang3.tuple.Pair;
@@ -27,13 +25,12 @@ import org.apache.log4j.Logger;
 import org.ontoware.rdf2go.model.Model;
 import org.zpid.se4ojs.annotation.AnnotationUtils;
 import org.zpid.se4ojs.annotation.AoAnnotator;
-import org.zpid.se4ojs.annotation.BOAnnotation;
+import org.zpid.se4ojs.annotation.BOConcept;
 import org.zpid.se4ojs.annotation.BOContext;
 import org.zpid.se4ojs.annotation.Prefix;
 import org.zpid.se4ojs.textStructure.bo.StructureElement;
 
-/**
- * 
+ /** 
  * Annotates the text content of a given file with vocabulary from the UMLS.
  * <p>
  * The MetaMap program which needs to run on the system this program is running on,
@@ -81,9 +78,10 @@ public class UmlsAnnotator extends AoAnnotator {
 		super.annotate(baseURi, paper, topLevelElements, Paths.get(outputDir, out));
 	}
 
-	public List<BOAnnotation> annotateText(Model model, String paragraph,
+	public Map<BOConcept, List<BOContext>> annotateText(Model model, String paragraph,
 			String subElementUri) throws Exception {
-		List<BOAnnotation> annotations = new ArrayList<>();
+		
+		Map<BOConcept, List<BOContext>> annotations = new HashMap<BOConcept, List<BOContext>>();
 		List<Result> resultList = Collections.emptyList();
 		try {
 			resultList = api.processCitationsFromString(paragraph);
@@ -99,17 +97,20 @@ public class UmlsAnnotator extends AoAnnotator {
 				for (PCM pcm : pcmList) {
 					for (Mapping map : pcm.getMappingList()) {
 						for (Ev mapEv : map.getEvList()) {
-							BOAnnotation annotation = new BOAnnotation();
-							String url = setConceptUris(model, mapEv,
-									annotation);
+							BOConcept concept = new BOConcept();
+							String url = setConceptUris(model, mapEv);
+							concept.setConceptUri(url);
 							addToConceptCount(url);
-							BOContext context = addContexts(model, url,
+							BOContext context = addContext(model, url,
 									subElementUri, mapEv.getConceptId(), mapEv);
-							annotation.getContexts().add(context);
-
 							addBody(model, url, mapEv.getPreferredName());
 							addMetaInfo(model, url, META_MAP_URL);
-							annotations.add(annotation);
+							List<BOContext> contexts = annotations.get(concept);
+							if (contexts.isEmpty()) {
+								contexts = new ArrayList<BOContext>();
+							}
+							contexts.add(context);
+							annotations.put(concept, contexts);
 						}
 					}
 				}
@@ -128,11 +129,10 @@ public class UmlsAnnotator extends AoAnnotator {
 	 * @return
 	 * @throws Exception
 	 */
-	private String setConceptUris(Model model, Ev mapEv, BOAnnotation annotation)
+	private String setConceptUris(Model model, Ev mapEv)
 			throws Exception {
 		mapMetathesaurusCuiToAtomIDs(model, mapEv.getConceptId(), mapEv.getPreferredName());
-		return setMetathesaurusUri(model, mapEv, annotation);
-		
+		return setMetathesaurusUri(model, mapEv);
 	}
 
 	private void mapMetathesaurusCuiToAtomIDs(Model model, String cui, String cuiPrefTerm) {
@@ -140,18 +140,16 @@ public class UmlsAnnotator extends AoAnnotator {
 		Map<String, String> mapCuiToAtomIDs = utsConceptMapper.mapCuiToAtomIDs(cui, cuiPrefTerm);
 	}
 
-	private String setMetathesaurusUri(Model model, Ev mapEv,
-			BOAnnotation annotation) throws Exception {
+	private String setMetathesaurusUri(Model model, Ev mapEv) throws Exception {
 		String url = createExactQualifier(model,
 				mapEv.getConceptId(),
 				mapEv.getPreferredName()
 				);
 		mapEv.getTerm().getName();
-		annotation.setConceptUri(url);
 		return url;
 	}
 
-	private BOContext addContexts(Model model, String url, String subElementUri,
+	private BOContext addContext(Model model, String url, String subElementUri,
 			String conceptId, Ev mapEv) {
 		BOContext context = new BOContext();
 		List<String> matchedWords = null;

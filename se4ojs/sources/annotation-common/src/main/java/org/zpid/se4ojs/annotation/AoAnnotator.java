@@ -33,8 +33,16 @@ import com.hp.hpl.jena.vocabulary.XSD;
 
 
 /**
+ * <p>
+ * An abstract Annotator that handles the common workflow of annotating 
+ * the textual content of a JATs document.
+ * </p>
+ * <p>
+ * The textual content is passed into this annotator as a hierarchy of
+ * {@link StructureElement}s.
+ * </p>
  * 
- *
+ * @author barth
  */
 public abstract class AoAnnotator {
 	
@@ -112,7 +120,7 @@ public abstract class AoAnnotator {
 
 	private Model annotateParagraphs(String parentUri, List<StructureElement> container, Model model) {
 		List<Model> childModels = new ArrayList<>();
-		List<BOAnnotation> annotations = new ArrayList<BOAnnotation>();
+		Map<BOConcept, List<BOContext>> annotations = new HashMap<>();
 		
 		for (StructureElement se : container) {
 			String subElementUri = AnnotationUtils.createSubElementUri(se, articleUri, parentUri);
@@ -131,9 +139,11 @@ public abstract class AoAnnotator {
 				try {
 					String text = p.getText().replaceAll("[\\t\\n\\r]"," ");
 					if (!StringUtils.isEmpty(text) && text.trim().length() > 0  && isSupportedLanguage(p)) {
-						List<BOAnnotation> paragraphAnnotations = annotateText(model, text, subElementUri);
+						Map<BOConcept, List<BOContext>> paragraphAnnotations = annotateText(model, text, subElementUri);
 						if (paragraphAnnotations != null) {
-							annotations.addAll(paragraphAnnotations);
+							synchronized (this) {
+								annotations.putAll(paragraphAnnotations);		
+							}
 						}
 					}
 				} catch (Exception e) {
@@ -161,7 +171,7 @@ public abstract class AoAnnotator {
 		return true;
 	}
 
-	public abstract List<BOAnnotation> annotateText(Model model, String text, String subElementUri) throws Exception;
+	public abstract Map<BOConcept, List<BOContext>> annotateText(Model model, String text, String subElementUri) throws Exception;
 
 	public String getArticleUri() {
 		return articleUri;
@@ -275,6 +285,7 @@ public abstract class AoAnnotator {
 		AnnotationUtils.createLiteralTriple(url,
 				AnnotationUtils.createPropertyString(Prefix.PAV, PAV_CREATION_DATE),
 				dateFormat.format(new Date()), XSD.date, model);
-		
 	}
+	
+	
 }
