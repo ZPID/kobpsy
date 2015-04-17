@@ -8,13 +8,18 @@ import gov.nih.nlm.nls.metamap.PCM;
 import gov.nih.nlm.nls.metamap.Position;
 import gov.nih.nlm.nls.metamap.Result;
 import gov.nih.nlm.nls.metamap.Utterance;
+import gov.nih.nlm.uts.webservice.security.UtsFault_Exception;
 
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.StringTokenizer;
 
 import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.apache.commons.lang3.tuple.Pair;
@@ -46,7 +51,9 @@ public class UmlsAnnotator extends AoAnnotator {
 	private static final String ZPID_APA_URI = "http://www.zpid.de/psyndex#";
 	private static final String META_MAP_URL = "http://metamap.nlm.nih.gov";
 	private static MetaMapApi api = new MetaMapApiImpl();
+	
 	private Logger log = Logger.getLogger(UmlsAnnotator.class);
+	private UtsConceptIDMappingClient utsConceptMapper;
 
 	public UmlsAnnotator(String ontologies) {
 		init(ontologies);
@@ -58,6 +65,12 @@ public class UmlsAnnotator extends AoAnnotator {
 	 */
 	private void init(String ontologies) {
 		api.setOptions(new StringBuilder("-R ").append(ontologies).toString());
+		try {
+			utsConceptMapper = new UtsConceptIDMappingClient();
+		} catch (UtsFault_Exception e) {
+			log.error("The UMLS concept ID matcher could not be initialized. Unable to "
+					+ "map Metathesaurus IDs to IDs of the source vocabularies. ");
+		}
 	}
 
 	public void annotate(String baseURi,File paper,
@@ -117,15 +130,14 @@ public class UmlsAnnotator extends AoAnnotator {
 	 */
 	private String setConceptUris(Model model, Ev mapEv, BOAnnotation annotation)
 			throws Exception {
-		mapMetathesaurusCuiToAtomIDs(model, mapEv, annotation);
+		mapMetathesaurusCuiToAtomIDs(model, mapEv.getConceptId(), mapEv.getPreferredName());
 		return setMetathesaurusUri(model, mapEv, annotation);
 		
 	}
 
-	private void mapMetathesaurusCuiToAtomIDs(Model model, Ev mapEv,
-			BOAnnotation annotation) {
-		
-		
+	private void mapMetathesaurusCuiToAtomIDs(Model model, String cui, String cuiPrefTerm) {
+		@SuppressWarnings("unused")
+		Map<String, String> mapCuiToAtomIDs = utsConceptMapper.mapCuiToAtomIDs(cui, cuiPrefTerm);
 	}
 
 	private String setMetathesaurusUri(Model model, Ev mapEv,
@@ -196,10 +208,6 @@ public class UmlsAnnotator extends AoAnnotator {
 		return url;
 	}
 
-	private String mapUmlsIdToApaId(String id) {
-		// TODO Auto-generated method stub
-		return "todo";
-	}
 //	public static void main(String[] args) throws Exception {
 //	MetaMapApi api = new MetaMapApiImpl();
 //	api.setOptions("-C");

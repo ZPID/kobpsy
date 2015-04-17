@@ -20,6 +20,12 @@
 		<!-- internal project dependencies -->
 		<dependency>
 			<groupId>org.zpid.se4ojs</groupId>
+			<artifactId>common</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.zpid.se4ojs</groupId>
 			<artifactId>annotation-common</artifactId>
 			<version>${project.version}</version>
 		</dependency>
