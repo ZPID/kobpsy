@@ -1,6 +1,9 @@
 package org.zpid.se4ojs.app;
 
+import java.util.HashSet;
 import java.util.ResourceBundle;
+import java.util.Set;
+import java.util.StringTokenizer;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
@@ -75,7 +78,36 @@ public class Config {
     public static String getNCBOStopwords(){
     	return (Config.getProperty("ncbo.stopwords"));
     }
-
+    
+    
+    //UMLS Annotator
+    public static String getUMLSUsername(){
+    	return (Config.getProperty("umls.username"));
+    }
+    
+    public static String getUMLSPassword(){
+    	return (Config.getProperty("umls.password"));
+    }
+    
+    public static Set<String> getUmlsOntologiesAsSet() {
+    		StringTokenizer tokenizer = new StringTokenizer(Config.getProperty("umls.annotator.ontologies"));
+    		Set<String> ontologySet = new HashSet<>();
+    		while (tokenizer.hasMoreTokens()) {
+    			ontologySet.add(tokenizer.nextToken());
+    		}
+    		return ontologySet;
+    }
+    
+    /**
+     * Returns the Version of the UMLS used by the
+     * UTS services.
+     * 
+     * @return the UMLS version for UTS services
+     */
+    public static String getUmlsVersionForUtsServices() {
+    	return (Config.getProperty("umls.version.uts"));
+    }
+    
     //Other URLS
     public static String getPubMedURL(){
     	return (Config.getProperty("pubmed.url"));
