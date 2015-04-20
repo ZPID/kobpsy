@@ -90,7 +90,7 @@ public class Config {
     }
     
     public static Set<String> getUmlsOntologiesAsSet() {
-    		StringTokenizer tokenizer = new StringTokenizer(Config.getProperty("umls.annotator.ontologies"));
+    		StringTokenizer tokenizer = new StringTokenizer(Config.getProperty("umls.annotator.ontologies"), ",");
     		Set<String> ontologySet = new HashSet<>();
     		while (tokenizer.hasMoreTokens()) {
     			ontologySet.add(tokenizer.nextToken());
