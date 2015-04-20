@@ -63,7 +63,7 @@ public class UmlsAnnotator extends AoAnnotator {
 	private void init(String ontologies) {
 		api.setOptions(new StringBuilder("-R ").append(ontologies).toString());
 		try {
-			utsConceptMapper = new UtsConceptIDMappingClient();
+			utsConceptMapper = UtsConceptIDMappingClient.getInstance();
 		} catch (UtsFault_Exception e) {
 			log.error("The UMLS concept ID matcher could not be initialized. Unable to "
 					+ "map Metathesaurus IDs to IDs of the source vocabularies. ");

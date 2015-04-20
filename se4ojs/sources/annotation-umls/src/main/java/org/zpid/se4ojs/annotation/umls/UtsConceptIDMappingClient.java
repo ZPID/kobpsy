@@ -10,6 +10,8 @@ import gov.nih.nlm.uts.webservice.security.UtsFault_Exception;
 import gov.nih.nlm.uts.webservice.security.UtsWsSecurityController;
 import gov.nih.nlm.uts.webservice.security.UtsWsSecurityControllerImplService;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -24,7 +26,9 @@ import org.zpid.se4ojs.exception.AnnotationException;
  * Web client that calls UTS 2.0 services to map metathesaurus-CUIs to 
  * the concept IDs of the UMLS source vocabularies configured by the user. 
  * </p>
- *  
+ * 
+ * @Singleton
+ * 
  * @author barth
  *
  */
@@ -34,9 +38,14 @@ public class UtsConceptIDMappingClient {
 	
 	// TODO move to Config
 	private static final String serviceName = "http://umlsks.nlm.nih.gov";
+
+	public static final int EXPIRY_INTERVALL = 8;
 	
-	private UtsWsSecurityController	utsSecurityService =
-			(new UtsWsSecurityControllerImplService()).getUtsWsSecurityControllerImplPort();
+	/** The singleton instance of this class. */
+	private static UtsConceptIDMappingClient utsConceptIDMappingClient;
+
+	/** The security service that obtains the tickets. */
+	private UtsWsSecurityController	utsSecurityService;
 
 	private Logger log = Logger.getLogger(UtsConceptIDMappingClient.class);
 
@@ -46,34 +55,42 @@ public class UtsConceptIDMappingClient {
 	/** This ticket authenticates the user at UTS and is valid for 8 hours. */
 	private String proxyGrantTicket;
 	
+	private Date proxyGrantTicketExpiryTime;
+
+	/** Stores an object that passes properties to the service. */
 	private Psf psf;
 
 	private UtsWsContentController utsContentService;
 
-	public UtsConceptIDMappingClient() throws UtsFault_Exception {
-		super();
-		init();
-	}
-	
-	private void init() throws UtsFault_Exception {
-		proxyGrantTicket = getProxyGrantTicket();
-		utsContentService = initServices(utsContentService);
-		psf = createPsf();
-	}
-
-	
 	/**
 	 * Gets a ticket which authenticates the user at UTS and is valid for 8 hours.
 	 * 
 	 * @return the ticket
 	 * @throws UtsFault_Exception if ticket could not be obtained
 	 */
-	private String getProxyGrantTicket() throws UtsFault_Exception {
-		UtsWsSecurityController securityService = 
-				(new UtsWsSecurityControllerImplService()).getUtsWsSecurityControllerImplPort();
-		return securityService.getProxyGrantTicket(Config.getUMLSUsername(),
+	String createProxyGrantTicket() throws UtsFault_Exception {
+		Calendar cal = Calendar.getInstance();
+		cal.add(Calendar.HOUR_OF_DAY, EXPIRY_INTERVALL);
+		proxyGrantTicketExpiryTime = cal.getTime();
+		return utsSecurityService.getProxyGrantTicket(Config.getUMLSUsername(),
 						Config.getUMLSPassword());
-
+	}
+	
+	private UtsConceptIDMappingClient() throws UtsFault_Exception {
+		super();
+		init();
+	}
+	
+	private void init() throws UtsFault_Exception {
+		utsContentService = initServices();
+		psf = createPsf();
+	}
+	
+	public static UtsConceptIDMappingClient getInstance() throws UtsFault_Exception {
+		if (utsConceptIDMappingClient != null) {
+			return utsConceptIDMappingClient;
+		}
+		return new UtsConceptIDMappingClient();
 	}
 
 	/**
@@ -87,28 +104,35 @@ public class UtsConceptIDMappingClient {
 		Map<String, String> atoms = new HashMap<>();
 	    
 		try {
-			List<AtomDTO> conceptAtoms = utsContentService.getConceptAtoms(getSingleUseTicket(), UMLS_VERSION, "C0870087", psf);
+			List<AtomDTO> conceptAtoms = utsContentService.getConceptAtoms(getSingleUseTicket(), UMLS_VERSION, cui, psf);
+			log.debug("cui pref label: " + cuiPrefLabel);
+			boolean found = false;
 			for (AtomDTO atom : conceptAtoms) {
 				String rootSource = atom.getRootSource();
-				String ui = atom.getSourceUi();
+				String ui = atom.getCode().getSourceUi();
 				if (ontologies.contains(rootSource)) {
-					atoms.put(ui, rootSource);
-					System.out.println("id: " + ui);
-					System.out.println("source: " + atom.getRootSource() + "\n");
-					log.info("id: " + ui);
-					log.info("source: " + atom.getRootSource());
-					log.info("pref terms: " + atom.getConcept().getDefaultPreferredName());
-					if (!cuiPrefLabel.equals(atom.getConcept().getDefaultPreferredName())) {
-						log.info("Pref terms differ!");
-					}
-					log.info("tree position count: " + atom.getTreePositionCount());
-				} else {
-					log.warn("No atoms found for CUI: " + cui + "with name : " + cuiPrefLabel);
+						found = true;
+						atoms.put(ui, rootSource);
+						System.out.println("id: " + ui);
+						System.out.println("source: " + atom.getRootSource() + "\n");
+						if (ui == null) {
+							log.warn("no id for concept: " + cui + "with term: " + cuiPrefLabel);
+						}
+						log.info("id: " + ui);
+						log.info("source: " + atom.getRootSource());
+						log.info("pref terms: " + atom.getConcept().getDefaultPreferredName());
+						if (!cuiPrefLabel.equals(atom.getConcept().getDefaultPreferredName())) {
+							log.info("Pref terms differ!");
+						}
+						log.info("tree position count: " + atom.getTreePositionCount());
 				}
+			}	
+			if (!found) {
+				log.warn("No atoms found for CUI: " + cui + "with name : " + cuiPrefLabel);
 			}
-
 		} catch (gov.nih.nlm.uts.webservice.content.UtsFault_Exception e) {
-			// TODO Auto-generated catch block
+			log.error(("Error mapping UMLS metathesaurus concept (cui / label) to source vocab ids:"
+					+ " " + cui + cuiPrefLabel));
 			e.printStackTrace();
 		}	
 		return atoms;
@@ -133,13 +157,19 @@ public class UtsConceptIDMappingClient {
 	 * 
 	 * @param utsContentService the uninitialized content service.
 	 * @return the initialized content service
+	 * @throws UtsFault_Exception 
 	 */
-	private UtsWsContentController initServices(
-			UtsWsContentController utsContentService) {
-		UtsWsMetadataController utsMetadataService = null;
-
+	private UtsWsContentController initServices() throws UtsFault_Exception {
+		utsSecurityService = 
+				(new UtsWsSecurityControllerImplService()).getUtsWsSecurityControllerImplPort();
+		
+		proxyGrantTicket = createProxyGrantTicket();
+		
 		utsContentService = (new UtsWsContentControllerImplService())
 				.getUtsWsContentControllerImplPort();
+		
+		
+		UtsWsMetadataController utsMetadataService = null;
 
 		utsMetadataService = (new UtsWsMetadataControllerImplService())
 				.getUtsWsMetadataControllerImplPort();
@@ -158,8 +188,11 @@ public class UtsConceptIDMappingClient {
 		return utsContentService;
 	}
 	
-	private String getSingleUseTicket() {
+	String getSingleUseTicket() {
 		try {
+			if (getDate().compareTo(proxyGrantTicketExpiryTime)  > 0) {
+				proxyGrantTicket = createProxyGrantTicket();
+			}
 			return utsSecurityService.getProxyTicket(proxyGrantTicket,
 					serviceName);
 		} catch (Exception e) {
@@ -168,6 +201,10 @@ public class UtsConceptIDMappingClient {
 			log.error("Unable to obtain a single use ticket for UTS services.");
 			return null;
 		}
+	}
+
+	Date getDate() {
+		return new Date();
 	}
 
 	/**
