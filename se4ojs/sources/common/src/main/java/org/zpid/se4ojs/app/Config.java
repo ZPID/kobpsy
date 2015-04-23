@@ -1,5 +1,6 @@
 package org.zpid.se4ojs.app;
 
+import java.io.InputStream;
 import java.util.HashSet;
 import java.util.ResourceBundle;
 import java.util.Set;
@@ -26,6 +27,7 @@ public class Config {
      */
     public static final String IDENTIFIERS_ORG_PUBMED = "http://identifiers.org/pubmed/";
     public static final String BIO2RDF_PUBMED = "http://bio2rdf.org/pubmed:";
+	private static final String TRUE = "true";
 
     public static String getProperty(String prop) {
         try {
@@ -79,6 +81,9 @@ public class Config {
     	return (Config.getProperty("ncbo.stopwords"));
     }
     
+    public static String getNCBOBaseConceptUri() {
+    	return (Config.getProperty("ncbo.baseConceptUri"));
+    }
     
     //UMLS Annotator
     public static String getUMLSUsername(){
@@ -87,6 +92,10 @@ public class Config {
     
     public static String getUMLSPassword(){
     	return (Config.getProperty("umls.password"));
+    }
+    
+    public static String getOntologiesAsString() {
+		return Config.getProperty("umls.annotator.ontologies");
     }
     
     public static Set<String> getUmlsOntologiesAsSet() {
@@ -98,6 +107,17 @@ public class Config {
     		return ontologySet;
     }
     
+    public static String getUmlsBaseConceptUri() {
+    	return Config.getProperty("umls.baseConceptUri");
+    }
+    
+    public static boolean isAddNcboConceptUris() {
+    	if (Config.getProperty("umls.addNcboConceptUris").compareToIgnoreCase(TRUE) == 0) {
+    		return true;
+    	}
+    	return false;
+    }
+    
     /**
      * Returns the Version of the UMLS used by the
      * UTS services.
@@ -107,6 +127,14 @@ public class Config {
     public static String getUmlsVersionForUtsServices() {
     	return (Config.getProperty("umls.version.uts"));
     }
+    
+	public static String getUmlsMetamapOptions() {
+		String options = Config.getProperty("umls.metamap.options");
+		if (!StringUtils.isEmpty(options)) {
+			return options;
+		}
+		return "";
+	}
     
     //Other URLS
     public static String getPubMedURL(){
@@ -134,4 +162,10 @@ public class Config {
 		}
 		return languages;
 	}
+
+	public static InputStream getOntologyMappingFile() {
+		return Config.class.getClassLoader().
+		getResourceAsStream("ontologyNameMappings_Ncbo_Umls.txt");
+	}
+
 }

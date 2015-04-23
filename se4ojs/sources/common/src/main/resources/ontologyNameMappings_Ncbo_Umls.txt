@@ -1,7 +1,28 @@
-APA Thesaurus,APAONTO,PSY
-National Cancer Institute Thesaurus,NCIT, NCI
-Health Level Seven Reference Implementation Model Version 3,HL7, HL7V3.0
-Medical Subject Headings,	MESH, MSH
-Logical Observation Identifier Names and Codes terminology,	LOINC, LNC
-Computer Retrieval of Information on Scientific Projects,	CRISP, CSP
-International Classification for Nursing Practice,	ICNP, ICNP
+#Columns:
+# ontologyName, NCBO abbreviation, UMLS abbreviation, bioontology ontology URL, concept separator in URI, concept prefName (P) or code (C),
+# if (P) delimiter of multiword concepts, if (P): stop words omitted in concept name? (stopWords)
+
+
+# http://ontology.apa.org/apaonto/termsonlyOUT%20(5).owl#Behavior
+APA Thesaurus,APAONTO,PSY,http://ontology.apa.org/apaonto/termsonlyOUT%2520(5).owl, %23, P, _ , stopWords
+
+# http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C16326
+# http://bioportal.bioontology.org/ontologies/NCIT?p=classes&conceptid=http%3A%2F%2Fncicb.nci.nih.gov%2Fxml%2Fowl%2FEVS%2FThesaurus.owl%23C12434
+National Cancer Institute Thesaurus,NCIT, NCI,http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl, %23, C
+
+# http://purl.bioontology.org/ontology/HL7/C1550615
+# http://bioportal.bioontology.org/ontologies/HL7?p=classes&conceptid=http%3A%2F%2Fpurl.bioontology.org%2Fontology%2FHL7%2FC1550615
+Health Level Seven Reference Implementation Model Version 3,HL7, HL7V3.0, http://purl.bioontology.org/ontology/HL7, /, C
+
+# http://purl.bioontology.org/ontology/MESH/Q000097
+Medical Subject Headings,                                	MESH, MSH    , http://purl.bioontology.org/ontology/MESH, /, C
+
+# http://purl.bioontology.org/ontology/LNC/MTHU029981
+Logical Observation Identifier Names and Codes terminology,	LOINC, LNC, http://purl.bioontology.org/ontology/LNC, /, C
+
+# http://purl.bioontology.org/ontology/CSP/0432-0354
+# http://bioportal.bioontology.org/ontologies/CRISPp=classes&conceptid=http://purl.bioontology.org/ontology/CSP/1123-6127
+Computer Retrieval of Information on Scientific Projects, CRISP, CSP, http://purl.bioontology.org/ontology/CSP, /, C
+
+# http://www.icn.ch/icnp#Blood
+International Classification for Nursing Practice,	ICNP, ICNP,  http://www.icn.ch/icnp,%23 , P, ,
