@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.zpid.se4ojs.textStructure.SectionType;
 
 public class BOSection extends StructureElement {
@@ -106,5 +108,31 @@ public class BOSection extends StructureElement {
 	public String getTitle() {
 		return title;
 	}
+	
+	public boolean equals(Object obj) {
+		if (obj == null) {
+			return false;
+		}
+		if (obj == this) {
+			return true;
+		}
+		if (obj.getClass() != getClass()) {
+			return false;
+		}
+		BOSection rhs = (BOSection) obj;
+		return new EqualsBuilder()
+				.append(types, rhs.types)
+				.append(externalLinks, rhs.externalLinks)
+				.append(lists, rhs.lists)
+				.append(childStructures, rhs.childStructures)
+				.append(title, rhs.title).isEquals();
+	}
+
+	public int hashCode() {
+		return new HashCodeBuilder(21, 59)
+				.append(types).append(externalLinks)
+				.append(lists).append(childStructures).append(title).toHashCode();
+	}
+	
 
 }

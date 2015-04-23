@@ -4,6 +4,9 @@
 package org.zpid.se4ojs.textStructure.bo;
 import java.util.ArrayList;
 import java.util.List;
+
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
 /**
  * @author barth
  *
@@ -36,5 +39,27 @@ public class BOParagraph extends StructureElement {
 	public void addCitation(BOCitation citation) {
 		citations.add(citation);
 	}
+	public boolean equals(Object obj) {
+		if (obj == null) {
+			return false;
+		}
+		if (obj == this) {
+			return true;
+		}
+		if (obj.getClass() != getClass()) {
+			return false;
+		}
+		BOParagraph rhs = (BOParagraph) obj;
+		return new EqualsBuilder()
+				.append(text, rhs.text)
+				.append(citations, rhs.citations)
+				.isEquals();
+	}
+
+	public int hashCode() {
+		return new HashCodeBuilder(17, 37).append(text)
+				.append(text).append(citations).toHashCode();
+	}
+	
 	
 }
