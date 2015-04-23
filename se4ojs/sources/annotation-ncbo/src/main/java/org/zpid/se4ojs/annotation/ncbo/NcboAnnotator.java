@@ -13,7 +13,6 @@ import java.net.URLEncoder;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
-import java.util.Map;
 
 import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.apache.commons.lang3.tuple.Pair;
@@ -21,7 +20,6 @@ import org.apache.log4j.Logger;
 import org.ontoware.rdf2go.model.Model;
 import org.zpid.se4ojs.annotation.AnnotationUtils;
 import org.zpid.se4ojs.annotation.AoAnnotator;
-import org.zpid.se4ojs.annotation.BOConcept;
 import org.zpid.se4ojs.annotation.BOContext;
 import org.zpid.se4ojs.annotation.Prefix;
 import org.zpid.se4ojs.textStructure.bo.StructureElement;
@@ -57,7 +55,7 @@ public class NcboAnnotator extends AoAnnotator{
 //	}
 
 	@Override
-	public Map<BOConcept, List<BOContext>> annotateText(Model model, String text,
+	public void annotateText(Model model, String text,
 			String subElementUri) throws UnsupportedEncodingException  {
 		StringBuilder urlParameters = new StringBuilder();
 		JsonNode results;
@@ -67,11 +65,10 @@ public class NcboAnnotator extends AoAnnotator{
 		urlParameters.append(createUrlParameterForOntologies());
 		results = jsonToNode(post(REST_URL + "/annotator", urlParameters.toString()));
 		if (results != null) {
-			return rdfizeAnnotations(model, results, subElementUri);	
+			rdfizeAnnotations(model, results, subElementUri);	
 		} else {
 			log.error("NCBOAnnotator: Results are null!. : Text: " + text);
 		}
-		return null;
 		
 	}
 
@@ -84,7 +81,7 @@ public class NcboAnnotator extends AoAnnotator{
     	return new StringBuilder("&ontologies=").append(ontologies).toString();
     }
 
-	private Map<BOConcept, List<BOContext>> rdfizeAnnotations(Model model, JsonNode results, String subElementUri) {
+	private void rdfizeAnnotations(Model model, JsonNode results, String subElementUri) {
 
         for (JsonNode result : results) {
             // Get the details for the class that was found in the annotation and print
@@ -126,8 +123,6 @@ public class NcboAnnotator extends AoAnnotator{
                 }            	
             }
         }
-		return null; //TODO implement annotation hash map when required
-		
 	}
 
 	/**
