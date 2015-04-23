@@ -6,6 +6,9 @@ package org.zpid.se4ojs.annotation;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
+
 /**
  * Represents a concept.
  * 
@@ -14,10 +17,12 @@ import java.util.List;
 public class BOConcept {
 	
 	private String conceptUri;
-	private String preferredName;
-	private String name;
 	/** The uris denoting the source terminology and conceptId. */
 	private List<String> topicUris = new ArrayList<>();
+	
+	private String preferredName;
+	private String name;
+
 	private String authorUri;
 	
 	public String getPreferredName() {
@@ -49,5 +54,26 @@ public class BOConcept {
 	}
 	public String getConceptUri() {
 		return conceptUri;
+	}
+	public boolean equals(Object obj) {
+		if (obj == null) {
+			return false;
+		}
+		if (obj == this) {
+			return true;
+		}
+		if (obj.getClass() != getClass()) {
+			return false;
+		}
+		BOConcept rhs = (BOConcept) obj;
+		return new EqualsBuilder()
+				.append(conceptUri, rhs.conceptUri)
+				.append(preferredName, rhs.preferredName)
+				.isEquals();
+	}
+
+	public int hashCode() {
+		return new HashCodeBuilder(19, 39).append(conceptUri)
+				.append(preferredName).toHashCode();
 	}
 }

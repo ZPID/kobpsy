@@ -108,4 +108,5 @@ public class AnnotationUtils {
 			String predicate, String object, Model model) {
 		model.addStatement(model.createURI(subject), model.createURI(predicate), model.createURI(object));
 	}
+
 }

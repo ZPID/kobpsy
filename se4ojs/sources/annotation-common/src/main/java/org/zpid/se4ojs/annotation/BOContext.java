@@ -6,6 +6,8 @@ package org.zpid.se4ojs.annotation;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.tuple.Pair;
 
 /**
@@ -58,5 +60,30 @@ public class BOContext {
 	public void setOffsetsAndRanges(List<Pair<Integer, Integer>> offsetsAndRanges) {
 		this.offsetsAndRanges = offsetsAndRanges;
 	}
-	
+	public boolean equals(Object obj) {
+		if (obj == null) {
+			return false;
+		}
+		if (obj == this) {
+			return true;
+		}
+		if (obj.getClass() != getClass()) {
+			return false;
+		}
+		BOContext rhs = (BOContext) obj;
+		return new EqualsBuilder()
+				.append(subElementUri, rhs.subElementUri)
+				.append(contextUri, rhs.contextUri)
+				.append(matchedWords, rhs.matchedWords)
+				.append(offsetsAndRanges, rhs.offsetsAndRanges)
+				.isEquals();
+	}
+
+	public int hashCode() {
+		return new HashCodeBuilder(19, 39)
+				.append(subElementUri)
+				.append(contextUri)
+				.append(matchedWords)
+				.append(offsetsAndRanges).toHashCode();
+	}
 }
