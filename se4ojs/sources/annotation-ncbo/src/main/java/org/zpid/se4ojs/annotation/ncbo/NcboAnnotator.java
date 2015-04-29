@@ -172,6 +172,7 @@ public class NcboAnnotator extends AoAnnotator{
         String line;
         String result = "";
         try {
+//        	System.out.println("url params for ncbo annotator: " + urlToGet + "params " + urlParameters);
             url = new URL(urlToGet);
             conn = (HttpURLConnection) url.openConnection();
             conn.setDoOutput(true);
