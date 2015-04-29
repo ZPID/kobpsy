@@ -20,8 +20,10 @@ workflow. Contains the main class "SE4OJSRdfizer".
 - **annotation-common-module:** Contains shared classes used by all content-annotation components.
 - **annotation-ncbo-module:** Automatically annotates the textual content of the article with user-defined bioportal ontologies, using the [NCBO annotator web-service](http://data.bioontology.org/documentation#nav_annotator). Creates an annotation context, relating the concept to the text location where it occurs. Keeps track of the frequency of occurrence of each concept. Outputs a third rdf-file containing this information.
 - **annotation-umls-module:** Automatically annotates the textual content of the article with user-defined UMLS ontologies, using the [java api](http://metamap.nlm.nih.gov/JavaApi.shtml) of the [MetaMap](http://metamap.nlm.nih.gov/) tool. It is a prerequisite to running this module that an accessible MetaMap server is running (if installed on another machine, the code must be adapted, since the MetaMap server location is not user-configurable yet). Produces the same annotations and output like the annotation-ncbo module.
+- **common-module:** Contains important user configuration files. Also contains resources and classes used by more than one project.
 
-All rdfization steps are optional. But both annotators depend on the text-structure rdfization step.
+### General Notes  
+All rdfization steps are optional. But there are some constraints due to a dependency: Annotators depend on the text-structure rdfization step.
 The annotators try to ignore text in other languages than English. This is achieved by checking whether the section or paragraph containing the text has a language attribute-value that specifies another language than English. Once such an attribute-value is encountered, the annotator skips this textual element including all its child-elements.   
 ###Project Setup###
 
@@ -32,7 +34,7 @@ The annotators try to ignore text in other languages than English. This is achie
 #####Running SE4OJS
 
 
-- **Main class**. The entry point, i.e. the main method to run the application is se4ojs\sources\client\src\main\java\org\zpid\se4ojs\app\SE4OJSRdfizer.java
+- **Main class**. The entry point, i.e. the main method to run the application is *se4ojs\sources\client\src\main\java\org\zpid\se4ojs\app\SE4OJSRdfizer.java*
 - Possible **commandline-arguments** are:
 
 	-  `“-in” “path/to/dir”`	, *mandatory*. Input directory containing the JATS-xml Files (Version 1.0). The directory only processes .xml files. It may contain other files or nested directories, (e.g. the pdf representations of the articles) which will be ignored. A path to a single file is also possible.
@@ -45,18 +47,53 @@ The annotators try to ignore text in other languages than English. This is achie
 	- `“-ncboAnnotator”`		Optional; must be used in conjunction with “-structure”
 	
 	- `“-umlsAnnotator”`	MetaMap must be set up and 	Optional; must be used in conjunction with “-structure”
-**Configuration**
-	</br> The configuration file is located at: </br>
-    *client/src/main/resources/config.properties*
+- **Configuration Reference**
+	</br> The main configuration file is located at: </br>
+    *common/src/main/resources/config.properties*
+     
 	- **Article language** (comma-separated list of  ISO 639 2 or character language codes). Articles in other languages are skipped and are not being processed. </br> Example: `languagesIncluded=en,de,fr`
 	- **Base URI** (Base URI for all persistent and non-persistent URIs required for the creation of rdf-resources) </br>
 	Example: `baseUri=http://www.zpid.de/resource`
 
-	- **NCBO annotator**. You need to acquire an API-key in order to access the annotator. </br> *Example*:  ncbo.service.url=http://data.bioontology.org/annotator
-    ncbo.annotator.url=http://bioportal.bioontology.org/annotator/
-    ncbo.apikey=*[your API-key here]*
-ncbo.annotator.ontologies=ONTOAD,NIFSTD,GALEN,SIO,BIOMO,AURA,RADLEX
-	- **UMLS annotator**.  </br> *Example*: umls.annotator.ontologies=MSH,PSY,NCI,HL7V3.0,RCD,LNC,CSP,ICNP
+	- **NCBO annotator**. You need to acquire an API-key in order to access the annotator. The url of the annotator service is configured and the ontologies that shall be used to annotate the textual content need to be specified.
+	 </br> *Example*:  
+    `ncbo.service.url=http://data.bioontology.org/annotator` </br>
+    `ncbo.apikey=*[your API-key here]*`</br>
+    `ncbo.annotator.ontologies=ONTOAD,NIFSTD,GALEN,SIO,BIOMO,AURA,RADLEX`
+	- **UMLS annotator**.  </br>
+	If the program is run with the UMLS Annotator, the version of the UMLS used for the UTS Web Services and a list of ontologies for annotation have to be specified.
+     </br> *Example*:</br>
+         `umls.version.uts=2014AB`</br>
+          Process only these vocabularies with UMLS MetaMap;</br>
+          The comma-separated list must not contain any spaces</br>
+          `umls.annotator.ontologies=MSH,PSY,NCI,HL7V3.0,RCD,LNC,CSP,ICNP`</br>
+  	- **Concept Linking**.  </br>  
+ It is possible to match UMLS metathesaurs concepts extracted by the UMLS Annotator to the corresponding BioPortal concepts (which will considerably increase processing time and size of the rdf-files).
+    For this, more configuration options in the main configuration file must be present:</br>
+    The flag for concept matching must be set to "true". UMLS user name and password to access the UTS-WebService, which will fetch the "Atom"-concept from the source vocabularies for each Metathesaurus concept found by MetaMap and the base-URI of the metathesaurus concepts in the UMLS Metathesaurus Browser. Respectively, the base URI for the NCBO concepts used by the bioportal ontology browser must be provided.
+    </br> *Example*:</br>
+    `umls.addNcboConceptUris=true`</br>
+   `umls.username=yourUsernameHere`</br>
+   `umls.password=yourPasswordHere`</br>
+   `umls.baseConceptUri=https://uts.nlm.nih.gov//metathesaurus.html`</br>
+   `ncbo.baseConceptUri=http://bioportal.bioontology.org/ontologies/`</br>
+   - In addition to these properties in the main configuration file, an ontology configuration file for concept linking exists at:
+   *common/src/main/resources/ontologyNameMappings_Ncbo_Umls.txt*
+   This additional configuration file is necessary since the naming of the NCBO browser URIs do not follow any hard rules and may vary across different bioportal ontologies, depending on the URI scheme the ontology submitter had chosen. There is one line per ontology. The line is a comma-separated list.</br>
+   The following information must be specified for each ontology:
+      - ontologyName               : human-readable name of the ontology
+      - NCBO abbreviation          : abbreviation for this ontology used by Bioportal
+      - UMLS abbreviation          : abbreviation for this ontology used by the UMLS
+      - bioontology ontology URL   : The bioportal browser URL for this ontology (this might vary from the one used as part of the concept ID)
+      - concept separator in URI   :The separator used between the ontology base URL and an individual concept, as in `http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C16326`
+      - concept prefName (P) or code (C): frequently, either the preferred label of a concept is used as the concept ID or the concept code, as in
+        `http://ontology.apa.org/apaonto/termsonlyOUT%20(5).owl#**Behavior**` or in `http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#**C16326**`
+      - delimiter of multiword concepts: If the concept's preferred name (P) is used in the URI, ontologies vary how they separate words if a concept name consists of multiple words. Specify the delimter character here.
+      Example ´_ ´
+      - stopwords                   : If (P) is used: In some ontologies stopwords are omitted from preferred concept names. This is for example the case with the APAONTO-ontology. Simply state 'stopWords' in this column if this is the case, otherwise leave empty. Currently, instead of using a list of stopwords, all words with maximum length of 2 characters in a multi-word concept are ignored. This covers many, but of course not all concepts (as in "Abuse of Power".
+   Example entry for mapping two ontologies: </br>
+`APA Thesaurus,APAONTO,PSY,http://ontology.apa.org/apaonto/termsonlyOUT%2520(5).owl, %23, P, _ , stopWords`
+`Logical Observation Identifier Names and Codes terminology,	LOINC, LNC, http://purl.bioontology.org/ontology/LNC, /, C`
 
 ### Sample Setup for Eclipse
 - Import the maven projects into Eclipse (first install the projects with maven from the commandline (`mvn clean:install`); run maven's eclipse plugin  `mvn eclipse:eclipse`, then import the projects into the IDE; In Eclipse Luna: `File->Import->Existing Maven projects`
@@ -64,6 +101,7 @@ ncbo.annotator.ontologies=ONTOAD,NIFSTD,GALEN,SIO,BIOMO,AURA,RADLEX
 #####Sample Eclipse Run-configuration (includes all possible rdfization steps).
 ![img1](se4ojs/resources/doc/se4ojsRunConfig1.JPG)
 ![img2](se4ojs/resources/doc/se4ojsRunConfig2.PNG)
+
 
 
 
