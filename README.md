@@ -92,7 +92,7 @@ The annotators try to ignore text in other languages than English. This is achie
       Example ´_ ´
       - stopwords                   : If (P) is used: In some ontologies stopwords are omitted from preferred concept names. This is for example the case with the APAONTO-ontology. Simply state 'stopWords' in this column if this is the case, otherwise leave empty. Currently, instead of using a list of stopwords, all words with maximum length of 2 characters in a multi-word concept are ignored. This covers many, but of course not all concepts (as in "Abuse of Power".
    Example entry for mapping two ontologies: </br>
-`APA Thesaurus,APAONTO,PSY,http://ontology.apa.org/apaonto/termsonlyOUT%2520(5).owl, %23, P, _ , stopWords` </br>
+`APA Thesaurus,APAONTO,PSY,http://ontology.apa.org/apaonto/termsonlyOUT%2520(5).owl, %23, P, _ , stopWords` </p>
 `Logical Observation Identifier Names and Codes terminology,	LOINC, LNC, http://purl.bioontology.org/ontology/LNC, /, C`
 
 ### Sample Setup for Eclipse
