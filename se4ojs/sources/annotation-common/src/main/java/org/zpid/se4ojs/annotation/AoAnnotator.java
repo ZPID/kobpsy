@@ -25,6 +25,7 @@ import org.ontoware.rdf2go.exception.ModelRuntimeException;
 import org.ontoware.rdf2go.model.Model;
 import org.ontoware.rdf2go.model.Statement;
 import org.xml.sax.InputSource;
+import org.zpid.se4ojs.app.Config;
 import org.zpid.se4ojs.textStructure.bo.BOParagraph;
 import org.zpid.se4ojs.textStructure.bo.BOSection;
 import org.zpid.se4ojs.textStructure.bo.StructureElement;
@@ -62,8 +63,10 @@ public abstract class AoAnnotator {
 	private static final String PAV_AUTHORED_BY = "authoredBy";
 	private static final String PAV_CREATION_DATE = "createdOn";
 	private static final String BIOTEA_OCCURRENCES = "occurrences";
-	private static final Object LANGUAGE_EN = "en";
+	private static final String LANGUAGE_EN = "en";
+	private static final String TEXTUAL_ENTITY_INFIX = "/textual-entity";
 
+	protected static boolean isConceptIdBrowserUrl = Config.isUseBrowserUrlAsConceptId();
 	private String articleUri;
 	private Logger log  = Logger.getLogger(AoAnnotator.class);
 	
@@ -178,8 +181,9 @@ public abstract class AoAnnotator {
 					url,
 					RDF_TYPE_PROPERTY,
 					AnnotationUtils.createUriString(Prefix.AOT.getURL(), AOT_EXACT_QUALIFIER), model);
+			StringBuilder articleUriBuilder = new StringBuilder(articleUri).append(TEXTUAL_ENTITY_INFIX);
 			AnnotationUtils.createResourceTriple(url,
-					AnnotationUtils.createPropertyString(Prefix.AO, AO_ANNOTATES_RESOURCE), articleUri, model);
+					AnnotationUtils.createPropertyString(Prefix.AO, AO_ANNOTATES_RESOURCE), articleUriBuilder.toString(), model);
 			return url;
 	}
 
