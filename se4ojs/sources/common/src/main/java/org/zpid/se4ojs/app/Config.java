@@ -168,4 +168,11 @@ public class Config {
 		getResourceAsStream("ontologyNameMappings_Ncbo_Umls.txt");
 	}
 
+	public static boolean isUseBrowserUrlAsConceptId() {
+		if (Config.getProperty("annotation.browserUrlAsAnnotationTopic").equalsIgnoreCase("true")) {
+			return true;
+		}
+		return false;
+	}
+
 }
