@@ -12,6 +12,7 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Iterator;
 import java.util.List;
 
 import org.apache.commons.lang3.tuple.ImmutablePair;
@@ -40,6 +41,7 @@ public class NcboAnnotator extends AoAnnotator{
 	private static final String NCBO_ANNOTATOR_URL = "http://bioportal.bioontology.org/annotator/";
 	private static Logger log = Logger.getLogger(NcboAnnotator.class);
 	private String ontologies;
+	private Iterator<String> links;
    
 
 	public NcboAnnotator(String ontologies) {
@@ -104,11 +106,11 @@ public class NcboAnnotator extends AoAnnotator{
     					conceptId,
     					clusterPrefLabel);
     			log.debug("concept: " + url);
+    			createTopic(model, url, classDetails);
     			int startPos = -1;
     			int endPos = -1;
     			String matchedWords = null;
 
-            	createExactQualifier(model, conceptId, clusterPrefLabel);
     			addBody(model, url, clusterPrefLabel);
     			addMetaInfo(model, url, NCBO_ANNOTATOR_URL);
                 if (annotationInfo.isArray() && annotationInfo.elements().hasNext()) {
@@ -125,6 +127,19 @@ public class NcboAnnotator extends AoAnnotator{
         }
 	}
 
+	private void createTopic(Model model, String url, JsonNode classDetails) {
+		String topicUri = null;
+		if (AoAnnotator.isConceptIdBrowserUrl) {
+			JsonNode browserUrl = classDetails.get("links").get("ui");
+			topicUri = browserUrl.asText();
+		} else {
+			topicUri = classDetails.get("@id").asText();
+		}
+		AnnotationUtils.createResourceTriple(url,
+				AnnotationUtils.createPropertyString(Prefix.AO, AO_HAS_TOPIC),
+				AnnotationUtils.createUriString(topicUri), model);
+	}
+
 	/**
 	 * Creates the RDF ao:topic
 	 */
@@ -132,9 +147,6 @@ public class NcboAnnotator extends AoAnnotator{
 	public String createExactQualifier(Model model, String id, String name) {
         	String idInfix = id.substring(id.lastIndexOf("/") + 1);
 			String url = super.createExactQualifier(model, idInfix, name);
-			AnnotationUtils.createResourceTriple(url, AnnotationUtils
-					.createPropertyString(Prefix.AO, AO_HAS_TOPIC), AnnotationUtils
-					.createUriString(id), model);
 			return url;
 	}
 

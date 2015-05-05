@@ -79,8 +79,7 @@ public class UmlsAnnotator extends AoAnnotator {
 
 	public void annotate(String baseURi,File paper,
 			List<StructureElement> topLevelElements, String outputDir) throws IOException {
-		String out = paper.toPath().getFileName().toString().replace(".xml", "-umlsAnnotations_psy.rdf");
-		
+		String out = paper.toPath().getFileName().toString().replace(".xml", "-umlsAnnotations.rdf");
 		out = out.replace(".XML", "-umlsAnnotations.rdf");
 		super.annotate(baseURi, paper, topLevelElements, Paths.get(outputDir, out));
 	}
@@ -114,9 +113,11 @@ public class UmlsAnnotator extends AoAnnotator {
 									mapEv.getConceptId(), mapEv);
 							addBody(model, metathesaurusUri, preferredName);
 							addMetaInfo(model, metathesaurusUri, META_MAP_URL);
-							addUmlsAtomToNcboBrowserUri(model,
-									metathesaurusUri, mapEv.getConceptId(),
-									preferredName);
+							if (Config.isAddNcboConceptUris()) {
+								addUmlsAtomToNcboBrowserUri(model,
+										metathesaurusUri, mapEv.getConceptId(),
+										preferredName);					
+							}
 						}
 					}
 				}
