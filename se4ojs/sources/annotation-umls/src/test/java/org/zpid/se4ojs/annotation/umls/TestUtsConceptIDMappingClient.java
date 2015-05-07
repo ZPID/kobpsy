@@ -13,6 +13,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
@@ -45,6 +46,7 @@ public class TestUtsConceptIDMappingClient {
 	 * @throws UtsFault_Exception 
 	 */
 	@Test
+	@Ignore //ignore this test by default since the project won't build if the user has not configured any uts-service credentials
 	public void testCreateProxyGrantTicket_isRenewedWhenExpiring() throws UtsFault_Exception {
 		UtsServiceTicketHandler ticketHandler = PowerMockito.spy(new UtsServiceTicketHandler());
 		utsConceptIDMappingClient = PowerMockito.spy(UtsConceptIDMappingClient.getInstance(
