@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.nio.file.Path;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -22,6 +23,7 @@ import org.jdom2.input.SAXBuilder;
 import org.ontoware.aifbcommons.collection.ClosableIterator;
 import org.ontoware.rdf2go.RDF2Go;
 import org.ontoware.rdf2go.exception.ModelRuntimeException;
+import org.ontoware.rdf2go.impl.jena.ModelImplJena;
 import org.ontoware.rdf2go.model.Model;
 import org.ontoware.rdf2go.model.Statement;
 import org.xml.sax.InputSource;
@@ -30,8 +32,10 @@ import org.zpid.se4ojs.textStructure.bo.BOParagraph;
 import org.zpid.se4ojs.textStructure.bo.BOSection;
 import org.zpid.se4ojs.textStructure.bo.StructureElement;
 
+import com.hp.hpl.jena.graph.Factory;
+import com.hp.hpl.jena.rdf.model.StmtIterator;
+import com.hp.hpl.jena.rdfxml.xmloutput.impl.Basic;
 import com.hp.hpl.jena.vocabulary.XSD;
-
 
 /**
  * <p>
@@ -75,7 +79,7 @@ public abstract class AoAnnotator {
 
 	@SuppressWarnings("deprecation")
 	public void annotate(String baseUri, File paper, List<StructureElement> structureElements, Path outFile) throws IOException {
-		Model model = RDF2Go.getModelFactory().createModel();	
+		Model model = (Model) new ModelImplJena(new ModelComSubstitute(Factory.createGraphMem()));
 		model.open();
 		AnnotationUtils.setNamespaces(model);
 		SAXBuilder builder = new SAXBuilder();
@@ -100,14 +104,19 @@ public abstract class AoAnnotator {
 		articleUri = AnnotationUtils.getArticleUri(document, baseUri);
 		model = annotateParagraphs(articleUri, structureElements, model);
 		createConceptFrequencyInformation(model);
-	    FileOutputStream os = new FileOutputStream(new File(outFile.toString()));
+	    OutputStream os = new FileOutputStream(new File(outFile.toString()));
 	    try {
-			model.writeTo(os);
+	    	com.hp.hpl.jena.rdf.model.Model jenaModel = 
+	    			(com.hp.hpl.jena.rdf.model.Model)model.getUnderlyingModelImplementation();
+			jenaModel.write(os);
+			model.close();
+			jenaModel.close();
 		} catch (ModelRuntimeException e) {
 			throw new FileNotFoundException("ModelRuntimeException " + e.getMessage());
-		} catch (IOException e) {
-			throw new FileNotFoundException("IOException " + e.getMessage());
-		}
+		} 
+//	    catch (IOException e) {
+//			throw new FileNotFoundException("IOException " + e.getMessage());
+//		}
 	    model.close();
 		os.close();
 		log.info("Finished annotation for paper: " + paper.getName());

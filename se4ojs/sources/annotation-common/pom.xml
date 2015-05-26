@@ -34,10 +34,10 @@
 			<groupId>org.semweb4j</groupId>
 			<artifactId>rdf2go.api</artifactId>
 		</dependency>
-
+	
 		<dependency>
 			<groupId>org.semweb4j</groupId>
-			<artifactId>rdf2go.impl.sesame</artifactId>
+			<artifactId>rdf2go.impl.jena</artifactId>
 		</dependency>
 
 		<dependency>
@@ -46,4 +46,14 @@
 		</dependency>
 
 	</dependencies>
+	
+	<repositories>
+		<repository>	
+			<id>on.cs.unibas.ch</id>
+			<name>DBIS Maven Releases Repository</name>
+			<url>http://on.cs.unibas.ch/maven/repository</url>
+		</repository>
+	</repositories>
+
+	
 </project>

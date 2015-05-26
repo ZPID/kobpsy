@@ -62,13 +62,25 @@
 			<dependency>
 				<groupId>org.semweb4j</groupId>
 				<artifactId>rdf2go.api</artifactId>
-				<version>5.0.0</version>
+				<version>5.0.1</version>
 			</dependency>
-			<dependency>
-				<groupId>org.semweb4j</groupId>
-				<artifactId>rdf2go.impl.sesame</artifactId>
-				<version>5.0.0</version>
-			</dependency>
+		<dependency>
+			<groupId>org.semweb4j</groupId>
+			<artifactId>rdf2go.impl.jena</artifactId>
+			<version>5.0.1</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.apache.jena</groupId>
+					<artifactId>jena-core</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.jena</groupId>
+					<artifactId>jena-arq</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+
 			<dependency>
 				<groupId>com.fasterxml.jackson.core</groupId>
 				<artifactId>jackson-core</artifactId>

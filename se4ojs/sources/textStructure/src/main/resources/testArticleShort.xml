@@ -3,10 +3,20 @@
    article-type="announcement" dtd-version="0.4" xml:lang="EN">
    <?release-delay 0|0?>
    <front>
+      <journal-meta>
+         <journal-id journal-id-type="publisher-id">EJCoP</journal-id>
+         <journal-id journal-id-type="nlm-ta">Eur J Couns Psych</journal-id>
+         <journal-title-group>
+            <journal-title>The European Journal of Counselling Psychology</journal-title>
+            <abbrev-journal-title abbrev-type="pubmed">Eur. J. Couns. Psych.</abbrev-journal-title>
+         </journal-title-group>
+         <issn pub-type="epub">2195-7614</issn>
+         <publisher><publisher-name>PsychOpen</publisher-name></publisher>
+      </journal-meta>
       <article-meta>
          <article-id pub-id-type="doi">10.5964/ejop.v8i3.308</article-id>
          <abstract>
-            <p>Cluster headache (CH) is a chronic syndrome.</p>
+            <p>They render an individual vulnerable to getting involved. Cluster headache (CH) is a chronic syndrome .</p>
          </abstract>
       </article-meta>
    </front>
