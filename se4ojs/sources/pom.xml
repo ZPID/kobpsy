@@ -20,7 +20,6 @@
 		<module>common</module>
 		<module>textStructure</module>
 		<module>annotation-ncbo</module>
-		<module>annotation-umls</module>
 		<module>annotation-common</module>
 	</modules>
 	<build>
