@@ -23,6 +23,7 @@ import org.jdom2.input.SAXBuilder;
 import org.ontoware.aifbcommons.collection.ClosableIterator;
 import org.ontoware.rdf2go.RDF2Go;
 import org.ontoware.rdf2go.exception.ModelRuntimeException;
+import org.ontoware.rdf2go.impl.jena.ModelFactoryImpl;
 import org.ontoware.rdf2go.impl.jena.ModelImplJena;
 import org.ontoware.rdf2go.model.Model;
 import org.ontoware.rdf2go.model.Statement;
@@ -33,8 +34,7 @@ import org.zpid.se4ojs.textStructure.bo.BOSection;
 import org.zpid.se4ojs.textStructure.bo.StructureElement;
 
 import com.hp.hpl.jena.graph.Factory;
-import com.hp.hpl.jena.rdf.model.StmtIterator;
-import com.hp.hpl.jena.rdfxml.xmloutput.impl.Basic;
+import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.vocabulary.XSD;
 
 /**
@@ -79,8 +79,7 @@ public abstract class AoAnnotator {
 
 	@SuppressWarnings("deprecation")
 	public void annotate(String baseUri, File paper, List<StructureElement> structureElements, Path outFile) throws IOException {
-		Model model = (Model) new ModelImplJena(new ModelComSubstitute(Factory.createGraphMem()));
-		model.open();
+		Model model = RDF2Go.getModelFactory().createModel();
 		AnnotationUtils.setNamespaces(model);
 		SAXBuilder builder = new SAXBuilder();
 		builder.setValidation(false);
