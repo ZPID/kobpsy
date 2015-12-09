@@ -12,6 +12,8 @@ public enum Prefix {
 	
 	DOCO("http://purl.org/spar/doco/", "doco"),
 	
+	FOAF("http://xmlns.com/foaf/0.1/", "foaf"),
+	
     FRBR("http://purl.org/vocab/frbr/core#", "frbr"),
 	// Content in RDF
 	OWL("http://www.w3.org/2002/07/owl#", "owl"),
