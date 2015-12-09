@@ -4,16 +4,8 @@ import java.util.NoSuchElementException;
 
 public enum Prefix {
 	
-    AO("http://purl.org/ao/core/", "ao"),
+    OA("http://www.w3.org/ns/oa#", "oa"),
 	
-	AOA ("http://purl.org/ao/annotea/", "aoa"),
-    
-    AOS ("http://purl.org/ao/selectors/", "aos"),
-    
-    AOT ("http://purl.org/ao/types/", "aot"),
-    
-    BIOTEA ("http://www.biotea.ws/ontology/ao_biotea.owl#", "biotea"),
-    
 	DC("http://purl.org/dc/elements/1.1/", "dc"),
 
 	DCTERMS("http://purl.org/dc/terms/", "dcterms"),
