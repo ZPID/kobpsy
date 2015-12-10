@@ -4,7 +4,8 @@ import java.util.NoSuchElementException;
 
 public enum Prefix {
 	
-    OA("http://www.w3.org/ns/oa#", "oa"),
+	/** Namespace for representing content in RDF. */
+    CNT("http://www.w3.org/2011/content#", "cnt"),
 	
 	DC("http://purl.org/dc/elements/1.1/", "dc"),
 
@@ -15,7 +16,10 @@ public enum Prefix {
 	FOAF("http://xmlns.com/foaf/0.1/", "foaf"),
 	
     FRBR("http://purl.org/vocab/frbr/core#", "frbr"),
-	// Content in RDF
+    
+    /** Namespace for the Open Annotation ontology. */
+    OA("http://www.w3.org/ns/oa#", "oa"),
+	
 	OWL("http://www.w3.org/2002/07/owl#", "owl"),
 	
     PAV("http://purl.org/pav/", "pav"),
