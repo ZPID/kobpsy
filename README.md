@@ -1,4 +1,8 @@
 ## KOBPSY ##
+
+! Please note that this document is outdated for the current branch.
+! The current branch is under development since the annotation data model is undergoing substantial changes. If you would like to pull a stable version of KOBPSY, please pull branch "master".
+
 An RDF-knowledgebase for scholarly articles in psychology. The RDF representations have been generated from the articles' JATS-XML representations using the SE4OJS tool (see description below). </br>
 
 - Article metadata, such as title, authors, keywords, references etc.
