@@ -12,22 +12,19 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Iterator;
 import java.util.List;
 
-import org.apache.commons.lang3.tuple.ImmutablePair;
-import org.apache.commons.lang3.tuple.Pair;
 import org.apache.log4j.Logger;
 import org.ontoware.rdf2go.model.Model;
 import org.zpid.se4ojs.annotation.AnnotationUtils;
-import org.zpid.se4ojs.annotation.AoAnnotator;
-import org.zpid.se4ojs.annotation.BOContext;
-import org.zpid.se4ojs.annotation.Prefix;
+import org.zpid.se4ojs.annotation.OaAnnotator;
 import org.zpid.se4ojs.textStructure.bo.StructureElement;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.JsonNodeType;
+import com.hp.hpl.jena.shared.uuid.JenaUUID;
 
 /** 
  * <p>
@@ -35,13 +32,21 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  * </p>
  * 
  */
-public class NcboAnnotator extends AoAnnotator{
+public class NcboAnnotator extends OaAnnotator{
+	
 	static final String REST_URL = "http://data.bioontology.org"; 
 	static final ObjectMapper mapper = new ObjectMapper();
 	private static final String NCBO_ANNOTATOR_URL = "http://bioportal.bioontology.org/annotator/";
+	
+	/** 
+	 * Constant that marks the beginning of a URI fragment.
+	 * TODO: Improve the text-structure annotation, using real fragment URIs to 
+	 * describe sections and paragraphs. Then replace this constant's value by '#'. 
+	 */
+	private static final String FRAGMENT_MARKER = "/";
+	
 	private static Logger log = Logger.getLogger(NcboAnnotator.class);
 	private String ontologies;
-	private Iterator<String> links;
    
 
 	public NcboAnnotator(String ontologies) {
@@ -56,6 +61,12 @@ public class NcboAnnotator extends AoAnnotator{
 //		annotate(paper, topLevelElements, Paths.get(outputDir, out));
 //	}
 
+
+	/**
+	 * @see org.zpid.se4ojs.annotation.OaAnnotator#annotateText(org.ontoware.rdf2go.model.Model, java.lang.String, java.lang.String)
+	 *  This implementation retrieves the annotating concepts from the bioportal annotator tool.
+	 *  The results from calling this tool are used create the RDF-representations of the annotations.
+	 */
 	@Override
 	public void annotateText(Model model, String text,
 			String subElementUri) throws UnsupportedEncodingException  {
@@ -71,82 +82,113 @@ public class NcboAnnotator extends AoAnnotator{
 		} else {
 			log.error("NCBOAnnotator: Results are null!. : Text: " + text);
 		}
-		
 	}
 
-	//TODO implement and make configurable
-    private String createUrlParameterAPAClusterOntologies() {
-    	String apaOntos = "&ontologies=APAONTO,LEGALAPATEST2,APACOMPUTER,APADISORDERS,APAEDUCLUSTER,APANEUROCLUSTER,APAOCUEMPLOY,APASTATISTICAL,APATANDT,APATREATMENT";
-		return apaOntos;
-	}
     private String createUrlParameterForOntologies() {
     	return new StringBuilder("&ontologies=").append(ontologies).toString();
     }
 
-	private void rdfizeAnnotations(Model model, JsonNode results, String subElementUri) {
+    /**
+     * Creates the RDF representation of the concept annotation of the passed in 
+     * text structure element.
+     * 
+     * @param model the RDF2Go model
+     * @param results the results of the concept mapping
+     * @param textStructElementUri the ID of the text structure element whose text is being annotated
+     */
+	private void rdfizeAnnotations(Model model, JsonNode results, String textStructElementUri) {
 
         for (JsonNode result : results) {
             // Get the details for the class that was found in the annotation and print
             JsonNode classDetails = jsonToNode(get(result.get("annotatedClass").get("links").get("self").asText()));
 			JsonNode annotationInfo = result.get("annotations");
             if (classDetails != null) {
-                String conceptId = null;
-    			try {
-    				conceptId = classDetails.get("@id").asText();
-    			} catch (Exception e) {
-    				log.error("no concept id found");
-    				e.printStackTrace();
-    			}
-    			log.debug("\tid of concept mapped: " + conceptId);
-                String clusterPrefLabel = classDetails.get("prefLabel").asText();
-    			log.debug("\tprefLabel: " + clusterPrefLabel);
+                String conceptId = getClassDetail(classDetails, "@id");
+                String prefLabel = getClassDetail(classDetails, "prefLabel");
+                String conceptBrowserUrl = getClassDetail(classDetails, "links" , "ui");
+    			log.debug("\tprefLabel: " + prefLabel);
                 log.debug("\tontology: " + classDetails.get("links").get("ontology").asText() + "\n");
 
-    			String url = createExactQualifier(model,
+    			String annotationUri = createAnnotation(model,
     					conceptId,
-    					clusterPrefLabel);
-    			log.debug("concept: " + url);
-    			createTopic(model, url, classDetails);
-    			int startPos = -1;
-    			int endPos = -1;
-    			String matchedWords = null;
-
-    			addBody(model, url, clusterPrefLabel);
-    			addMetaInfo(model, url, NCBO_ANNOTATOR_URL);
-                if (annotationInfo.isArray() && annotationInfo.elements().hasNext()) {
-                    for (JsonNode inf : annotationInfo) {
-                    	addToConceptCount(url);
-                    	startPos = inf.get("from").asInt();
-                    	endPos = inf.get("to").asInt();
-                    	matchedWords = inf.get("text").asText();
-            			addContext(model, url, subElementUri, conceptId, clusterPrefLabel,
-            					startPos, endPos, matchedWords);
-                    }
-                }            	
+    					prefLabel);
+    			log.debug("Annotation URI: " + annotationUri);
+    			addAnnotationMetaInfo(model, annotationUri, NCBO_ANNOTATOR_URL);    			
+    			String bodyUri = createBody(model, annotationUri, conceptId);
+    			addBodyInfo(model, bodyUri, prefLabel, conceptBrowserUrl);
+    			createTargets(model, annotationInfo, annotationUri, textStructElementUri);
             }
         }
 	}
 
-	private void createTopic(Model model, String url, JsonNode classDetails) {
-		String topicUri = null;
-		if (AoAnnotator.isConceptIdBrowserUrl) {
-			JsonNode browserUrl = classDetails.get("links").get("ui");
-			topicUri = browserUrl.asText();
-		} else {
-			topicUri = classDetails.get("@id").asText();
+	/**
+	 * For each annotation a separate Annotation Target is created.
+	 * 
+	 * @param model the RDF2Go model
+	 * @param annotationInfo the annotations
+	 * @param textStructElementUri the URI of the paragraph that is being annotated
+	 */
+	private void createTargets(Model model, JsonNode annotationInfo, String annotationUri,
+			String textStructElementUri) {
+		int startPos = -1;
+		int endPos = -1;
+		String matchedWords = null;
+		
+        if (annotationInfo.isArray() && annotationInfo.elements().hasNext()) {
+            for (JsonNode inf : annotationInfo) {
+            	String targetId = AnnotationUtils.generateUuidUri();
+    			createTarget(model, annotationUri, targetId);
+    			addTargetType(model, targetId);
+    			relateToArticle(model, targetId);
+    			String compSelId = addCompositeSelector(model, targetId);
+            	startPos = inf.get("from").asInt();
+            	endPos = inf.get("to").asInt();
+            	matchedWords = inf.get("text").asText();
+            	String fragmentUri = textStructElementUri.substring(
+            			textStructElementUri.lastIndexOf(FRAGMENT_MARKER) + 1, textStructElementUri.length());
+            	addCompositeItems(model, compSelId, fragmentUri, startPos, endPos, matchedWords);
+            }
+        }           		
+	}
+	
+
+	/**
+	 * Gets the value of one or more properties from the JSON class details.
+	 * If more than one property is specified, the property calls to the JSON
+	 * class details will be chained.
+	 * 
+	 * Logs an error if the property has not value.
+	 * 
+	 * @param props the name of the properties
+	 * @return the text representation of the JSON node as property value
+	 */
+	private String getClassDetail(JsonNode classDetails, String ... props) {
+		
+		JsonNode node = null;
+		for (String prop : props) {
+			if (node == null) {
+				node = classDetails.path(prop);
+			} else {
+				node = node.path(prop);
+			}
+	        if (node.equals(JsonNodeType.MISSING)) {
+				log.error(String.format("no %s found. ", prop));
+	        }
 		}
-		AnnotationUtils.createResourceTriple(url,
-				AnnotationUtils.createPropertyString(Prefix.AO, AO_HAS_TOPIC),
-				AnnotationUtils.createUriString(topicUri), model);
+  
+	    return node.asText();
 	}
 
 	/**
-	 * Creates the RDF ao:topic
+	 * @see org.zpid.se4ojs.annotation.OaAnnotator#createAnnotation(Model, String, String)
+	 * 
+	 * Creates the main annotation triple, using the last part (name part) of the concept URI
+	 * to create the annotation ID.
 	 */
 	@Override
-	public String createExactQualifier(Model model, String id, String name) {
-        	String idInfix = id.substring(id.lastIndexOf("/") + 1);
-			String url = super.createExactQualifier(model, idInfix, name);
+	public String createAnnotation(Model model, String id, String name) {
+        	String idSuffix = id.substring(id.lastIndexOf("/") + 1);
+			String url = super.createAnnotation(model, idSuffix, name);
 			return url;
 	}
 
@@ -157,24 +199,6 @@ public class NcboAnnotator extends AoAnnotator{
 		out = out.replace(".XML", "-ncboAnnotations.rdf");
 		super.annotate(baseUri, paper, structureElements, Paths.get(outputDir.toString(), out));
 		
-	}
-
-	private BOContext addContext(Model model, String url,
-			String subElementUri, String conceptId, String clusterPrefLabel, int startPos, int endPos,
-			String matchedWords) {
-
-		BOContext context = new BOContext();
-		context.setSubElementUri(subElementUri);
-		String idInfix = conceptId.substring(conceptId.lastIndexOf("/") + 1);
-		String aoContext = createAoContext(model, url, subElementUri, idInfix);
-		context.setContextUri(aoContext);
-		int range = endPos - startPos;
-		createPositionalTriples(model, aoContext, startPos, range);
-		Pair<Integer, Integer> posPair = new ImmutablePair<Integer, Integer>(
-				startPos, range);
-		context.getOffsetsAndRanges().add(posPair);
-		addExactMatch(model, aoContext, matchedWords, context);
-		return context;
 	}
 
 	private static String post(String urlToGet, String urlParameters) {
@@ -251,10 +275,5 @@ public class NcboAnnotator extends AoAnnotator{
         }
         return result;
     }
-    
-	private void addExactMatch(Model model, String aoContext,
-			String matchedWord, BOContext context) {
-			addExactMatch(model, aoContext, matchedWord);
-			context.getMatchedWords().add(matchedWord);
-	}
+
 }

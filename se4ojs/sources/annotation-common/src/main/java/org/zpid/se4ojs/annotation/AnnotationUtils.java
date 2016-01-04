@@ -2,6 +2,7 @@ package org.zpid.se4ojs.annotation;
 
 import java.util.List;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.jdom2.Document;
 import org.jdom2.Element;
@@ -11,6 +12,7 @@ import org.zpid.se4ojs.textStructure.bo.BOSection;
 import org.zpid.se4ojs.textStructure.bo.StructureElement;
 
 import com.hp.hpl.jena.rdf.model.Resource;
+import com.hp.hpl.jena.shared.uuid.JenaUUID;
 
 
 public class AnnotationUtils {
@@ -19,7 +21,7 @@ public class AnnotationUtils {
 	static final String URI_PREFIX_ZPID = "http://zpid.de";
 	static final String URI_INFIX_DOI = "doi";
 	static final String URI_SUFFIX_TEXTUAL_ENTITY = "textual-entity";
-	public static final String CHAR_NOT_ALLOWED = "[^A-Za-z0-9]";
+	public static final String CHAR_NOT_ALLOWED = "[^@A-Za-z0-9#-_]";
 	
 	private static Logger log = Logger.getLogger(AnnotationUtils.class);
 	
@@ -57,7 +59,7 @@ public class AnnotationUtils {
 		StringBuilder sb = new StringBuilder();
 		for (String part : uriParts) {
 			sb.append(part);
-			if(!part.endsWith("/")){
+			if(!part.endsWith("/") && !part.endsWith("#")){
 				sb.append("/");
 			}
 		}
@@ -99,14 +101,33 @@ public class AnnotationUtils {
 		return new StringBuilder(parentUri).append("_").append(p.getUriTitle()).toString();
 	}
 	
+	/**
+	 * Encodes the passed in string into a valid url.
+	 * Characters not allowed in URIs are replaced by underscores.
+	 * If more than one fragment identifier (the '#' character) is present,
+	 * only the last one is retained and the others are replaced by underscores. 
+	 * 
+	 * @param s the string to convert to a valid url
+	 * @return the converted string
+	 */
 	static String urlEncode(String s) {
-		String uri = s.replaceAll(CHAR_NOT_ALLOWED, "-");
-		return uri.replaceAll("[-]+", "-");
+		String uri = s.replaceAll(CHAR_NOT_ALLOWED, "_");
+		if (StringUtils.lastOrdinalIndexOf(uri, "#", 2) != -1) {
+			String fragment = StringUtils.substringAfterLast(uri, "#");
+			String base = StringUtils.substringBeforeLast(uri, "#");
+			base = base.replaceAll("#", "_");
+			uri = new StringBuilder(base).append("#").append(fragment).toString();
+		}
+		return uri.replaceAll("[_]+", "_");
 	}
 	
 	public static void createResourceTriple(String subject,
 			String predicate, String object, Model model) {
 		model.addStatement(model.createURI(subject), model.createURI(predicate), model.createURI(object));
+	}
+
+	public static String generateUuidUri() {
+		return new StringBuilder("urn:").append(JenaUUID.generate().asURI()).toString();
 	}
 
 }
