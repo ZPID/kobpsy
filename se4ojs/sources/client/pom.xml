@@ -37,13 +37,7 @@
 			<artifactId>annotation-ncbo</artifactId>
 			<version>${project.version}</version>
 		</dependency>
-		
-		<dependency>
-			<groupId>org.zpid.se4ojs</groupId>
-			<artifactId>annotation-umls</artifactId>
-			<version>${project.version}</version>
-		</dependency>
-		
+
 		<dependency>
 			<groupId>org.zpid.se4ojs</groupId>
 			<artifactId>textStructure</artifactId>
