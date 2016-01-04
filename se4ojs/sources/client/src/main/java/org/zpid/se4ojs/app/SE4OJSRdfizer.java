@@ -335,9 +335,6 @@ class AnnotationTask implements Runnable {
 			if (processingTask.equals(ProcessingTask.NCBO_ANNOTATOR)) {
 				helper.annotateFileWithNCBOAnnotator(paper, structureElements, outputDir);			
 			}
-			if (processingTask.equals(ProcessingTask.UMLS_ANNOTATOR)) {
-				helper.annotateFileWithUmlsAnnotator(paper, structureElements, outputDir);			
-			}
 			doneSignal.countDown();
 		} catch (IOException e) {
 			exception = new Exception(paper.getName()

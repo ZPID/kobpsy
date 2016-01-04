@@ -19,7 +19,6 @@ import org.apache.log4j.Logger;
 import org.jdom2.JDOMException;
 import org.xml.sax.SAXException;
 import org.zpid.se4ojs.annotation.ncbo.NcboAnnotator;
-import org.zpid.se4ojs.annotation.umls.UmlsAnnotator;
 import org.zpid.se4ojs.refStructuring.ReferenceStructurer;
 import org.zpid.se4ojs.spar.Jats2Spar;
 import org.zpid.se4ojs.textStructure.StructureTransformer;
@@ -130,7 +129,8 @@ public class SE4OJSAccessHelper {
 		return structureTransformer.transform(paper, Paths.get(outputDir, out));
 	}
 
-	public void annotateFileWithUmlsAnnotator(File paper, List<StructureElement> topLevelElements, String outputDir) throws IOException {
+	/* Currently unsupported. 
+	
 	    synchronized(umlsLock) { 
 			logger.info("Starting annotation with UMLS Annotator for paper: " + paper);
 			String ontologyProperties = getOntologyProperties(UMLS);
@@ -138,7 +138,7 @@ public class SE4OJSAccessHelper {
 			UmlsAnnotator umlsAnnotator = new UmlsAnnotator(ontologyProperties);
 		    umlsAnnotator.annotate(Config.getBaseURI(), paper, topLevelElements, outputDir);
 	    }
-	}
+	} */
 
 	private String getOntologyProperties(String annotator) {
 		String ontos = null;
