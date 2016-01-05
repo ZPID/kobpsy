@@ -1,6 +1,7 @@
 package org.zpid.se4ojs.app;
 
 import java.io.File;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -17,7 +18,10 @@ import java.util.concurrent.LinkedBlockingQueue;
 import org.apache.log4j.Logger;
 import org.ontoware.rdf2go.exception.ModelRuntimeException;
 import org.zpid.se4ojs.textStructure.bo.StructureElement;
+
 /**
+ * Main class of the se4ojs tool.
+ * 
  * @author barth
  *
  */
@@ -108,7 +112,7 @@ public class SE4OJSRdfizer {
 	 * @throws IOException
 	 * @throws ModelRuntimeException
 	 */
-	public static void main(String[] args) throws ModelRuntimeException,
+	public static void main(String... args) throws ModelRuntimeException,
 			IOException {
 		long startTime = System.currentTimeMillis();
 

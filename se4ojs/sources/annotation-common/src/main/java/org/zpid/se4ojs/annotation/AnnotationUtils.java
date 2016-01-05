@@ -23,9 +23,9 @@ public class AnnotationUtils {
 	static final String URI_SUFFIX_TEXTUAL_ENTITY = "textual-entity";
 	public static final String CHAR_NOT_ALLOWED = "[^@A-Za-z0-9#-_]";
 	
-	private static Logger log = Logger.getLogger(AnnotationUtils.class);
+	private Logger log = Logger.getLogger(AnnotationUtils.class);
 	
-	public static void createLiteralTriple(String subject,
+	public void createLiteralTriple(String subject,
 			String predicate, String object, Model model) {
 		model.addStatement(
 				model.createURI(subject),
@@ -42,7 +42,7 @@ public class AnnotationUtils {
 	 * @param resource the datatype
 	 * @param model
 	 */
-	public static void createLiteralTriple(String subject,
+	public void createLiteralTriple(String subject,
 			String predicate, String object,
 			Resource resource, Model model) {
 		model.addStatement(
@@ -55,7 +55,7 @@ public class AnnotationUtils {
 				new StringBuilder(p.getURL()).append(pred).toString();
 	}
 	
-	public static String createUriString(String... uriParts) {
+	public String createUriString(String... uriParts) {
 		StringBuilder sb = new StringBuilder();
 		for (String part : uriParts) {
 			sb.append(part);
@@ -69,13 +69,13 @@ public class AnnotationUtils {
 		return sb.toString();
 	}
 	
-	public static void setNamespaces(Model model) {
+	public void setNamespaces(Model model) {
 		for (Prefix p : Prefix.values()) {
 			model.setNamespace(p.getNS(), p.getURL());
 		}
 	}
 	
-	static String getArticleUri(Document document, String baseUri) {
+    String getArticleUri(Document document, String baseUri) {
 		Element rootElement = document.getRootElement();
 		List<Element> articleIds = rootElement.getChild("front").getChild("article-meta").getChildren("article-id");
 		for (Element articleId : articleIds) {
@@ -87,7 +87,7 @@ public class AnnotationUtils {
 		return null;
 	}
 	
-	static String createSubElementUri(StructureElement se, String articleUri, String parentUri) {
+	String createSubElementUri(StructureElement se, String articleUri, String parentUri) {
 		if (se instanceof BOSection) {
 			return new StringBuffer(articleUri).append("/").append(se.getUriTitle()).toString();
 		} else if (se instanceof BOParagraph) {
@@ -96,7 +96,7 @@ public class AnnotationUtils {
 		return null;
 	}
 	
-	private static String createParagraphFullUriTitle(String parentUri,
+	private String createParagraphFullUriTitle(String parentUri,
 			BOParagraph p) {
 		return new StringBuilder(parentUri).append("_").append(p.getUriTitle()).toString();
 	}
@@ -110,7 +110,7 @@ public class AnnotationUtils {
 	 * @param s the string to convert to a valid url
 	 * @return the converted string
 	 */
-	static String urlEncode(String s) {
+	String urlEncode(String s) {
 		String uri = s.replaceAll(CHAR_NOT_ALLOWED, "_");
 		if (StringUtils.lastOrdinalIndexOf(uri, "#", 2) != -1) {
 			String fragment = StringUtils.substringAfterLast(uri, "#");
@@ -121,12 +121,12 @@ public class AnnotationUtils {
 		return uri.replaceAll("[_]+", "_");
 	}
 	
-	public static void createResourceTriple(String subject,
+	public void createResourceTriple(String subject,
 			String predicate, String object, Model model) {
 		model.addStatement(model.createURI(subject), model.createURI(predicate), model.createURI(object));
 	}
 
-	public static String generateUuidUri() {
+	public String generateUuidUri() {
 		return new StringBuilder("urn:").append(JenaUUID.generate().asURI()).toString();
 	}
 

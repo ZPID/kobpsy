@@ -48,12 +48,14 @@ public abstract class OaAnnotator {
 	protected static final String OA_ANNOTATION = "Annotation";
 	protected static final String RDF_TYPE = "type";
 	protected static final String RDF_TYPE_PROPERTY = AnnotationUtils.createPropertyString(Prefix.RDF, RDF_TYPE);
+	private static final String RDF_VALUE = "value";
+	private static final String RDF_VALUE_PROPERTY = AnnotationUtils.createPropertyString(Prefix.RDF, RDF_VALUE);
 	protected static final String OA_HAS_BODY = "hasBody";
 	protected static final String OA_HAS_TARGET = "hasTarget";
 	protected static final String OA_HAS_SOURCE = "hasSource";
 	protected static final String OA_HAS_SELECTOR = "hasSelector";
-	protected static final String OA_AUTHORED_BY = "authoredBy";
-	protected static final String OA_CREATION_DATE = "createdOn";
+	protected static final String OA_AUTHORED_BY = "annotatedBy";
+	protected static final String OA_CREATION_DATE = "annotatedAt";
 	protected static final String OA_EXACT_MATCH = "exact";
 	protected static final String OA_SEMANTIC_TAG = "SemanticTag";
 	protected static final String OA_SPECIFIC_RESOURCE = "SpecificResource";
@@ -69,8 +71,10 @@ public abstract class OaAnnotator {
 	protected static final String OA_TEXT_QUOTE_SELECTOR = "TextQuoteSelector";
 	private static final String LANGUAGE_EN = "en";
 
+
 	private String articleUri;
 	private Logger log  = Logger.getLogger(OaAnnotator.class);
+	private AnnotationUtils annotationUtils = new AnnotationUtils();
 	
 	/** Stores a concept by its URI as a key and the number of times it occurs in the same paper as value. */
 	private Map<String, Integer> conceptCount = new HashMap<>();
@@ -78,9 +82,9 @@ public abstract class OaAnnotator {
 	public void annotate(String baseUri, File paper, List<StructureElement> structureElements, Path outFile) throws IOException {
 		Model model = RDF2Go.getModelFactory().createModel();
 		model.open();
-		AnnotationUtils.setNamespaces(model);
+		annotationUtils.setNamespaces(model);
 		Document document = createDocumentFromPaper(paper);
-		articleUri = AnnotationUtils.getArticleUri(document, baseUri);
+		articleUri = annotationUtils.getArticleUri(document, baseUri);
 		model = annotateParagraphs(articleUri, structureElements, model);
 	    OutputStream os = new FileOutputStream(new File(outFile.toString()));
 	    try {
@@ -103,6 +107,7 @@ public abstract class OaAnnotator {
 	 * @param paper the input JATS-XML-File
 	 * @return the jdom2 document
 	 */
+	@SuppressWarnings("deprecation")
 	private Document createDocumentFromPaper(File paper) {
 		SAXBuilder builder = new SAXBuilder();
 		builder.setValidation(false);
@@ -130,7 +135,7 @@ public abstract class OaAnnotator {
 		List<Model> childModels = new ArrayList<>();
 		
 		for (StructureElement se : container) {
-			String subElementUri = AnnotationUtils.createSubElementUri(se, articleUri, parentUri);
+			String subElementUri = annotationUtils.createSubElementUri(se, articleUri, parentUri);
 
 			if (se instanceof BOSection) {
 				BOSection sec = (BOSection) se;
@@ -202,16 +207,16 @@ public abstract class OaAnnotator {
 	 */
 	public String createAnnotation(Model model, String id, String name) {
 		  String url = createConceptUri(id, name);
-			AnnotationUtils.createResourceTriple(
+			annotationUtils.createResourceTriple(
 					url,
 					RDF_TYPE_PROPERTY,
-					AnnotationUtils.createUriString(Prefix.OA.getURL(), OA_ANNOTATION), model);
+					annotationUtils.createUriString(Prefix.OA.getURL(), OA_ANNOTATION), model);
 			return url;
 	}
 
 	private String createConceptUri(String id, String name) {
-		return AnnotationUtils.createUriString(
-				  articleUri, AnnotationUtils.urlEncode(id));
+		return annotationUtils.createUriString(
+				  articleUri, annotationUtils.urlEncode(id));
 	}
 	
 	/**
@@ -227,10 +232,10 @@ public abstract class OaAnnotator {
 	 * @param targetId the id of the target
 	 */
 	protected void relateToArticle(Model model, String targetId) {	
-		AnnotationUtils.createResourceTriple(
+		annotationUtils.createResourceTriple(
 				targetId,
 				AnnotationUtils.createPropertyString(Prefix.OA, OA_HAS_SOURCE), 
-				articleUri, model);	
+				articleUri + "/textualEntity", model);	
 	}
 	
 	public void addToConceptCount(String conceptUri) {
@@ -241,17 +246,6 @@ public abstract class OaAnnotator {
 		conceptCount.put(conceptUri, ++count);
 	}
 	
-
-	public void createPositionalTriples(Model model, String aoContext, int start, int end) {
-		AnnotationUtils.createLiteralTriple(aoContext,
-				AnnotationUtils.createPropertyString(Prefix.OA, OA_START_POS),
-				Integer.toString(start), XSD.nonNegativeInteger, model);
-		AnnotationUtils.createLiteralTriple(aoContext,
-				AnnotationUtils.createPropertyString(Prefix.OA, OA_END_POS),
-				Integer.toString(end), XSD.nonNegativeInteger, model);
-		
-	}
-
 	/**
 	 * 
 	 * @param model
@@ -260,7 +254,7 @@ public abstract class OaAnnotator {
 	 */
 	public void addExactMatch(Model model, String aoContext,
 			String matchedWords) {
-		AnnotationUtils.createLiteralTriple(aoContext,
+		annotationUtils.createLiteralTriple(aoContext,
 				AnnotationUtils.createPropertyString(Prefix.OA, OA_EXACT_MATCH),
 				matchedWords, model);
 	}
@@ -282,8 +276,8 @@ public abstract class OaAnnotator {
 	 * @return the URI of the body
 	 */
 	protected String createBody(Model model, String annotationUri, String conceptId) {
-		String bodyUri = AnnotationUtils.createUriString(conceptId);
-		AnnotationUtils.createResourceTriple(annotationUri,
+		String bodyUri = annotationUtils.createUriString(conceptId);
+		annotationUtils.createResourceTriple(annotationUri,
 				AnnotationUtils.createPropertyString(Prefix.OA, OA_HAS_BODY),
 				bodyUri, model);
 		return bodyUri;
@@ -307,13 +301,13 @@ public abstract class OaAnnotator {
 	 * @param conceptWebPage the URL to the web page of the concept
 	 */
 	protected void addBodyInfo(Model model, String bodyUri, String conceptPrefLabel, String conceptWebPage) {
-		AnnotationUtils.createResourceTriple(bodyUri, RDF_TYPE_PROPERTY, 
-				AnnotationUtils.createUriString(Prefix.OA.getURL(), OA_SEMANTIC_TAG), model);
-		AnnotationUtils.createResourceTriple(bodyUri, RDF_TYPE_PROPERTY, 
-				AnnotationUtils.createUriString(Prefix.CNT.getURL(), CNT_TEXT), model);
-		AnnotationUtils.createResourceTriple(bodyUri, AnnotationUtils.createPropertyString(Prefix.FOAF, FOAF_PAGE)
+		annotationUtils.createResourceTriple(bodyUri, RDF_TYPE_PROPERTY, 
+				annotationUtils.createUriString(Prefix.OA.getURL(), OA_SEMANTIC_TAG), model);
+		annotationUtils.createResourceTriple(bodyUri, RDF_TYPE_PROPERTY, 
+				annotationUtils.createUriString(Prefix.CNT.getURL(), CNT_TEXT), model);
+		annotationUtils.createResourceTriple(bodyUri, AnnotationUtils.createPropertyString(Prefix.FOAF, FOAF_PAGE)
 				, conceptWebPage, model);
-		AnnotationUtils.createLiteralTriple(bodyUri, 
+		annotationUtils.createLiteralTriple(bodyUri, 
 				AnnotationUtils.createPropertyString(Prefix.CNT, CNT_CHARS), conceptPrefLabel, model);
 	}
 
@@ -331,23 +325,27 @@ public abstract class OaAnnotator {
 	 * @param authorID the identifier of the author
 	 */
 	protected void addAnnotationMetaInfo(Model model, String annotationId, String authorID) {
-		AnnotationUtils.createLiteralTriple(annotationId,
+		annotationUtils.createResourceTriple(annotationId,
 				AnnotationUtils.createPropertyString(Prefix.OA, OA_AUTHORED_BY),
 				authorID, model);
+		createDateTriple(model, annotationId);
+	}
+
+	protected void createDateTriple(Model model, String annotationId) {
 		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-		AnnotationUtils.createLiteralTriple(annotationId,
+		annotationUtils.createLiteralTriple(annotationId,
 				AnnotationUtils.createPropertyString(Prefix.OA, OA_CREATION_DATE),
 				dateFormat.format(new Date()), XSD.date, model);
 	}
 	
 	protected void createTarget(Model model, String annotationUri, String targetId) {
-		AnnotationUtils.createResourceTriple(annotationUri, 
+		annotationUtils.createResourceTriple(annotationUri, 
 				AnnotationUtils.createPropertyString(Prefix.OA, OA_HAS_TARGET), targetId, model);
 	}
 	
 	protected void addTargetType(Model model, String targetId) {
-		AnnotationUtils.createResourceTriple(targetId, RDF_TYPE_PROPERTY, 
-				AnnotationUtils.createUriString(Prefix.OA.getURL(), OA_SPECIFIC_RESOURCE), model);
+		annotationUtils.createResourceTriple(targetId, RDF_TYPE_PROPERTY, 
+				annotationUtils.createUriString(Prefix.OA.getURL(), OA_SPECIFIC_RESOURCE), model);
 	}
 
 	/**
@@ -369,12 +367,12 @@ public abstract class OaAnnotator {
 	 * @return the composite selector id
 	 */
 	protected String addCompositeSelector(Model model, String targetId) {
-		String compSelectorId = AnnotationUtils.generateUuidUri();
-		AnnotationUtils.createResourceTriple(targetId,
+		String compSelectorId = annotationUtils.generateUuidUri();
+		annotationUtils.createResourceTriple(targetId,
 				AnnotationUtils.createPropertyString(Prefix.OA, OA_HAS_SELECTOR),
 				compSelectorId, model);
-		AnnotationUtils.createResourceTriple(compSelectorId, RDF_TYPE_PROPERTY,
-				AnnotationUtils.createUriString(Prefix.OA.getURL(), OA_COMPOSITE), model);
+		annotationUtils.createResourceTriple(compSelectorId, RDF_TYPE_PROPERTY,
+				annotationUtils.createUriString(Prefix.OA.getURL(), OA_COMPOSITE), model);
 		return compSelectorId;
 	}
 	
@@ -429,49 +427,57 @@ public abstract class OaAnnotator {
 	 * @return the composite selector id
 	 */
 	protected void addCompositeItems(Model model, String compSelId, String fragment, int startPos, int endPos, String exactMatch) {
-		String fragSelectorId = AnnotationUtils.generateUuidUri();
-		String posSelectorId = AnnotationUtils.generateUuidUri();
-		String quoteSelectorId = AnnotationUtils.generateUuidUri();
+		String fragSelectorId = annotationUtils.generateUuidUri();
+		String posSelectorId = annotationUtils.generateUuidUri();
+		String quoteSelectorId = annotationUtils.generateUuidUri();
 		
-		AnnotationUtils.createResourceTriple(compSelId,
+		annotationUtils.createResourceTriple(compSelId,
 				AnnotationUtils.createPropertyString(Prefix.OA, OA_ITEM),
 				fragSelectorId, model);
-		AnnotationUtils.createResourceTriple(compSelId,
+		annotationUtils.createResourceTriple(compSelId,
 				AnnotationUtils.createPropertyString(Prefix.OA, OA_ITEM),
 				posSelectorId, model);
-		AnnotationUtils.createResourceTriple(compSelId,
+		annotationUtils.createResourceTriple(compSelId,
 				AnnotationUtils.createPropertyString(Prefix.OA, OA_ITEM),
 				quoteSelectorId, model);
 
-		AnnotationUtils.createResourceTriple(fragSelectorId, RDF_TYPE_PROPERTY,
-				AnnotationUtils.createUriString(Prefix.OA.getURL(),
+		annotationUtils.createResourceTriple(fragSelectorId, RDF_TYPE_PROPERTY,
+				annotationUtils.createUriString(Prefix.OA.getURL(),
 						OA_FRAGMENT_SELECTOR), model);
-		AnnotationUtils.createResourceTriple(posSelectorId, RDF_TYPE_PROPERTY,
-				AnnotationUtils.createUriString(Prefix.OA.getURL(),
+		annotationUtils.createResourceTriple(posSelectorId, RDF_TYPE_PROPERTY,
+				annotationUtils.createUriString(Prefix.OA.getURL(),
 						OA_TEXT_POS_SELECTOR), model);
-		AnnotationUtils.createResourceTriple(quoteSelectorId, RDF_TYPE_PROPERTY,
-				AnnotationUtils.createUriString(Prefix.OA.getURL(),
+		annotationUtils.createResourceTriple(quoteSelectorId, RDF_TYPE_PROPERTY,
+				annotationUtils.createUriString(Prefix.OA.getURL(),
 						OA_TEXT_QUOTE_SELECTOR), model);
 		
-		AnnotationUtils.createLiteralTriple(fragSelectorId,
-				AnnotationUtils.createPropertyString(Prefix.OA, OA_START_POS),
+		annotationUtils.createLiteralTriple(fragSelectorId,
+				RDF_VALUE_PROPERTY,
 				fragment, model);
 		
-		AnnotationUtils.createLiteralTriple(fragSelectorId,
+		annotationUtils.createLiteralTriple(posSelectorId,
 				AnnotationUtils.createPropertyString(Prefix.OA, OA_START_POS),
 				Integer.toString(startPos), XSD.nonNegativeInteger, model);
 		
-		AnnotationUtils.createLiteralTriple(fragSelectorId,
+		annotationUtils.createLiteralTriple(posSelectorId,
 				AnnotationUtils.createPropertyString(Prefix.OA, OA_END_POS),
 				Integer.toString(endPos), XSD.nonNegativeInteger, model);
 		
-		AnnotationUtils.createLiteralTriple(fragSelectorId,
+		annotationUtils.createLiteralTriple(quoteSelectorId,
 				AnnotationUtils.createPropertyString(Prefix.OA, OA_EXACT_MATCH),
 				exactMatch, model);
 	}
 
 	public void setArticleUri(String articleUri) {
 		this.articleUri = articleUri;
+	}
+
+	protected AnnotationUtils getAnnotationUtils() {
+		return annotationUtils;
+	}
+
+	protected void setAnnotationUtils(AnnotationUtils annotationUtils) {
+		this.annotationUtils = annotationUtils;
 	}
 	
 }

@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <rdf:RDF
     xmlns:psyndex="http://www.zpid.de/psyndex#"
     xmlns:doco="http://purl.org/spar/doco/"
@@ -18,41 +17,41 @@
     xmlns:zpid="http://www.zpid.de/resource"
     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
     xmlns:cnt="http://www.w3.org/2011/content#" > 
-    <rdf:Description rdf:about="http://www.zpid.de/resource/CHEBI_33232">
+    <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/CHEBI_33232">
         <rdf:type rdf:resource="http://www.w3.org/ns/oa#Annotation"/>
         <oa:annotatedBy rdf:resource="http://bioportal.bioontology.org/annotator/"/>
         <oa:annotatedAt rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2015-06-30</oa:annotatedAt>	 
         <oa:hasBody rdf:resource="http://purl.obolibrary.org/obo/CHEBI_33232"/>
-        <oa:hasTarget rdf:resource="urn:uuid:6C97B503-25EE-4E37-875C-B7C850E13194"/>
+        <oa:hasTarget rdf:resource="urn:uuid:test1"/>
     </rdf:Description>
     <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CHEBI_33232"> 
         <rdf:type rdf:resource="http://www.w3.org/ns/oa#SemanticTag"/>
-        <foaf:page rdf:resource="http://bioportal.bioontology.org/ontologies/NIFSTD?p=classes&amp;conceptid=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2Fchebi.owl%23CHEBI_33232"/>
+		<foaf:page rdf:resource="http://bioportal.bioontology.org/ontologies/CHEBI?p=classes&amp;conceptid=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FCHEBI_33232"/> 
         <rdf:type rdf:resource="http://www.w3.org/2011/content#ContentAsText"/>
         <cnt:chars>application</cnt:chars>
     </rdf:Description>
-    <rdf:Description rdf:about="urn:uuid:test">
+    <rdf:Description rdf:about="urn:uuid:test1">
     <rdf:type rdf:resource="http://www.w3.org/ns/oa#SpecificResource"/>
     <oa:hasSource rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/textualEntity"/>
-    <oa:hasSelector rdf:resource="urn:uuid:7C97B503-25EE-4E37-875C-B7C850E13194"/> 
+    <oa:hasSelector rdf:resource="urn:uuid:test2"/> 
     </rdf:Description>
-    <rdf:Description rdf:about="urn:uuid:test"> 
+    <rdf:Description rdf:about="urn:uuid:test2"> 
         <rdf:type rdf:resource="http://www.w3.org/ns/oa#Composite"/>
-        <oa:item rdf:resource="urn:uuid:8C97B503-25EE-4E37-875C-B7C850E13194"/> 
-        <oa:item rdf:resource="urn:uuid:9C97B503-25EE-4E37-875C-B7C850E13194"/> 
-        <oa:item rdf:resource="urn:uuid:0C97B503-25EE-4E37-875C-B7C850E13194"/> 
+        <oa:item rdf:resource="urn:uuid:test3"/> 
+        <oa:item rdf:resource="urn:uuid:test4"/> 
+        <oa:item rdf:resource="urn:uuid:test5"/> 
     </rdf:Description>
-    <rdf:Description rdf:about="urn:uuid:test"> 
+    <rdf:Description rdf:about="urn:uuid:test3"> 
         <rdf:type rdf:resource="http://www.w3.org/ns/oa#FragmentSelector"/>
-        <rdf:value>Introduction_para_7 </rdf:value>
+        <rdf:value>Introduction_para_1</rdf:value>
     </rdf:Description>
-    <rdf:Description rdf:about="urn:uuid:test"> 
+    <rdf:Description rdf:about="urn:uuid:test4"> 
         <rdf:type rdf:resource="http://www.w3.org/ns/oa#TextPositionSelector"/>
-        <oa:start rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">282</oa:start> 
-        <oa:end rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">292</oa:end>
+        <oa:start rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">265</oa:start> 
+        <oa:end rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">275</oa:end>
     </rdf:Description>
-    <rdf:Description rdf:about="urn:uuid:test"> 
+    <rdf:Description rdf:about="urn:uuid:test5"> 
         <rdf:type rdf:resource="http://www.w3.org/ns/oa#TextQuoteSelector"/>
-        <oa:exact>application</oa:exact>
+        <oa:exact>APPLICATION</oa:exact>
     </rdf:Description>
 </rdf:RDF>

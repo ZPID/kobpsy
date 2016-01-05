@@ -35,7 +35,6 @@ public class SE4OJSAccessHelper {
 
 	private Path directory;
 	private final Object ncboLock = new Object();
-	private final Object umlsLock = new Object();
 
 	//The system file separator. 
 	static final String FILE_SEPARATOR = System.getProperty("file.separator");
@@ -140,7 +139,7 @@ public class SE4OJSAccessHelper {
 	    }
 	} */
 
-	private String getOntologyProperties(String annotator) {
+	protected String getOntologyProperties(String annotator) {
 		String ontos = null;
 		Properties properties = new Properties();
 		InputStream inputStream = getClass().getClassLoader().getResourceAsStream("config.properties");

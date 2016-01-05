@@ -94,13 +94,11 @@ public class ReferenceStructurer {
 
 	private BOReference reference;
 
-	private String baseUri;
 
 	public ReferenceStructurer(File inFile, File outFile, String baseUri) {
 		super();
 		this.inFile = inFile;
 		this.outFile = outFile;
-		this.baseUri = baseUri;
 	}
 
 	public void extractReferences() {

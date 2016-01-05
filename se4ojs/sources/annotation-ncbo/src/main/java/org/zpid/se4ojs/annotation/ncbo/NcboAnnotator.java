@@ -16,7 +16,6 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.ontoware.rdf2go.model.Model;
-import org.zpid.se4ojs.annotation.AnnotationUtils;
 import org.zpid.se4ojs.annotation.OaAnnotator;
 import org.zpid.se4ojs.textStructure.bo.StructureElement;
 
@@ -24,7 +23,6 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.JsonNodeType;
-import com.hp.hpl.jena.shared.uuid.JenaUUID;
 
 /** 
  * <p>
@@ -136,7 +134,7 @@ public class NcboAnnotator extends OaAnnotator{
 		
         if (annotationInfo.isArray() && annotationInfo.elements().hasNext()) {
             for (JsonNode inf : annotationInfo) {
-            	String targetId = AnnotationUtils.generateUuidUri();
+            	String targetId = getAnnotationUtils().generateUuidUri();
     			createTarget(model, annotationUri, targetId);
     			addTargetType(model, targetId);
     			relateToArticle(model, targetId);
