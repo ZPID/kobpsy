@@ -1032,6 +1032,7 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
             <xsl:with-param name="s" select="$iref" tunnel="yes"/>
             <xsl:with-param name="p" select="'co:index'" tunnel="yes"/>
             <xsl:with-param name="o" select="xs:string($i)" tunnel="yes"/>
+            <xsl:with-param name="type" select="'&xsd;integer'" tunnel="yes"/>
         </xsl:call-template>
 
         <xsl:call-template name="attribute">
@@ -1419,7 +1420,7 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
         <xsl:call-template name="attribute">
             <xsl:with-param name="p" select="'fabio:hasPublicationYear'" tunnel="yes"/>
             <xsl:with-param name="o" select="." tunnel="yes"/>
-            <xsl:with-param name="type" select="'&xsd;'"/>
+            <!--xsl:with-param name="type" select="'&xsd;'"/-->
         </xsl:call-template>
 
         <xsl:call-template name="goahead"/>
@@ -2411,7 +2412,7 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
         <xsl:variable name="predicate" select="$triples[2]" as="xs:string"/>
         <xsl:variable name="object" select="$triples[3]" as="xs:string"/>
 
-        <!-- Create the predicate -->
+
         <xsl:element name="{$predicate}">
             <xsl:choose>
                 <!-- Create the object as a literal -->
