@@ -332,8 +332,8 @@ public abstract class OaAnnotator {
 		annotationUtils.createResourceTriple(bodyUri, AnnotationUtils.createPropertyString(Prefix.SKOS, SKOS_IN_SCHEME)
 				, ontologyUri, model);
 		//TODO if optimizing for speed, cache ontology names for program runtime
-		annotationUtils.createResourceTriple(ontologyUri, AnnotationUtils.createPropertyString(Prefix.DC, DC_TITLE)
-				, ontologyUri.substring(ontologyUri.lastIndexOf("/"), ontologyUri.length()), model);
+		annotationUtils.createLiteralTriple(ontologyUri, AnnotationUtils.createPropertyString(Prefix.DC, DC_TITLE)
+				, ontologyUri.substring(ontologyUri.lastIndexOf("/") + 1, ontologyUri.length()), model);
 		annotationUtils.createResourceTriple(ontologyUri, RDF_TYPE_PROPERTY, 
 				annotationUtils.createUriString(Prefix.SKOS.getURL(), SKOS_CONCEPT_SCHEME), model);
 	}
