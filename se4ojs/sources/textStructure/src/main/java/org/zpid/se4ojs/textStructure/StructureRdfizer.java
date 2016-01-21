@@ -14,7 +14,7 @@ import org.ontoware.rdf2go.model.Statement;
 import org.zpid.se4ojs.textStructure.bo.BOCitation;
 import org.zpid.se4ojs.textStructure.bo.BOParagraph;
 import org.zpid.se4ojs.textStructure.bo.BOSection;
-import org.zpid.se4ojs.textStructure.bo.StructureElement;
+import org.zpid.se4ojs.textStructure.bo.BOStructureElement;
 
 import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.vocabulary.XSD;
@@ -45,13 +45,13 @@ public class StructureRdfizer {
 
 
 	private Logger log = Logger.getLogger(StructureRdfizer.class);
-	private List<StructureElement> topLevelElements;
+	private List<BOStructureElement> topLevelElements;
 	private Document document;
 	private String articleUri;
 	private Map<String, Integer> citationCounts;
 	private String baseUri;
 
-	public StructureRdfizer(String baseUri, List<StructureElement> topLevelElements, Document document, Map<String, Integer> citationCounts) {
+	public StructureRdfizer(String baseUri, List<BOStructureElement> topLevelElements, Document document, Map<String, Integer> citationCounts) {
 		this.baseUri = baseUri;
 		this.topLevelElements = topLevelElements;
 		this.document = document;
@@ -68,19 +68,19 @@ public class StructureRdfizer {
 		return model;
 	}
 
-	private Model rdfizeStructureElements(String parentUri, List<StructureElement> container, Model model) {
+	private Model rdfizeStructureElements(String parentUri, List<BOStructureElement> container, Model model) {
 		int subItemCounter = 0;
 		List<Model> childModels = new ArrayList<>();
 		String prevListItem = null;
 		
-		for (StructureElement se : container) {
+		for (BOStructureElement se : container) {
 			String subElementUri = createSubElementUri(se, articleUri, parentUri);
 			prevListItem = createOrderedList(parentUri, subElementUri, prevListItem, ++subItemCounter, model, container.size());
 			createPartOfRelations(parentUri, subElementUri, model);
 
 			if (se instanceof BOSection) {
 				BOSection sec = (BOSection) se;
-				List<StructureElement> childStructures = sec.getChildStructures();
+				List<BOStructureElement> childStructures = sec.getChildStructures();
 				createTitleTriple(subElementUri, sec.getTitle(), model);
 				createResourceTriple(
 						subElementUri,
@@ -182,7 +182,7 @@ public class StructureRdfizer {
 		return listItemIndividual;
 	}
 
-	private String createSubElementUri(StructureElement se, String articleUri, String parentUri) {
+	private String createSubElementUri(BOStructureElement se, String articleUri, String parentUri) {
 		if (se instanceof BOSection) {
 			return new StringBuffer(articleUri).append("/").append(se.getUriTitle()).toString();
 		} else if (se instanceof BOParagraph) {

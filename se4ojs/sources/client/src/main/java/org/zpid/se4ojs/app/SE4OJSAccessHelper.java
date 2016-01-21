@@ -22,7 +22,7 @@ import org.zpid.se4ojs.annotation.ncbo.NcboAnnotator;
 import org.zpid.se4ojs.refStructuring.ReferenceStructurer;
 import org.zpid.se4ojs.spar.Jats2Spar;
 import org.zpid.se4ojs.textStructure.StructureTransformer;
-import org.zpid.se4ojs.textStructure.bo.StructureElement;
+import org.zpid.se4ojs.textStructure.bo.BOStructureElement;
 /**
  * Helper class for the rdfization of PsychOpen articles.
  * 
@@ -110,7 +110,7 @@ public class SE4OJSAccessHelper {
 	 * @throws IOException 
 	 * @throws Exception
 	 */
-	public void annotateFileWithNCBOAnnotator(File paper, List<StructureElement> topLevelElements, String outputDir) throws IOException {
+	public void annotateFileWithNCBOAnnotator(File paper, List<BOStructureElement> topLevelElements, String outputDir) throws IOException {
 		    synchronized(ncboLock) { 
 				logger.info("Starting annotation with NCBO Annotator for paper: " + paper);
 				String ontologyProperties = getOntologyProperties(NCBO);
@@ -121,7 +121,7 @@ public class SE4OJSAccessHelper {
 		    } 
 		}
 
-	public List<StructureElement> rdfizeSections(File paper, String outputDir) throws JDOMException, IOException {
+	public List<BOStructureElement> rdfizeSections(File paper, String outputDir) throws JDOMException, IOException {
 		StructureTransformer structureTransformer = new StructureTransformer(Config.getBaseURI(), Config.getLanguages());
 		String out = paper.toPath().getFileName().toString().replace(".xml", "-textStructure.rdf");
 		out = out.replace(".XML", "-textStructure.rdf");

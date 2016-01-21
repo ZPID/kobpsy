@@ -17,7 +17,7 @@ import org.jdom2.input.SAXBuilder;
 import org.ontoware.rdf2go.exception.ModelRuntimeException;
 import org.ontoware.rdf2go.model.Model;
 import org.xml.sax.InputSource;
-import org.zpid.se4ojs.textStructure.bo.StructureElement;
+import org.zpid.se4ojs.textStructure.bo.BOStructureElement;
 
 /**
  * Rdfizes sections and citations of a JATS-1.0 document.
@@ -26,7 +26,7 @@ import org.zpid.se4ojs.textStructure.bo.StructureElement;
  */
 public class StructureTransformer {
 
-	private List<StructureElement> topLevelElements = new ArrayList<StructureElement>();
+	private List<BOStructureElement> topLevelElements = new ArrayList<BOStructureElement>();
 	
 	int idx = 0;
 
@@ -49,7 +49,7 @@ public class StructureTransformer {
 		transformer.transform(datafile, Paths.get("D:\\Temp\\db\\sectionOut.rdf"));
 	}
 
-	public  List<StructureElement> transform(File dataFile, Path outFile) throws JDOMException, IOException {
+	public  List<BOStructureElement> transform(File dataFile, Path outFile) throws JDOMException, IOException {
 		log.info("Starting text structure rdfization for paper: " + dataFile.getName());
 		SAXBuilder builder = new SAXBuilder();
 		builder.setFeature("http://xml.org/sax/features/resolve-dtd-uris", false);

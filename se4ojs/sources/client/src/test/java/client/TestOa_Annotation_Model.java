@@ -28,7 +28,7 @@ import org.zpid.se4ojs.annotation.Prefix;
 import org.zpid.se4ojs.annotation.ncbo.NcboAnnotator;
 import org.zpid.se4ojs.app.Config;
 import org.zpid.se4ojs.app.SE4OJSAccessHelper;
-import org.zpid.se4ojs.textStructure.bo.StructureElement;
+import org.zpid.se4ojs.textStructure.bo.BOStructureElement;
 
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
@@ -60,7 +60,7 @@ public class TestOa_Annotation_Model {
 		 String outputDir = folder.getRoot().toString();
 		 // get the structure elements of the input text
 		 SE4OJSAccessHelper se4ojsAccessHelper = new SE4OJSAccessHelper();
-		 List<StructureElement> structureElements = se4ojsAccessHelper.rdfizeSections(in, outputDir);
+		 List<BOStructureElement> structureElements = se4ojsAccessHelper.rdfizeSections(in, outputDir);
 		 //annotate the file
 		 NcboAnnotator ncboAnnotator = new TestableNCBOAnnotator(TEST_ONTOLOGY);
 		 ncboAnnotator.annotate(Config.getBaseURI(), in, structureElements, Paths.get(outputDir));
@@ -158,7 +158,7 @@ class TestableNCBOAnnotator extends NcboAnnotator {
 			String annotationId) {
 		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		getAnnotationUtils().createLiteralTriple(annotationId,
-				AnnotationUtils.createPropertyString(Prefix.OA, OA_CREATION_DATE),
+				AnnotationUtils.createPropertyString(Prefix.OA, OA_ANNOTATED_AT),
 				dateFormat.format(getFixedSampleDate()),XSD.date, model);
 	}
 

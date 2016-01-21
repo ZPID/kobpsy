@@ -11,7 +11,7 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
  * @author barth
  *
  */
-public class BOParagraph extends StructureElement {
+public class BOParagraph extends BOStructureElement {
 
 	private String text;
 //	private List<String> figures = new ArrayList<>();

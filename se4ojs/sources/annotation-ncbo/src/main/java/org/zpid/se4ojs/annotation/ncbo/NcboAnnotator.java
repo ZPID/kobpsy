@@ -17,7 +17,7 @@ import java.util.List;
 import org.apache.log4j.Logger;
 import org.ontoware.rdf2go.model.Model;
 import org.zpid.se4ojs.annotation.OaAnnotator;
-import org.zpid.se4ojs.textStructure.bo.StructureElement;
+import org.zpid.se4ojs.textStructure.bo.BOStructureElement;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -34,7 +34,7 @@ public class NcboAnnotator extends OaAnnotator{
 	
 	static final String REST_URL = "http://data.bioontology.org"; 
 	static final ObjectMapper mapper = new ObjectMapper();
-	private static final String NCBO_ANNOTATOR_URL = "http://bioportal.bioontology.org/annotator/";
+	private static final String NCBO_ANNOTATOR_URL = "http://bioportal.bioontology.org/annotator";
 	
 	/** 
 	 * Constant that marks the beginning of a URI fragment.
@@ -53,7 +53,7 @@ public class NcboAnnotator extends OaAnnotator{
 
 //	TODO
 //	public void annotateWithApaClusters(File paper,
-//			List<StructureElement> topLevelElements, String outputDir) throws IOException {
+//			List<BOStructureElement> topLevelElements, String outputDir) throws IOException {
 //		String out = paper.toPath().getFileName().toString().replace(".xml", "-ncboAnnotations.rdf");
 //		out = out.replace(".XML", "-ncboAnnotations.rdf");
 //		annotate(paper, topLevelElements, Paths.get(outputDir, out));
@@ -70,6 +70,7 @@ public class NcboAnnotator extends OaAnnotator{
 			String subElementUri) throws UnsupportedEncodingException  {
 		StringBuilder urlParameters = new StringBuilder();
 		JsonNode results;
+		//FIXME externalize url parameters as configurable properties
 		urlParameters.append("include=prefLabel,synonym,definition");
 		urlParameters.append("&text=").append(URLEncoder.encode(text, "ISO-8859-1"));
 		urlParameters.append("require_exact_match=true");
@@ -105,7 +106,8 @@ public class NcboAnnotator extends OaAnnotator{
                 String prefLabel = getClassDetail(classDetails, "prefLabel");
                 String conceptBrowserUrl = getClassDetail(classDetails, "links" , "ui");
     			log.debug("\tprefLabel: " + prefLabel);
-                log.debug("\tontology: " + classDetails.get("links").get("ontology").asText() + "\n");
+                String ontology = classDetails.get("links").get("ontology").asText();
+				log.debug("\tontology: " + ontology + "\n");
 
     			String annotationUri = createAnnotation(model,
     					conceptId,
@@ -113,7 +115,7 @@ public class NcboAnnotator extends OaAnnotator{
     			log.debug("Annotation URI: " + annotationUri);
     			addAnnotationMetaInfo(model, annotationUri, NCBO_ANNOTATOR_URL);    			
     			String bodyUri = createBody(model, annotationUri, conceptId);
-    			addBodyInfo(model, bodyUri, prefLabel, conceptBrowserUrl);
+    			addBodyInfo(model, bodyUri, prefLabel, conceptBrowserUrl, ontology);
     			createTargets(model, annotationInfo, annotationUri, textStructElementUri);
             }
         }
@@ -191,11 +193,11 @@ public class NcboAnnotator extends OaAnnotator{
 	}
 
 	@Override
-	public void annotate(String baseUri, File paper, List<StructureElement> structureElements,
+	public void annotate(String baseUri, File paper, List<BOStructureElement> bOStructureElements,
 			Path outputDir) throws IOException {
 		String out = paper.toPath().getFileName().toString().replace(".xml", "-ncboAnnotations.rdf");
 		out = out.replace(".XML", "-ncboAnnotations.rdf");
-		super.annotate(baseUri, paper, structureElements, Paths.get(outputDir.toString(), out));
+		super.annotate(baseUri, paper, bOStructureElements, Paths.get(outputDir.toString(), out));
 		
 	}
 

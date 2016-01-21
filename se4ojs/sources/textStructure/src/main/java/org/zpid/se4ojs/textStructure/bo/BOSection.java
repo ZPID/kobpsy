@@ -8,7 +8,7 @@ import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.zpid.se4ojs.textStructure.SectionType;
 
-public class BOSection extends StructureElement {
+public class BOSection extends BOStructureElement {
 	public static final int ARBITRARY_TITLE_LENGTH = 30;
 	public static final String CHAR_NOT_ALLOWED = "[^A-Za-z0-9]";
 	private List<SectionType> types = new ArrayList<>();
@@ -16,7 +16,7 @@ public class BOSection extends StructureElement {
 	private List<String> externalLinks = new ArrayList<>();
 //	private StringBuilder ancestorUri; FIXME
 	private List<String> lists = new ArrayList<>();
-	private List<StructureElement> childStructures = new ArrayList<>();
+	private List<BOStructureElement> childStructures = new ArrayList<>();
 	private String title;
 
 	public BOSection(String uriTitle) {
@@ -97,11 +97,11 @@ public class BOSection extends StructureElement {
 		return types;
 	}
 
-	public void addChildStructure(StructureElement childStructure) {
+	public void addChildStructure(BOStructureElement childStructure) {
 		childStructures.add(childStructure);
 	}
 
-	public List<StructureElement> getChildStructures() {
+	public List<BOStructureElement> getChildStructures() {
 		return childStructures;
 	}
 

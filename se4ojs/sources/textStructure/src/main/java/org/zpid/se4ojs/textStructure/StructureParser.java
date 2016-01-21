@@ -20,7 +20,7 @@ import org.jdom2.Namespace;
 import org.zpid.se4ojs.textStructure.bo.BOCitation;
 import org.zpid.se4ojs.textStructure.bo.BOParagraph;
 import org.zpid.se4ojs.textStructure.bo.BOSection;
-import org.zpid.se4ojs.textStructure.bo.StructureElement;
+import org.zpid.se4ojs.textStructure.bo.BOStructureElement;
 
 /**
  * Parses section nodes and paragraph nodes contained therein.
@@ -68,8 +68,8 @@ public class StructureParser {
 	 * @throws JDOMException
 	 * @throws IOException
 	 */
-	public List<StructureElement> parse(Element rootNode, 
-			List<StructureElement> topLevelStructures) throws JDOMException, IOException {
+	public List<BOStructureElement> parse(Element rootNode, 
+			List<BOStructureElement> topLevelStructures) throws JDOMException, IOException {
 		namespace = rootNode.getNamespacesInherited().get(1);
 		parseArticle(rootNode, topLevelStructures);
 		List<Element> subArticles = rootNode.getChildren("sub-article");
@@ -81,13 +81,13 @@ public class StructureParser {
 
 	}
 
-	private void parseArticle(Element rootNode, List<StructureElement> topLevelStructures) {
+	private void parseArticle(Element rootNode, List<BOStructureElement> topLevelStructures) {
 		parseAbstract(rootNode, topLevelStructures, "");
 		Element body = rootNode.getChild("body");
 		parseChildStructureElements(body, topLevelStructures, StringUtils.EMPTY);
 	}
 
-	private void parseSubArticle(Element subArt, List<StructureElement> container, int subArtCount) {
+	private void parseSubArticle(Element subArt, List<BOStructureElement> container, int subArtCount) {
 		String language = getLanguage(subArt);
 		if (language != null) {
 			String titleTag = "textual-entity/sub" + subArtCount;
@@ -103,7 +103,7 @@ public class StructureParser {
 	}
 	
 	private void parseChildStructureElements(Element node,
-			List<StructureElement> container, String parentTitle) {
+			List<BOStructureElement> container, String parentTitle) {
 		List<Element> children = node.getChildren();
 		int paraCount = 0;
 		for (Element child : children) {
@@ -142,7 +142,7 @@ public class StructureParser {
 					+ element.getText());
 			return null;
 		}
-		return StructureElement.ARTICLE_LANGUAGE;
+		return BOStructureElement.ARTICLE_LANGUAGE;
 	}
 
 	private List<SectionType> getSectionTypes(String type) {
@@ -157,7 +157,7 @@ public class StructureParser {
 		return types;
 	}
 
-	private BOSection parseAbstract(Element node, List<StructureElement> topLevelStructures, String parentTitle) {
+	private BOSection parseAbstract(Element node, List<BOStructureElement> topLevelStructures, String parentTitle) {
 		Element front = node.getChild("front");
 		if (front != null) {
 			Element articleMeta = front.getChild("article-meta");
@@ -217,7 +217,7 @@ public class StructureParser {
 	}
 
 	private BOSection createSection(String titleTag, List<SectionType> types,
-			List<StructureElement> container, String parentTitle, String language) {
+			List<BOStructureElement> container, String parentTitle, String language) {
 		
 		String uriTitle = BOSection.createUriTitle(
 				titleTag, types, container.size() + 1, parentTitle);
@@ -226,7 +226,7 @@ public class StructureParser {
 		return section;
 	}
 	
-	private BOParagraph createParagraph(Element p, List<StructureElement> container, int paraCount, String language) {
+	private BOParagraph createParagraph(Element p, List<BOStructureElement> container, int paraCount, String language) {
 		BOParagraph paragraph = new BOParagraph(paraCount, p.getText(), language);
 		container.add(paragraph);
 		return paragraph;

@@ -9,7 +9,7 @@ import org.jdom2.Element;
 import org.ontoware.rdf2go.model.Model;
 import org.zpid.se4ojs.textStructure.bo.BOParagraph;
 import org.zpid.se4ojs.textStructure.bo.BOSection;
-import org.zpid.se4ojs.textStructure.bo.StructureElement;
+import org.zpid.se4ojs.textStructure.bo.BOStructureElement;
 
 import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.shared.uuid.JenaUUID;
@@ -87,7 +87,7 @@ public class AnnotationUtils {
 		return null;
 	}
 	
-	String createSubElementUri(StructureElement se, String articleUri, String parentUri) {
+	String createSubElementUri(BOStructureElement se, String articleUri, String parentUri) {
 		if (se instanceof BOSection) {
 			return new StringBuffer(articleUri).append("/").append(se.getUriTitle()).toString();
 		} else if (se instanceof BOParagraph) {
