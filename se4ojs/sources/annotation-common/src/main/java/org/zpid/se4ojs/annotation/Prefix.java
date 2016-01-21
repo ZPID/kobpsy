@@ -25,7 +25,7 @@ public enum Prefix {
     PAV("http://purl.org/pav/", "pav"),
     
 	PO ("http://www.essepuntato.it/2008/12/pattern#", "po"),
-	// PROV
+
 	PROV("http://www.w3.org/ns/prov#", "prov"),
 
 	PSYNDEX("http://www.zpid.de/psyndex#", "psyndex"),

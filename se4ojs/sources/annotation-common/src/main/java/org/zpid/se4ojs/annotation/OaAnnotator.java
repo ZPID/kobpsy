@@ -27,7 +27,7 @@ import org.ontoware.rdf2go.model.Statement;
 import org.xml.sax.InputSource;
 import org.zpid.se4ojs.textStructure.bo.BOParagraph;
 import org.zpid.se4ojs.textStructure.bo.BOSection;
-import org.zpid.se4ojs.textStructure.bo.StructureElement;
+import org.zpid.se4ojs.textStructure.bo.BOStructureElement;
 
 import com.hp.hpl.jena.vocabulary.XSD;
 
@@ -38,13 +38,14 @@ import com.hp.hpl.jena.vocabulary.XSD;
  * </p>
  * <p>
  * The textual content is passed into this annotator as a hierarchy of
- * {@link StructureElement}s.
+ * {@link BOStructureElement}s.
  * </p>
  * 
  * @author barth
  */
 public abstract class OaAnnotator {
 	
+	private static final String TEXTUAL_ENTITY = "/textual-entity";
 	protected static final String OA_ANNOTATION = "Annotation";
 	protected static final String RDF_TYPE = "type";
 	protected static final String RDF_TYPE_PROPERTY = AnnotationUtils.createPropertyString(Prefix.RDF, RDF_TYPE);
@@ -54,12 +55,13 @@ public abstract class OaAnnotator {
 	protected static final String OA_HAS_TARGET = "hasTarget";
 	protected static final String OA_HAS_SOURCE = "hasSource";
 	protected static final String OA_HAS_SELECTOR = "hasSelector";
-	protected static final String OA_AUTHORED_BY = "annotatedBy";
-	protected static final String OA_CREATION_DATE = "annotatedAt";
+	protected static final String OA_ANNOTATED_BY = "annotatedBy";
+	protected static final String OA_ANNOTATED_AT = "annotatedAt";
 	protected static final String OA_EXACT_MATCH = "exact";
 	protected static final String OA_SEMANTIC_TAG = "SemanticTag";
 	protected static final String OA_SPECIFIC_RESOURCE = "SpecificResource";
 	protected static final String FOAF_PAGE = "page";
+	protected static final String FOAF_HOMEPAGE = "homepage";
 	protected static final String CNT_TEXT = "ContentAsText";
 	protected static final String CNT_CHARS = "chars";
 	protected static final String OA_START_POS = "start";
@@ -69,8 +71,14 @@ public abstract class OaAnnotator {
 	protected static final String OA_FRAGMENT_SELECTOR = "FragmentSelector";
 	protected static final String OA_TEXT_POS_SELECTOR = "TextPositionSelector";
 	protected static final String OA_TEXT_QUOTE_SELECTOR = "TextQuoteSelector";
+	protected static final String PROV_SOFTWARE_AGENT = "SoftwareAgent";
 	private static final String LANGUAGE_EN = "en";
-
+	private static final String OA_MOTIVATED_BY = "motivatedBy";
+	private static final String OA_TAGGING = "tagging";
+	private static final String SKOS_IN_SCHEME = "inScheme";
+	private static final String SKOS_CONCEPT = "Concept";
+	private static final String DC_TITLE = "title";
+	private static final String SKOS_CONCEPT_SCHEME = "ConceptScheme";
 
 	private String articleUri;
 	private Logger log  = Logger.getLogger(OaAnnotator.class);
@@ -79,13 +87,13 @@ public abstract class OaAnnotator {
 	/** Stores a concept by its URI as a key and the number of times it occurs in the same paper as value. */
 	private Map<String, Integer> conceptCount = new HashMap<>();
 
-	public void annotate(String baseUri, File paper, List<StructureElement> structureElements, Path outFile) throws IOException {
+	public void annotate(String baseUri, File paper, List<BOStructureElement> bOStructureElements, Path outFile) throws IOException {
 		Model model = RDF2Go.getModelFactory().createModel();
 		model.open();
 		annotationUtils.setNamespaces(model);
 		Document document = createDocumentFromPaper(paper);
 		articleUri = annotationUtils.getArticleUri(document, baseUri);
-		model = annotateParagraphs(articleUri, structureElements, model);
+		model = annotateParagraphs(articleUri, bOStructureElements, model);
 	    OutputStream os = new FileOutputStream(new File(outFile.toString()));
 	    try {
 	    	com.hp.hpl.jena.rdf.model.Model jenaModel = 
@@ -131,15 +139,15 @@ public abstract class OaAnnotator {
 		return document;
 	}
 
-	private Model annotateParagraphs(String parentUri, List<StructureElement> container, Model model) {
+	private Model annotateParagraphs(String parentUri, List<BOStructureElement> container, Model model) {
 		List<Model> childModels = new ArrayList<>();
 		
-		for (StructureElement se : container) {
+		for (BOStructureElement se : container) {
 			String subElementUri = annotationUtils.createSubElementUri(se, articleUri, parentUri);
 
 			if (se instanceof BOSection) {
 				BOSection sec = (BOSection) se;
-				List<StructureElement> childStructures = sec.getChildStructures();
+				List<BOStructureElement> childStructures = sec.getChildStructures();
 
 				if (!childStructures.isEmpty()) {
 					Model childModel = RDF2Go.getModelFactory().createModel();
@@ -224,7 +232,7 @@ public abstract class OaAnnotator {
 	 * Example:
 	 * {@code
 	 * <rdf:Description rdf:about="urn:uuid:6C97B503-25EE-4E37-875C-B7C850E13194"> 
-	 * 	  <oa:hasSource rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/textualEntity"/>
+	 * 	  <oa:hasSource rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/textual-entity"/>
      *    ...
 	 * }
 	 * 
@@ -235,7 +243,7 @@ public abstract class OaAnnotator {
 		annotationUtils.createResourceTriple(
 				targetId,
 				AnnotationUtils.createPropertyString(Prefix.OA, OA_HAS_SOURCE), 
-				articleUri + "/textualEntity", model);	
+				articleUri + TEXTUAL_ENTITY, model);	
 	}
 	
 	public void addToConceptCount(String conceptUri) {
@@ -288,19 +296,28 @@ public abstract class OaAnnotator {
 	 * Subject is the annotation body. The body's type and concept name are specified.
 	 * Example: 
 	 * {@code
-	 * <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CHEBI_33232"/>
+	 * <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CHEBI_33232">
 	 *   <rdf:type rdf:resource="http://www.w3.org/2011/content#ContentAsText"/>
 	 *   <cnt:chars>application</cnt:chars>
      *   <rdf:type rdf:resource="http://www.w3.org/ns/oa#SemanticTag"/>
 	 *   <foaf:page rdf:resource="http://bioportal.bioontology.org/ontologies/NIFSTD?p=classes&amp;conceptid=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2Fchebi.owl%23CHEBI_33232"/>
+	 *   ...
+	 *   //ontological information
+	 *   <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+	 *   <skos:inScheme rdf:resource=""http://purl.obolibrary.org/obo/CHEBI"/>
+	 *   <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CHEBI"/>
+	 *   <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+	 *   <dc:title>CHEBI</dc:title>
+	 *   ...
 	 * }
 	 * 
 	 * @param model the RDF2Go model
 	 * @param bodyUri the URI of the body
 	 * @param conceptPrefLabel the preferred label of the concept
 	 * @param conceptWebPage the URL to the web page of the concept
+	 * @param ontology URI the URI of the ontology
 	 */
-	protected void addBodyInfo(Model model, String bodyUri, String conceptPrefLabel, String conceptWebPage) {
+	protected void addBodyInfo(Model model, String bodyUri, String conceptPrefLabel, String conceptWebPage, String ontologyUri) {
 		annotationUtils.createResourceTriple(bodyUri, RDF_TYPE_PROPERTY, 
 				annotationUtils.createUriString(Prefix.OA.getURL(), OA_SEMANTIC_TAG), model);
 		annotationUtils.createResourceTriple(bodyUri, RDF_TYPE_PROPERTY, 
@@ -309,6 +326,16 @@ public abstract class OaAnnotator {
 				, conceptWebPage, model);
 		annotationUtils.createLiteralTriple(bodyUri, 
 				AnnotationUtils.createPropertyString(Prefix.CNT, CNT_CHARS), conceptPrefLabel, model);
+		//add ontological information
+		annotationUtils.createResourceTriple(bodyUri, RDF_TYPE_PROPERTY, 
+				annotationUtils.createUriString(Prefix.SKOS.getURL(), SKOS_CONCEPT), model);
+		annotationUtils.createResourceTriple(bodyUri, AnnotationUtils.createPropertyString(Prefix.SKOS, SKOS_IN_SCHEME)
+				, ontologyUri, model);
+		//TODO if optimizing for speed, cache ontology names for program runtime
+		annotationUtils.createResourceTriple(ontologyUri, AnnotationUtils.createPropertyString(Prefix.DC, DC_TITLE)
+				, ontologyUri.substring(ontologyUri.lastIndexOf("/"), ontologyUri.length()), model);
+		annotationUtils.createResourceTriple(ontologyUri, RDF_TYPE_PROPERTY, 
+				annotationUtils.createUriString(Prefix.SKOS.getURL(), SKOS_CONCEPT_SCHEME), model);
 	}
 
 	/**
@@ -317,24 +344,44 @@ public abstract class OaAnnotator {
 	 * Example:
 	 * {@code
 	 *  <rdf:Description rdf:about="http://www.zpid.de/resource/CHEBI_33232"> 
-	 * 	<oa:annotatedBy rdf:resource="http://bioportal.bioontology.org/annotator/"/>
+	 * 	<oa:annotatedBy rdf:resource="http://bioportal.bioontology.org/annotator/">
 	 *  <oa:annotatedAt rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2015-06-30</oa:annotatedAt>
-	 *  ...}
+	 *  
+	 *  <oa:motivatedBy oa:tagging/>
+	 *  
+	 *  <rdf:Description rdf:about="http://bioportal.bioontology.org/annotator">
+	 *  <rdf:Type rdf:resource=""http://www.w3.org/ns/prov#SoftwareAgent">
+	 *  <foaf:homepage "http://bioportal.bioontology.org/annotator"/>
+	 *  
+	 *  }
 	 * @param model the RDF2Go model
 	 * @param annotationId the URI of the Annotation
 	 * @param authorID the identifier of the author
 	 */
 	protected void addAnnotationMetaInfo(Model model, String annotationId, String authorID) {
 		annotationUtils.createResourceTriple(annotationId,
-				AnnotationUtils.createPropertyString(Prefix.OA, OA_AUTHORED_BY),
+				AnnotationUtils.createPropertyString(Prefix.OA, OA_ANNOTATED_BY),
+				authorID, model);
+		annotationUtils.createResourceTriple(authorID, RDF_TYPE_PROPERTY,
+				annotationUtils.createUriString(Prefix.PROV.getURL(), PROV_SOFTWARE_AGENT), model);
+		annotationUtils.createResourceTriple(authorID, 
+				AnnotationUtils.createPropertyString(Prefix.FOAF, FOAF_HOMEPAGE), 
 				authorID, model);
 		createDateTriple(model, annotationId);
+		createMotivationTriple(model, annotationId);
+	}
+
+	private void createMotivationTriple(Model model, String annotationId) {
+		annotationUtils.createResourceTriple(annotationId,
+				AnnotationUtils.createPropertyString(Prefix.OA, OA_MOTIVATED_BY),
+				annotationUtils.createUriString(Prefix.OA.getURL(), OA_TAGGING), model);
+		
 	}
 
 	protected void createDateTriple(Model model, String annotationId) {
 		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		annotationUtils.createLiteralTriple(annotationId,
-				AnnotationUtils.createPropertyString(Prefix.OA, OA_CREATION_DATE),
+				AnnotationUtils.createPropertyString(Prefix.OA, OA_ANNOTATED_AT),
 				dateFormat.format(new Date()), XSD.date, model);
 	}
 	

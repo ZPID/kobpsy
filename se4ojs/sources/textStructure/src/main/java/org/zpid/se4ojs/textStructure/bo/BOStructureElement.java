@@ -6,13 +6,13 @@ package org.zpid.se4ojs.textStructure.bo;
  * @author barth
  *
  */
-public class StructureElement {
+public class BOStructureElement {
 	
 	public static String ARTICLE_LANGUAGE = "articleLanguage";
 	private String uriTitle;
 	private String language;
 
-	protected StructureElement(String uriTitle, String language) {
+	protected BOStructureElement(String uriTitle, String language) {
 		this.uriTitle = uriTitle;
 		if (language != null && !language.equals(ARTICLE_LANGUAGE)) {
 			this.language = language.toLowerCase();

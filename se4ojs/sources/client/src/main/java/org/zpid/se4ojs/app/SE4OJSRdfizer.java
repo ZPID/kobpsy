@@ -17,7 +17,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 
 import org.apache.log4j.Logger;
 import org.ontoware.rdf2go.exception.ModelRuntimeException;
-import org.zpid.se4ojs.textStructure.bo.StructureElement;
+import org.zpid.se4ojs.textStructure.bo.BOStructureElement;
 
 /**
  * Main class of the se4ojs tool.
@@ -234,7 +234,7 @@ public class SE4OJSRdfizer {
 	void doProcess(final Path path, final SE4OJSAccessHelper helper) {
 		try {
 			CountDownLatch doneSignal = null;
-			List<StructureElement> topLevelElements = null;
+			List<BOStructureElement> topLevelElements = null;
 			for (ProcessingTask task : processingTasks) {
 				switch (task) {
 				case RDF:
@@ -293,7 +293,7 @@ public class SE4OJSRdfizer {
 	}
 	
 	private void annotate(SE4OJSAccessHelper helper, File file,
-			String outputDir, List<StructureElement> topLevelElements,
+			String outputDir, List<BOStructureElement> topLevelElements,
 			ProcessingTask task, CountDownLatch doneSignal) {
 		
 		AnnotationTask annotationTask = 
@@ -316,13 +316,13 @@ class AnnotationTask implements Runnable {
 	SE4OJSAccessHelper helper;
 	File paper;
 	private String outputDir;
-	private List<StructureElement> structureElements;
+	private List<BOStructureElement> structureElements;
 	private Exception exception;
 	private ProcessingTask processingTask;
 	private CountDownLatch doneSignal;
 	
 	public AnnotationTask(SE4OJSAccessHelper helper, File file,
-			String outputDir, List<StructureElement> structureElements,
+			String outputDir, List<BOStructureElement> structureElements,
 			ProcessingTask processingTask, CountDownLatch doneSignal) {
 		
 		this.helper = helper;
