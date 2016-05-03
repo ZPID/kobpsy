@@ -1,7 +1,5 @@
 ## KOBPSY ##
 
-! Please note that this document is outdated for the current branch. The current branch is under development since the annotation data model is undergoing substantial changes. If you would like to pull a stable version of KOBPSY, please pull branch "master".
-
 An RDF-knowledgebase for scholarly articles in psychology. The RDF representations have been generated from the articles' JATS-XML representations using the SE4OJS tool (see description below). </br>
 
 - Article metadata, such as title, authors, keywords, references etc.
@@ -11,7 +9,7 @@ An RDF-knowledgebase for scholarly articles in psychology. The RDF representatio
 
 A sample of 5 articles and their RDF-representations from KOBPSY is available at: /se4ojs/resources/data/annotation.zip.
 
-## SE4OJS User documentation ##
+## SE4OJS User documentation (valid for Tag 1.0 and Branch 1.1) ##
 ### Overview
 The application consists of several modules, rdfizing different aspects of an xml article in JATS- 1.0 format, using a variety of ontologies, especially the [SPAR ontologies](http://sempublishing.sourceforge.net/ "SPAR ontologies") and the [Annotation Ontology](https://code.google.com/p/annotation-ontology/ "Annotation Ontology"). It was inspired by the [Biotéa](http://www.jbiomedsem.com/content/4/S1/S5) project with whom it shares similarities in workflow and output.
 #####Modules
@@ -104,6 +102,16 @@ The annotators try to ignore text in other languages than English. This is achie
 ####Sample Eclipse Run-configuration (includes all possible rdfization steps).
 ![img1](se4ojs/resources/doc/se4ojsRunConfig1.JPG)
 ![img2](se4ojs/resources/doc/se4ojsRunConfig2.PNG)
+
+## Changes in Tag 2.0 and Branch 2.1) ##
+
+### Changes to the Content Annotation Data Model
+The [data model](https://github.com/ZPID/kobpsy/tree/2.0/se4ojs/resources/doc/OA_dataModel) for the annotation of textual content underwent substantial changes: Instead of previously used [Annotation Ontology](https://code.google.com/p/annotation-ontology/ "Annotation Ontology"), we now use the 
+[Open Annotation Specification](http://www.openannotation.org/spec/core/ "Open Annotation Specification"), because it is more flexible and has reached the status of a W3C community draft.
+ 
+### Changes to the modules
+
+Currently, UMLS Annotation is not supported.
 
 
 
