@@ -1,0 +1,32 @@
+PREFIX oa: <http://www.w3.org/ns/oa#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+prefix skos: <http://www.w3.org/2004/02/skos/core#>
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix owl: <http://www.w3.org/2002/07/owl#>
+prefix xsd: <http://www.w3.org/2001/XMLSchema#>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix aot: <http://purl.org/ao/types/>
+prefix aos: <http://purl.org/ao/selectors/>
+prefix dcterms: <http://purl.org/dc/terms/>
+prefix aoa: <http://purl.org/ao/annotea/>
+prefix c4o: <http://purl.org/spar/c4o/>
+prefix biotea: <http://www.biotea.ws/ontology/ao_biotea.owl#>
+prefix ao: <http://purl.org/ao/core/>
+
+SELECT distinct ?annotation ?body ?conceptUri ?doc ?para ?startPos ?exactMatch
+
+WHERE{
+  ?annotation rdf:type oa:Annotation.
+  ?annotation oa:hasBody ?body.
+  ?annotation oa:hasTarget ?target.
+  ?body foaf:page ?conceptUri.
+  ?target oa:hasSource ?doc.
+  ?target oa:hasSelector ?sel.
+  ?sel oa:item ?posSel.
+  ?sel oa:item ?exactMatchSel.
+  ?sel oa:item ?paraSel.
+  ?paraSel rdf:value ?para.
+  ?exactMatchSel oa:exact ?exactMatch.
+  ?posSel oa:start ?startPos.
+
+} LIMIT 10
