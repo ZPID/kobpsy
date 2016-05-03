@@ -1,0 +1,26 @@
+prefix skos: <http://www.w3.org/2004/02/skos/core#>
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix owl: <http://www.w3.org/2002/07/owl#>
+prefix xsd: <http://www.w3.org/2001/XMLSchema#>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix aot: <http://purl.org/ao/types/>
+prefix aos: <http://purl.org/ao/selectors/>
+prefix dcterms: <http://purl.org/dc/terms/>
+prefix aoa: <http://purl.org/ao/annotea/>
+prefix c4o: <http://purl.org/spar/c4o/>
+prefix biotea: <http://www.biotea.ws/ontology/ao_biotea.owl#>
+prefix ao: <http://purl.org/ao/core/>
+
+SELECT * #?title ?textMatch ?text ?label ?concept ?startPosition
+WHERE{
+  ?annotation ao:body ?body.
+  ?annotation ao:context ?context.
+  ?context ao:exact ?textMatch.
+  ?context dcterms:references  ?para.
+  ?context ao:offset ?startPosition.
+  ?para c4o:hasContent ?text.
+  ?annotation ao:annotatesResource ?doc.
+  #BIND(IRI(CONCAT(STR(?doc), "/textual-entity")) AS ?docTextualEntity)
+  ?doc dcterms:title ?title.
+  FILTER regex(STR(?body), 'Application', 'i').
+} LIMIT 10
