@@ -1,39 +1,50 @@
 <rdf:RDF
-    xmlns:psyndex="http://www.zpid.de/psyndex#"
-    xmlns:doco="http://purl.org/spar/doco/"
-    xmlns:skos="http://www.w3.org/2004/02/skos/core#"
-    xmlns:po="http://www.essepuntato.it/2008/12/pattern#"
-    xmlns:zpid_doco="http://www.zpid.de/zpid_doco#"
-    xmlns:dc="http://purl.org/dc/elements/1.1/"
-    xmlns:sro="http://salt.semanticauthoring.org/ontologies/sro#"
-    xmlns:prov="http://www.w3.org/ns/prov#"
-    xmlns:oa="http://www.w3.org/ns/oa#"
     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-    xmlns:foaf="http://xmlns.com/foaf/0.1/"
-    xmlns:pav="http://purl.org/pav/"
-    xmlns:frbr="http://purl.org/vocab/frbr/core#"
-    xmlns:owl="http://www.w3.org/2002/07/owl#"
-    xmlns:dcterms="http://purl.org/dc/terms/"
-    xmlns:zpid="http://www.zpid.de/resource"
+    xmlns:sro="http://salt.semanticauthoring.org/ontologies/sro#"
+    xmlns:po="http://www.essepuntato.it/2008/12/pattern#"
+    xmlns:psyndex="http://www.zpid.de/psyndex#"
     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-    xmlns:cnt="http://www.w3.org/2011/content#" > 
+    xmlns:zpid_doco="http://www.zpid.de/zpid_doco#"
+    xmlns:oa="http://www.w3.org/ns/oa#"
+    xmlns:dcterms="http://purl.org/dc/terms/"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:zpid="http://www.zpid.de/resource"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:prov="http://www.w3.org/ns/prov#"
+    xmlns:pav="http://purl.org/pav/"
+    xmlns:doco="http://purl.org/spar/doco/"
+    xmlns:cnt="http://www.w3.org/2011/content#"
+    xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+    xmlns:frbr="http://purl.org/vocab/frbr/core#"
+    xmlns:foaf="http://xmlns.com/foaf/0.1/" > 
     <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/CHEBI_33232">
         <rdf:type rdf:resource="http://www.w3.org/ns/oa#Annotation"/>
-        <oa:annotatedBy rdf:resource="http://bioportal.bioontology.org/annotator/"/>
-        <oa:annotatedAt rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2015-06-30</oa:annotatedAt>	 
+        <oa:annotatedBy rdf:resource="http://bioportal.bioontology.org/annotator"/>
+        <oa:annotatedAt rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2015-06-30</oa:annotatedAt>	
+        <oa:motivatedBy rdf:resource="http://www.w3.org/ns/oa#tagging"/> 
         <oa:hasBody rdf:resource="http://purl.obolibrary.org/obo/CHEBI_33232"/>
         <oa:hasTarget rdf:resource="urn:uuid:test1"/>
     </rdf:Description>
+    <rdf:Description rdf:about="http://data.bioontology.org/ontologies/CHEBI">
+    	<dc:title>CHEBI</dc:title>
+    	<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+  	</rdf:Description>
     <rdf:Description rdf:about="http://purl.obolibrary.org/obo/CHEBI_33232"> 
         <rdf:type rdf:resource="http://www.w3.org/ns/oa#SemanticTag"/>
 		<foaf:page rdf:resource="http://bioportal.bioontology.org/ontologies/CHEBI?p=classes&amp;conceptid=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FCHEBI_33232"/> 
         <rdf:type rdf:resource="http://www.w3.org/2011/content#ContentAsText"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    	<skos:inScheme rdf:resource="http://data.bioontology.org/ontologies/CHEBI"/>
         <cnt:chars>application</cnt:chars>
     </rdf:Description>
+    <rdf:Description rdf:about="http://bioportal.bioontology.org/annotator">
+    	<rdf:type rdf:resource="http://www.w3.org/ns/prov#SoftwareAgent"/>
+    	<foaf:homepage rdf:resource="http://bioportal.bioontology.org/annotator"/>
+    </rdf:Description>
     <rdf:Description rdf:about="urn:uuid:test1">
-    <rdf:type rdf:resource="http://www.w3.org/ns/oa#SpecificResource"/>
-    <oa:hasSource rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/textualEntity"/>
-    <oa:hasSelector rdf:resource="urn:uuid:test2"/> 
+    	<rdf:type rdf:resource="http://www.w3.org/ns/oa#SpecificResource"/>
+    	<oa:hasSource rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/textual-entity"/>
+    	<oa:hasSelector rdf:resource="urn:uuid:test2"/> 
     </rdf:Description>
     <rdf:Description rdf:about="urn:uuid:test2"> 
         <rdf:type rdf:resource="http://www.w3.org/ns/oa#Composite"/>

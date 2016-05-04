@@ -14,14 +14,28 @@ import org.zpid.se4ojs.textStructure.bo.BOStructureElement;
 import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.shared.uuid.JenaUUID;
 
-
+/**
+ * This class contains utility methods to create RDF-triples and URIs.
+ * 
+ * @author barth
+ *
+ */
 public class AnnotationUtils {
+	
+	/**
+	 * Simple Regular Expression that checks for unwanted characters in URI Strings. Note that
+	 * the expression does not treat reserved characters separately and does not check
+	 * whether a (subcomponent delimiter) character's position is correct.
+	 * The expression is somewhat stricter than the RFC3986, e.g. we do not allow for 
+	 * a question mark or for percent-encoded Unicode characters. 
+	 */
+	public static final String CHARS_NOT_ALLOWED_IN_URI =
+			"[^A-Za-z0-9.\\-_~:/#?\\[\\]@!$&'\\(\\)*+,;=)]";
 	
 	static final String NAMESPACE_ZPID = "zpid";
 	static final String URI_PREFIX_ZPID = "http://zpid.de";
 	static final String URI_INFIX_DOI = "doi";
 	static final String URI_SUFFIX_TEXTUAL_ENTITY = "textual-entity";
-	public static final String CHAR_NOT_ALLOWED = "[^@A-Za-z0-9#-_]";
 	
 	private Logger log = Logger.getLogger(AnnotationUtils.class);
 	
@@ -111,7 +125,7 @@ public class AnnotationUtils {
 	 * @return the converted string
 	 */
 	String urlEncode(String s) {
-		String uri = s.replaceAll(CHAR_NOT_ALLOWED, "_");
+		String uri = s.replaceAll(CHARS_NOT_ALLOWED_IN_URI, "_");
 		if (StringUtils.lastOrdinalIndexOf(uri, "#", 2) != -1) {
 			String fragment = StringUtils.substringAfterLast(uri, "#");
 			String base = StringUtils.substringBeforeLast(uri, "#");

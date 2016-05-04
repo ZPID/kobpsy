@@ -18,6 +18,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.lang3.StringUtils;
 import org.jdom2.JDOMException;
 import org.junit.Rule;
 import org.junit.Test;
@@ -51,7 +52,13 @@ public class TestOa_Annotation_Model {
 	private static final String TEST_ONTOLOGY = "CHEBI";
 	@Rule
 	public TemporaryFolder folder = new TemporaryFolder();
-	
+	/**
+	 * Compares the expected annotation outcome with the actual outcome on the basis of a short document.
+	 * 
+	 * @throws ModelRuntimeException
+	 * @throws IOException
+	 * @throws JDOMException
+	 */
 	@Test
 	public void testNcboAnnotation() throws ModelRuntimeException, IOException, JDOMException {
 		 String inPath = this.getClass().getClassLoader().getResource("ncboAnnotatorTestXml.xml").getFile();
@@ -66,7 +73,7 @@ public class TestOa_Annotation_Model {
 		 ncboAnnotator.annotate(Config.getBaseURI(), in, structureElements, Paths.get(outputDir));
 		 
 		 String resPath = Paths.get(folder.getRoot().toString(), "ncboAnnotatorTestXml-ncboAnnotations.rdf").toString();
-		BufferedReader br = new BufferedReader(
+		 BufferedReader br = new BufferedReader(
 				 new FileReader(resPath));
 		 String refPath = this.getClass().getClassLoader().getResource("ncboAnnotatorReferenceAnnotation.rdf").getFile();
 		 refPath = refPath.replaceFirst("^/(.:/)", "$1");
@@ -80,22 +87,31 @@ public class TestOa_Annotation_Model {
 		 int lineNo = 0;
 		 while (lineRes != null) {
 			 while (lineRef != null) {
+				 System.out.println("\n");
 				 ++ lineNo;
 				 lineRes = br.readLine();
-				 if (lineRes != null) {
+				 if (!StringUtils.isEmpty(lineRes)) {
+					 System.out.println("lineRes");
+					 System.out.println(lineRes.trim());
 					 linesRes.put(lineRes.trim(), "");
+				 } else {
+					 System.out.println("lineRes is null");
 				 }
 				 lineRef = brRef.readLine();
-				 if (lineRef != null) {
+				 if (!StringUtils.isEmpty(lineRef)) {
+					 System.out.println("lineRef");
+					 System.out.println(lineRef.trim());
 					 linesRef.put(lineRef.trim(), "");
+				 } else {
+					 System.out.println("lineRef is null");
 				 }
 			 }
-			 if (lineRef == null && lineRes != null) {
+			 if (StringUtils.isEmpty(lineRef) && !StringUtils.isEmpty(lineRes)) {
 				 fail(String.format("Reference annotation is shorter than result annotation.\n"
 				 		+ "Current line read in result annotation: %s. Line no: %d", lineRes, lineNo));
 			 }
 		 }
-		 if (lineRef != null) {
+		 if (!StringUtils.isEmpty(lineRef)) {
 			 fail(String.format("Reference annotation is longer than result annotation.\n"
 					 + "Current line read in reference annotation: %s. Line no: %d", lineRef, lineNo));
 		 }
