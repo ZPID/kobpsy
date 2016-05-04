@@ -93,6 +93,9 @@ public class TestOa_Annotation_Model {
 				 if (!StringUtils.isEmpty(lineRes)) {
 					 System.out.println("lineRes");
 					 System.out.println(lineRes.trim());
+					 if (lineRes.contains("xmlns")) {
+						 lineRes = lineRes.replace(">", "");
+					 }
 					 linesRes.put(lineRes.trim(), "");
 				 } else {
 					 System.out.println("lineRes is null");
@@ -101,6 +104,9 @@ public class TestOa_Annotation_Model {
 				 if (!StringUtils.isEmpty(lineRef)) {
 					 System.out.println("lineRef");
 					 System.out.println(lineRef.trim());
+					 if (lineRef.contains("xmlns")) {
+						 lineRef = lineRef.replace(">", "");
+					 }
 					 linesRef.put(lineRef.trim(), "");
 				 } else {
 					 System.out.println("lineRef is null");
