@@ -162,7 +162,7 @@ public class NcboAnnotator extends OaAnnotator{
 	 * @param props the name of the properties
 	 * @return the text representation of the JSON node as property value
 	 */
-	private String getClassDetail(JsonNode classDetails, String ... props) {
+	public String getClassDetail(JsonNode classDetails, String ... props) {
 		
 		JsonNode node = null;
 		for (String prop : props) {
@@ -239,7 +239,7 @@ public class NcboAnnotator extends OaAnnotator{
         return result;
     }
     
-    private static JsonNode jsonToNode(String json) {
+    public static JsonNode jsonToNode(String json) {
         JsonNode root = null;
         try {
             root = mapper.readTree(json);
@@ -251,7 +251,7 @@ public class NcboAnnotator extends OaAnnotator{
         return root;
     }
     
-    private static String get(String urlToGet) {
+    public static String get(String urlToGet) {
         URL url;
         HttpURLConnection conn;
         BufferedReader rd;
