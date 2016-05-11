@@ -30,6 +30,7 @@ import net.sf.saxon.s9api.XsltCompiler;
 import net.sf.saxon.s9api.XsltExecutable;
 import net.sf.saxon.s9api.XsltTransformer;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
@@ -46,6 +47,9 @@ import org.xml.sax.SAXException;
  *
  */
 public class Jats2Spar {
+	static final String TAG_ARTICLE = "article";
+	static final String ATTR_LANGUAGE = "xml:lang";
+	
 	private static final String JATS__1_0_XSD = "/jats-publishing-xsd-1.0/JATS-journalpublishing1.xsd";
 
 	private static final String JAXP_SCHEMA_LANGUAGE = "http://java.sun.com/xml/jaxp/properties/schemaLanguage";
@@ -55,6 +59,7 @@ public class Jats2Spar {
 
 	/** The adapted stylesheet. */
 	private static final String RESOURCE_JATS2SPAR_XSL = "/jats2spar_zpid.xsl";
+	
 
 	/**
 	 * A JATS-article that contains most of the processed JATS-tags. Useful for
@@ -62,9 +67,9 @@ public class Jats2Spar {
 	 */
 	private static final String RESOURCE_TEST_PAPER = "/psychOpen_testArticle.xml";
 
-	private static final String TAG_ARTICLE = "article";
 
-	private static final String ATTR_LANGUAGE = "xml:lang";
+
+
 
 	/** The object representing the XML-document. */
 	static Document document;
@@ -213,17 +218,25 @@ public class Jats2Spar {
 	/** 
 	 * Checks whether the article language of the document
 	 * is accepted (is present in config.properties).
-	 * Default is English.
+	 * If the configuration property is empty, no restrictions on language are applied.
+	 * Note that the JATS XML-tag that is checked here, xml:lang, is optional.
+	 * If the article should be processed although there may not be a language tag, the user
+	 * should leave the "language property" empty.
 	 * 
 	 * @param languages the languages that are allowed
 	 * @return true if the language is allowed, false otherwise
 	 */
-	private boolean checkArticleLanguage(Document doc, String languages) {
+	boolean checkArticleLanguage(Document doc, String languages) {
+		if (StringUtils.isEmpty(languages)) {
+			return true;
+		}
 		Element article = (Element) doc.getElementsByTagName(TAG_ARTICLE).item(0);
 		Attr attrLanguage = article.getAttributeNode(ATTR_LANGUAGE);
-		articleLanguage = attrLanguage.getValue();
-		if (languages.toLowerCase().contains(articleLanguage.toLowerCase())) {
-			return true;
+		if (attrLanguage != null) {
+			articleLanguage = attrLanguage.getValue();
+			if (languages.toLowerCase().contains(articleLanguage.toLowerCase())) {
+				return true;
+			}
 		}
 		return false;
 	}
