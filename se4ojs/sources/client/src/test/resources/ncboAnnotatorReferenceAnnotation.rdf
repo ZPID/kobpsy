@@ -50,7 +50,7 @@
         <rdf:type rdf:resource="http://www.w3.org/ns/oa#Composite"/>
         <oa:item rdf:resource="urn:uuid:test3"/> 
         <oa:item rdf:resource="urn:uuid:test4"/> 
-        <oa:item rdf:resource="urn:uuid:test5"/> 
+        <oa:item rdf:resource="http://www.zpid.de/textQuoteSel/APPLICATION"/>
     </rdf:Description>
     <rdf:Description rdf:about="urn:uuid:test3"> 
         <rdf:type rdf:resource="http://www.w3.org/ns/oa#FragmentSelector"/>
@@ -61,7 +61,7 @@
         <oa:start rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">265</oa:start> 
         <oa:end rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">275</oa:end>
     </rdf:Description>
-    <rdf:Description rdf:about="urn:uuid:test5"> 
+    <rdf:Description rdf:about="http://www.zpid.de/textQuoteSel/APPLICATION"> 
         <rdf:type rdf:resource="http://www.w3.org/ns/oa#TextQuoteSelector"/>
         <oa:exact>APPLICATION</oa:exact>
     </rdf:Description>

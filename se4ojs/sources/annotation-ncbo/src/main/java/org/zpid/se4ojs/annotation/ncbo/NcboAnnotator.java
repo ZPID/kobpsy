@@ -109,9 +109,7 @@ public class NcboAnnotator extends OaAnnotator{
                 String ontology = classDetails.get("links").get("ontology").asText();
 				log.debug("\tontology: " + ontology + "\n");
 
-    			String annotationUri = createAnnotation(model,
-    					conceptId,
-    					prefLabel);
+    			String annotationUri = createAnnotation(model, conceptId);
     			log.debug("Annotation URI: " + annotationUri);
     			addAnnotationMetaInfo(model, annotationUri, NCBO_ANNOTATOR_URL);    			
     			String bodyUri = createBody(model, annotationUri, conceptId);
@@ -186,9 +184,9 @@ public class NcboAnnotator extends OaAnnotator{
 	 * to create the annotation ID.
 	 */
 	@Override
-	public String createAnnotation(Model model, String id, String name) {
+	public String createAnnotation(Model model, String id) {
         	String idSuffix = id.substring(id.lastIndexOf("/") + 1);
-			String url = super.createAnnotation(model, idSuffix, name);
+			String url = super.createAnnotation(model, idSuffix);
 			return url;
 	}
 

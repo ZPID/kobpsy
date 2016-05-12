@@ -33,9 +33,10 @@ public class AnnotationUtils {
 			"[^A-Za-z0-9.\\-_~:/#?\\[\\]@!$&'\\(\\)*+,;=)]";
 	
 	static final String NAMESPACE_ZPID = "zpid";
-	static final String URI_PREFIX_ZPID = "http://zpid.de";
+	static final String URI_PREFIX_ZPID = "http://www.zpid.de";
 	static final String URI_INFIX_DOI = "doi";
 	static final String URI_SUFFIX_TEXTUAL_ENTITY = "textual-entity";
+	static final String URI_INFIX_TEXT_QUOTE_SEL = "textQuoteSel";
 	
 	private Logger log = Logger.getLogger(AnnotationUtils.class);
 	

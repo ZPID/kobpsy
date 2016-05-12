@@ -210,11 +210,10 @@ public abstract class OaAnnotator {
 	 * 
 	 * @param model the RDF model.
 	 * @param id the id of the annotated concept
-	 * @param name the name of the annotated concept
 	 * @return the URI by which the annotation is referenced
 	 */
-	public String createAnnotation(Model model, String id, String name) {
-		  String url = createConceptUri(id, name);
+	public String createAnnotation(Model model, String id) {
+		  String url = createConceptUri(id);
 			annotationUtils.createResourceTriple(
 					url,
 					RDF_TYPE_PROPERTY,
@@ -222,7 +221,7 @@ public abstract class OaAnnotator {
 			return url;
 	}
 
-	private String createConceptUri(String id, String name) {
+	private String createConceptUri(String id) {
 		return annotationUtils.createUriString(
 				  articleUri, annotationUtils.urlEncode(id));
 	}
@@ -473,10 +472,14 @@ public abstract class OaAnnotator {
 	 * @param exact the text passage that has been matched
 	 * @return the composite selector id
 	 */
-	protected void addCompositeItems(Model model, String compSelId, String fragment, int startPos, int endPos, String exactMatch) {
+	protected void addCompositeItems(Model model, String compSelId, String fragment,
+			int startPos, int endPos, String exactMatch) {
+		
 		String fragSelectorId = annotationUtils.generateUuidUri();
 		String posSelectorId = annotationUtils.generateUuidUri();
-		String quoteSelectorId = annotationUtils.generateUuidUri();
+		String quoteSelectorId = annotationUtils.createUriString(
+				AnnotationUtils.URI_PREFIX_ZPID, AnnotationUtils.URI_INFIX_TEXT_QUOTE_SEL,
+				annotationUtils.urlEncode(exactMatch));
 		
 		annotationUtils.createResourceTriple(compSelId,
 				AnnotationUtils.createPropertyString(Prefix.OA, OA_ITEM),
