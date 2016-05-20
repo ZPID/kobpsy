@@ -7,11 +7,9 @@ import java.nio.file.SimpleFileVisitor;
 import java.nio.file.attribute.BasicFileAttributes;
 
 import org.apache.log4j.Logger;
-import org.zpid.se4ojs.app.GlobalResources;
 import org.zpid.se4ojs.app.ProcessingTask;
 
 public class XMLFileVisitor extends SimpleFileVisitor<Path>{
-	
 	
 	private SE4OJSRdfizer handler;
 	private int count = 0;
@@ -39,9 +37,9 @@ public class XMLFileVisitor extends SimpleFileVisitor<Path>{
  {
 		Path fileName = inputfilePath.getFileName();
 		if (fileName.toString().endsWith(
-				GlobalResources.INPUT_FILE_SUFFIX.toLowerCase())
+				Config.getInputFileSuffix().toLowerCase())
 				|| fileName.toString().endsWith(
-						GlobalResources.INPUT_FILE_SUFFIX.toUpperCase())) {
+						Config.getInputFileSuffix().toUpperCase())) {
 
 			if (processingTask != null && processingTask.equals(ProcessingTask.REFERENCE_PREPROCESSING)) {
 				handler.preprocessFile(inputfilePath);

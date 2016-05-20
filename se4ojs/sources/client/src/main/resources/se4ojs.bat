@@ -1,0 +1,1 @@
+java -jar se4ojs-final.jar "-in" "D:\temp\KOBPSY_2a\sampleDataOneEditionEachJournal" "-out" "D:\kobpsy2Publication\out1journaleach"  "-metadata" "-structure" "-ncboAnnotator"

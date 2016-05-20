@@ -32,9 +32,15 @@
 					<artifactId>maven-assembly-plugin</artifactId>
 					<version>${maven.assembly.version}</version>
                     <configuration>
+                        <finalName>se4ojs</finalName>
+                        <!--  appendAssemblyId>false</appendAssemblyId -->
                         <descriptorRefs>
                             <descriptorRef>jar-with-dependencies</descriptorRef>
                         </descriptorRefs>
+                        <descriptors>
+			     	        <descriptor>src/main/assembly/jar.xml</descriptor>
+					        <descriptor>src/main/assembly/zip.xml</descriptor>
+					    </descriptors>
                         <archive>
                             <manifest>
                                 <mainClass>org.zpid.se4ojs.app.SE4OJSRdfizer</mainClass>

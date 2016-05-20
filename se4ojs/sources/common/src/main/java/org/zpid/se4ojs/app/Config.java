@@ -1,58 +1,64 @@
 package org.zpid.se4ojs.app;
 
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.io.InputStream;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.nio.file.Files;
+import java.nio.file.LinkOption;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.HashSet;
-import java.util.ResourceBundle;
+import java.util.Properties;
 import java.util.Set;
 import java.util.StringTokenizer;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 
+/**
+ * Reads the configuration properties from a file.
+ * First looks into the 
+ * @author barth
+ *
+ */
 public class Config {
 	
-	private static ResourceBundle res = ResourceBundle.getBundle("config");
-	private static Logger logger = Logger.getLogger(Config.class);
-    public static boolean useBio2RDF = false;
+	private static final Logger LOGGER;
+	private static final Properties PROPERTIES = new Properties();
+	private static final String CONFIG_PROPERTIES_FILE_NAME = "config.properties";
+	
+	static {
+		//Load the properties file
+		LOGGER = Logger.getLogger(Config.class);
+		try {
+			URI jarpath = Config.class.getProtectionDomain().getCodeSource().getLocation().toURI();
+			Path parentPath = Paths.get(jarpath).getParent();
+			Path propFilePath = Paths.get(parentPath.toString(), CONFIG_PROPERTIES_FILE_NAME);
+			if (!Files.exists(propFilePath, LinkOption.NOFOLLOW_LINKS)) {
+				propFilePath = Paths.get(Config.class.getClassLoader().getResource(CONFIG_PROPERTIES_FILE_NAME).toURI());
+			}
+			LOGGER.debug("properties file: " + propFilePath);
+			PROPERTIES.load(new FileInputStream(
+					propFilePath.toFile()));
+		} catch (IOException | URISyntaxException e) {
+			LOGGER.error("Unable to locate the properties file");
+			e.printStackTrace();
+		}
+	}
     /**
-     * Used only when files are directly uploaded to Virtuoso (not recommended)
-     */
-    public static final String PUBMED_OA = "pubmedOpenAccess";
-    /**
-     * Base URI of the organistation or institute that does the rdfization (e.g. "biotea" or "zpid". 
+     * Base URI of the organistation or institute that does the rdfization (e.g. "zpid"). 
      */
     public final static String INSTITUTION_URL = Config.getBaseURI() + "/";
-    /**
-     * URI for other datasets linked to
-     */
-    public static final String IDENTIFIERS_ORG_PUBMED = "http://identifiers.org/pubmed/";
-    public static final String BIO2RDF_PUBMED = "http://bio2rdf.org/pubmed:";
-	private static final String TRUE = "true";
 
-    public static String getProperty(String prop) {
-        try {
-            return res.getString(prop);
-        } catch (Exception e) {
-        	logger.warn("---WARNING configuration---: " + e.getMessage());
-            return ("");
+    private static String getProperty(String prop) {
+        if (PROPERTIES.containsKey(prop)) {
+            return PROPERTIES.getProperty(prop);
         }
+        return ("");
     }
-    
-    //Virtual ids
-    public static String[] getNCBOAnnotatorIncludeOnly() {    	
-    	try {
-    		return res.getString("ncbo.annotator.include.only").split(",");    		
-    	} catch (Exception e) {
-    		return null;
-    	}
-    }
-    public static String[] getNCBOAnnotatorExclude() {    	
-    	try {
-    		return res.getString("ncbo.annotator.exclude").split(",");    		
-    	} catch (Exception e) {
-    		return null;
-    	}
-    }
+
     
     /**
      * Gets the basic part of the URI for the generated resources.
@@ -60,11 +66,20 @@ public class Config {
      * @return the base URI
      */
     public static String getBaseURI() {
-        try {
-            return res.getString("baseUri");
-        } catch (Exception e) {
-            return ("biotea.ws");
+        String baseUri = getProperty("baseUri");
+        if (baseUri.isEmpty()) {
+        	LOGGER.error("No base URI provided in Properties file!");
         }
+        return baseUri;
+    }
+    
+    /**
+     * Gets the basic part of the URI for the generated resources.
+     * 
+     * @return the base URI
+     */
+    public static String getProxy() {
+        return getProperty("conn.proxy");
     }
 
 
@@ -94,8 +109,11 @@ public class Config {
     	return (Config.getProperty("umls.password"));
     }
     
-    public static String getOntologiesAsString() {
+    public static String getUmlsOntologiesAsString() {
 		return Config.getProperty("umls.annotator.ontologies");
+    }
+    public static String getNcboOntologiesAsString() {
+    	return Config.getProperty("ncbo.annotator.ontologies");
     }
     
     public static Set<String> getUmlsOntologiesAsSet() {
@@ -112,7 +130,7 @@ public class Config {
     }
     
     public static boolean isAddNcboConceptUris() {
-    	if (Config.getProperty("umls.addNcboConceptUris").compareToIgnoreCase(TRUE) == 0) {
+    	if (Config.getProperty("umls.addNcboConceptUris").compareToIgnoreCase(Boolean.TRUE.toString()) == 0) {
     		return true;
     	}
     	return false;
@@ -169,7 +187,8 @@ public class Config {
 	}
 
 	public static boolean isUseBrowserUrlAsConceptId() {
-		if (Config.getProperty("annotation.browserUrlAsAnnotationTopic").equalsIgnoreCase("true")) {
+		if (Config.getProperty("annotation.browserUrlAsAnnotationTopic")
+				.equalsIgnoreCase(Boolean.TRUE.toString())) {
 			return true;
 		}
 		return false;

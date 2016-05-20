@@ -8,15 +8,19 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
+import java.net.InetSocketAddress;
+import java.net.Proxy;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.ontoware.rdf2go.model.Model;
 import org.zpid.se4ojs.annotation.OaAnnotator;
+import org.zpid.se4ojs.app.Config;
 import org.zpid.se4ojs.textStructure.bo.BOStructureElement;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -68,14 +72,9 @@ public class NcboAnnotator extends OaAnnotator{
 	@Override
 	public void annotateText(Model model, String text,
 			String subElementUri) throws UnsupportedEncodingException  {
-		StringBuilder urlParameters = new StringBuilder();
-		JsonNode results;
-		//FIXME externalize url parameters as configurable properties
-		urlParameters.append("include=prefLabel,synonym,definition");
-		urlParameters.append("&text=").append(URLEncoder.encode(text, "ISO-8859-1"));
-		urlParameters.append("require_exact_match=true");
-		urlParameters.append(createUrlParameterForOntologies());
-		results = jsonToNode(post(REST_URL + "/annotator", urlParameters.toString()));
+
+		JsonNode results = callAnnotator(text); 
+
 		if (results != null) {
 			rdfizeAnnotations(model, results, subElementUri);	
 		} else {
@@ -83,7 +82,25 @@ public class NcboAnnotator extends OaAnnotator{
 		}
 	}
 
-    private String createUrlParameterForOntologies() {
+	/**
+	 * Sets the configuration properties for the Bioportal Annotator tool,
+	 * calls the service and returns the results.
+	 * 
+	 * @param text the text to annotate
+	 * @return the annotations in JSON-format
+	 * @throws UnsupportedEncodingException
+	 */
+    JsonNode callAnnotator(String text) throws UnsupportedEncodingException {
+    	
+		StringBuilder urlParameters = new StringBuilder();
+		urlParameters.append("include=prefLabel");
+		urlParameters.append("&text=").append(URLEncoder.encode(text, "ISO-8859-1"));
+		urlParameters.append("require_exact_match=true");
+		urlParameters.append(createUrlParameterForOntologies());
+    	return jsonToNode(post(REST_URL + "/annotator", urlParameters.toString()));
+    }
+
+	private String createUrlParameterForOntologies() {
     	return new StringBuilder("&ontologies=").append(ontologies).toString();
     }
 
@@ -257,7 +274,17 @@ public class NcboAnnotator extends OaAnnotator{
         String result = "";
         try {
             url = new URL(urlToGet);
-            conn = (HttpURLConnection) url.openConnection();
+            String proxy = Config.getProxy();
+            String[] proxyComponents = proxy.split(":");
+            log.debug(proxyComponents[0]);
+            log.debug(proxyComponents[1]);
+            if (! StringUtils.isEmpty(proxy)) {
+            	conn = (HttpURLConnection) url.openConnection(new Proxy(Proxy.Type.HTTP,
+            			new InetSocketAddress(proxyComponents[0], Integer.valueOf(proxyComponents[1]))));
+            	log.debug("Proxy for connection has been set");
+            } else {
+            	conn = (HttpURLConnection) url.openConnection();
+            }
             conn.setRequestMethod("GET");
             conn.setRequestProperty("Authorization", "apikey token=" + NcboUtils.API_KEY);
             conn.setRequestProperty("Accept", "application/json");
@@ -273,5 +300,5 @@ public class NcboAnnotator extends OaAnnotator{
         }
         return result;
     }
-
+    
 }

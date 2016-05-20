@@ -59,7 +59,8 @@ public class SE4OJSAccessHelper {
 			outPaper = Paths.get(directory.toString(), paperPath.getFileName().toString());
 			File inPaper = paperPath.toFile();
 			logger.info("=== Structuring References of file: " + paperPath.toString() + "===");
-			ReferenceStructurer refStructurer = new ReferenceStructurer(inPaper, outPaper.toFile(), GlobalResources.BASE_URL);
+			ReferenceStructurer refStructurer = 
+					new ReferenceStructurer(inPaper, outPaper.toFile(), Config.getBaseURI());
 			refStructurer.extractReferences();
 		} catch (IOException e) {
 			String msgDirConstrError = "Unable to create directory for papers with structured references";
@@ -96,7 +97,7 @@ public class SE4OJSAccessHelper {
 		String out = paper.toPath().getFileName().toString().replace(".xml", ".rdf");
 		out = out.replace(".XML", ".rdf");
 		File outputFile = Paths.get(outputDir, out).toFile();
-		return jats2Spar.transform(paper, outputFile, GlobalResources.BASE_URL, Config.getLanguages());
+		return jats2Spar.transform(paper, outputFile, Config.INSTITUTION_URL, Config.getLanguages());
 //		FIXME return handler.createRDFFromXML(paper, Paths.get(outputDir, paper.getName()).toString());
 	}
 	
@@ -140,33 +141,22 @@ public class SE4OJSAccessHelper {
 	} */
 
 	protected String getOntologyProperties(String annotator) {
+		
 		String ontos = null;
-		Properties properties = new Properties();
-		InputStream inputStream = getClass().getClassLoader().getResourceAsStream("config.properties");
-		if (inputStream != null) {
-			try {
-				properties.load(inputStream);
-			} catch (IOException e) {
-				logger.error("Unable to annotate files. Cannot load properties file:"
-						+ " client/src/main/resources/config.properties");
-				throw new RuntimeException("Unable to load ontology properties. Please check if file "
-						+ "client/src/main/resources/config.properties exists");
-			}
+		if (annotator.equals(UMLS)) {
+			ontos = Config.getUmlsOntologiesAsString();
+		} else if (annotator.equals(NCBO)) {
+			ontos = Config.getNcboOntologiesAsString();
+		}
 
-			if (annotator.equals(UMLS)) {
-				ontos = (String) properties.get("umls.annotator.ontologies");
-			} else if (annotator.equals(NCBO)) {
-				ontos = (String) properties.get("ncbo.annotator.ontologies");		
-			}
-
-			if (StringUtils.isEmpty(ontos)) {
-				logger.error("Unable to annotate files. No ontologies have been specified."
-						+ "Please check properties file:"
-						+ " client/src/main/resources/config.properties");
-				throw new RuntimeException("Unable to annotate files. No ontologies have been specified."
-						+ "Please check properties file:"
-						+ " client/src/main/resources/config.properties");				
-			}
+		if (StringUtils.isEmpty(ontos)) {
+			logger.error("Unable to annotate files. No ontologies have been specified."
+					+ "Please check properties file:"
+					+ " config.properties");
+			throw new RuntimeException(
+					"Unable to annotate files. No ontologies have been specified."
+							+ "Please check properties file:"
+							+ " config.properties");
 		}
 		return ontos;
 	}
