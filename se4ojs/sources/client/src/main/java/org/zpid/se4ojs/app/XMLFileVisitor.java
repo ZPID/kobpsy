@@ -11,6 +11,7 @@ import org.zpid.se4ojs.app.ProcessingTask;
 
 public class XMLFileVisitor extends SimpleFileVisitor<Path>{
 	
+	private static final String INPUT_SUFFIX_LOWER_CASE = Config.getInputFileSuffix().toLowerCase();
 	private SE4OJSRdfizer handler;
 	private int count = 0;
 	private final int limit;
@@ -37,9 +38,9 @@ public class XMLFileVisitor extends SimpleFileVisitor<Path>{
  {
 		Path fileName = inputfilePath.getFileName();
 		if (fileName.toString().endsWith(
-				Config.getInputFileSuffix().toLowerCase())
+				INPUT_SUFFIX_LOWER_CASE)
 				|| fileName.toString().endsWith(
-						Config.getInputFileSuffix().toUpperCase())) {
+						INPUT_SUFFIX_LOWER_CASE.toUpperCase())) {
 
 			if (processingTask != null && processingTask.equals(ProcessingTask.REFERENCE_PREPROCESSING)) {
 				handler.preprocessFile(inputfilePath);

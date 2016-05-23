@@ -36,7 +36,7 @@ import com.fasterxml.jackson.databind.node.JsonNodeType;
  */
 public class NcboAnnotator extends OaAnnotator{
 	
-	static final String REST_URL = "http://data.bioontology.org"; 
+
 	static final ObjectMapper mapper = new ObjectMapper();
 	private static final String NCBO_ANNOTATOR_URL = "http://bioportal.bioontology.org/annotator";
 	
@@ -97,7 +97,7 @@ public class NcboAnnotator extends OaAnnotator{
 		urlParameters.append("&text=").append(URLEncoder.encode(text, "ISO-8859-1"));
 		urlParameters.append("require_exact_match=true");
 		urlParameters.append(createUrlParameterForOntologies());
-    	return jsonToNode(post(REST_URL + "/annotator", urlParameters.toString()));
+    	return jsonToNode(post(Config.getNCBOServiceURL(), urlParameters.toString()));
     }
 
 	private String createUrlParameterForOntologies() {
@@ -217,15 +217,12 @@ public class NcboAnnotator extends OaAnnotator{
 	}
 
 	private static String post(String urlToGet, String urlParameters) {
-        URL url;
+		
         HttpURLConnection conn;
-
         String line;
         String result = "";
         try {
-//        	System.out.println("url params for ncbo annotator: " + urlToGet + "params " + urlParameters);
-            url = new URL(urlToGet);
-            conn = (HttpURLConnection) url.openConnection();
+            conn = openUrlConnection(new URL(urlToGet));
             conn.setDoOutput(true);
             conn.setDoInput(true);
             conn.setInstanceFollowRedirects(false);
@@ -267,24 +264,13 @@ public class NcboAnnotator extends OaAnnotator{
     }
     
     public static String get(String urlToGet) {
-        URL url;
+    	
         HttpURLConnection conn;
         BufferedReader rd;
         String line;
         String result = "";
         try {
-            url = new URL(urlToGet);
-            String proxy = Config.getProxy();
-            String[] proxyComponents = proxy.split(":");
-            log.debug(proxyComponents[0]);
-            log.debug(proxyComponents[1]);
-            if (! StringUtils.isEmpty(proxy)) {
-            	conn = (HttpURLConnection) url.openConnection(new Proxy(Proxy.Type.HTTP,
-            			new InetSocketAddress(proxyComponents[0], Integer.valueOf(proxyComponents[1]))));
-            	log.debug("Proxy for connection has been set");
-            } else {
-            	conn = (HttpURLConnection) url.openConnection();
-            }
+            conn = openUrlConnection(new URL(urlToGet));
             conn.setRequestMethod("GET");
             conn.setRequestProperty("Authorization", "apikey token=" + NcboUtils.API_KEY);
             conn.setRequestProperty("Accept", "application/json");
@@ -300,5 +286,22 @@ public class NcboAnnotator extends OaAnnotator{
         }
         return result;
     }
+
+	protected static HttpURLConnection openUrlConnection(URL url)
+			throws IOException {
+		HttpURLConnection conn;
+		String proxy = Config.getProxy();
+		if (! StringUtils.isEmpty(proxy)) {
+		    String[] proxyComponents = proxy.split(":");
+		    log.debug(proxyComponents[0]);
+		    log.debug(proxyComponents[1]);
+			conn = (HttpURLConnection) url.openConnection(new Proxy(Proxy.Type.HTTP,
+					new InetSocketAddress(proxyComponents[0], Integer.valueOf(proxyComponents[1]))));
+			log.debug("Proxy for connection has been set");
+		} else {
+			conn = (HttpURLConnection) url.openConnection();
+		}
+		return conn;
+	}
     
 }
