@@ -218,7 +218,7 @@ public class NcboAnnotator extends OaAnnotator{
 
 	private static String post(String urlToGet, String urlParameters) {
 		
-        HttpURLConnection conn;
+        HttpURLConnection conn = null;
         String line;
         String result = "";
         try {
@@ -245,8 +245,13 @@ public class NcboAnnotator extends OaAnnotator{
             }
             rd.close();
         } catch (Exception e) {
+        	log.error("Error during processing of paragraph. Details: " + e.fillInStackTrace());
             e.printStackTrace();
-        }
+        } finally {
+        	if (conn != null) {
+        		conn.disconnect();
+        	}
+    	}
 
         return result;
     }
@@ -265,7 +270,7 @@ public class NcboAnnotator extends OaAnnotator{
     
     public static String get(String urlToGet) {
     	
-        HttpURLConnection conn;
+        HttpURLConnection conn = null;
         BufferedReader rd;
         String line;
         String result = "";
@@ -281,8 +286,12 @@ public class NcboAnnotator extends OaAnnotator{
             }
             rd.close();
         } catch (Exception e) {
-        	log.error("Error occurred during fetching information from NCBO annotator: \n\t" + e.getLocalizedMessage());
+        	log.error("Error occurred during fetching information from NCBO annotator: \n\t" + e.fillInStackTrace());
             e.printStackTrace();
+        } finally {
+        	if (conn != null) {
+        		conn.disconnect();
+        	}
         }
         return result;
     }
@@ -290,14 +299,12 @@ public class NcboAnnotator extends OaAnnotator{
 	protected static HttpURLConnection openUrlConnection(URL url)
 			throws IOException {
 		HttpURLConnection conn;
-		String proxy = Config.getProxy();
-		if (! StringUtils.isEmpty(proxy)) {
-		    String[] proxyComponents = proxy.split(":");
-		    log.debug(proxyComponents[0]);
-		    log.debug(proxyComponents[1]);
-			conn = (HttpURLConnection) url.openConnection(new Proxy(Proxy.Type.HTTP,
-					new InetSocketAddress(proxyComponents[0], Integer.valueOf(proxyComponents[1]))));
-			log.debug("Proxy for connection has been set");
+		String proxySettings = Config.getProxy();
+		if (! StringUtils.isEmpty(proxySettings)) {
+		    String[] proxyComponents = proxySettings.split(":");
+			Proxy proxy = new Proxy(Proxy.Type.HTTP,
+					new InetSocketAddress(proxyComponents[0], Integer.valueOf(proxyComponents[1])));
+			conn = (HttpURLConnection) url.openConnection(proxy);
 		} else {
 			conn = (HttpURLConnection) url.openConnection();
 		}
