@@ -21,7 +21,8 @@ import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
 import org.apache.commons.lang3.StringUtils;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
@@ -77,7 +78,7 @@ public class ReferenceStructurer {
 	private static final String ATTR_TAG_REF_TYPE = "publication-type";
 
 	private int parsePosition = 0;
-	private Logger log = Logger.getLogger(ReferenceStructurer.class);
+	private Logger log = LogManager.getLogger(ReferenceStructurer.class);
 
 	/** Pre-compiled patterns for string extraction. */
 	private Pattern yearPatternExtended = Pattern.compile(REGEX_YEAR_EXTENDED);

@@ -11,6 +11,7 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.version>2.1-SNAPSHOT</project.version>
+		<maven.assembly.version>2.6</maven.assembly.version>
 	</properties>
 
 	<modules>
@@ -46,6 +47,24 @@
 						</execution>
 					</executions>
 				</plugin>
+				<plugin>
+					<artifactId>maven-assembly-plugin</artifactId>
+					<version>${maven.assembly.version}</version>
+				</plugin>
+
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-resources-plugin</artifactId>
+					<version>3.0.0</version>
+					<configuration />
+					<dependencies>
+						<dependency>
+							<groupId>org.zpid.se4ojs</groupId>
+							<artifactId>common</artifactId>
+							<version>${project.version}</version>
+						</dependency>
+					</dependencies>
+				</plugin>
 			</plugins>
 		</pluginManagement>
 	</build>
@@ -63,21 +82,25 @@
 				<artifactId>rdf2go.api</artifactId>
 				<version>5.0.1</version>
 			</dependency>
-		<dependency>
-			<groupId>org.semweb4j</groupId>
-			<artifactId>rdf2go.impl.jena</artifactId>
-			<version>5.0.1</version>
-			<exclusions>
-				<exclusion>
-					<groupId>org.apache.jena</groupId>
-					<artifactId>jena-core</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>org.apache.jena</groupId>
-					<artifactId>jena-arq</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
+			<dependency>
+				<groupId>org.semweb4j</groupId>
+				<artifactId>rdf2go.impl.jena</artifactId>
+				<version>5.0.1</version>
+				<exclusions>
+					<exclusion>
+						<groupId>org.apache.jena</groupId>
+						<artifactId>jena-core</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>org.apache.jena</groupId>
+						<artifactId>jena-arq</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>org.apache.log4j</groupId>
+						<artifactId>log4j</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
 
 
 			<dependency>
@@ -95,6 +118,12 @@
 				<artifactId>apache-jena-libs</artifactId>
 				<type>pom</type>
 				<version>2.12.1</version>
+				<exclusions>
+					<exclusion>
+						<groupId>log4j</groupId>
+						<artifactId>log4j</artifactId>
+					</exclusion>
+				</exclusions>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
@@ -107,9 +136,19 @@
 			<version>3.3.2</version>
 		</dependency>
 		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-			<version>1.2.17</version>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-api</artifactId>
+			<version>2.6</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+			<version>2.6</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-1.2-api</artifactId>
+			<version>2.6</version>
 		</dependency>
 
 		<!-- test scope -->
@@ -133,7 +172,7 @@
 			<version>1.6.2</version>
 			<scope>test</scope>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.powermock</groupId>
 			<artifactId>powermock-api-mockito</artifactId>

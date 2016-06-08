@@ -66,8 +66,9 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
     xmlns:vcard="&vcard;"
     xmlns:xsd="&xsd;"
     xmlns:f="http://www.essepuntato.it/xslt/function/"
-    xmlns:xlink="http://www.w3.org/1999/xlink" exclude-result-prefixes="xs f xlink" version="2.0"
-    xmlns:fn="http://www.w3.org/2005/xpath-functions">
+    xmlns:xlink="http://www.w3.org/1999/xlink" exclude-result-prefixes="xs f xlink crossref" version="2.0"
+    xmlns:fn="http://www.w3.org/2005/xpath-functions"
+    xmlns:crossref="http://www.zpid.de/crossref">
 
     <xsl:param name="baseUri" select="''"/>
     <xsl:param name="doi" select="//article-id[@pub-id-type  = 'doi']"/>
@@ -2001,12 +2002,9 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
     </xsl:template>
 
     <xsl:template match="@object-id-type[. = 'doi']">
-        <xsl:call-template name="attribute">
-            <xsl:with-param name="p" select="'prism:doi'" tunnel="yes"/>
-            <xsl:with-param name="o" select="../@object-id" tunnel="yes"/>
-        </xsl:call-template>
-    </xsl:template>
 
+    </xsl:template>
+    
     <xsl:template
         match="@person-group-type[some $translator in ('translator','translators') satisfies . = $translator]">
         <xsl:param name="s" tunnel="yes"/>
@@ -2164,10 +2162,14 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
     </xsl:template>
 
     <xsl:template match="@pub-id-type[. = 'doi']">
+        <xsl:param name="s" tunnel="yes"/>
         <xsl:call-template name="attribute">
             <xsl:with-param name="p" select="'prism:doi'" tunnel="yes"/>
             <xsl:with-param name="o" select=".." tunnel="yes"/>
         </xsl:call-template>
+        <xsl:call-template name="crossref">
+            <xsl:with-param name="curr_doi" select=".." tunnel="yes"/>
+        </xsl:call-template>         
         <xsl:call-template name="single">
             <xsl:with-param name="p" select="'owl:sameAs'" tunnel="yes"/>
             <xsl:with-param name="o" select="concat($doiOrgUri, ..)" tunnel="yes"/>
@@ -2600,6 +2602,26 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
         <xsl:call-template name="assert">
             <xsl:with-param name="triples" select="($s,$p,$o)"/>
         </xsl:call-template>
+    </xsl:template>
+    
+    <xsl:template name="crossref">
+        <xsl:param name="s" as="xs:string" tunnel="yes"/>
+        <xsl:param name="curr_doi" tunnel="yes"/>
+        <xsl:variable name="dig_emb" select="replace($s, 'textual-entity', 'digital-embodiment')"/>
+        <xsl:variable name="pdf"  select="crossref:pdfByDoi(xs:string(..))"/>
+        <xsl:if test="empty($pdf)">
+            <xsl:call-template name="attribute">
+                <!-- TODO specifiy proper subject, i.e. ..DigitalEmbodiment-->
+                <xsl:with-param name="p" select="'rdfs:seeAlso'" tunnel="yes"/>
+                <xsl:with-param name="o" select="$pdf" tunnel="yes"/>
+            </xsl:call-template>
+            <xsl:call-template name="assert">
+                <xsl:with-param name="triples"
+                    select="('TODO remove hypehsn $m', 'dcterms:format', 'type:application/pdf',
+                    'frbr:embodiment', $pdf )"
+                />
+            </xsl:call-template>
+        </xsl:if>
     </xsl:template>
     <!-- END - Named templates -->
 

@@ -17,6 +17,7 @@ import java.nio.file.Paths;
 import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
+import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.ontoware.rdf2go.model.Model;
 import org.zpid.se4ojs.annotation.OaAnnotator;
@@ -47,7 +48,7 @@ public class NcboAnnotator extends OaAnnotator{
 	 */
 	private static final String FRAGMENT_MARKER = "/";
 	
-	private static Logger log = Logger.getLogger(NcboAnnotator.class);
+	private static Logger log = LogManager.getLogger(NcboAnnotator.class);
 	private String ontologies;
    
 
@@ -122,12 +123,12 @@ public class NcboAnnotator extends OaAnnotator{
                 String conceptId = getClassDetail(classDetails, "@id");
                 String prefLabel = getClassDetail(classDetails, "prefLabel");
                 String conceptBrowserUrl = getClassDetail(classDetails, "links" , "ui");
-    			log.debug("\tprefLabel: " + prefLabel);
+    			log.trace("\tprefLabel: " + prefLabel);
                 String ontology = classDetails.get("links").get("ontology").asText();
-				log.debug("\tontology: " + ontology + "\n");
+				log.trace("\tontology: " + ontology + "\n");
 
     			String annotationUri = createAnnotation(model, conceptId);
-    			log.debug("Annotation URI: " + annotationUri);
+    			log.trace("Annotation URI: " + annotationUri);
     			addAnnotationMetaInfo(model, annotationUri, NCBO_ANNOTATOR_URL);    			
     			String bodyUri = createBody(model, annotationUri, conceptId);
     			addBodyInfo(model, bodyUri, prefLabel, conceptBrowserUrl, ontology);
@@ -236,7 +237,6 @@ public class NcboAnnotator extends OaAnnotator{
             wr.writeBytes(urlParameters);
             wr.flush();
             wr.close();
-            conn.disconnect();
 
             BufferedReader rd = new BufferedReader(
                     new InputStreamReader(conn.getInputStream()));

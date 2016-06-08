@@ -70,7 +70,7 @@ public class TestOa_Annotation_Model {
 		 List<BOStructureElement> structureElements = se4ojsAccessHelper.rdfizeSections(in, outputDir);
 		 //annotate the file
 		 NcboAnnotator ncboAnnotator = new TestableNCBOAnnotator(TEST_ONTOLOGY);
-		 ncboAnnotator.annotate(Config.getBaseURI(), in, structureElements, Paths.get(outputDir));
+		 ncboAnnotator.annotate(Config.getInstitutionUrl(), in, structureElements, Paths.get(outputDir));
 		 
 		 String resPath = Paths.get(folder.getRoot().toString(), "ncboAnnotatorTestXml-ncboAnnotations.rdf").toString();
 		 BufferedReader br = new BufferedReader(

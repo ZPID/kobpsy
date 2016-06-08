@@ -1,6 +1,8 @@
 package org.zpid.se4ojs.refStructuring;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 
 public enum ReferenceType {
 	JOURNAL_ARTICLE("journal"),
@@ -22,7 +24,7 @@ public enum ReferenceType {
 	SOFTWARE("software"),
 	OTHER("other");
 	
-	private static Logger log = Logger.getLogger(ReferenceType.class);
+	private static Logger log = LogManager.getLogger(ReferenceType.class);
 	private String type;
 	private String altTypeLabel;
 

@@ -18,6 +18,7 @@ import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
 
+import net.sf.saxon.TransformerFactoryImpl;
 import net.sf.saxon.s9api.DocumentBuilder;
 import net.sf.saxon.s9api.MessageListener;
 import net.sf.saxon.s9api.Processor;
@@ -30,7 +31,8 @@ import net.sf.saxon.s9api.XsltCompiler;
 import net.sf.saxon.s9api.XsltExecutable;
 import net.sf.saxon.s9api.XsltTransformer;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -69,7 +71,7 @@ public class Jats2Spar {
 	/** The object representing the XML-document. */
 	static Document document;
 
-	private Logger log = Logger.getLogger(Jats2Spar.class);
+	private static final Logger log = LogManager.getLogger(Jats2Spar.class);
 
 	private String articleLanguage;
 
@@ -172,14 +174,24 @@ public class Jats2Spar {
 
 	private void doTransform(InputStream istream, File dataFile, File outputFile, String baseUrl) 
 			throws SaxonApiException, TransformerFactoryConfigurationError, TransformerException {
+		
 		InputStream stylesheetUri = Jats2Spar.class
 				.getResourceAsStream(RESOURCE_JATS2SPAR_XSL);
-		Processor proc = new Processor(false);
+		TransformerFactory tFactory = TransformerFactory.newInstance();
+		TransformerFactoryImpl tFactoryImpl = (TransformerFactoryImpl) tFactory;
+		net.sf.saxon.Configuration saxonConfig = tFactoryImpl
+				.getConfiguration();
+		saxonConfig
+				.registerExtensionFunction(new CrossrefPdfByDoiExtensionFunctionDef());
+		Processor proc = new Processor(saxonConfig);
 		XsltCompiler comp = proc.newXsltCompiler();
 		XsltExecutable exec;
 		exec = comp.compile(new StreamSource(stylesheetUri));
 		XsltTransformer transformer = exec.load();
 
+
+		
+		
 		DocumentBuilder saxBuilder = proc.newDocumentBuilder();
 		saxBuilder.setLineNumbering(true);
 		saxBuilder.setDTDValidation(false);
