@@ -12,7 +12,8 @@ import java.util.Map;
 import java.util.StringTokenizer;
 
 import org.apache.commons.lang3.StringUtils;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.jdom2.Attribute;
 import org.jdom2.Element;
 import org.jdom2.JDOMException;
@@ -44,7 +45,7 @@ public class StructureParser {
 
 	private static final String ATTR_LANGUAGE = "lang";
 	private static final String EL_TITLE = "title";
-	private Logger log = Logger.getLogger(StructureParser.class);
+	private Logger log = LogManager.getLogger(StructureParser.class);
 	private Map<String, Integer> internalCitationCounts = new HashMap<String, Integer>();
 	private String languages;
 	private Namespace namespace;

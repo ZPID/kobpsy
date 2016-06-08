@@ -4,7 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.jdom2.Document;
 import org.jdom2.Element;
 import org.ontoware.aifbcommons.collection.ClosableIterator;
@@ -44,7 +45,7 @@ public class StructureRdfizer {
 	private static final String PO_STRUCTURED = "Structured";
 
 
-	private Logger log = Logger.getLogger(StructureRdfizer.class);
+	private Logger log = LogManager.getLogger(StructureRdfizer.class);
 	private List<BOStructureElement> topLevelElements;
 	private Document document;
 	private String articleUri;
