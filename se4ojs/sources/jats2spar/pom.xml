@@ -36,6 +36,11 @@
 			<artifactId>jdom2</artifactId>
 		</dependency>
 		
+		<dependency>
+		   <groupId>org.zpid.se4ojs</groupId>
+		   <artifactId>common</artifactId>
+		   <version>${project.version}</version>
+		</dependency>
 	</dependencies>
 
 </project>

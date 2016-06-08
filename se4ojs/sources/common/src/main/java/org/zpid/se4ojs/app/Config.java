@@ -217,4 +217,11 @@ public class Config {
 		return false;
 	}
 
+	public static boolean isGenerateCrossrefApiPdf() {
+		if (INSTANCE.getProperty("crossrefApi.links.pdf")
+				.equalsIgnoreCase(Boolean.TRUE.toString())) {
+			return true;
+		}
+		return false;
+	}
 }

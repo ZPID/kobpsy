@@ -13,6 +13,7 @@ import java.net.URLConnection;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.zpid.se4ojs.app.Config;
 
 /**
  * Class that performs CrossRef Api Calls.
@@ -42,33 +43,31 @@ public class CrossrefApiCaller {
 	 * @return the URL to the PDF
 	 */
 	public String getPdfByDoi(String doi) {
-//		FIXME delete
-		if (true)
-		return StringUtils.EMPTY;
-		
-		String pdfLink = null;
-		InputStream inputStream = null;
-		try {
-			URLConnection urlConnection = new URL(DOI_PREFIX_URI + doi).openConnection();
-			urlConnection.setRequestProperty("Content-Type", "application/vnd.crossref.unixsd+xml");
-			urlConnection.connect();
-			inputStream = urlConnection.getInputStream();
-		} catch (IOException e) {
-			log.warn("Unable to resolve doi: " + doi + " by crossref API");
-			e.printStackTrace();
-		}
-		if (inputStream != null) {
-			try (BufferedReader reader =  new BufferedReader(new InputStreamReader(inputStream))) {
-				pdfLink = extractPdfLink(reader, doi);
+		if (Config.isGenerateCrossrefApiPdf()) {
+			String pdfLink = null;
+			InputStream inputStream = null;
+			try {
+				URLConnection urlConnection = new URL(DOI_PREFIX_URI + doi).openConnection();
+				urlConnection.setRequestProperty("Content-Type", "application/vnd.crossref.unixsd+xml");
+				urlConnection.connect();
+				inputStream = urlConnection.getInputStream();
 			} catch (IOException e) {
-				log.warn("Error trying to obtain PDF link for doi: " + doi);
-				e.printStackTrace();
-			} 
+				log.warn("Unable to resolve doi: " + doi + " by crossref API");
+//				e.printStackTrace();
+			}
+			if (inputStream != null) {
+				try (BufferedReader reader =  new BufferedReader(new InputStreamReader(inputStream))) {
+					pdfLink = extractPdfLink(reader, doi);
+				} catch (IOException e) {
+					log.warn("Error trying to obtain PDF link for doi: " + doi);
+					e.printStackTrace();
+				} 
+			}
+			if (pdfLink != null) {
+				return pdfLink;
+			}
 		}
-		if (pdfLink == null) {
-			return StringUtils.EMPTY;
-		}
-		return pdfLink;
+		return StringUtils.EMPTY;
 	}
 	
 	private String extractPdfLink(BufferedReader reader, String doi) throws IOException {
