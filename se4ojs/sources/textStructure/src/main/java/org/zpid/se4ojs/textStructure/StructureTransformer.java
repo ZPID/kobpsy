@@ -9,7 +9,8 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.JDOMException;
@@ -30,7 +31,7 @@ public class StructureTransformer {
 	
 	int idx = 0;
 
-	private Logger log = Logger.getLogger(StructureTransformer.class);
+	private Logger log = LogManager.getLogger(StructureTransformer.class);
 
 	private String baseUri;
 

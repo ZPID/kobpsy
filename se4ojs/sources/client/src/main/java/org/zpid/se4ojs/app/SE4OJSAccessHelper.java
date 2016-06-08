@@ -13,7 +13,8 @@ import java.util.List;
 import javax.xml.bind.JAXBException;
 
 import org.apache.commons.lang3.StringUtils;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.jdom2.JDOMException;
 import org.xml.sax.SAXException;
 import org.zpid.se4ojs.annotation.ncbo.NcboAnnotator;
@@ -29,7 +30,7 @@ import org.zpid.se4ojs.textStructure.bo.BOStructureElement;
  */
 public class SE4OJSAccessHelper {
 
-	private Logger logger = Logger.getLogger(SE4OJSAccessHelper.class);
+	private Logger logger = LogManager.getLogger(SE4OJSAccessHelper.class);
 
 	private Path directory;
 	private final Object ncboLock = new Object();
@@ -58,7 +59,7 @@ public class SE4OJSAccessHelper {
 			File inPaper = paperPath.toFile();
 			logger.info("=== Structuring References of file: " + paperPath.toString() + "===");
 			ReferenceStructurer refStructurer = 
-					new ReferenceStructurer(inPaper, outPaper.toFile(), Config.getBaseURI());
+					new ReferenceStructurer(inPaper, outPaper.toFile(), Config.getInstitutionUrl());
 			refStructurer.extractReferences();
 		} catch (IOException e) {
 			String msgDirConstrError = "Unable to create directory for papers with structured references";
@@ -95,7 +96,7 @@ public class SE4OJSAccessHelper {
 		String out = paper.toPath().getFileName().toString().replace(".xml", ".rdf");
 		out = out.replace(".XML", ".rdf");
 		File outputFile = Paths.get(outputDir, out).toFile();
-		return jats2Spar.transform(paper, outputFile, Config.INSTITUTION_URL, Config.getLanguages());
+		return jats2Spar.transform(paper, outputFile, Config.getInstitutionUrl(), Config.getLanguages());
 //		FIXME return handler.createRDFFromXML(paper, Paths.get(outputDir, paper.getName()).toString());
 	}
 	
@@ -116,12 +117,12 @@ public class SE4OJSAccessHelper {
 				logger.info("Ontologies used for annotation: \n\t" + ontologyProperties);
 				NcboAnnotator ncboAnnotator = new NcboAnnotator(ontologyProperties);
 //				ncboAnnotator.annotateWithApaClusters(paper, topLevelElements, outputDir);
-				ncboAnnotator.annotate(Config.getBaseURI(), paper, topLevelElements, Paths.get(outputDir));
+				ncboAnnotator.annotate(Config.getInstitutionUrl(), paper, topLevelElements, Paths.get(outputDir));
 		    } 
 		}
 
 	public List<BOStructureElement> rdfizeSections(File paper, String outputDir) throws JDOMException, IOException {
-		StructureTransformer structureTransformer = new StructureTransformer(Config.getBaseURI(), Config.getLanguages());
+		StructureTransformer structureTransformer = new StructureTransformer(Config.getInstitutionUrl(), Config.getLanguages());
 		String out = paper.toPath().getFileName().toString().replace(".xml", "-textStructure.rdf");
 		out = out.replace(".XML", "-textStructure.rdf");
 		return structureTransformer.transform(paper, Paths.get(outputDir, out));

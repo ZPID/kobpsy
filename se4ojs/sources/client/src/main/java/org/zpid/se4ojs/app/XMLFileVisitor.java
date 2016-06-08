@@ -6,8 +6,9 @@ import java.nio.file.Path;
 import java.nio.file.SimpleFileVisitor;
 import java.nio.file.attribute.BasicFileAttributes;
 
-import org.apache.log4j.Logger;
-import org.zpid.se4ojs.app.ProcessingTask;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 
 public class XMLFileVisitor extends SimpleFileVisitor<Path>{
 	
@@ -15,7 +16,7 @@ public class XMLFileVisitor extends SimpleFileVisitor<Path>{
 	private SE4OJSRdfizer handler;
 	private int count = 0;
 	private final int limit;
-	private Logger log = Logger.getLogger(XMLFileVisitor.class);
+	private Logger log = LogManager.getLogger(XMLFileVisitor.class);
 	private final ProcessingTask processingTask;
 	
 	
