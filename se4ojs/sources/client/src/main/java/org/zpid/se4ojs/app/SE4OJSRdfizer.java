@@ -1,7 +1,6 @@
 package org.zpid.se4ojs.app;
 
 import java.io.File;
-
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -15,7 +14,8 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.LinkedBlockingQueue;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.ontoware.rdf2go.exception.ModelRuntimeException;
 import org.zpid.se4ojs.textStructure.bo.BOStructureElement;
 
@@ -41,6 +41,8 @@ public class SE4OJSRdfizer {
 			+ "\n\n";
 
 	private static final String PATH_SUFFIX_PREPROCESSED_XML = "structured";
+	
+	private static final Logger log = LogManager.getLogger();
 
 	private static Path preProcessedDir;
 	private static String inputDir;
@@ -53,7 +55,6 @@ public class SE4OJSRdfizer {
 	private ExecutorService executor;
 
 	protected final LinkedBlockingQueue<Runnable> queue = new LinkedBlockingQueue<Runnable>();
-	private Logger logger = Logger.getLogger(SE4OJSRdfizer.class);
 	private SE4OJSAccessHelper helper;
 
 	private int annotationTaskCount;
@@ -87,7 +88,7 @@ public class SE4OJSRdfizer {
 	 */
 	protected void runTask(Runnable task) {
 		executor.execute(task);
-		logger.debug("Task count: " + queue.size());
+		log.trace("Task count: " + queue.size());
 	}
 
 	/**
@@ -162,25 +163,25 @@ public class SE4OJSRdfizer {
 		preProcessedDir = Paths.get(inputDir, PATH_SUFFIX_PREPROCESSED_XML);
 		//TODO add a property for preProcessedDir in property file (or an additional input parameter) and set the value here.
 
-		System.out.println("Execution variables: " + "\nInput " + inputDir
+		log.info("Execution variables: " + "\nInput " + inputDir
 				+ "\nOutput " + outputDir
 				+ "\nReference preprocessing "
 				+ processingTasks.contains(ProcessingTask.REFERENCE_PREPROCESSING));
 		
 
-		System.out.println(ProcessingTask.RDF.toString() + " "
+		log.info(ProcessingTask.RDF.toString() + " "
 				+ processingTasks.contains(ProcessingTask.RDF));
 
-		System.out.println(ProcessingTask.STRUCTURE.toString() + " "
+		log.info(ProcessingTask.STRUCTURE.toString() + " "
 				+ processingTasks.contains(ProcessingTask.STRUCTURE));
 
-		System.out.println(ProcessingTask.NCBO_ANNOTATOR.toString() + " "
+		log.info(ProcessingTask.NCBO_ANNOTATOR.toString() + " "
 				+ processingTasks.contains(ProcessingTask.NCBO_ANNOTATOR));
 
-		System.out.println(ProcessingTask.UMLS_ANNOTATOR.toString() + " "
+		log.info(ProcessingTask.UMLS_ANNOTATOR.toString() + " "
 			    + processingTasks.contains(ProcessingTask.UMLS_ANNOTATOR));
 
-		System.out.println("\nthread pool size: " + poolSize);
+		log.info("\nthread pool size: " + poolSize);
 
 		SE4OJSRdfizer handler = new SE4OJSRdfizer(
 				poolSize);
@@ -189,7 +190,7 @@ public class SE4OJSRdfizer {
 		while (!handler.isTerminated())
 			; // waiting
 		long endTime = System.currentTimeMillis();
-		System.out.println("\nTotal time: " + (endTime - startTime));
+		log.info("\nTotal time: " + (endTime - startTime));
 	}
 
 	/**
@@ -266,7 +267,7 @@ public class SE4OJSRdfizer {
 						}	
 					    doneSignal.await();
 					} else {
-						logger.error("Unable to annotate input file - please process the sections, too");						
+						log.error("Unable to annotate input file - please process the sections, too");						
 					}
 					break;
 				case NCBO_ANNOTATOR:
@@ -277,7 +278,7 @@ public class SE4OJSRdfizer {
 							annotate(helper, path.toFile(), outputDir, topLevelElements, task, doneSignal);
 							doneSignal.await();
 						} else {
-							logger.error("Unable to annotate input file - please process the sections, too");						
+							log.error("Unable to annotate input file - please process the sections, too");						
 						}
 					}
 					break;
@@ -286,7 +287,7 @@ public class SE4OJSRdfizer {
 				}
 			}
 		} catch (Exception e) {
-			logger.error(path.getFileName()
+			log.error(path.getFileName()
 					+ " FILE could not be processed: " + e.getMessage());
 			e.printStackTrace();
 		}

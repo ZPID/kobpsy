@@ -5,6 +5,8 @@ import java.util.NoSuchElementException;
 public enum Prefix {
 	
 	/** Namespace for representing content in RDF. */
+	APPLICATION("http://purl.org/NET/mediatypes/application/", "application"),
+	
     CNT("http://www.w3.org/2011/content#", "cnt"),
 	
 	DC("http://purl.org/dc/elements/1.1/", "dc"),

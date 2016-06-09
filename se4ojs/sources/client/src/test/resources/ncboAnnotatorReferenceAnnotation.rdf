@@ -1,4 +1,5 @@
-<rdf:RDF
+<rdf:RDF 
+    xmlns:application="http://purl.org/NET/mediatypes/application/"
     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
     xmlns:sro="http://salt.semanticauthoring.org/ontologies/sro#"
     xmlns:po="http://www.essepuntato.it/2008/12/pattern#"

@@ -20,38 +20,42 @@ import org.apache.logging.log4j.Logger;
 
 /**
  * Reads the configuration properties from a file.
- * This class is a Singleton.
+ * This class should be used as a Singleton (only supposed to be overwritten for testing purposes).
+ * 
  * @author barth
  *
  */
 public class Config {
 	
-	private static final Config INSTANCE = new Config();
+	protected static Config INSTANCE;
 	private static Logger LOGGER = null;
 	private static final String CONFIG_PROPERTIES_FILE_NAME = "config.properties";
 	
 	private Properties properties;
     private String institutionUrl;
     
-	private Config() {
+	protected Config() {
 		super();
 	    LOGGER = LogManager.getLogger(Config.class);
 		initialize();
 	}
 	
+	protected static Config getInstance() {
+		if (INSTANCE == null) {
+			INSTANCE = new Config();
+		}
+		return INSTANCE;
+	}
+
 	private void initialize() {
 		//Load the properties file
 		try {
 			URI jarpath = Config.class.getProtectionDomain().getCodeSource().getLocation().toURI();
 			LOGGER.debug("jarpath: " + jarpath.toString());
 			Path parentPath = Paths.get(jarpath).getParent();
-//			LOGGER.debug("jarpath's parent: " + parentPath);
 			Path propFilePath = Paths.get(parentPath.toString(), CONFIG_PROPERTIES_FILE_NAME);
-//			LOGGER.debug("if we run the app from the jar, properties should be located here: " + propFilePath);
 			if (!Files.exists(propFilePath, LinkOption.NOFOLLOW_LINKS)) {
-//				propFilePath = Paths.get(Config.class.getResourceAsStream(CONFIG_PROPERTIES_FILE_NAME).toString());
 				propFilePath = Paths.get(Config.class.getClassLoader().getResource(CONFIG_PROPERTIES_FILE_NAME).toURI());
-//				propFilePath = Paths.get(INSTANCE.getClass().getClassLoader().getResource(CONFIG_PROPERTIES_FILE_NAME).toURI());
 			}
 			LOGGER.debug("properties file was located here:: " + propFilePath);
 			if (!Files.exists(propFilePath, LinkOption.NOFOLLOW_LINKS)) {
@@ -72,10 +76,10 @@ public class Config {
      * Base URI of the organistation or institute that does the rdfization (e.g. "zpid"). 
      */
     public static String getInstitutionUrl() {
-		return INSTANCE.institutionUrl;
+		return getInstance().institutionUrl;
 	}
 
-	private String getProperty(String prop) {
+	protected String getProperty(String prop) {
         if (properties.containsKey(prop)) {
             return properties.getProperty(prop);
         }
@@ -102,45 +106,45 @@ public class Config {
      * @return the base URI
      */
     public static String getProxy() {
-        return INSTANCE.getProperty("conn.proxy");
+        return getInstance().getProperty("conn.proxy");
     }
 
 
     //NCBO Annotator
     public static String getNCBOServiceURL(){
-    	return (INSTANCE.getProperty("ncbo.service.url"));
+    	return (getInstance().getProperty("ncbo.service.url"));
     }
 
     public static String getNCBOAPIKey(){
-    	return (INSTANCE.getProperty("ncbo.apikey"));
+    	return (getInstance().getProperty("ncbo.apikey"));
     }
     
     public static String getNCBOStopwords(){
-    	return (INSTANCE.getProperty("ncbo.stopwords"));
+    	return (getInstance().getProperty("ncbo.stopwords"));
     }
     
     public static String getNCBOBaseConceptUri() {
-    	return (INSTANCE.getProperty("ncbo.baseConceptUri"));
+    	return (getInstance().getProperty("ncbo.baseConceptUri"));
     }
     
     //UMLS Annotator
     public static String getUMLSUsername(){
-    	return (INSTANCE.getProperty("umls.username"));
+    	return (getInstance().getProperty("umls.username"));
     }
     
     public static String getUMLSPassword(){
-    	return (INSTANCE.getProperty("umls.password"));
+    	return (getInstance().getProperty("umls.password"));
     }
     
     public static String getUmlsOntologiesAsString() {
-		return INSTANCE.getProperty("umls.annotator.ontologies");
+		return getInstance().getProperty("umls.annotator.ontologies");
     }
     public static String getNcboOntologiesAsString() {
-    	return INSTANCE.getProperty("ncbo.annotator.ontologies");
+    	return getInstance().getProperty("ncbo.annotator.ontologies");
     }
     
     public static Set<String> getUmlsOntologiesAsSet() {
-    		StringTokenizer tokenizer = new StringTokenizer(INSTANCE.getProperty("umls.annotator.ontologies"), ",");
+    		StringTokenizer tokenizer = new StringTokenizer(getInstance().getProperty("umls.annotator.ontologies"), ",");
     		Set<String> ontologySet = new HashSet<>();
     		while (tokenizer.hasMoreTokens()) {
     			ontologySet.add(tokenizer.nextToken());
@@ -149,11 +153,11 @@ public class Config {
     }
     
     public static String getUmlsBaseConceptUri() {
-    	return INSTANCE.getProperty("umls.baseConceptUri");
+    	return getInstance().getProperty("umls.baseConceptUri");
     }
     
     public static boolean isAddNcboConceptUris() {
-    	if (INSTANCE.getProperty("umls.addNcboConceptUris").compareToIgnoreCase(Boolean.TRUE.toString()) == 0) {
+    	if (getInstance().getProperty("umls.addNcboConceptUris").compareToIgnoreCase(Boolean.TRUE.toString()) == 0) {
     		return true;
     	}
     	return false;
@@ -166,11 +170,11 @@ public class Config {
      * @return the UMLS version for UTS services
      */
     public static String getUmlsVersionForUtsServices() {
-    	return (INSTANCE.getProperty("umls.version.uts"));
+    	return (getInstance().getProperty("umls.version.uts"));
     }
     
 	public static String getUmlsMetamapOptions() {
-		String options = INSTANCE.getProperty("umls.metamap.options");
+		String options = getInstance().getProperty("umls.metamap.options");
 		if (!StringUtils.isEmpty(options)) {
 			return options;
 		}
@@ -179,11 +183,11 @@ public class Config {
     
     //Other URLS
     public static String getPubMedURL(){
-    	return (INSTANCE.getProperty("pubmed.url"));
+    	return (getInstance().getProperty("pubmed.url"));
     }
     
     public static String getDOIURL(){
-    	return (INSTANCE.getProperty("doi.url"));
+    	return (getInstance().getProperty("doi.url"));
     }
     
 
@@ -193,11 +197,11 @@ public class Config {
      * @return the suffix of the file type
      */
 	public static String getInputFileSuffix() {
-		return INSTANCE.getProperty("input.file.suffix");
+		return getInstance().getProperty("input.file.suffix");
 	}
 
 	public static String getLanguages() {
-		String languages = INSTANCE.getProperty("languagesIncluded");
+		String languages = getInstance().getProperty("languagesIncluded");
 		if (StringUtils.isEmpty(languages)) {
 			languages = "en";
 		}
@@ -210,7 +214,7 @@ public class Config {
 	}
 
 	public static boolean isUseBrowserUrlAsConceptId() {
-		if (INSTANCE.getProperty("annotation.browserUrlAsAnnotationTopic")
+		if (getInstance().getProperty("annotation.browserUrlAsAnnotationTopic")
 				.equalsIgnoreCase(Boolean.TRUE.toString())) {
 			return true;
 		}
@@ -218,7 +222,7 @@ public class Config {
 	}
 
 	public static boolean isGenerateCrossrefApiPdf() {
-		if (INSTANCE.getProperty("crossrefApi.links.pdf")
+		if (getInstance().getProperty("crossrefApi.links.pdf")
 				.equalsIgnoreCase(Boolean.TRUE.toString())) {
 			return true;
 		}

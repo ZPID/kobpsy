@@ -14,6 +14,7 @@ WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
 OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 -->
 <!DOCTYPE xsl:stylesheet [
+    <!ENTITY application "http://purl.org/NET/mediatypes/application/">
     <!ENTITY biro "http://purl.org/spar/biro/">
     <!ENTITY cito "http://purl.org/spar/cito/">
     <!ENTITY co "http://purl.org/co/">
@@ -41,7 +42,8 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
     <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
 ]>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-    xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:application="&application;" 
     xmlns:biro="&biro;" 
     xmlns:cito="&cito;"
     xmlns:co="&co;"
@@ -2002,7 +2004,9 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
     </xsl:template>
 
     <xsl:template match="@object-id-type[. = 'doi']">
-
+        <xsl:call-template name="crossref">
+          <xsl:with-param name="curr_doi" select=".." tunnel="yes"/>
+        </xsl:call-template>   
     </xsl:template>
     
     <xsl:template
@@ -2607,21 +2611,26 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
     <xsl:template name="crossref">
         <xsl:param name="s" as="xs:string" tunnel="yes"/>
         <xsl:param name="curr_doi" tunnel="yes"/>
-        <xsl:variable name="dig_emb" select="replace($s, 'textual-entity', 'digital-embodiment')"/>
+ 
         <xsl:variable name="pdf"  select="crossref:pdfByDoi(xs:string(..))"/>
-        <xsl:if test="empty($pdf)">
-            <xsl:call-template name="attribute">
-                <!-- TODO specifiy proper subject, i.e. ..DigitalEmbodiment-->
-                <xsl:with-param name="p" select="'rdfs:seeAlso'" tunnel="yes"/>
-                <xsl:with-param name="o" select="$pdf" tunnel="yes"/>
+        
+        <xsl:if test="$pdf != ''">
+            
+            <xsl:variable name="dig_emb_pdf" select="replace($s, 'textual-entity', 'pdf')"/>
+            <xsl:call-template name="assert">
+                <xsl:with-param name="triples"
+                    select="($s, 'frbr:embodiment', $dig_emb_pdf)"
+                />
             </xsl:call-template>
             <xsl:call-template name="assert">
                 <xsl:with-param name="triples"
-                    select="('TODO remove hypehsn $m', 'dcterms:format', 'type:application/pdf',
-                    'frbr:embodiment', $pdf )"
+                    select="($dig_emb_pdf, 'rdf:type', '&fabio;DigitalManifestation',
+                                           'dcterms:format', '&application;pdf',
+                                           'dcterms:relation', $pdf)"
                 />
             </xsl:call-template>
         </xsl:if>
+        
     </xsl:template>
     <!-- END - Named templates -->
 
