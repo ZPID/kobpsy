@@ -15,10 +15,10 @@ import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
 import org.ontoware.rdf2go.exception.ModelRuntimeException;
 import org.zpid.se4ojs.annotation.AnnotationUtils;
-import org.zpid.se4ojs.annotation.Prefix;
 import org.zpid.se4ojs.annotation.ncbo.NcboAnnotator;
 import org.zpid.se4ojs.app.Config;
 import org.zpid.se4ojs.app.SE4OJSAccessHelper;
+import org.zpid.se4ojs.sparql.Prefix;
 import org.zpid.se4ojs.textStructure.bo.BOStructureElement;
 
 import com.hp.hpl.jena.vocabulary.XSD;

@@ -1,4 +1,4 @@
-package org.zpid.se4ojs.annotation;
+package org.zpid.se4ojs.sparql;
 
 import java.util.NoSuchElementException;
 
@@ -14,6 +14,8 @@ public enum Prefix {
 	DCTERMS("http://purl.org/dc/terms/", "dcterms"),
 	
 	DOCO("http://purl.org/spar/doco/", "doco"),
+	
+	FABIO("http://purl.org/spar/fabio/", "fabio"),
 	
 	FOAF("http://xmlns.com/foaf/0.1/", "foaf"),
 	

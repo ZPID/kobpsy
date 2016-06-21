@@ -7,6 +7,7 @@ import org.apache.log4j.Logger;
 import org.jdom2.Document;
 import org.jdom2.Element;
 import org.ontoware.rdf2go.model.Model;
+import org.zpid.se4ojs.sparql.Prefix;
 import org.zpid.se4ojs.textStructure.bo.BOParagraph;
 import org.zpid.se4ojs.textStructure.bo.BOSection;
 import org.zpid.se4ojs.textStructure.bo.BOStructureElement;

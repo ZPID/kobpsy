@@ -25,6 +25,7 @@ import org.ontoware.rdf2go.exception.ModelRuntimeException;
 import org.ontoware.rdf2go.model.Model;
 import org.ontoware.rdf2go.model.Statement;
 import org.xml.sax.InputSource;
+import org.zpid.se4ojs.sparql.Prefix;
 import org.zpid.se4ojs.textStructure.bo.BOParagraph;
 import org.zpid.se4ojs.textStructure.bo.BOSection;
 import org.zpid.se4ojs.textStructure.bo.BOStructureElement;

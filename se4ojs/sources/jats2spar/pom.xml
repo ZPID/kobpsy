@@ -41,6 +41,13 @@
 		   <artifactId>common</artifactId>
 		   <version>${project.version}</version>
 		</dependency>
+		
+		<dependency>
+			<!-- TODO remove after moving crossrefapi call to "links" project -->
+		    <groupId>org.apache.httpcomponents</groupId>
+		    <artifactId>httpclient</artifactId>
+		</dependency>
+		
 	</dependencies>
 
 </project>

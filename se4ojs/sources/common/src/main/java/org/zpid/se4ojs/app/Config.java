@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.LinkOption;
 import java.nio.file.Path;
@@ -27,9 +28,12 @@ import org.apache.logging.log4j.Logger;
  */
 public class Config {
 	
+	public static final String DEFAULT_ZPID_SPARQL_ENDPOINT_URL = "http://kobpsy.zpid.de:8890/sparql";
+	
 	protected static Config INSTANCE;
 	private static Logger LOGGER = null;
 	private static final String CONFIG_PROPERTIES_FILE_NAME = "config.properties";
+
 	
 	private Properties properties;
     private String institutionUrl;
@@ -55,7 +59,10 @@ public class Config {
 			Path parentPath = Paths.get(jarpath).getParent();
 			Path propFilePath = Paths.get(parentPath.toString(), CONFIG_PROPERTIES_FILE_NAME);
 			if (!Files.exists(propFilePath, LinkOption.NOFOLLOW_LINKS)) {
-				propFilePath = Paths.get(Config.class.getClassLoader().getResource(CONFIG_PROPERTIES_FILE_NAME).toURI());
+				URL projectLocalPropertyFile = Config.class.getClassLoader().getResource(CONFIG_PROPERTIES_FILE_NAME);
+				if (projectLocalPropertyFile != null) {
+						propFilePath = Paths.get(projectLocalPropertyFile.toURI());
+				}
 			}
 			LOGGER.debug("properties file was located here:: " + propFilePath);
 			if (!Files.exists(propFilePath, LinkOption.NOFOLLOW_LINKS)) {
@@ -227,5 +234,15 @@ public class Config {
 			return true;
 		}
 		return false;
+	}
+
+	public static String getZpidSparqlEndpointUrl() {
+		String zpidSparqlUrl = getInstance().getProperty("zpid.SparqlEndpointUrl");
+		//TODO create this property in properties file
+		if (!zpidSparqlUrl
+			.isEmpty()) {
+				return zpidSparqlUrl;
+			}
+		return DEFAULT_ZPID_SPARQL_ENDPOINT_URL;
 	}
 }
