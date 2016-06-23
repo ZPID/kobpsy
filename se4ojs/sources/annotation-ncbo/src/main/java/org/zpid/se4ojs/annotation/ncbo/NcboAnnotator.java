@@ -56,14 +56,6 @@ public class NcboAnnotator extends OaAnnotator{
 		this.ontologies = ontologies;
 	}
 
-//	TODO
-//	public void annotateWithApaClusters(File paper,
-//			List<BOStructureElement> topLevelElements, String outputDir) throws IOException {
-//		String out = paper.toPath().getFileName().toString().replace(".xml", "-ncboAnnotations.rdf");
-//		out = out.replace(".XML", "-ncboAnnotations.rdf");
-//		annotate(paper, topLevelElements, Paths.get(outputDir, out));
-//	}
-
 
 	/**
 	 * @see org.zpid.se4ojs.annotation.OaAnnotator#annotateText(org.ontoware.rdf2go.model.Model, java.lang.String, java.lang.String)
@@ -94,9 +86,19 @@ public class NcboAnnotator extends OaAnnotator{
     JsonNode callAnnotator(String text) throws UnsupportedEncodingException {
     	
 		StringBuilder urlParameters = new StringBuilder();
-		urlParameters.append("include=prefLabel");
+		urlParameters.append("&include=prefLabel,cui,semanticType");
 		urlParameters.append("&text=").append(URLEncoder.encode(text, "ISO-8859-1"));
-		urlParameters.append("require_exact_match=true");
+		urlParameters.append("&require_exact_match=true");
+		String ncboStopwords = Config.getNcboStopwords();
+		if (!ncboStopwords.isEmpty()) {
+			urlParameters.append("&stop_words=").append(ncboStopwords);
+		}
+		//TODO externalize following options in config.properties
+		urlParameters.append("&exclude_numbers=true");
+		urlParameters.append("&longest_only=true");
+		urlParameters.append("&minimum_match_length=2");
+		urlParameters.append("&display_context=false");
+		
 		urlParameters.append(createUrlParameterForOntologies());
     	return jsonToNode(post(Config.getNCBOServiceURL(), urlParameters.toString()));
     }

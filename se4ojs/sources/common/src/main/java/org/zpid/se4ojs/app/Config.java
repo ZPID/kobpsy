@@ -90,7 +90,7 @@ public class Config {
         if (properties.containsKey(prop)) {
             return properties.getProperty(prop);
         }
-        return ("");
+        return (StringUtils.EMPTY);
     }
 
     
@@ -126,8 +126,8 @@ public class Config {
     	return (getInstance().getProperty("ncbo.apikey"));
     }
     
-    public static String getNCBOStopwords(){
-    	return (getInstance().getProperty("ncbo.stopwords"));
+    public static String getNcboStopwords(){
+    	return getInstance().getProperty("ncbo.annotator.stopwords");
     }
     
     public static String getNCBOBaseConceptUri() {
