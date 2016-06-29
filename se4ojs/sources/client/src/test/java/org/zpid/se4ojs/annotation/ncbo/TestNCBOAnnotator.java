@@ -28,9 +28,9 @@ public class TestNCBOAnnotator {
 	public void test() throws UnsupportedEncodingException {
 		NcboAnnotator annotator = new NcboAnnotator("NCIT,SNOMEDCT,MESH,APAONTO");
 		JsonNode results = null;
-//		results = annotator.callAnnotator(TEXT);
-//		assertFalse("Some results have should have been returned", results.size()  == 0);
-//		showResults(annotator, results);
+		results = annotator.callAnnotator(TEXT);
+		assertFalse("Some results have should have been returned", results.size()  == 0);
+		showResults(annotator, results);
 		
 //		Check if numbers are filtered. 
 		results = annotator.callAnnotator(NUMBER_EXISTING_IN_NCIT);

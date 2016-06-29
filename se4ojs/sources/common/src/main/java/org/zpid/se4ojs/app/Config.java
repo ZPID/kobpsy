@@ -3,6 +3,7 @@ package org.zpid.se4ojs.app;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.StringWriter;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
@@ -71,8 +72,11 @@ public class Config {
 			properties = new Properties();
 			properties.load(new FileInputStream(
 					propFilePath.toFile()));
+			StringWriter sw = new StringWriter();
+			properties.store(sw, null);
+			LOGGER.info("Annotating with the following configuration properties: ");
+			LOGGER.info(sw.toString());
 			institutionUrl = getBaseURI() + "/";
-			
 		} catch (IOException | URISyntaxException e) {
 			LOGGER.error("Unable to locate the properties file");
 			e.printStackTrace();
@@ -128,6 +132,38 @@ public class Config {
     
     public static String getNcboStopwords(){
     	return getInstance().getProperty("ncbo.annotator.stopwords");
+    }
+    
+    public static boolean getNcboIsExcludeSynonyms(){
+    	if (getInstance().getProperty("ncbo.annotator.excludeSynonyms")
+    			.compareToIgnoreCase(Boolean.TRUE.toString()) == 0) {
+    		return true;
+    	}
+    	return false;
+    }
+    
+    public static boolean getNcboExpandMappings() {
+    	if (getInstance().getProperty("ncbo.annotator.expandMappings")
+    			.compareToIgnoreCase(Boolean.TRUE.toString()) == 0) {
+    		return true;
+    	}
+    	return false;
+    }
+    
+    public static boolean getNcboCui() {
+    	if (getInstance().getProperty("ncbo.annotator.cui")
+    			.compareToIgnoreCase(Boolean.TRUE.toString()) == 0) {
+    		return true;
+    	}
+    	return false;
+    }
+   
+    public static boolean getNcboSemanticType() {
+    	if (getInstance().getProperty("ncbo.annotator.semanticType")
+    			.compareToIgnoreCase(Boolean.TRUE.toString()) == 0) {
+    		return true;
+    	}
+    	return false;
     }
     
     public static String getNCBOBaseConceptUri() {
@@ -245,4 +281,21 @@ public class Config {
 			}
 		return DEFAULT_ZPID_SPARQL_ENDPOINT_URL;
 	}
+	
+	public static boolean isSemanticType() {
+		if (getInstance().getProperty("ncbo.annotator.semanticType")
+			.equalsIgnoreCase(Boolean.TRUE.toString())) {
+			return true;
+		}
+		return false;
+	}
+
+	public static boolean isSaveAnnotationAsJson() {
+		if (getInstance().getProperty("ncbo.annotator.json.serialize")
+				.equalsIgnoreCase(Boolean.TRUE.toString())) {
+				return true;
+			}
+			return false;
+		}
+	
 }

@@ -7,9 +7,15 @@ public enum Prefix {
 	/** Namespace for representing content in RDF. */
 	APPLICATION("http://purl.org/NET/mediatypes/application/", "application"),
 	
+	C4O("http://purl.org/spar/c4o/", "c4o"),
+	
     CNT("http://www.w3.org/2011/content#", "cnt"),
+    
+	CO("http://purl.org/co/", "co"),
 	
 	DC("http://purl.org/dc/elements/1.1/", "dc"),
+	
+	DEO("http://purl.org/spar/deo/", "deo"),
 
 	DCTERMS("http://purl.org/dc/terms/", "dcterms"),
 	
@@ -41,11 +47,13 @@ public enum Prefix {
 	SKOS ("http://www.w3.org/2004/02/skos/core#", "skos"),
 	
     SRO("http://salt.semanticauthoring.org/ontologies/sro#", "sro"),
+    
 	ZPID("http://www.zpid.de/resource", "zpid"),
 	
 	//Extended SPAR ontology
-	ZPID_DOCO("http://www.zpid.de/zpid_doco#", "zpid_doco"),
+	ZPID_DOCO("http://www.zpid.de/zpid_doco#", "zpid_doco"), 
 
+	PLACEHOLDER ("http://www.zpid.de/placeholder/", "zpid_placeholder_onto"),
 	;
 
 	private String url;

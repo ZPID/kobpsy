@@ -1,11 +1,16 @@
 package org.zpid.se4ojs.annotation;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.nio.file.Files;
+import java.nio.file.LinkOption;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -15,6 +20,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.lang3.StringUtils;
+import org.apache.jena.riot.RiotException;
 import org.apache.log4j.Logger;
 import org.jdom2.Document;
 import org.jdom2.JDOMException;
@@ -25,6 +31,13 @@ import org.ontoware.rdf2go.exception.ModelRuntimeException;
 import org.ontoware.rdf2go.model.Model;
 import org.ontoware.rdf2go.model.Statement;
 import org.xml.sax.InputSource;
+import org.zpid.se4ojs.annotation.util.AnnotationListener;
+import org.zpid.se4ojs.annotation.util.MappingsAnnotationListener;
+import org.zpid.se4ojs.annotation.util.Observable;
+import org.zpid.se4ojs.annotation.util.PaperAnnotationFinishedEvent;
+import org.zpid.se4ojs.annotation.util.PaperAnnotationStartEvent;
+import org.zpid.se4ojs.annotation.util.ParagraphAnnotationStartEvent;
+import org.zpid.se4ojs.app.Config;
 import org.zpid.se4ojs.sparql.Prefix;
 import org.zpid.se4ojs.textStructure.bo.BOParagraph;
 import org.zpid.se4ojs.textStructure.bo.BOSection;
@@ -44,8 +57,9 @@ import com.hp.hpl.jena.vocabulary.XSD;
  * 
  * @author barth
  */
-public abstract class OaAnnotator {
+public abstract class OaAnnotator implements Observable {
 	
+	public static final String SEM_TYPE_RDF_FILENAME = "semType.rdf";
 	private static final String TEXTUAL_ENTITY = "/textual-entity";
 	protected static final String OA_ANNOTATION = "Annotation";
 	protected static final String RDF_TYPE = "type";
@@ -80,15 +94,27 @@ public abstract class OaAnnotator {
 	private static final String SKOS_CONCEPT = "Concept";
 	private static final String DC_TITLE = "title";
 	private static final String SKOS_CONCEPT_SCHEME = "ConceptScheme";
-
+	
 	private String articleUri;
 	private Logger log  = Logger.getLogger(OaAnnotator.class);
 	private AnnotationUtils annotationUtils = new AnnotationUtils();
+	private Model semTypeModel = null;
+	private List<AnnotationListener> annotationListeners = new ArrayList<>();
 	
 	/** Stores a concept by its URI as a key and the number of times it occurs in the same paper as value. */
 	private Map<String, Integer> conceptCount = new HashMap<>();
+	private static Path semTypeOut = null;
+	private boolean jsonAsAnnotationSource = false;
 
-	public void annotate(String baseUri, File paper, List<BOStructureElement> bOStructureElements, Path outFile) throws IOException {
+	
+	public OaAnnotator() {
+		super();
+	}
+
+	public void annotate(String baseUri, File paper, List<BOStructureElement> bOStructureElements, Path outFile)
+			throws IOException {
+		initSemanticTypeAnnotation(outFile);
+		notifyListeners(annotationListeners, new PaperAnnotationStartEvent(getJsonResultsListener()));
 		Model model = RDF2Go.getModelFactory().createModel();
 		model.open();
 		annotationUtils.setNamespaces(model);
@@ -106,8 +132,54 @@ public abstract class OaAnnotator {
 			throw new FileNotFoundException("ModelRuntimeException " + e.getMessage());
 		} 
 	    model.close();
+	    //@TODO create a semanticTypeModel listener 
+	    if (semTypeModel != null && !semTypeModel.isEmpty()) {
+		    OutputStream osSemType = new FileOutputStream(new File(semTypeOut.toString()));
+		    try {
+		    	semTypeModel.writeTo(osSemType);
+		    	semTypeModel.close();
+			} catch (ModelRuntimeException e) {
+				log.error("Error writing semantic types (to semTypes.rdf): " + e.getLocalizedMessage());
+		    	semTypeModel.close();
+		    }
+	    }
+	    notifyListeners(annotationListeners, new PaperAnnotationFinishedEvent());
 		os.close();
 		log.info("Finished annotation for paper: " + paper.getName());
+	}
+
+	/**
+	 * Initializes semantic type annotation if
+	 * semantic type annotation should be active (according to the corresponding configuration property setting).
+	 */
+	private void initSemanticTypeAnnotation(Path outFile) {
+		if (Config.isSemanticType()) {
+			semTypeOut = Paths.get(outFile.toString().replace("ncboAnnotations.rdf", SEM_TYPE_RDF_FILENAME));
+			semTypeModel = getSemanticTypeModel(
+						semTypeOut);
+			annotationUtils.setNamespaces(semTypeModel);
+		}
+	}
+
+	/**
+	 * Loads the semantic type model from the RDF-file if it exists. The semantic types found during the current 
+	 * execution are appended to existing semantic types.
+	 *  
+	 * @param semTypeModelPath the path to the RDF-file were the semantic types of the annotated concepts are stored.
+	 * @return the semantic type model
+	 */
+	private Model getSemanticTypeModel(Path semTypeModelPath) {
+		Model typeModel = RDF2Go.getModelFactory().createModel();
+		typeModel.open();
+		if (Files.exists(semTypeModelPath, LinkOption.NOFOLLOW_LINKS)) {
+			try (BufferedReader br = new BufferedReader(new FileReader(semTypeModelPath.toFile()))){
+				typeModel.readFrom(br);
+			} catch (IOException | RiotException io) {
+				log.error("Unable to open or read from the Semantic Type Model."
+						+ io.getLocalizedMessage());
+			}
+		} 
+		return typeModel;
 	}
 
 	/**
@@ -160,7 +232,13 @@ public abstract class OaAnnotator {
 				try {
 					String text = p.getText().replaceAll("[\\t\\n\\r]"," ");
 					if (!StringUtils.isEmpty(text) && text.trim().length() > 0  && isSupportedLanguage(p)) {
-						annotateText(model, text, subElementUri);
+						if (jsonAsAnnotationSource) {
+							updateJsonResultListener(model, subElementUri);
+							notifyListeners(annotationListeners,
+									new ParagraphAnnotationStartEvent(subElementUri));
+						} else {
+							annotateText(model, text, subElementUri);
+						}
 					}
 				} catch (Exception e) {
 					log.error("Error annotating paragraph " + subElementUri + " : " + e.getLocalizedMessage());
@@ -180,6 +258,11 @@ public abstract class OaAnnotator {
 		return model;
 	}
 	
+	protected abstract void updateJsonResultListener(
+			Model model, String subElementUri);
+
+	protected abstract AnnotationListener getJsonResultsListener();
+
 	private boolean isSupportedLanguage(BOParagraph p) {
 		if (p.getLanguage() != null && !p.getLanguage().equals(LANGUAGE_EN)) {
 			return false;
@@ -454,15 +537,15 @@ public abstract class OaAnnotator {
 	 * <p>
 	 * For each of these selectors a triple describing its type is created. Example:
 	 * {@code
-	 *    <rdf:Description rdf:about="urn:uuid:8C97B503-25EE-4E37-875C-B7C850E13194"> 
-	 *    <rdf:type rdf:resource="http://www.w3.org/ns/oa#FragmentSelector"/>
+	 *      <rdf:Description rdf:about="urn:uuid:8bb63d59-2b21-11b2-8081-e47fb211d05d">
+     *		<oa:item rdf:resource="http://www.zpid.de/textQuoteSel/SUBSTANCE"/>
      *
 	 * }
 	 * 
 	 * </p>
 	 * 
 	 * <p>
-	 * Finally the values which the respective selectors hold are expressed via suitable triples.
+	 * Finally the values held by the respective selectors are expressed via suitable triples.
 	 * </p>
 	 * 
 	 * @param model the RDF2Go model
@@ -476,8 +559,14 @@ public abstract class OaAnnotator {
 	protected void addCompositeItems(Model model, String compSelId, String fragment,
 			int startPos, int endPos, String exactMatch) {
 		
-		String fragSelectorId = annotationUtils.generateUuidUri();
-		String posSelectorId = annotationUtils.generateUuidUri();
+		String fragmentUri = annotationUtils.urlEncode(fragment);
+		String fragSelectorId = annotationUtils.createUriString(
+				articleUri, AnnotationUtils.URI_INFIX_FRAGEMENT_SEL,
+				fragmentUri);
+		String posUri = new StringBuilder(Integer.toString(startPos)).append("_").append(endPos).toString();
+		String posSelectorId = annotationUtils.createUriString(
+				fragSelectorId.replace(AnnotationUtils.URI_INFIX_FRAGEMENT_SEL, AnnotationUtils.URI_INFIX_TEXTPOS_SEL),
+				annotationUtils.urlEncode(posUri));
 		String quoteSelectorId = annotationUtils.createUriString(
 				AnnotationUtils.URI_PREFIX_ZPID, AnnotationUtils.URI_INFIX_TEXT_QUOTE_SEL,
 				annotationUtils.urlEncode(exactMatch));
@@ -530,5 +619,30 @@ public abstract class OaAnnotator {
 	protected void setAnnotationUtils(AnnotationUtils annotationUtils) {
 		this.annotationUtils = annotationUtils;
 	}
+
+	protected Model getSemTypeModel() {
+		return semTypeModel;
+	}
 	
+	@Override
+	public void addListener(AnnotationListener listener) {
+		annotationListeners.add(listener);
+	}
+	
+	public void addMappingsListener(AnnotationListener listener) {
+		annotationListeners.add(new MappingsAnnotationListener(listener));
+	}
+
+	protected List<AnnotationListener> getAnnotationListeners() {
+		return annotationListeners;
+	}
+
+	protected boolean isJsonAsAnnotationSource() {
+		return jsonAsAnnotationSource;
+	}
+
+	protected void setJsonAsAnnotationSource(boolean jsonAsAnnotationSource) {
+		this.jsonAsAnnotationSource = jsonAsAnnotationSource;
+	}
+
 }

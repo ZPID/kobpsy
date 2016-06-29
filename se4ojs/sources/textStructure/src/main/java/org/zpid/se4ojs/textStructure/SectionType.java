@@ -1,5 +1,7 @@
 package org.zpid.se4ojs.textStructure;
 
+import org.zpid.se4ojs.sparql.Prefix;
+
 
 public enum SectionType {
 

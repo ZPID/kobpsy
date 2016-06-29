@@ -38,6 +38,8 @@ public class AnnotationUtils {
 	static final String URI_INFIX_DOI = "doi";
 	static final String URI_SUFFIX_TEXTUAL_ENTITY = "textual-entity";
 	static final String URI_INFIX_TEXT_QUOTE_SEL = "textQuoteSel";
+	static final String URI_INFIX_FRAGEMENT_SEL = "fragmentSel";
+	static final String URI_INFIX_TEXTPOS_SEL = "textPosSel";
 	
 	private Logger log = Logger.getLogger(AnnotationUtils.class);
 	
