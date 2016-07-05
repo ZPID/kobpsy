@@ -37,23 +37,33 @@ import com.hp.hpl.jena.vocabulary.XSD;
  * </p>
  * <p>
  * The test runs se4ojs tool and stores the results in a temporary file.
- * The results are then compared to a reference annotation (stored in the resources folder of this project). 
+ * The results are then compared to a reference annotation (stored in the resources folder of this project).
  * </p>
- * 
+ *
  * @author barth
  *
  */
 public class TestOa_Annotation_Model extends AnnotationTester {
 
 	private static final String TEST_ONTOLOGY = "CHEBI";
+	private static final String PROP_JSON_ANNOTATION = "ncbo.annotator.json.serialize";
+	private static final String PROP_EXPAND_MAPPINGS = "ncbo.annotator.expandMappings";
+	private static final String PROP_SEMANTIC_TYPE = "ncbo.annotator.semanticType";
+	private static final String PROP_EXCLUDE_SYNONYMS = "ncbo.annotator.excludeSynonyms";
+	private static final String PROP_INCLUDE_CUI = "ncbo.annotator.cui";
+
 	static final String TEST_SEMANTIC_TYPE_ONTOLOGY = "SNOMEDCT";
-	
+
+	private String ncboRdfFileName = "jsonHandlerTest-ncboAnnotations.rdf";
+	private byte[] minimumRdfAnnotation;
+
+
 	@Rule
 	public TemporaryFolder folder = new TemporaryFolder();
-	
+
 	/**
 	 * Compares the expected annotation outcome with the actual outcome on the basis of a short document.
-	 * 
+	 *
 	 * @throws ModelRuntimeException
 	 * @throws IOException
 	 * @throws JDOMException
@@ -70,24 +80,27 @@ public class TestOa_Annotation_Model extends AnnotationTester {
 		 //annotate the file
 		 NcboAnnotator ncboAnnotator = new TestableNCBOAnnotator(TEST_ONTOLOGY);
 		 ncboAnnotator.annotate(Config.getInstitutionUrl(), in, structureElements, Paths.get(outputDir));
-		 
-		 super.compareTransformationResults(folder, 
+
+		 super.compareTransformationResults(folder,
 				 "ncboAnnotatorTestXml-ncboAnnotations.rdf", "ncboAnnotatorReferenceAnnotation.rdf");
 	}
-	
+
 	/**
 	 * Check the semanticType Model.
-	 * Two annotation rounds (of two different articles) are performed in order to test whether
-	 * - the rdf file is correctly written
-	 * - the rdf file can be re-opened and whether the new triples are appended.
-	 *@TODO check loading the file into a SPARQL endpoint
-	 * 
+	 * Currently, this test only checks whether the semantic type rdf file is stored.
+	 *
 	 * @throws ModelRuntimeException
 	 * @throws IOException
 	 * @throws JDOMException
 	 */
 	@Test
 	public void testSemanticTypeAnnotation() throws ModelRuntimeException, IOException, JDOMException {
+		TestableConfig config = new TestableConfig();
+		config.setPropValue(PROP_JSON_ANNOTATION, "true");
+		config.setPropValue(PROP_EXCLUDE_SYNONYMS, "true");
+		config.setPropValue(PROP_EXPAND_MAPPINGS, "false");
+		config.setPropValue(PROP_INCLUDE_CUI, "true");
+		config.setPropValue(PROP_SEMANTIC_TYPE, "true");
 		String testXmlFileName = "semTypeAnnotatorTest.xml";
 		String inPath = this.getClass().getClassLoader().getResource(testXmlFileName).getFile();
 		inPath = inPath.replaceFirst("^/(.:/)", "$1");
@@ -99,30 +112,32 @@ public class TestOa_Annotation_Model extends AnnotationTester {
 		//annotate the file
 		NcboAnnotator ncboAnnotator = new TestableNCBOAnnotator(TEST_SEMANTIC_TYPE_ONTOLOGY);
 		ncboAnnotator.annotate(Config.getInstitutionUrl(), in, structureElements, Paths.get(outputDir));
-		
-		Path rdfPath = Paths.get(outputDir, testXmlFileName.replace(".xml", "") + "-" + OaAnnotator.SEM_TYPE_RDF_FILENAME);
-		assertTrue("The rdf output file for semantic type annotation does not exist", 
-				rdfPath.toFile().exists());
-//		long rdfFileSizeAfterFirstAnnotation = Files.size(rdfPath);
-		String testXmlFileName2 = "semTypeAnnotatorTest2.xml";
-		inPath = this.getClass().getClassLoader().getResource(testXmlFileName2).getFile();
-		inPath = inPath.replaceFirst("^/(.:/)", "$1");
-		in = new File(inPath);
-		//annotate the file
-		ncboAnnotator = new TestableNCBOAnnotator(TEST_SEMANTIC_TYPE_ONTOLOGY);
-		structureElements = se4ojsAccessHelper.rdfizeSections(in, outputDir);
-		ncboAnnotator.annotate(Config.getInstitutionUrl(), in, structureElements, Paths.get(outputDir));
-		rdfPath = Paths.get(outputDir, testXmlFileName2.replace(".xml", "") + "-" +  OaAnnotator.SEM_TYPE_RDF_FILENAME);
-		assertTrue("The rdf output file for semantic type annotation does not exist", 
-				rdfPath.toFile().exists());
-//		long rdfFileSizeAfterSecondAnnotation = Files.size(rdfPath);
-//		assertTrue("The additional triples from the second input file have not been appended",
-//				rdfFileSizeAfterFirstAnnotation < rdfFileSizeAfterSecondAnnotation);
 
+		Path rdfPath = Paths.get(outputDir, testXmlFileName.replace(".xml", "") + "-" + OaAnnotator.SEM_TYPE_RDF_FILENAME);
+		assertTrue("The rdf output file for semantic type annotation does not exist",
+				rdfPath.toFile().exists());
 	}
 
+	/**
+	 * First runs the NCBO Annotation with the minimum amount of information (no mappings, no synonyms,
+	 * no semanticTypes, no cuis) and stores it both as rdf and in Json format.
+	 * The generated rdf is copied as a reference annotation.
+	 * Then the Json deserializer is used (with the same settings) to generate a second rdf file.
+	 * The test passes if both rdf files are
+	 * @throws ModelRuntimeException
+	 * @throws IOException
+	 * @throws JDOMException
+	 */
 	@Test
 	public void testJsonHandler() throws ModelRuntimeException, IOException, JDOMException {
+		//set the required properties to annotate with json:
+		TestableConfig config = new TestableConfig();
+		config.setPropValue(PROP_JSON_ANNOTATION, "true");
+		config.setPropValue(PROP_EXCLUDE_SYNONYMS, "true");
+		config.setPropValue(PROP_EXPAND_MAPPINGS, "false");
+		config.setPropValue(PROP_INCLUDE_CUI, "false");
+		config.setPropValue(PROP_SEMANTIC_TYPE, "false");
+
 		String inPath = this.getClass().getClassLoader().getResource("jsonHandlerTest.xml").getFile();
 		inPath = inPath.replaceFirst("^/(.:/)", "$1");
 		File in = new File(inPath);
@@ -131,17 +146,17 @@ public class TestOa_Annotation_Model extends AnnotationTester {
 		SE4OJSAccessHelper se4ojsAccessHelper = new SE4OJSAccessHelper();
 		List<BOStructureElement> structureElements = se4ojsAccessHelper.rdfizeSections(in, outputDir);
 		//annotate the file
-		NcboAnnotator ncboAnnotator = new TestableNCBOAnnotator(TEST_SEMANTIC_TYPE_ONTOLOGY);
+		TestableNCBOAnnotator ncboAnnotator = new TestableNCBOAnnotator(TEST_SEMANTIC_TYPE_ONTOLOGY);
 		ncboAnnotator.annotate(Config.getInstitutionUrl(), in, structureElements, Paths.get(outputDir));
-		
+
 		Path jsonPath = Paths.get(outputDir, "jsonHandlerTest-ncboAnnotations.json");
-		assertTrue("The json output file  does not exist", 
+		assertTrue("The json output file  does not exist",
 				jsonPath.toFile().exists());
 		//copy the file (otherwise it will be overridden with the current settings)
-		String ncboRdfFileName = "jsonHandlerTest-ncboAnnotations.rdf";
 		String originalNcboRdfFileName = ncboRdfFileName +"-original";
 		Files.copy(Paths.get(outputDir, ncboRdfFileName), Paths.get(outputDir, originalNcboRdfFileName),
 				LinkOption.NOFOLLOW_LINKS);
+		Files.delete(Paths.get(outputDir, ncboRdfFileName));
 		//read the json content
 
 		String xmlDirectory = Paths.get(inPath).getParent().toString();
@@ -149,14 +164,78 @@ public class TestOa_Annotation_Model extends AnnotationTester {
 		String outputDirectory = outputDir;
 		//TODO jatsProcessingTask
 		TestableJsonFileVisitor jsonVisitor = new TestableJsonFileVisitor(xmlDirectory, outputDirectory);
-		Files.walkFileTree(Paths.get(jsonDirectory), 
+		Files.walkFileTree(Paths.get(jsonDirectory),
 				jsonVisitor);
-		byte[] originalFileContent = Files.readAllBytes(Paths.get(outputDir, originalNcboRdfFileName));
+		minimumRdfAnnotation = Files.readAllBytes(Paths.get(outputDir, originalNcboRdfFileName));
 		byte[] jsonFileContent = Files.readAllBytes(Paths.get(outputDir, ncboRdfFileName));
-		assertTrue("File contents differ", Arrays.equals(originalFileContent, jsonFileContent));
-		
+		assertTrue("File contents differ", Arrays.equals(minimumRdfAnnotation, jsonFileContent));
+
 	}
 
+
+	/**
+	 * Similar to {@link #testJsonHandler()}, but
+	 * first runs the NCBO Annotation with the maximum amount of information (no mappings, but synonyms,
+	 * semanticTypes and cuis) and stores it both as rdf and in Json format.
+	 *
+	 * Then the Json deserializer is used (with the minimum settings from the previous test)
+	 * to generate a second rdf file.
+	 * The test passes if this second rdf file matches the directly generated rdf file from the previous test.
+	 *
+	 * @throws ModelRuntimeException
+	 * @throws IOException
+	 * @throws JDOMException
+	 */
+	@Test
+	public void testJsonHandler_DifferentPropertySettings() throws ModelRuntimeException, IOException, JDOMException {
+		String outputDir = folder.getRoot().toString();
+		if (minimumRdfAnnotation == null) {
+			testJsonHandler();
+			Files.delete(Paths.get(outputDir, ncboRdfFileName));
+			Files.delete(Paths.get(outputDir, ncboRdfFileName +"-original"));
+		}
+		//set the required properties to annotate with json:
+		TestableConfig config = new TestableConfig();
+		config.setPropValue(PROP_JSON_ANNOTATION, "true");
+		config.setPropValue(PROP_EXCLUDE_SYNONYMS, "false");
+		config.setPropValue(PROP_EXPAND_MAPPINGS, "false");
+		config.setPropValue(PROP_INCLUDE_CUI, "true");
+		config.setPropValue(PROP_SEMANTIC_TYPE, "true");
+
+		String inPath = this.getClass().getClassLoader().getResource("jsonHandlerTest.xml").getFile();
+		inPath = inPath.replaceFirst("^/(.:/)", "$1");
+		File in = new File(inPath);
+		// get the structure elements of the input text
+		SE4OJSAccessHelper se4ojsAccessHelper = new SE4OJSAccessHelper();
+		List<BOStructureElement> structureElements = se4ojsAccessHelper.rdfizeSections(in, outputDir);
+		//annotate the file
+		TestableNCBOAnnotator ncboAnnotator = new TestableNCBOAnnotator(TEST_SEMANTIC_TYPE_ONTOLOGY);
+		ncboAnnotator.annotate(Config.getInstitutionUrl(), in, structureElements, Paths.get(outputDir));
+
+		Path jsonPath = Paths.get(outputDir, "jsonHandlerTest-ncboAnnotations.json");
+		assertTrue("The json output file  does not exist",
+				jsonPath.toFile().exists());
+
+		//read the json content
+		config.setPropValue(PROP_EXCLUDE_SYNONYMS, "true");
+		config.setPropValue(PROP_EXPAND_MAPPINGS, "false");
+		config.setPropValue(PROP_INCLUDE_CUI, "false");
+		config.setPropValue(PROP_SEMANTIC_TYPE, "false");
+
+		String xmlDirectory = Paths.get(inPath).getParent().toString();
+		String jsonDirectory = jsonPath.getParent().toString();
+		String outputDirectory = outputDir;
+		TestableJsonFileVisitor jsonVisitor = new TestableJsonFileVisitor(xmlDirectory, outputDirectory);
+		Files.walkFileTree(Paths.get(jsonDirectory),
+				jsonVisitor);
+		byte[] jsonFileContent = Files.readAllBytes(Paths.get(outputDir, ncboRdfFileName));
+
+//		File originalRdf = Paths.get(outputDir, ncboRdfFileName +"-original").toFile();
+//		FileUtils.writeByteArrayToFile(originalRdf, minimumRdfAnnotation);
+
+		assertTrue("File contents differ", Arrays.equals(minimumRdfAnnotation, jsonFileContent));
+
+	}
 }
 
 class TestableNCBOAnnotator extends NcboAnnotator {
@@ -190,18 +269,18 @@ class TestableNCBOAnnotator extends NcboAnnotator {
 		cal.set(YEAR, MONTH, DAY);
 		return cal.getTime();
 	}
-	
+
 }
 
 class TestableAnnotationUtils extends AnnotationUtils {
 
 	int uuidCounter = 0;
-	
+
 	@Override
 	public String generateUuidUri() {
 		return String.format("urn:uuid:test%d", ++uuidCounter);
 	}
-	
+
 }
 
 class TestableJsonFileVisitor extends JsonFileVisitor {
@@ -214,7 +293,7 @@ class TestableJsonFileVisitor extends JsonFileVisitor {
 	public NcboAnnotator getNcboAnnotator() {
 		return new TestableNCBOAnnotator(TestOa_Annotation_Model.TEST_SEMANTIC_TYPE_ONTOLOGY, true);
 	}
-	
-	
-	
+
+
+
 }

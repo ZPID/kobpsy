@@ -54,7 +54,7 @@ public class JsonFileVisitor extends SimpleFileVisitor<Path> {
 				structureElements = helper.rdfizeSections(xmlFilePath.toFile(), outputDirectory);
 			} catch (IOException | JDOMException e) {
 				logger.error("No json annotation possible for: " + jsonPath.toString()
-						+ "Unable to produce structure elements");
+						+ "Unable to produce structure elements" + e.getLocalizedMessage());
 				e.printStackTrace();
 				return FileVisitResult.CONTINUE;
 			}

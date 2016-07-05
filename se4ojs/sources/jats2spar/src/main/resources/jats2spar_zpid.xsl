@@ -2612,10 +2612,11 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
         <xsl:param name="s" as="xs:string" tunnel="yes"/>
         <xsl:param name="curr_doi" tunnel="yes"/>
  
-        <xsl:variable name="pdf"  select="crossref:pdfByDoi(xs:string(..))"/>
+        <xsl:variable name="links"  select="crossref:externalLinksByDoi(xs:string(..))"/>
         
+        <xsl:variable name="pdf" select="$links[1]"/>
         <xsl:if test="$pdf != ''">
-            
+                
             <xsl:variable name="dig_emb_pdf" select="replace($s, 'textual-entity', 'pdf')"/>
             <xsl:call-template name="assert">
                 <xsl:with-param name="triples"
@@ -2630,6 +2631,33 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
                 />
             </xsl:call-template>
         </xsl:if>
+        
+        <xsl:variable name="html" select="$links[2]"/>
+        <xsl:if test="$html != ''">
+                
+            <xsl:variable name="dig_emb_html" select="replace($s, 'textual-entity', 'html')"/>
+            <xsl:call-template name="assert">
+                <xsl:with-param name="triples"
+                    select="($s, 'frbr:embodiment', $dig_emb_html)"
+                />
+            </xsl:call-template>
+            <xsl:call-template name="assert">
+                <xsl:with-param name="triples"
+                    select="($dig_emb_html, 'rdf:type', '&fabio;DigitalManifestation',
+                    'dcterms:format', '&application;html',
+                    'dcterms:relation', $html)"
+                />
+            </xsl:call-template>
+        </xsl:if>
+        
+        <xsl:variable name="subjects"  select="crossref:subjectsByDoi(xs:string(..))"/>
+        <xsl:for-each select="$subjects">
+            <xsl:call-template name="attribute">
+                <xsl:with-param name="s" select='$s' tunnel="yes"/>
+                <xsl:with-param name="p" select="'prism:keyword'" tunnel="yes"/>
+                <xsl:with-param name="o" select="." tunnel="yes"/>
+            </xsl:call-template>
+        </xsl:for-each>
         
     </xsl:template>
     <!-- END - Named templates -->

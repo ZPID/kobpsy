@@ -201,10 +201,10 @@ public class SE4OJSRdfizer {
 	public void processDirectory() throws IOException {
 		Path path = Paths.get(inputDir);
 		if (processingTasks.contains(ProcessingTask.REFERENCE_PREPROCESSING)) {
-			XMLFileVisitor fileVisitor = new XMLFileVisitor(this, ProcessingTask.REFERENCE_PREPROCESSING);	
+			XMLFileVisitor fileVisitor = new XMLFileVisitor(this, ProcessingTask.REFERENCE_PREPROCESSING, outputDir);	
 			Files.walkFileTree(path, fileVisitor);
 		} else {
-			XMLFileVisitor fileVisitor = new XMLFileVisitor(this, null);
+			XMLFileVisitor fileVisitor = new XMLFileVisitor(this, null, outputDir);
 			Files.walkFileTree(path, fileVisitor);			
 		}
 	}

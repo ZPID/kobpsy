@@ -41,7 +41,7 @@ import com.fasterxml.jackson.databind.node.JsonNodeType;
  * <p>
  * Annotates the textual content of a file with the NCBO annotator.
  * </p>
- * 
+ *
  */
 public class NcboAnnotator extends OaAnnotator {
 
@@ -92,7 +92,7 @@ public class NcboAnnotator extends OaAnnotator {
 	/**
 	 * Sets the configuration properties for the Bioportal Annotator tool, calls
 	 * the service and returns the results.
-	 * 
+	 *
 	 * @param text
 	 *            the text to annotate
 	 * @return the annotations in JSON-format
@@ -117,9 +117,10 @@ public class NcboAnnotator extends OaAnnotator {
 				+ new Boolean(Config.getNcboIsExcludeSynonyms()).toString().toLowerCase());
 
 		urlParameters.append(createUrlParameterForOntologies());
-		urlParameters.append("&expand_mappings="
-				+ new Boolean(Config.getNcboExpandMappings()).toString().toLowerCase());
-		
+//@FIXME address issues with mapping expansion and enable again
+//		urlParameters.append("&expand_mappings="
+//				+ new Boolean(Config.getNcboExpandMappings()).toString().toLowerCase());
+
 		// //TODO externalize following options in config.properties
 		urlParameters.append("&exclude_numbers=true");
 		urlParameters.append("&longest_only=true");
@@ -138,7 +139,7 @@ public class NcboAnnotator extends OaAnnotator {
 	/**
 	 * Creates the RDF representation of the concept annotation of the passed in
 	 * text structure element.
-	 * 
+	 *
 	 * @param model
 	 *            the RDF2Go model
 	 * @param results
@@ -151,12 +152,21 @@ public class NcboAnnotator extends OaAnnotator {
 			String textStructElementUri) {
 
 		for (JsonNode result : results) {
-			// Get the details for the class that was found in the annotation
-			// and print
-			JsonNode classDetails = jsonToNode(get(result.get("annotatedClass")
-					.get("links").get("self").asText()));
-			JsonNode annotationInfo = result.get("annotations");
-			rdfizeAnnotation(model, textStructElementUri, classDetails, annotationInfo);
+			String rawClassDetails = "";
+			if (isJsonAsAnnotationSource()) {
+				rawClassDetails = result.get("annotatedClass").toString();
+			} else {
+				// Get the details for the class that was found in the annotation
+				rawClassDetails = get(result.get("annotatedClass")
+						.get("links").get("self").asText());
+			}
+			if (!rawClassDetails.isEmpty()) {
+				JsonNode classDetails = jsonToNode(rawClassDetails);
+				JsonNode annotationInfo = result.get("annotations");
+				rdfizeAnnotation(model, textStructElementUri, classDetails, annotationInfo);
+			} else {
+				log.error("Class details for json Node:" + result + " are empty. Check json library version.");
+			}
 		}
 	}
 
@@ -184,6 +194,12 @@ public class NcboAnnotator extends OaAnnotator {
 		if (Config.getNcboExpandMappings() == true) {
 			JsonNode mappingsNode = classDetails.get("links").get("mappings");
 			if (mappingsNode != null) {
+//				try {//@TODO check if waiting is necessary because of too many api calls
+//					Thread.sleep(1000);
+//				} catch (InterruptedException e) {
+//					// TODO Auto-generated catch block
+//					e.printStackTrace();
+//				}
 				JsonNode mappings = jsonToNode(get(mappingsNode.asText()));
 				notifyListeners(getAnnotationListeners(),
 						new MappingsResultEvent(conceptId, mappings));
@@ -215,15 +231,15 @@ public class NcboAnnotator extends OaAnnotator {
 	 * Adds semantic type info. The information in passed to a separate model so
 	 * that the RDF may be persisted separately from the rest of the
 	 * annotations.
-	 * 
+	 *
 	 * @TODO As a first step we save the semantic type as a literal. However,
 	 *       the semantic type should be mapped to the corresponding concept in
 	 *       bioportal's semantic type ontology (STY).
-	 * 
+	 *
 	 * @FIXME The predicate used here does not belong to an ontology. Find a
 	 *        suitable ontology / structure to express "hasSemanticType" or
 	 *        create one.
-	 * 
+	 *
 	 * @param bodyUri
 	 *            the uri of the body (concept)
 	 */
@@ -241,20 +257,20 @@ public class NcboAnnotator extends OaAnnotator {
 			}
 		}
 	}
-	
+
 	/**
 	 * Adds the cui info. The information in passed to a separate model so
 	 * that the RDF may be persisted separately from the rest of the
 	 * annotations.
-	 * 
+	 *
 	 * @TODO As a first step we save the semantic type as a literal. However,
 	 *       the semantic type should be mapped to the corresponding concept in
 	 *       bioportal's semantic type ontology (STY).
-	 * 
+	 *
 	 * @FIXME The predicate used here does not belong to an ontology. Find a
 	 *        suitable ontology / structure to express "hasSemanticType" or
 	 *        create one.
-	 * 
+	 *
 	 * @param bodyUri
 	 *            the uri of the body (concept)
 	 */
@@ -271,13 +287,13 @@ public class NcboAnnotator extends OaAnnotator {
 								cuiToken, getSemTypeModel());
 			}
 		}
-		
+
 	}
 
 
 	/**
 	 * For each annotation a separate Annotation Target is created.
-	 * 
+	 *
 	 * @param model
 	 *            the RDF2Go model
 	 * @param annotationInfo
@@ -314,12 +330,12 @@ public class NcboAnnotator extends OaAnnotator {
 	 * Gets the value of one or more properties from the JSON class details. If
 	 * more than one property is specified, the property calls to the JSON class
 	 * details will be chained.
-	 * 
+	 *
 	 * If the classDetail is stored as an element of an ArrayNode, the first
 	 * element's value is returned.
-	 * 
+	 *
 	 * Logs an error if the property has not value.
-	 * 
+	 *
 	 * @param props
 	 *            the name of the properties
 	 * @return the text representation of the JSON node as property value
@@ -329,7 +345,7 @@ public class NcboAnnotator extends OaAnnotator {
 		JsonNode node = null;
 		for (String prop : props) {
 			if (node == null) {
-				node = classDetails.path(prop);
+				node = classDetails.findValue(prop);
 				if (node instanceof ArrayNode) {
 					ArrayNode anode = (ArrayNode) node;
 					if (anode.size() == 1) {
@@ -342,8 +358,8 @@ public class NcboAnnotator extends OaAnnotator {
 			} else {
 				node = node.path(prop);
 			}
-			if (node.equals(JsonNodeType.MISSING)) {
-				log.error(String.format("no %s found. ", prop));
+			if (node.getNodeType().equals(JsonNodeType.MISSING)) {
+				log.error(String.format("Error extracting class detail from json node. No %s found. ", prop));
 			}
 		}
 
@@ -353,7 +369,7 @@ public class NcboAnnotator extends OaAnnotator {
 	/**
 	 * @see org.zpid.se4ojs.annotation.OaAnnotator#createAnnotation(Model,
 	 *      String, String)
-	 * 
+	 *
 	 *      Creates the main annotation triple, using the last part (name part)
 	 *      of the concept URI to create the annotation ID.
 	 */
@@ -490,16 +506,16 @@ public class NcboAnnotator extends OaAnnotator {
 		}
 		return jsonResultListener;
 	}
-	
+
 	private class JsonResultListener implements AnnotationListener {
 
 		private Model model;
 		private String subElementUri;
-		
+
 		@Override
 		public void handlePaperAnnotationFinished() {
 			// TODO Auto-generated method stub
-			
+
 		}
 
 		@Override
@@ -517,13 +533,13 @@ public class NcboAnnotator extends OaAnnotator {
 		public void setSubElementUri(String subElementUri) {
 			this.subElementUri = subElementUri;
 		}
-		
+
 	}
 
 	@Override
 	protected void updateJsonResultListener(Model model, String subElementUri) {
 		jsonResultListener.setModel(model);
 		jsonResultListener.setSubElementUri(subElementUri);
-		
+
 	}
 }

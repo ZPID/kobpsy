@@ -105,6 +105,29 @@
       <dcterms:relation rdf:resource="http://ejcop.psychopen.eu/article/download/34/pdf"/>
    </rdf:Description>
    <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/textual-entity">
+      <frbr:embodiment rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/html"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/html">
+      <rdf:type rdf:resource="http://purl.org/spar/fabio/DigitalManifestation"/>
+      <dcterms:format rdf:resource="http://purl.org/NET/mediatypes/application/html"/>
+      <dcterms:relation rdf:resource="http://ejcop.psychopen.eu/article/view/34/html"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/textual-entity">
+      <prism:keyword>teens</prism:keyword>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/textual-entity">
+      <prism:keyword>self-regulation</prism:keyword>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/textual-entity">
+      <prism:keyword>lifestyles</prism:keyword>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/textual-entity">
+      <prism:keyword>knowledge hiv</prism:keyword>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/textual-entity">
+      <prism:keyword>aids</prism:keyword>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/textual-entity">
       <owl:sameAs rdf:resource="http://dx.doi.org/10.5964/ejcop.v2i2.34"/>
    </rdf:Description>
    <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/textual-entity">
@@ -779,6 +802,35 @@
       <rdf:type rdf:resource="http://purl.org/spar/fabio/DigitalManifestation"/>
       <dcterms:format rdf:resource="http://purl.org/NET/mediatypes/application/pdf"/>
       <dcterms:relation rdf:resource="http://jspp.psychopen.eu/article/download/85/pdf"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-r13/textual-entity">
+      <frbr:embodiment rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-r13/html"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-r13/html">
+      <rdf:type rdf:resource="http://purl.org/spar/fabio/DigitalManifestation"/>
+      <dcterms:format rdf:resource="http://purl.org/NET/mediatypes/application/html"/>
+      <dcterms:relation rdf:resource="http://jspp.psychopen.eu/article/view/85/html"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-r13/textual-entity">
+      <prism:keyword>social change</prism:keyword>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-r13/textual-entity">
+      <prism:keyword>goals</prism:keyword>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-r13/textual-entity">
+      <prism:keyword>collective action</prism:keyword>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-r13/textual-entity">
+      <prism:keyword>efficacy</prism:keyword>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-r13/textual-entity">
+      <prism:keyword>legitimacy</prism:keyword>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-r13/textual-entity">
+      <prism:keyword>identity</prism:keyword>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-r13/textual-entity">
+      <prism:keyword>system</prism:keyword>
    </rdf:Description>
    <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-r13/textual-entity">
       <owl:sameAs rdf:resource="http://dx.doi.org/10.5964/jspp.v1i1.85"/>

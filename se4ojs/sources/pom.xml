@@ -83,6 +83,20 @@
 				<groupId>org.semweb4j</groupId>
 				<artifactId>rdf2go.api</artifactId>
 				<version>5.0.1</version>
+				<exclusions>
+					<exclusion>
+					  <groupId>com.fasterxml.jackson.core</groupId>
+					  <artifactId>jackson-core</artifactId>
+					</exclusion>
+					<exclusion>
+					  <groupId>com.fasterxml.jackson.core</groupId>
+				      <artifactId>jackson-annotations</artifactId>
+					</exclusion>
+					<exclusion>
+					  <groupId>com.fasterxml.jackson.core</groupId>
+					  <artifactId>jackson-databind</artifactId>
+					</exclusion>
+				</exclusions>
 			</dependency>
 			<dependency>
 				<groupId>org.semweb4j</groupId>

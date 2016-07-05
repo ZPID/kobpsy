@@ -23,28 +23,28 @@ import org.apache.logging.log4j.Logger;
 /**
  * Reads the configuration properties from a file.
  * This class should be used as a Singleton (only supposed to be overwritten for testing purposes).
- * 
+ *
  * @author barth
  *
  */
 public class Config {
-	
+
 	public static final String DEFAULT_ZPID_SPARQL_ENDPOINT_URL = "http://kobpsy.zpid.de:8890/sparql";
-	
+
 	protected static Config INSTANCE;
 	private static Logger LOGGER = null;
 	private static final String CONFIG_PROPERTIES_FILE_NAME = "config.properties";
 
-	
+
 	private Properties properties;
     private String institutionUrl;
-    
+
 	protected Config() {
 		super();
 	    LOGGER = LogManager.getLogger(Config.class);
 		initialize();
 	}
-	
+
 	protected static Config getInstance() {
 		if (INSTANCE == null) {
 			INSTANCE = new Config();
@@ -84,7 +84,7 @@ public class Config {
 	}
 
     /**
-     * Base URI of the organistation or institute that does the rdfization (e.g. "zpid"). 
+     * Base URI of the organization or institute that does the rdfization (e.g. "zpid").
      */
     public static String getInstitutionUrl() {
 		return getInstance().institutionUrl;
@@ -97,10 +97,10 @@ public class Config {
         return (StringUtils.EMPTY);
     }
 
-    
+
     /**
      * Gets the basic part of the URI for the generated resources.
-     * 
+     *
      * @return the base URI
      */
     private String getBaseURI() {
@@ -110,10 +110,10 @@ public class Config {
         }
         return baseUri;
     }
-    
+
     /**
      * Gets the basic part of the URI for the generated resources.
-     * 
+     *
      * @return the base URI
      */
     public static String getProxy() {
@@ -129,11 +129,11 @@ public class Config {
     public static String getNCBOAPIKey(){
     	return (getInstance().getProperty("ncbo.apikey"));
     }
-    
+
     public static String getNcboStopwords(){
     	return getInstance().getProperty("ncbo.annotator.stopwords");
     }
-    
+
     public static boolean getNcboIsExcludeSynonyms(){
     	if (getInstance().getProperty("ncbo.annotator.excludeSynonyms")
     			.compareToIgnoreCase(Boolean.TRUE.toString()) == 0) {
@@ -141,7 +141,7 @@ public class Config {
     	}
     	return false;
     }
-    
+
     public static boolean getNcboExpandMappings() {
     	if (getInstance().getProperty("ncbo.annotator.expandMappings")
     			.compareToIgnoreCase(Boolean.TRUE.toString()) == 0) {
@@ -149,7 +149,7 @@ public class Config {
     	}
     	return false;
     }
-    
+
     public static boolean getNcboCui() {
     	if (getInstance().getProperty("ncbo.annotator.cui")
     			.compareToIgnoreCase(Boolean.TRUE.toString()) == 0) {
@@ -157,7 +157,7 @@ public class Config {
     	}
     	return false;
     }
-   
+
     public static boolean getNcboSemanticType() {
     	if (getInstance().getProperty("ncbo.annotator.semanticType")
     			.compareToIgnoreCase(Boolean.TRUE.toString()) == 0) {
@@ -165,27 +165,27 @@ public class Config {
     	}
     	return false;
     }
-    
+
     public static String getNCBOBaseConceptUri() {
     	return (getInstance().getProperty("ncbo.baseConceptUri"));
     }
-    
+
     //UMLS Annotator
     public static String getUMLSUsername(){
     	return (getInstance().getProperty("umls.username"));
     }
-    
+
     public static String getUMLSPassword(){
     	return (getInstance().getProperty("umls.password"));
     }
-    
+
     public static String getUmlsOntologiesAsString() {
 		return getInstance().getProperty("umls.annotator.ontologies");
     }
     public static String getNcboOntologiesAsString() {
     	return getInstance().getProperty("ncbo.annotator.ontologies");
     }
-    
+
     public static Set<String> getUmlsOntologiesAsSet() {
     		StringTokenizer tokenizer = new StringTokenizer(getInstance().getProperty("umls.annotator.ontologies"), ",");
     		Set<String> ontologySet = new HashSet<>();
@@ -194,28 +194,28 @@ public class Config {
     		}
     		return ontologySet;
     }
-    
+
     public static String getUmlsBaseConceptUri() {
     	return getInstance().getProperty("umls.baseConceptUri");
     }
-    
+
     public static boolean isAddNcboConceptUris() {
     	if (getInstance().getProperty("umls.addNcboConceptUris").compareToIgnoreCase(Boolean.TRUE.toString()) == 0) {
     		return true;
     	}
     	return false;
     }
-    
+
     /**
      * Returns the Version of the UMLS used by the
      * UTS services.
-     * 
+     *
      * @return the UMLS version for UTS services
      */
     public static String getUmlsVersionForUtsServices() {
     	return (getInstance().getProperty("umls.version.uts"));
     }
-    
+
 	public static String getUmlsMetamapOptions() {
 		String options = getInstance().getProperty("umls.metamap.options");
 		if (!StringUtils.isEmpty(options)) {
@@ -223,20 +223,20 @@ public class Config {
 		}
 		return "";
 	}
-    
+
     //Other URLS
     public static String getPubMedURL(){
     	return (getInstance().getProperty("pubmed.url"));
     }
-    
+
     public static String getDOIURL(){
     	return (getInstance().getProperty("doi.url"));
     }
-    
+
 
     /**
      * The expected file types for articles to be processed.
-     * 
+     *
      * @return the suffix of the file type
      */
 	public static String getInputFileSuffix() {
@@ -281,7 +281,7 @@ public class Config {
 			}
 		return DEFAULT_ZPID_SPARQL_ENDPOINT_URL;
 	}
-	
+
 	public static boolean isSemanticType() {
 		if (getInstance().getProperty("ncbo.annotator.semanticType")
 			.equalsIgnoreCase(Boolean.TRUE.toString())) {
@@ -297,5 +297,8 @@ public class Config {
 			}
 			return false;
 		}
-	
+
+	protected Properties getProperties() {
+		return properties;
+	}
 }

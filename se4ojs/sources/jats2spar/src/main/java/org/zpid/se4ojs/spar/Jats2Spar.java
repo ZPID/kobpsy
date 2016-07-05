@@ -182,16 +182,15 @@ public class Jats2Spar {
 		net.sf.saxon.Configuration saxonConfig = tFactoryImpl
 				.getConfiguration();
 		saxonConfig
-				.registerExtensionFunction(new CrossrefPdfByDoiExtensionFunctionDef());
+				.registerExtensionFunction(new CrossrefLinksByDoiExtensionFunctionDef());
+		saxonConfig
+		.registerExtensionFunction(new CrossrefSubjectsByDoiExtensionFunctionDef());
 		Processor proc = new Processor(saxonConfig);
 		XsltCompiler comp = proc.newXsltCompiler();
 		XsltExecutable exec;
 		exec = comp.compile(new StreamSource(stylesheetUri));
 		XsltTransformer transformer = exec.load();
 
-
-		
-		
 		DocumentBuilder saxBuilder = proc.newDocumentBuilder();
 		saxBuilder.setLineNumbering(true);
 		saxBuilder.setDTDValidation(false);
