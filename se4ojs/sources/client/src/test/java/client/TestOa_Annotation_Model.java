@@ -3,6 +3,7 @@ package client;
 import static org.junit.Assert.assertTrue;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.LinkOption;
@@ -16,6 +17,7 @@ import java.util.Date;
 import java.util.List;
 
 import org.jdom2.JDOMException;
+import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
@@ -234,6 +236,18 @@ public class TestOa_Annotation_Model extends AnnotationTester {
 //		FileUtils.writeByteArrayToFile(originalRdf, minimumRdfAnnotation);
 
 		assertTrue("File contents differ", Arrays.equals(minimumRdfAnnotation, jsonFileContent));
+
+	}
+
+//	This is a test to do manual inspection for files that are not part of the test resources. Thus, it
+//	is ignored by default.
+	@Ignore
+	@Test
+	public void testJsonContent() throws FileNotFoundException, IOException {
+		String fileName = "psyct.v5i1.4-ncboAnnotations.rdf";
+		String inOld = "E:\\KOBPSY3\\PSYCT_out_NoSyns_old";
+		String inNew = "E:\\KOBPSY3\\PSYCT_out_NoSyns";
+		super.compareTransformationResults(Paths.get(inOld, fileName).toString(), Paths.get(inNew, fileName).toString());
 
 	}
 }

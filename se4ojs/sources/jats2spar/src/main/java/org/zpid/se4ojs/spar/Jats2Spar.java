@@ -43,7 +43,7 @@ import org.xml.sax.SAXException;
  * This class performs the transformation from a JATS-XML input-file to the
  * adapted version of the JATStoRDF stylesheet by Peroni et al.
  * </p>
- * 
+ *
  * @author barth
  *
  */
@@ -92,15 +92,15 @@ public class Jats2Spar {
 	 * out the transformation.
 	 * </p>
 	 * <p>
-	 * The article language is checked prior to transformation. If it is not part of the 
+	 * The article language is checked prior to transformation. If it is not part of the
 	 * user-configured accepted languages, transformation is aborted and the method returns false.
 	 * </p>
-	 * 
+	 *
 	 * @param dataFile
 	 *            the file to transform
 	 * @param outputFile
 	 *            the name of the file that contains the transformed RDf
-	 * @param baseUrl 
+	 * @param baseUrl
 	 * 			  the base url for the generated rdf resources
 	 * @return false if the article language is not accepted
 	 * @throws URISyntaxException
@@ -112,7 +112,7 @@ public class Jats2Spar {
 				dataFile));
 		try {
 			javax.xml.parsers.DocumentBuilder builder = initTransformation();
-			//Workaround to avoid search for DTDs: 
+			//Workaround to avoid search for DTDs:
 			//            instead of using dummy DTD / xml catalog, the paper is read into a document
 			//            and then passed to the sax transformer.
 			ByteArrayOutputStream out = new ByteArrayOutputStream();
@@ -142,7 +142,7 @@ public class Jats2Spar {
 					log.error("Suppressed exception: ", sup);
 				}
 			}
-		} 
+		}
 		return false;
 	}
 
@@ -172,9 +172,9 @@ public class Jats2Spar {
 		return builder;
 	}
 
-	private void doTransform(InputStream istream, File dataFile, File outputFile, String baseUrl) 
+	private void doTransform(InputStream istream, File dataFile, File outputFile, String baseUrl)
 			throws SaxonApiException, TransformerFactoryConfigurationError, TransformerException {
-		
+
 		InputStream stylesheetUri = Jats2Spar.class
 				.getResourceAsStream(RESOURCE_JATS2SPAR_XSL);
 		TransformerFactory tFactory = TransformerFactory.newInstance();
@@ -221,11 +221,11 @@ public class Jats2Spar {
 				dataFile));
 	}
 
-	/** 
+	/**
 	 * Checks whether the article language of the document
 	 * is accepted (is present in config.properties).
 	 * Default is English.
-	 * 
+	 *
 	 * @param languages the languages that are allowed
 	 * @return true if the language is allowed, false otherwise
 	 */

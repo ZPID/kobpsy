@@ -21,74 +21,55 @@ import com.hp.hpl.jena.rdf.model.ModelFactory;
 
 public class AnnotationTester {
 
+	protected void compareTransformationResults(String resName, String refName) throws FileNotFoundException, IOException {
+		doCompare(resName, refName, false, false);
+	}
+
 	protected void compareTransformationResults(TemporaryFolder folder, String resName, String refName) throws FileNotFoundException, IOException {
 		 String resPath = Paths.get(folder.getRoot().toString(), resName).toString();
-		 BufferedReader br = new BufferedReader(
-				 new FileReader(resPath));
 		 String refPath = this.getClass().getClassLoader().getResource(refName).getFile();
 		 refPath = refPath.replaceFirst("^/(.:/)", "$1");
-		 
+
+		 doCompare(resPath, refPath, true, true);
+	}
+	protected void doCompare(String resPath, String refPath, boolean compareModels, boolean failOnNotMatching) throws FileNotFoundException, IOException {
+		 BufferedReader br = new BufferedReader(
+				 new FileReader(resPath));
 		 BufferedReader brRef = new BufferedReader(
 				 new FileReader(refPath));
 		 Map<String, String> linesRes = new HashMap<>();
 		 Map<String, String> linesRef = new HashMap<>();
 		 String lineRes = "";
 		 String lineRef = "";
-		 int lineNo = 0;
 		 while (lineRes != null) {
-			 while (lineRef != null) {
-				 System.out.println("\n");
-				 ++ lineNo;
-				 lineRes = br.readLine();
-				 if (!StringUtils.isEmpty(lineRes)) {
-					 System.out.println("lineRes");
-					 System.out.println(lineRes.trim());
-					 if (lineRes.contains("xmlns")) {
-						 lineRes = lineRes.replace(">", "");
-					 }
-					 linesRes.put(lineRes.trim(), "");
-				 } else {
-					 System.out.println("lineRes is null");
-				 }
-				 lineRef = brRef.readLine();
-				 if (!StringUtils.isEmpty(lineRef)) {
-					 System.out.println("lineRef");
-					 System.out.println(lineRef.trim());
-					 if (lineRef.contains("xmlns")) {
-						 lineRef = lineRef.replace(">", "");
-					 }
-					 linesRef.put(lineRef.trim(), "");
-				 } else {
-					 System.out.println("lineRef is null");
-				 }
+				 lineRes = prepareLine(br, linesRes, "linesRes");
+		 }
+		 while (lineRef != null) {
+			 lineRef = prepareLine(brRef, linesRef, "linesRef");
+		 }
+
+		 findMatchingLine(linesRes, linesRef, "result annotation", failOnNotMatching);
+		 findMatchingLine(linesRef, linesRes, "reference annotation", failOnNotMatching);
+
+		 int linesRefSize = linesRef.keySet().size();
+		 int linesResSize = linesRes.keySet().size();
+		 if (linesRefSize != linesResSize) {
+			 if (linesRefSize > linesResSize) {
+				 fail(String.format("Reference annotation is longer than result annotation.\n"));
+			 } else {
+				 fail(String.format("Result annotation is longer than reference annotation.\n"));
 			 }
-			 if (StringUtils.isEmpty(lineRef) && !StringUtils.isEmpty(lineRes)) {
-				 fail(String.format("Reference annotation is shorter than result annotation.\n"
-				 		+ "Current line read in result annotation: %s. Line no: %d", lineRes, lineNo));
-			 }
-		 }
-		 if (!StringUtils.isEmpty(lineRef)) {
-			 fail(String.format("Reference annotation is longer than result annotation.\n"
-					 + "Current line read in reference annotation: %s. Line no: %d", lineRef, lineNo));
-		 }
-		 for (String lres : linesRes.keySet()) {
-			 System.out.println(lres);
-			 assertTrue(String.format("%s not found in reference annotation", lres), linesRef.containsKey(lres));
-		 }
-		 for (String lref : linesRef.keySet()) {
-			 System.out.println(lref);
-			 assertTrue(String.format("%s not found in result annotation", lref), linesRes.containsKey(lref));
 		 }
 		 br.close();
 		 brRef.close();
-		 
+		 if (compareModels) {
 	        try {
 	            Model m1 = ModelFactory.createDefaultModel();
 	            Model m2 = ModelFactory.createDefaultModel();
-	        
+
 	            read(m1, refPath, "RDF/XML");
 	            read(m2, resPath, "RDF/XML");
-	        
+
 	            if (m1.isIsomorphicWith(m2)) {
 	                System.out.println("models are equal");
 	                System.out.println();
@@ -100,6 +81,44 @@ public class AnnotationTester {
 	            System.err.println("    " + e.toString());
 	            fail("Unhandled exception:");
 	        }
+		 }
+	}
+
+	protected void findMatchingLine(Map<String, String> linesRes,
+			Map<String, String> linesRef, String name, boolean failOnNotMatching) {
+		for (String lref : linesRef.keySet()) {
+			 //skip uuids
+			 if (!lref.contains("urn:uuid")) {
+				 if (failOnNotMatching) {
+					 assertTrue(String.format("%s not found in " + name, lref), linesRes.containsKey(lref));
+				 } else {
+					 if (!linesRes.containsKey(lref)) {
+						 System.out.println(String.format("Not found in " + name + ":") + lref );
+					 }
+				 }
+			 }
+		 }
+	}
+
+	protected String prepareLine(BufferedReader br, Map<String, String> lines, String brName)
+			throws IOException {
+		String line;
+		line = br.readLine();
+		 if (!StringUtils.isEmpty(line)) {
+			 System.out.println(brName);
+			 System.out.println(line.trim());
+			 if (line.contains("xmlns")) {
+				 line = line.replace(">", "");
+			 }
+			 //replace dates by a default date
+			 if (line.contains("<oa:annotatedAt rdf:datatype=\"http://www.w3.org/2001/XMLSchema#date\">)")) {
+				 line = "<oa:annotatedAt rdf:datatype=\"http://www.w3.org/2001/XMLSchema#date\">2016-07-05</oa:annotatedAt>";
+			 }
+			 lines.put(line.trim(), "");
+		 } else {
+			 System.out.println("lineRes is null");
+		 }
+		return line;
 	}
 
 	static void read(Model model, String in, String lang)
@@ -111,6 +130,6 @@ public class AnnotationTester {
 			model.read(new FileInputStream(in), "", lang);
 		}
 	}
-	
+
 
 }

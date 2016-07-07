@@ -16,10 +16,10 @@ import org.zpid.se4ojs.links.CrossrefApiCaller;
 public class CrossrefLinksByDoiExtensionFunctionDef extends ExtensionFunctionDefinition {
 
 	private CrossrefApiCaller crossref = new CrossrefApiCaller();
-	
+
 	@Override
 	public StructuredQName getFunctionQName() {
-		return new StructuredQName("crossref", "http://www.zpid.de/crossref", "externalLinksByDoi"); 
+		return new StructuredQName("crossref", "http://www.zpid.de/crossref", "externalLinksByDoi");
 	}
 
 	@Override
@@ -37,11 +37,11 @@ public class CrossrefLinksByDoiExtensionFunctionDef extends ExtensionFunctionDef
 	@Override
 	public ExtensionFunctionCall makeCallExpression() {
 		return new ExtensionFunctionCall() {
-			
+
 			@Override public Sequence call(
 					XPathContext context, Sequence[] arguments) throws XPathException {
 				//TODO build in configuration option and only call if crossrefExternalLink-Option is set
-				String doi = ((StringValue)arguments[0]).asString(); 
+				String doi = ((StringValue)arguments[0]).asString();
 				String[] result = crossref.getExternalLinksByDoi(doi);
 				StringValue[] result1 = new StringValue[]{StringValue.makeStringValue(result[0]), StringValue.makeStringValue(result[1])};
 				return new SequenceExtent(result1);

@@ -30,24 +30,24 @@
 			<artifactId>Saxon-HE</artifactId>
 			<version>9.6.0-9</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.jdom</groupId>
 			<artifactId>jdom2</artifactId>
 		</dependency>
-		
+
 		<dependency>
 		   <groupId>org.zpid.se4ojs</groupId>
 		   <artifactId>common</artifactId>
 		   <version>${project.version}</version>
 		</dependency>
-		
+
 		<dependency>
 			<!-- TODO remove after moving crossrefapi call to "links" project -->
 		    <groupId>org.apache.httpcomponents</groupId>
 		    <artifactId>httpclient</artifactId>
 		</dependency>
-		
+
 	</dependencies>
 
 </project>

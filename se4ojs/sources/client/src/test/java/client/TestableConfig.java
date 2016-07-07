@@ -5,7 +5,7 @@ import org.zpid.se4ojs.app.Config;
 public class TestableConfig extends Config {
 
 
-	protected void setPropValue(String property, String propValue) {
+	public void setPropValue(String property, String propValue) {
 		getProperties().setProperty(property, propValue);
 	}
 

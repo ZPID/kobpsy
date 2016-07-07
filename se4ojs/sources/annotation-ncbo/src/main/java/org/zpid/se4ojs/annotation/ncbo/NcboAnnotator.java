@@ -170,12 +170,15 @@ public class NcboAnnotator extends OaAnnotator {
 		}
 	}
 
-	protected void rdfizeAnnotation(Model model, String textStructElementUri,
+	void rdfizeAnnotation(Model model, String textStructElementUri,
 			JsonNode classDetails, JsonNode annotationInfo) {
 		String matchType = StringUtils.EMPTY;
 		if (annotationInfo != null) {
 			if (Config.getNcboIsExcludeSynonyms() == true) {
 				matchType = getClassDetail(annotationInfo, "matchType");
+				if (matchType.isEmpty()) {
+					log.error("match type should never be empty");
+				}
 			}
 			if (matchType.isEmpty() || matchType.equals("PREF")) {
 				extractClassDetails(model, textStructElementUri, classDetails,

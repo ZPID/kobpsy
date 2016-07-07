@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package org.zpid.se4ojs.links;
 
@@ -26,14 +26,14 @@ import org.zpid.se4ojs.app.Config;
 
 /**
  * Class that performs CrossRef Api Calls.
- * 
+ *
  * @author barth
  *
  */
 public class CrossrefApiCaller {
 
 	private static final String DOI_PREFIX_URI = "http://dx.doi.org/";
-	
+
 	private static final String PDF_LINK_INDICATOR = "name=\"citation_pdf_url\" content=\"";
 	private static final String HTML_LINK_INDICATOR = "name=\"citation_fulltext_html_url\" content=\"";
 	private static final String SUBJECT_INDICATOR = "<meta name=\"DC.Subject\" xml:lang=\"en\" content=".toLowerCase();
@@ -45,16 +45,16 @@ public class CrossrefApiCaller {
 
 	private static final String END_TAG = "/>";
 	private static final String END_ATTR = ">";
-	
+
 	private Logger log = LogManager.getLogger(CrossrefApiCaller.class);
-	
+
 	private static Map<String, String> doiResults = new HashMap<>();
-	
+
 
 	/**
 	 * Returns the URL to the PDF and Html manifestations of the article with the given doi,
 	 * or an array with empty string entries for a format that could not be retrieved.
-	 * 
+	 *
 	 * @param doi the article doi
 	 * @return the URL to the PDF
 	 */
@@ -80,18 +80,18 @@ public class CrossrefApiCaller {
 					} catch (IOException e) {
 						log.warn("Error trying to obtain crossref record for doi: " + doi);
 						e.printStackTrace();
-					} 
+					}
 				}
 			}
 		}
 		return links;
 	}
-	
+
 	/**
 	 * Obtains the subject keywords from the crossref record.
 	 * @FIXME Currently no API call is made, we tacitly assume that method {@link CrossrefApiCaller#getExternalLinksByDoi(String)}
 	 * has been called previously and has stored the crossref metadata record if it had been available.
-	 * 
+	 *
 	 * @param doi the doi of the article
 	 * @return the list of subject terms
 	 */
@@ -118,36 +118,36 @@ public class CrossrefApiCaller {
 				}
 			}
 		}
-		
+
 		return subjects;
 	}
-	
+
 	private String[] fetchRecord(BufferedReader reader, String doi) throws IOException {
 		String record = StringUtils.EMPTY;
 		String line = StringUtils.EMPTY;
-		
+
 		while ((line = reader.readLine()) != null) {
 			record = record + line;
 		}
 		String normalizedRecord = record.toLowerCase();
 		doiResults.put(doi, normalizedRecord);
 		return extract(normalizedRecord, doi);
-		
+
 	}
 
 	protected String[] extract(String record, String doi) {
-		String[] links = new String[]{StringUtils.EMPTY, StringUtils.EMPTY}; 
+		String[] links = new String[]{StringUtils.EMPTY, StringUtils.EMPTY};
 		links[0] = extractPdfLink(record);
 		if (links[0].equals(StringUtils.EMPTY)) {
 			log.info("No link to PDF version found for doi: " + doi);
-		}			
+		}
 		links[1] = extractHtmlLink(record);
 		if (links[1].equals(StringUtils.EMPTY)) {
 			log.info("No link to HTML version found for doi: " + doi);
 		}
 		return links;
 	}
-	
+
 	private String extractHtmlLink(String record) {
 		String s = StringUtils.EMPTY;
 		if (record.contains(HTML_LINK_INDICATOR)) {
@@ -178,7 +178,7 @@ public class CrossrefApiCaller {
 		return endIndex;
 	}
 
-	
+
 	private String extractPdfLink(String record) {
 		String s = StringUtils.EMPTY;
 		if (record.contains(PDF_LINK_INDICATOR)) {
@@ -197,7 +197,7 @@ public class CrossrefApiCaller {
 		return s;
 	}
 
-	
+
 	public String get(String urlToGet) {
 		HttpURLConnection conn = null;
 		BufferedReader rd;
