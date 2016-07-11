@@ -38,6 +38,7 @@ public class Config {
 
 	private Properties properties;
     private String institutionUrl;
+    private Path propFilePath;
 
 	protected Config() {
 		super();
@@ -58,7 +59,7 @@ public class Config {
 			URI jarpath = Config.class.getProtectionDomain().getCodeSource().getLocation().toURI();
 			LOGGER.debug("jarpath: " + jarpath.toString());
 			Path parentPath = Paths.get(jarpath).getParent();
-			Path propFilePath = Paths.get(parentPath.toString(), CONFIG_PROPERTIES_FILE_NAME);
+			propFilePath = Paths.get(parentPath.toString(), CONFIG_PROPERTIES_FILE_NAME);
 			if (!Files.exists(propFilePath, LinkOption.NOFOLLOW_LINKS)) {
 				URL projectLocalPropertyFile = Config.class.getClassLoader().getResource(CONFIG_PROPERTIES_FILE_NAME);
 				if (projectLocalPropertyFile != null) {
@@ -264,8 +265,8 @@ public class Config {
 		return false;
 	}
 
-	public static boolean isGenerateCrossrefApiPdf() {
-		if (getInstance().getProperty("crossrefApi.links.pdf")
+	public static boolean isGenerateCrossrefLinks() {
+		if (getInstance().getProperty("crossrefApi.links")
 				.equalsIgnoreCase(Boolean.TRUE.toString())) {
 			return true;
 		}
@@ -294,11 +295,23 @@ public class Config {
 		if (getInstance().getProperty("ncbo.annotator.json.serialize")
 				.equalsIgnoreCase(Boolean.TRUE.toString())) {
 				return true;
-			}
-			return false;
 		}
+		return false;
+	}
+	public static boolean isGeneratePubPsychLinks() {
+		if (getInstance().getProperty("pubpsych.links")
+				.equalsIgnoreCase(Boolean.TRUE.toString())) {
+			return true;
+		}
+		return false;
+	}
 
 	protected Properties getProperties() {
 		return properties;
 	}
+
+	protected void setPropFilePath(Path path) {
+		this.propFilePath = path;
+	}
+
 }

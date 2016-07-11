@@ -52,16 +52,25 @@
 			<plugin>
 				<artifactId>maven-resources-plugin</artifactId>
 			</plugin>
+			<plugin>
+				<artifactId>maven-jar-plugin</artifactId>
+			</plugin>
 		</plugins>
 	</build>
 	<dependencies>
-	<!--  internal project dependencies -->	
+	<!--  internal project dependencies -->
 		<dependency>
 			<groupId>org.zpid.se4ojs</groupId>
 			<artifactId>common</artifactId>
 			<version>${project.version}</version>
 		</dependency>
-		
+        <dependency>
+			<groupId>org.zpid.se4ojs</groupId>
+			<artifactId>common</artifactId>
+			<version>${project.version}</version>
+			<type>test-jar</type>
+			<scope>test</scope>
+        </dependency>
 		<dependency>
 			<groupId>org.zpid.se4ojs</groupId>
 			<artifactId>annotation-ncbo</artifactId>
@@ -73,19 +82,19 @@
 			<artifactId>textStructure</artifactId>
             <version>${project.version}</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.zpid.se4ojs</groupId>
 			<artifactId>jats2spar</artifactId>
             <version>${project.version}</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.zpid.se4ojs</groupId>
 			<artifactId>refStructuring</artifactId>
             <version>${project.version}</version>
 		</dependency>
-		
+
 	<!--  external dependencies -->
 
 	</dependencies>

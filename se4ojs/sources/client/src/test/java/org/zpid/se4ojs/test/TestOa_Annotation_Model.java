@@ -1,4 +1,4 @@
-package client;
+package org.zpid.se4ojs.test;
 
 import static org.junit.Assert.assertTrue;
 

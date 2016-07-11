@@ -26,7 +26,6 @@ import org.zpid.se4ojs.app.Config;
 
 /**
  * Class that performs CrossRef Api Calls.
- *
  * @author barth
  *
  */
@@ -60,27 +59,29 @@ public class CrossrefApiCaller {
 	 */
 	public String[] getExternalLinksByDoi(String doi) {
 		String[] links = new String[]{StringUtils.EMPTY, StringUtils.EMPTY};
-		if (Config.isGenerateCrossrefApiPdf()) {
-			String record = doiResults.get(doi);
-			if (record != null) {
-				extract(record, doi);
-			} else {
-				InputStream inputStream = null;
-				try {
-					URLConnection urlConnection = new URL(DOI_PREFIX_URI + doi).openConnection();
-					urlConnection.setRequestProperty("Content-Type", "application/vnd.crossref.unixsd+xml");
-					urlConnection.connect();
-					inputStream = urlConnection.getInputStream();
+		String record = doiResults.get(doi);
+		if (record != null) {
+			extract(record, doi);
+		} else {
+			InputStream inputStream = null;
+			try {
+				URLConnection urlConnection = openUrlConnection(new URL(
+						DOI_PREFIX_URI + doi));
+				urlConnection.setRequestProperty("Content-Type",
+						"application/vnd.crossref.unixsd+xml");
+				urlConnection.connect();
+				inputStream = urlConnection.getInputStream();
+			} catch (IOException e) {
+				log.warn("Unable to resolve doi: " + doi + " by crossref API" + "\n" + e.getLocalizedMessage());
+			}
+			if (inputStream != null) {
+				try (BufferedReader reader = new BufferedReader(
+						new InputStreamReader(inputStream))) {
+					links = fetchRecord(reader, doi);
 				} catch (IOException e) {
-					log.warn("Unable to resolve doi: " + doi + " by crossref API");
-				}
-				if (inputStream != null) {
-					try (BufferedReader reader =  new BufferedReader(new InputStreamReader(inputStream))) {
-						 links = fetchRecord(reader, doi);
-					} catch (IOException e) {
-						log.warn("Error trying to obtain crossref record for doi: " + doi);
-						e.printStackTrace();
-					}
+					log.warn("Error trying to obtain crossref record for doi: "
+							+ doi + "\n" + e.getLocalizedMessage());
+					e.printStackTrace();
 				}
 			}
 		}
@@ -105,9 +106,12 @@ public class CrossrefApiCaller {
 					int beginIndex = match.indexOf(SUBJECT_INDICATOR)
 							+ SUBJECT_INDICATOR_LENGTH;
 					if (beginIndex > -1) {
-					    int endIndex = getEndIndex(match, beginIndex);
+						int endIndex = getEndIndex(match, beginIndex);
 						if (endIndex > -1) {
-							String subject = match.substring(beginIndex, endIndex).replace("/>", "").replace(">", "").replace("\"", "");
+							String subject = match
+									.substring(beginIndex, endIndex)
+									.replace("/>", "").replace(">", "")
+									.replace("\"", "");
 							log.debug("subject: " + subject);
 							subjects.add(StringValue.makeStringValue(subject));
 							match = match.substring(endIndex);
@@ -118,7 +122,6 @@ public class CrossrefApiCaller {
 				}
 			}
 		}
-
 		return subjects;
 	}
 
@@ -128,6 +131,7 @@ public class CrossrefApiCaller {
 
 		while ((line = reader.readLine()) != null) {
 			record = record + line;
+			log.trace(line);
 		}
 		String normalizedRecord = record.toLowerCase();
 		doiResults.put(doi, normalizedRecord);
@@ -206,7 +210,8 @@ public class CrossrefApiCaller {
 		try {
 			conn = openUrlConnection(new URL(urlToGet));
 			conn.setRequestMethod("GET");
-			conn.setRequestProperty("Accept", "application/json");
+//			conn.setRequestProperty("Accept", "application/json");
+			conn.setRequestProperty("Accept", "text/turtle");
 			rd = new BufferedReader(
 					new InputStreamReader(conn.getInputStream()));
 			while ((line = rd.readLine()) != null) {
@@ -228,7 +233,7 @@ public class CrossrefApiCaller {
 	protected static HttpURLConnection openUrlConnection(URL url)
 			throws IOException {
 		HttpURLConnection conn;
-		String proxySettings = Config.getProxy();
+        String proxySettings = Config.getProxy();
 		if (!StringUtils.isEmpty(proxySettings)) {
 			String[] proxyComponents = proxySettings.split(":");
 			Proxy proxy = new Proxy(Proxy.Type.HTTP, new InetSocketAddress(
@@ -238,6 +243,12 @@ public class CrossrefApiCaller {
 			conn = (HttpURLConnection) url.openConnection();
 		}
 		return conn;
+	}
+
+	public static void main (String[] args) {
+		CrossrefApiCaller caller = new CrossrefApiCaller();
+//		caller.getExternalLinksByDoi("10.1038/171737a0"); //nature magazine. returns empty record but was the example used by http://inkdroid.org/2011/04/25/dois-as-linked-data/
+		caller.getExternalLinksByDoi("10.5964/jspp.v1i1.85");
 	}
 
 }

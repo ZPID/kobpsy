@@ -2,7 +2,7 @@
 <!--
 Copyright (c) 2010-2013, Silvio Peroni <essepuntato@gmail.com>
 
-Permission to use, copy, modify, and/or distribute this software for any
+Permission to use, copy, modify, and/or distribute this software for anyi
 purpose with or without fee is hereby granted, provided that the above
 copyright notice and this permission notice appear in all copies.
 
@@ -28,7 +28,6 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
     <!ENTITY frbr "http://purl.org/vocab/frbr/core#">
     <!ENTITY literal "http://www.essepuntato.it/2010/06/literalreification/">
     <!ENTITY owl "http://www.w3.org/2002/07/owl#">
-    <!ENTITY pav "http://purl.org/pav/">
     <!ENTITY prism "http://prismstandard.org/namespaces/basic/2.0/">
     <!ENTITY pro "http://purl.org/spar/pro/">
     <!ENTITY prov "http://www.w3.org/ns/prov#">
@@ -43,27 +42,42 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
     <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
 ]>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-    xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:application="&application;"
-    xmlns:biro="&biro;" xmlns:cito="&cito;" xmlns:co="&co;" xmlns:datacite="&datacite;"
-    xmlns:dc="&dc;" xmlns:dcterms="&dcterms;" xmlns:deo="&deo;" xmlns:fabio="&fabio;"
-    xmlns:foaf="&foaf;" xmlns:frapo="&frapo;" xmlns:frbr="&frbr;" xmlns:literal="&literal;"
-    xmlns:owl="&owl;" xmlns:pav="&pav;" xmlns:prism="&prism;" xmlns:pro="&pro;" xmlns:prov="&prov;"
-    xmlns:rdfs="&rdfs;" xmlns:rdf="&rdf;" xmlns:scoro="&scoro;" xmlns:skos="&skos;"
-    xmlns:tvc="&tvc;" xmlns:vcard="&vcard;" xmlns:xsd="&xsd;"
-    xmlns:f="http://www.essepuntato.it/xslt/function/" xmlns:xlink="http://www.w3.org/1999/xlink"
-    xmlns:pubpsych="http://www.zpid.de/pubpsych"
-    xmlns:fn="http://www.w3.org/2005/xpath-functions"
-    xmlns:crossref="http://www.zpid.de/crossref"
-    exclude-result-prefixes="xs f fn xlink crossref pubpsych" version="2.0">
-
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:application="&application;"
+    xmlns:biro="&biro;"
+    xmlns:cito="&cito;"
+    xmlns:co="&co;"
+    xmlns:datacite="&datacite;"
+    xmlns:dc="&dc;"
+    xmlns:dcterms="&dcterms;"
+    xmlns:deo="&deo;"
+    xmlns:fabio="&fabio;"
+    xmlns:foaf="&foaf;"
+    xmlns:frapo="&frapo;"
+    xmlns:frbr="&frbr;"
+    xmlns:literal="&literal;"
+    xmlns:owl="&owl;"
+    xmlns:prism="&prism;"
+    xmlns:pro="&pro;"
+    xmlns:prov="&prov;"
+    xmlns:rdfs="&rdfs;"
+    xmlns:rdf="&rdf;"
+    xmlns:scoro="&scoro;"
+    xmlns:skos="&skos;"
+    xmlns:tvc="&tvc;"
+    xmlns:vcard="&vcard;"
+    xmlns:xsd="&xsd;"
+    xmlns:f="http://www.essepuntato.it/xslt/function/"
+    xmlns:xlink="http://www.w3.org/1999/xlink" exclude-result-prefixes="xs f xlink" version="2.0"
+    xmlns:fn="http://www.w3.org/2005/xpath-functions">
 
     <xsl:param name="baseUri" select="''"/>
-    <xsl:param name="doi" select="//article-id[@pub-id-type = 'doi']"/>
+    <xsl:param name="doi" select="//article-id[@pub-id-type  = 'doi']"/>
     <xsl:param name="default" select="concat($baseUri, $doiUriInfix)"/>
     <xsl:param name="doiUriInfix" select="concat('doi/', $doi)"/>
     <xsl:param name="doiOrgUri" select="'http://dx.doi.org/'"/>
     <xsl:param name="issn" select="//journal-meta/issn"/>
-    <xsl:param name="journalUriInfix" select="concat($baseUri, 'journal/')"/>
+    <xsl:param name="journalUriInfix" select="concat($baseUri,'journal/')"/>
     <xsl:param name="nlmmcatUri" select="'http://www.ncbi.nlm.nih.gov/nlmcatalog?term='"/>
     <xsl:param name="pubmedNcbiUrl" select="'http://www.ncbi.nlm.nih.gov/pubmed/'"/>
     <xsl:param name="pubmedIdentifiersUrl" select="'http://identifiers.org/pubmed/'"/>
@@ -85,7 +99,7 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
                     select="f:getJournalName(//journal-meta/journal-title-group/journal-title)"
                     tunnel="yes"/>
                 <xsl:with-param name="stem"
-                    select="/article/front/article-meta/article-id[@pub-id-type = 'publisher-id']/text()"
+                    select="/article/front/article-meta/article-id[@pub-id-type='publisher-id']/text()"
                     tunnel="yes"/>
                 <xsl:with-param name="s" select="''" tunnel="yes"/>
                 <xsl:with-param name="p" select="''" tunnel="yes"/>
@@ -101,7 +115,7 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
         <xsl:call-template name="goahead"/>
     </xsl:template>
 
-    <xsl:template match="text() | attribute() | body | abstract"/>
+    <xsl:template match="text()|attribute()|body|abstract"/>
 
     <!-- BEGIN - Mapping elements -->
     <xsl:template match="abbrev-journal-title">
@@ -124,7 +138,7 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
     </xsl:template>
 
     <!-- This to prevent affiliations outside contrib will be executed -->
-    <xsl:template match="aff | aff-alternatives"/>
+    <xsl:template match="aff|aff-alternatives"/>
 
     <xsl:template match="xref[@ref-type = 'aff']">
         <xsl:variable name="type" select="@rid"/>
@@ -159,7 +173,7 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
     <xsl:template name="correspondent">
         <xsl:param name="s" tunnel="yes"/>
         <xsl:param name="w" tunnel="yes"/>
-        <xsl:variable name="email" select="concat('&quot;', email[1]/text(), '&quot;')"/>
+        <xsl:variable name="email" select="concat('&quot;',email[1]/text(),'&quot;')"/>
 
         <xsl:call-template name="single">
             <xsl:with-param name="s" select="$s" tunnel="yes"/>
@@ -178,7 +192,7 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
                     <xsl:variable name="strippedOrgaName" select="replace(., '[\[\]]', '')"/>
                     <xsl:variable name="strippedLabel" select="replace(label/text(), '[\[\]]', '')"/>
                     <xsl:sequence
-                        select="replace($strippedOrgaName, concat('^[\s]*', $strippedLabel), '')"/>
+                        select="replace($strippedOrgaName, concat('^[\s]*',$strippedLabel), '')"/>
                 </xsl:when>
                 <xsl:otherwise>
                     <xsl:sequence select="."/>
@@ -188,29 +202,27 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
         <xsl:variable name="organization"
             select="concat($baseUri, 'organization/', f:urlEncode($orgaName))"/>
         <xsl:variable name="current-affiliation"
-            select="concat('affiliation-', $organization, '-', $s)"/>
+            select="concat('affiliation-',$organization,'-',$s)"/>
 
         <xsl:call-template name="assert">
             <xsl:with-param name="triples"
-                select="
-                    (
-                    $s, 'pro:holdsRoleInTime', '',
-                    'pro:withRole', 'scoro:affiliate',
-                    'pro:relatesToOrganization', $organization,
-                    'pro:relatesToDocument', $w,
-                    'dcterms:description', concat('&quot;', $orgaName, '&quot;'))"
+                select="(
+                $s,'pro:holdsRoleInTime','',
+                    'pro:withRole','scoro:affiliate',
+                    'pro:relatesToOrganization',$organization,
+                    'pro:relatesToDocument',$w,
+                    'dcterms:description',concat('&quot;',$orgaName,'&quot;'))"
             />
         </xsl:call-template>
 
         <xsl:variable name="contact-info" select="concat($organization, '/contact')"/>
         <xsl:call-template name="assert">
             <xsl:with-param name="triples"
-                select="
-                    (
-                    $organization, 'tvc:hasValueInTime', '',
-                    'rdf:type', '&tvc;ValueInTime',
-                    'tvc:withinContext', $w,
-                    'tvc:withValue', $contact-info)"
+                select="(
+                $organization,'tvc:hasValueInTime','',
+                'rdf:type','&tvc;ValueInTime',
+                'tvc:withinContext',$w,
+                'tvc:withValue',$contact-info)"
             />
         </xsl:call-template>
 
@@ -229,15 +241,10 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
             <xsl:otherwise>
                 <xsl:call-template name="assert">
                     <xsl:with-param name="triples"
-                        select="
-                            (
-                            $contact-info, 'vcard:org', '',
-                            'rdf:type', '&vcard;Organization',
-                            'vcard:organization-name',
-                            concat('&quot;', $orgaName, '&quot;', if (@xml:lang) then
-                                @xml:lang
-                            else
-                                ''))"
+                        select="(
+                        $contact-info,'vcard:org','',
+                        'rdf:type','&vcard;Organization',
+                        'vcard:organization-name',concat('&quot;', $orgaName, '&quot;', if (@xml:lang) then @xml:lang else ''))"
                     />
                 </xsl:call-template>
             </xsl:otherwise>
@@ -265,7 +272,7 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
         <xsl:param name="i" tunnel="yes"/>
         <xsl:call-template name="assert">
             <xsl:with-param name="triples"
-                select="($e, 'rdf:type', '&fabio;Expression', 'frbr:realizationOf', $w, 'frbr:embodiment', $m, 'fabio:hasRepresentation', $i)"
+                select="($e,'rdf:type','&fabio;Expression','frbr:realizationOf',$w,'frbr:embodiment',$m,'fabio:hasRepresentation',$i)"
             />
         </xsl:call-template>
         <xsl:call-template name="goahead">
@@ -285,61 +292,40 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
         <xsl:call-template name="attribute">
             <xsl:with-param name="p" select="'dcterms:title'" tunnel="yes"/>
             <xsl:with-param name="o" select="." tunnel="yes"/>
-            <xsl:with-param name="lang"
-                select="
-                    if (@xml:lang) then
-                        @xml:lang
-                    else
-                        $lang"
+            <xsl:with-param name="lang" select="if (@xml:lang) then @xml:lang else $lang"
                 tunnel="yes"/>
         </xsl:call-template>
     </xsl:template>
     <xsl:template match="article-title">
         <xsl:param name="s" tunnel="yes"/>
         <xsl:param name="lang" tunnel="yes"/>
-        <xsl:call-template name="attribute">
-            <xsl:with-param name="p" select="'dcterms:title'" tunnel="yes"/>
-            <xsl:with-param name="o" select="." tunnel="yes"/>
-            <xsl:with-param name="lang"
-                select="
-                    if (@xml:lang) then
-                        @xml:lang
-                    else
-                        $lang"
-                tunnel="yes"/>
-        </xsl:call-template>
+        <xsl:variable name="array" select="'one', 'two', 'three'" />
+        <xsl:for-each select="$array">
+            <xsl:message><xsl:value-of select="."/></xsl:message>
+        </xsl:for-each>
+
+
+
         <xsl:variable name="auth">
             <xsl:choose>
                 <xsl:when test="name(../..) = 'article-meta'">
-                    <xsl:value-of
-                        select="../../contrib-group/contrib[1]/name[1]/surname[1]/text()[1]"/>
+                    <xsl:value-of select="../../contrib-group/contrib[1]/name[1]/surname[1]/text()[1]"/>
+                    <!--xsl:message><select=$auth/></xsl:message-->
                 </xsl:when>
                 <xsl:otherwise>
                     <xsl:value-of select="../person-group/name[1]/surname[1]"/>
+                    <!--xsl:message><xsl:value-of select="$author_1"/></xsl:message-->
                 </xsl:otherwise>
             </xsl:choose>
         </xsl:variable>
-        <!--xsl:message><xsl:value-of select="$auth"/></xsl:message-->
-        <xsl:variable name="links"
-            select="pubpsych:pubpsychLinkByTitle(xs:string(.), xs:string($auth))"/>
-        <xsl:variable name="pubpsychLink" select="$links[1]"/>
-        <xsl:if test="$pubpsychLink != ''">
-            <xsl:call-template name="attribute">
-                <xsl:with-param name="p" select="'rdfs:seeAlso'" tunnel="yes"/>
-                <xsl:with-param name="o" select="$pubpsychLink" tunnel="yes"/>
-            </xsl:call-template>
-        </xsl:if>
+        <xsl:message><xsl:value-of select="$auth"/></xsl:message>
+        <xsl:call-template name="attribute">
+            <xsl:with-param name="p" select="'dcterms:title'" tunnel="yes"/>
+            <xsl:with-param name="o" select="." tunnel="yes"/>
+            <xsl:with-param name="lang" select="if (@xml:lang) then @xml:lang else $lang"
+                tunnel="yes"/>
+        </xsl:call-template>
 
-        <xsl:variable name="keywords" select="pubpsych:subjectsByTitle(xs:string(.))"/>
-        <xsl:for-each select="$keywords">
-            <xsl:if test=". != ''">
-                <xsl:call-template name="subject">
-                    <xsl:with-param name="s" select="$s" tunnel="yes"/>
-                    <xsl:with-param name="o" select="." tunnel="yes"/>
-                    <xsl:with-param name="prov" select="'pubpsych'" tunnel="yes"/>
-                </xsl:call-template>
-            </xsl:if>
-        </xsl:for-each>
     </xsl:template>
 
     <xsl:template match="award-id">
@@ -352,30 +338,28 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
         <xsl:param name="s" tunnel="yes"/>
         <xsl:param name="w" tunnel="yes"/>
         <xsl:param name="e" tunnel="yes"/>
-        <xsl:variable name="bio" select="concat($s, '/biography')"/>
+        <xsl:variable name="bio" select="concat($s,'/biography')"/>
         <xsl:call-template name="assert">
             <xsl:with-param name="triples"
-                select="
-                    (
-                    $bio, 'frbr:realiazationOf', '&fabio;Biography',
-                    'frbr:partOf', $e,
-                    'dcterms:description', concat('&quot;', ., '&quot;'),
-                    'frbr:subject', '',
-                    'rdf:type', '&foaf;Person')"
+                select="(
+                $bio,'frbr:realiazationOf','&fabio;Biography',
+                'frbr:partOf',$e,
+                'dcterms:description',concat('&quot;',.,'&quot;'),
+                'frbr:subject','',
+                'rdf:type','&foaf;Person')"
             />
         </xsl:call-template>
     </xsl:template>
 
     <xsl:template match="chapter-title">
         <xsl:param name="e" tunnel="yes"/>
-        <xsl:variable name="source" select="concat($e, '-source')"/>
+        <xsl:variable name="source" select="concat($e,'-source')"/>
         <xsl:call-template name="assert">
             <xsl:with-param name="triples"
-                select="
-                    (
-                    $e, 'rdf:type', '&fabio;BookChapter',
-                    'dcterms:title', concat('&quot;', ., '&quot;'),
-                    'frbr:partOf', $source)"
+                select="(
+                $e,'rdf:type','&fabio;BookChapter',
+                'dcterms:title',concat('&quot;',.,'&quot;'),
+                'frbr:partOf',$source)"
             />
         </xsl:call-template>
         <xsl:call-template name="single">
@@ -390,12 +374,7 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
         <xsl:call-template name="attribute">
             <xsl:with-param name="p" select="'foaf:name'" tunnel="yes"/>
             <xsl:with-param name="o" select="." tunnel="yes"/>
-            <xsl:with-param name="lang"
-                select="
-                    if (@xml:lang) then
-                        @xml:lang
-                    else
-                        $lang"
+            <xsl:with-param name="lang" select="if (@xml:lang) then @xml:lang else $lang"
                 tunnel="yes"/>
         </xsl:call-template>
 
@@ -454,8 +433,7 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
     <xsl:template match="contrib">
         <xsl:param name="w" tunnel="yes"/>
-        <xsl:variable name="agent"
-            select="concat($w, '/agent-', count(preceding-sibling::contrib) + 1)"/>
+        <xsl:variable name="agent" select="concat($w,'/agent-',count(preceding-sibling::contrib)+1)"/>
         <xsl:call-template name="single">
             <xsl:with-param name="s" select="$w" tunnel="yes"/>
             <xsl:with-param name="p" select="'dcterms:contributor'" tunnel="yes"/>
@@ -494,7 +472,7 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
     <xsl:template match="country">
         <xsl:param name="s" tunnel="yes"/>
-        <xsl:param name="address" select="concat('address-', $s)"/>
+        <xsl:param name="address" select="concat('address-',$s)"/>
         <xsl:call-template name="single">
             <xsl:with-param name="p" select="'vcard:address'" tunnel="yes"/>
             <xsl:with-param name="o" select="$address" tunnel="yes"/>
@@ -521,12 +499,12 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
         <xsl:call-template name="goahead"/>
     </xsl:template>
 
-    <xsl:template match="element-citation | mixed-citation">
+    <xsl:template match="element-citation|mixed-citation">
         <xsl:param name="s" tunnel="yes"/>
         <xsl:param name="e" tunnel="yes"/>
         <xsl:param name="w" tunnel="yes"/>
-        <xsl:variable name="cited-document" select="concat($s, '/textual-entity')"/>
-        <xsl:variable name="cited-work" select="concat($s, '/conceptual-work')"/>
+        <xsl:variable name="cited-document" select="concat($s,'/textual-entity')"/>
+        <xsl:variable name="cited-work" select="concat($s,'/conceptual-work')"/>
 
         <xsl:call-template name="single">
             <xsl:with-param name="p" select="'biro:references'" tunnel="yes"/>
@@ -558,18 +536,17 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
         <xsl:param name="e" tunnel="yes"/>
         <xsl:call-template name="assert">
             <xsl:with-param name="triples"
-                select="
-                    (
-                    $e, 'frbr:embodiment', '',
-                    'rdf:type', '&fabio;Manifestation',
-                    'fabio:hasDigitalArticleIdentifier', concat('&quot;', ., '&quot;'))"
+                select="(
+                $e,'frbr:embodiment','',
+                    'rdf:type','&fabio;Manifestation',
+                    'fabio:hasDigitalArticleIdentifier',concat('&quot;',.,'&quot;'))"
             />
         </xsl:call-template>
     </xsl:template>
 
     <xsl:template match="edition">
         <xsl:param name="e" tunnel="yes"/>
-        <xsl:variable name="source" select="concat($e, '-source')"/>
+        <xsl:variable name="source" select="concat($e,'-source')"/>
         <xsl:call-template name="attribute">
             <xsl:with-param name="s" select="$source" tunnel="yes"/>
             <xsl:with-param name="p" select="'prism:edition'" tunnel="yes"/>
@@ -583,7 +560,7 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
     <xsl:template match="email[not(parent::corresp)]">
         <xsl:param name="s" tunnel="yes"/>
-        <xsl:variable name="email" select="concat('&quot;', email[1]/text(), '&quot;')"/>
+        <xsl:variable name="email" select="concat('&quot;',email[1]/text(),'&quot;')"/>
         <xsl:call-template name="single">
             <xsl:with-param name="p" select="'vcard:email'" tunnel="yes"/>
             <xsl:with-param name="o" select="$email" tunnel="yes"/>
@@ -592,7 +569,7 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
     <xsl:template match="email[parent::contrib]">
         <xsl:param name="s" tunnel="yes"/>
-        <xsl:variable name="email" select="concat('&quot;', email[1]/text(), '&quot;')"/>
+        <xsl:variable name="email" select="concat('&quot;',email[1]/text(),'&quot;')"/>
         <xsl:call-template name="single">
             <xsl:with-param name="p" select="'foaf:mbox'" tunnel="yes"/>
             <xsl:with-param name="o" select="$email" tunnel="yes"/>
@@ -616,13 +593,8 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
         <xsl:param name="s" tunnel="yes"/>
         <xsl:call-template name="single">
             <xsl:with-param name="p" select="'dcterms:relation'" tunnel="yes"/>
-            <xsl:with-param name="o"
-                select="
-                    if (@xlink:href) then
-                        @xlink:href
-                    else
-                        ."
-                tunnel="yes"/>
+            <xsl:with-param name="o" select="if (@xlink:href) then @xlink:href else ." tunnel="yes"
+            />
         </xsl:call-template>
     </xsl:template>
 
@@ -641,12 +613,7 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
         <xsl:call-template name="attribute">
             <xsl:with-param name="p" select="'foaf:givenName'" tunnel="yes"/>
             <xsl:with-param name="o" select="." tunnel="yes"/>
-            <xsl:with-param name="lang"
-                select="
-                    if (@xml:lang) then
-                        @xml:lang
-                    else
-                        $lang"
+            <xsl:with-param name="lang" select="if (@xml:lang) then @xml:lang else $lang"
                 tunnel="yes"/>
         </xsl:call-template>
 
@@ -677,17 +644,10 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
         <xsl:call-template name="assert">
             <xsl:with-param name="triples"
-                select="
-                    (
-                    if (//article-meta/issue) then
-                        $issue
-                    else
-                        if (//article-meta/volume) then
-                            $volume
-                        else
-                            $e, 'frbr:embodiment', '',
-                    'rdf:type', '&fabio;Manifestation',
-                    'prism:isbn', .)"
+                select="(
+                if (//article-meta/issue) then $issue else if (//article-meta/volume) then $volume else $e,'frbr:embodiment','',
+                    'rdf:type','&fabio;Manifestation',
+                    'prism:isbn',.)"
             />
         </xsl:call-template>
     </xsl:template>
@@ -700,7 +660,7 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
         </xsl:call-template>
         <xsl:call-template name="single">
             <xsl:with-param name="p" select="'rdfs:seeAlso'" tunnel="yes"/>
-            <xsl:with-param name="o" select="concat($nlmmcatUri, $issnValue)" tunnel="yes"/>
+            <xsl:with-param name="o" select="concat($nlmmcatUri,$issnValue)" tunnel="yes"/>
         </xsl:call-template>
     </xsl:template>
 
@@ -717,12 +677,12 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
                 <xsl:when test="parent::article-meta">
                     <xsl:sequence select="concat($journalOfArticle, '/', $issue, '/issue_', .)"/>
                 </xsl:when>
-                <xsl:when test="parent::mixed-citation/@publication-type = 'journal'">
+                <xsl:when test="parent::mixed-citation/@publication-type= 'journal'">
                     <xsl:variable name="uripart" select="f:urlEncode(../source)"/>
                     <xsl:sequence select="concat(f:getJournalName(../source), '/issue_', .)"/>
                 </xsl:when>
                 <xsl:otherwise>
-                    <xsl:sequence select="concat($e, '/', f:urlEncode(../source), '/issue_', .)"/>
+                    <xsl:sequence select="concat($e, '/', f:urlEncode(../source), '/issue_', .) "/>
                 </xsl:otherwise>
             </xsl:choose>
         </xsl:variable>
@@ -735,11 +695,10 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
         <xsl:call-template name="assert">
             <xsl:with-param name="triples"
-                select="
-                    (
-                    $issue, 'rdf:type', '&fabio;PeriodicalIssue',
-                    'frbr:realizationOf', $collection,
-                    'prism:issueIdentifier', .)"
+                select="(
+                $issue,'rdf:type','&fabio;PeriodicalIssue',
+                    'frbr:realizationOf',$collection,
+                    'prism:issueIdentifier',.)"
             />
         </xsl:call-template>
 
@@ -781,12 +740,7 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
         <xsl:call-template name="attribute">
             <xsl:with-param name="p" select="'dcterms:identifier'" tunnel="yes"/>
             <xsl:with-param name="o" select="." tunnel="yes"/>
-            <xsl:with-param name="lang"
-                select="
-                    if (@xml:lang) then
-                        @xml:lang
-                    else
-                        $lang"
+            <xsl:with-param name="lang" select="if (@xml:lang) then @xml:lang else $lang"
                 tunnel="yes"/>
         </xsl:call-template>
     </xsl:template>
@@ -806,15 +760,14 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
         <xsl:variable name="volume"
             select="concat($journalOfArticle, '/', $volume, '/volume_', //article-meta/volume/text())"/>
         <xsl:variable name="issue"
-            select="concat($journalOfArticle, '/', $issue, 'issue_', //article-meta/issue/text())"/>
+            select="concat($journalOfArticle,'/',$issue,'issue_', //article-meta/issue/text())"/>
 
 
         <xsl:call-template name="assert">
             <xsl:with-param name="triples"
-                select="
-                    (
-                    $journalOfArticle, 'rdf:type', '&fabio;Journal', 'frbr:realizationOf', '',
-                    'rdf:type', '&fabio;WorkCollection')"
+                select="(
+                $journalOfArticle,'rdf:type','&fabio;Journal','frbr:realizationOf','',
+                    'rdf:type','&fabio;WorkCollection')"
             />
         </xsl:call-template>
 
@@ -825,9 +778,9 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
     </xsl:template>
 
     <xsl:template match="kwd">
-        <xsl:call-template name="subject">
+        <xsl:call-template name="attribute">
+            <xsl:with-param name="p" select="'prism:keyword'" tunnel="yes"/>
             <xsl:with-param name="o" select="." tunnel="yes"/>
-            <xsl:with-param name="prov" select="'psychopen'" tunnel="yes"/>
         </xsl:call-template>
     </xsl:template>
 
@@ -839,12 +792,12 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
     </xsl:template>
 
     <xsl:template
-        match="name[not(parent::name-alternatives)] | string-name[not(parent::name-alternatives)] | name-alternatives">
+        match="name[not(parent::name-alternatives)]|string-name[not(parent::name-alternatives)]|name-alternatives">
         <xsl:param name="s" tunnel="yes"/>
         <xsl:choose>
             <xsl:when test="parent::person-group">
                 <xsl:variable name="agent"
-                    select="concat($s, '-agent-', count(preceding-sibling::name | preceding-sibling::string-name) + 1)"/>
+                    select="concat($s,'-agent-',count(preceding-sibling::name|preceding-sibling::string-name)+1)"/>
                 <xsl:call-template name="single">
                     <xsl:with-param name="p" select="'foaf:member'" tunnel="yes"/>
                     <xsl:with-param name="o" select="$agent" tunnel="yes"/>
@@ -871,11 +824,11 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
     </xsl:template>
 
     <xsl:template
-        match="name[not(parent::name-alternatives)][parent::mixed-citation or parent::element-citation] | string-name[not(parent::name-alternatives)][parent::mixed-citation or parent::element-citation] | name-alternatives[parent::mixed-citation or parent::element-citation]">
+        match="name[not(parent::name-alternatives)][parent::mixed-citation or parent::element-citation]|string-name[not(parent::name-alternatives)][parent::mixed-citation or parent::element-citation]|name-alternatives[parent::mixed-citation or parent::element-citation]">
         <xsl:param name="w" tunnel="yes"/>
 
         <xsl:variable name="agent"
-            select="concat('reference-', count(ancestor::ref/preceding-sibling::ref) + 1, '-agent-', count(preceding-sibling::name | preceding-sibling::name-alternatives | preceding-sibling::string-name) + 1)"/>
+            select="concat('reference-',count(ancestor::ref/preceding-sibling::ref)+1,'-agent-',count(preceding-sibling::name|preceding-sibling::name-alternatives|preceding-sibling::string-name)+1)"/>
 
         <xsl:call-template name="single">
             <xsl:with-param name="s" select="$w" tunnel="yes"/>
@@ -896,11 +849,11 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
     <!-- This to prevent products will be executed -->
     <xsl:template match="product"/>
 
-    <xsl:template match="page-range | fpage | lpage">
+    <xsl:template match="page-range|fpage|lpage">
         <xsl:param name="e" tunnel="yes"/>
         <xsl:variable name="me" select="replace($e, 'textual-entity', 'digital-embodiment')"/>
         <xsl:if
-            test="not(following-sibling::page-range | following-sibling::fpage | following-sibling::lpage)">
+            test="not(following-sibling::page-range|following-sibling::fpage|following-sibling::lpage)">
             <xsl:call-template name="single">
                 <xsl:with-param name="p" select="'frbr:embodiment'" tunnel="yes"/>
                 <xsl:with-param name="o" select="$me" tunnel="yes"/>
@@ -948,16 +901,14 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
     <xsl:template match="person-group[not(@person-group-type)]">
         <xsl:param name="e" tunnel="yes"/>
-        <xsl:variable name="group"
-            select="concat($e, '/group-', count(preceding::person-group) + 1)"/>
+        <xsl:variable name="group" select="concat($e,'/group-',count(preceding::person-group)+1)"/>
         <xsl:call-template name="assert">
             <xsl:with-param name="triples"
-                select="
-                    (
-                    $group, 'rdf:type', '&foaf;Group',
-                    'pro:holdsRoleInTime', '',
-                    'pro:withRole', '&pro;contributor',
-                    'pro:relatesToDocument', $e)"
+                select="(
+                    $group,'rdf:type','&foaf;Group',
+                    'pro:holdsRoleInTime','',
+                        'pro:withRole','&pro;contributor',
+                        'pro:relatesToDocument',$e)"
             />
         </xsl:call-template>
 
@@ -972,8 +923,7 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
     <xsl:template match="person-group">
         <xsl:param name="e" tunnel="yes"/>
-        <xsl:variable name="group"
-            select="concat($e, '/group-', count(preceding::person-group) + 1)"/>
+        <xsl:variable name="group" select="concat($e,'/group-',count(preceding::person-group)+1)"/>
         <xsl:call-template name="goahead">
             <xsl:with-param name="s" select="$group" tunnel="yes"/>
         </xsl:call-template>
@@ -1000,9 +950,9 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
     </xsl:template>
 
     <xsl:template
-        match="publisher | publisher-name[parent::mixed-citation or parent::element-citation]">
+        match="publisher|publisher-name[parent::mixed-citation or parent::element-citation]">
         <xsl:param name="e" tunnel="yes"/>
-        <xsl:variable name="publisher" select="concat($e, '/publisher')"/>
+        <xsl:variable name="publisher" select="concat($e,'/publisher')"/>
         <xsl:call-template name="single">
             <xsl:with-param name="p" select="'dcterms:publisher'" tunnel="yes"/>
             <xsl:with-param name="o" select="$publisher" tunnel="yes"/>
@@ -1034,7 +984,7 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
             <xsl:with-param name="p" select="'foaf:name'" tunnel="yes"/>
             <xsl:with-param name="o" select="." tunnel="yes"/>
         </xsl:call-template>
-        <xsl:if test="self::publisher-name = 'PsychOpen'">
+        <xsl:if test="self::publisher-name='PsychOpen'">
             <xsl:call-template name="single">
                 <xsl:with-param name="p" select="'rdfs:seeAlso'" tunnel="yes"/>
                 <xsl:with-param name="o" select="'http://www.psychopen.eu/'" tunnel="yes"/>
@@ -1048,21 +998,20 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
         <xsl:call-template name="assert">
             <xsl:with-param name="triples"
-                select="
-                    (
-                    $s, 'tvc:hasValueInTime', '',
-                    'rdf:type', '&tvc;ValueInTime',
-                    'tvc:withinContext', $e,
-                    'tvc:withValue', '',
-                    'rdf:type', '&vcard;VCard',
-                    'vcard:addr', '',
-                    'rdf:type', '&vcard;Address',
-                    'vcard:locality', concat('&quot;', ., '&quot;'))"
+                select="(
+                $s,'tvc:hasValueInTime','',
+                    'rdf:type','&tvc;ValueInTime',
+                    'tvc:withinContext',$e,
+                    'tvc:withValue','',
+                        'rdf:type','&vcard;VCard',
+                        'vcard:addr','',
+                            'rdf:type','&vcard;Address',
+                            'vcard:locality',concat('&quot;',.,'&quot;'))"
             />
         </xsl:call-template>
     </xsl:template>
 
-    <xsl:template match="pub-date | date">
+    <xsl:template match="pub-date|date">
         <xsl:choose>
             <xsl:when test="@date-type">
                 <xsl:apply-templates select="@date-type"/>
@@ -1085,10 +1034,10 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
     <xsl:template match="ref">
         <xsl:param name="e" tunnel="yes"/>
-        <xsl:variable name="i" select="count(preceding-sibling::ref) + 1"/>
-        <xsl:variable name="iref" select="concat($default, '/reference-item-', $i)"/>
+        <xsl:variable name="i" select="count(preceding-sibling::ref)+1"/>
+        <xsl:variable name="iref" select="concat($default,'/reference-item-',$i)"/>
         <xsl:variable name="node" select="."/>
-        <xsl:variable name="ref" select="concat($default, '/reference-', @id[1])"/>
+        <xsl:variable name="ref" select="concat($default,'/reference-', @id[1])"/>
         <xsl:call-template name="single">
             <xsl:with-param name="p" select="'co:item'" tunnel="yes"/>
             <xsl:with-param name="o" select="$iref" tunnel="yes"/>
@@ -1106,7 +1055,7 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
             <xsl:call-template name="single">
                 <xsl:with-param name="s" select="$iref" tunnel="yes"/>
                 <xsl:with-param name="p" select="'co:nextItem'" tunnel="yes"/>
-                <xsl:with-param name="o" select="concat($default, '/reference-item-', $i + 1)"
+                <xsl:with-param name="o" select="concat($default,'/reference-item-',$i+1)"
                     tunnel="yes"/>
             </xsl:call-template>
         </xsl:if>
@@ -1137,7 +1086,7 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
     <xsl:template match="ref-list">
         <xsl:param name="e" tunnel="yes"/>
-        <xsl:variable name="reference-list" select="concat($e, '/reference-list')"/>
+        <xsl:variable name="reference-list" select="concat($e,'/reference-list')"/>
         <xsl:call-template name="single">
             <xsl:with-param name="p" select="'frbr:part'" tunnel="yes"/>
             <xsl:with-param name="o" select="$reference-list" tunnel="yes"/>
@@ -1170,13 +1119,12 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
         <xsl:call-template name="assert">
             <xsl:with-param name="triples"
-                select="
-                    (
-                    $s, 'pro:holdsRoleInTime', '',
-                    'pro:relatesToDocument', $w,
-                    'pro:withRole', '',
-                    'rdf:type', '&pro;Role',
-                    'rdfs:label', concat('&quot;', ., '&quot;'))"
+                select="(
+                $s,'pro:holdsRoleInTime','',
+                'pro:relatesToDocument',$w,
+                'pro:withRole','',
+                'rdf:type','&pro;Role',
+                'rdfs:label',concat('&quot;',.,'&quot;'))"
             />
         </xsl:call-template>
     </xsl:template>
@@ -1187,11 +1135,10 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
         <xsl:call-template name="assert">
             <xsl:with-param name="triples"
-                select="
-                    (
-                    $s, 'pro:holdsRoleInTime', '',
-                    'pro:relatesToDocument', $w,
-                    'pro:withRole', '&pro;editor-in-chief')"
+                select="(
+                $s,'pro:holdsRoleInTime','',
+                'pro:relatesToDocument',$w,
+                'pro:withRole','&pro;editor-in-chief')"
             />
         </xsl:call-template>
     </xsl:template>
@@ -1202,11 +1149,10 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
         <xsl:call-template name="assert">
             <xsl:with-param name="triples"
-                select="
-                    (
-                    $s, 'pro:holdsRoleInTime', '',
-                    'pro:relatesToDocument', $w,
-                    'pro:withRole', '&scoro;chief-scientist')"
+                select="(
+                $s,'pro:holdsRoleInTime','',
+                'pro:relatesToDocument',$w,
+                'pro:withRole','&scoro;chief-scientist')"
             />
         </xsl:call-template>
     </xsl:template>
@@ -1217,11 +1163,10 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
         <xsl:call-template name="assert">
             <xsl:with-param name="triples"
-                select="
-                    (
-                    $s, 'pro:holdsRoleInTime', '',
-                    'pro:relatesToDocument', $w,
-                    'pro:withRole', '&scoro;photographer')"
+                select="(
+                $s,'pro:holdsRoleInTime','',
+                'pro:relatesToDocument',$w,
+                'pro:withRole','&scoro;photographer')"
             />
         </xsl:call-template>
     </xsl:template>
@@ -1232,11 +1177,10 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
         <xsl:call-template name="assert">
             <xsl:with-param name="triples"
-                select="
-                    (
-                    $s, 'pro:holdsRoleInTime', '',
-                    'pro:relatesToDocument', $w,
-                    'pro:withRole', '&scoro;postdoctoral-researcher')"
+                select="(
+                $s,'pro:holdsRoleInTime','',
+                'pro:relatesToDocument',$w,
+                'pro:withRole','&scoro;postdoctoral-researcher')"
             />
         </xsl:call-template>
     </xsl:template>
@@ -1256,26 +1200,26 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
         <xsl:param name="journal" tunnel="yes"/>
         <xsl:variable name="source">
             <xsl:choose>
-                <xsl:when test="(parent::mixed-citation/@publication-type = 'journal')">
-                    <xsl:sequence select="concat($journal, f:urlEncode(.))"/>
+                <xsl:when test="(parent::mixed-citation/@publication-type='journal')">
+                    <xsl:sequence select="concat($journal,f:urlEncode(.))"/>
                 </xsl:when>
-                <xsl:when test="parent::mixed-citation/@publication-type = 'book'">
-                    <xsl:sequence select="concat($baseUri, '/book/', f:urlEncode(.))"/>
+                <xsl:when test="parent::mixed-citation/@publication-type='book'">
+                    <xsl:sequence select="concat($baseUri,'/book/', f:urlEncode(.))"/>
                 </xsl:when>
-                <xsl:when test="parent::mixed-citation/@publication-type = 'thesis'">
-                    <xsl:sequence select="concat($baseUri, '/thesis/', f:urlEncode(.))"/>
+                <xsl:when test="parent::mixed-citation/@publication-type='thesis'">
+                    <xsl:sequence select="concat($baseUri,'/thesis/',f:urlEncode(.))"/>
                 </xsl:when>
-                <xsl:when test="parent::mixed-citation/@publication-type = 'confproc'">
-                    <xsl:sequence select="concat($baseUri, '/confproc/', f:urlEncode(.))"/>
+                <xsl:when test="parent::mixed-citation/@publication-type='confproc'">
+                    <xsl:sequence select="concat($baseUri,'/confproc/',f:urlEncode(.))"/>
                 </xsl:when>
-                <xsl:when test="parent::mixed-citation/@publication-type = 'web'">
-                    <xsl:sequence select="concat($baseUri, '/web/', f:urlEncode(.))"/>
+                <xsl:when test="parent::mixed-citation/@publication-type='web'">
+                    <xsl:sequence select="concat($baseUri,'/web/',f:urlEncode(.))"/>
                 </xsl:when>
-                <xsl:when test="parent::mixed-citation/@publication-type = 'other'">
-                    <xsl:sequence select="concat($baseUri, '/other/', f:urlEncode(.))"/>
+                <xsl:when test="parent::mixed-citation/@publication-type='other'">
+                    <xsl:sequence select="concat($baseUri, '/other/', f:urlEncode(.)) "/>
                 </xsl:when>
                 <xsl:otherwise>
-                    <xsl:sequence select="concat($baseUri, '/other/', f:urlEncode(.))"/>
+                    <xsl:sequence select="concat($baseUri, '/other/', f:urlEncode(.)) "/>
                     <xsl:message>TRANS: Found source element that has publication type without
                         specified URI. Pub-type: <xsl:value-of
                             select="parent::mixed-citation/@publication-type/."/>
@@ -1309,15 +1253,15 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
         <xsl:param name="w" tunnel="yes"/>
         <xsl:param name="e" tunnel="yes"/>
         <xsl:param name="i" tunnel="yes"/>
-        <xsl:variable name="prefix" select="concat('/sub', count(preceding::sub-article) + 1)"
+        <xsl:variable name="prefix" select="concat('/sub',count(preceding::sub-article)+1)"
             as="xs:string"/>
-        <xsl:variable name="sw" select="concat($w, $prefix)" as="xs:string"/>
-        <xsl:variable name="se" select="concat($e, $prefix)" as="xs:string"/>
-        <xsl:variable name="si" select="concat($i, $prefix)" as="xs:string"/>
+        <xsl:variable name="sw" select="concat($w,$prefix)" as="xs:string"/>
+        <xsl:variable name="se" select="concat($e,$prefix)" as="xs:string"/>
+        <xsl:variable name="si" select="concat($i,$prefix)" as="xs:string"/>
         <xsl:variable name="me" select="replace($se, 'textual-entity', 'digital-embodiment')"/>
         <xsl:call-template name="assert">
             <xsl:with-param name="triples"
-                select="($se, 'rdf:type', '&fabio;Expression', 'frbr:realizationOf', $sw, 'frbr:embodiment', $me, 'fabio:hasRepresentation', $si, 'frbr:partOf', $e)"
+                select="($se,'rdf:type','&fabio;Expression','frbr:realizationOf',$sw,'frbr:embodiment',$me,'fabio:hasRepresentation',$si,'frbr:partOf',$e)"
             />
         </xsl:call-template>
         <xsl:call-template name="single">
@@ -1336,8 +1280,8 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
         <xsl:param name="s" tunnel="yes"/>
 
         <xsl:for-each select="subject">
-            <xsl:variable name="subject-counting" select="count(preceding::subject) + 1"/>
-            <xsl:variable name="subject-uri" select="concat($s, '/term', $subject-counting)"/>
+            <xsl:variable name="subject-counting" select="count(preceding::subject)+1"/>
+            <xsl:variable name="subject-uri" select="concat($s,'/term',$subject-counting)"/>
             <xsl:call-template name="single">
                 <xsl:with-param name="p" select="'fabio:hasSubjectTerm'" tunnel="yes"/>
                 <xsl:with-param name="o" select="$subject-uri" tunnel="yes"/>
@@ -1350,13 +1294,13 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
         <xsl:if test="subj-group">
             <xsl:for-each select="subject">
-                <xsl:variable name="subject-counting" select="count(preceding::subject) + 1"/>
-                <xsl:variable name="subject-uri" select="concat($s, '-term', $subject-counting)"/>
+                <xsl:variable name="subject-counting" select="count(preceding::subject)+1"/>
+                <xsl:variable name="subject-uri" select="concat($s,'-term',$subject-counting)"/>
                 <xsl:call-template name="single">
                     <xsl:with-param name="s" select="$subject-uri" tunnel="yes"/>
                     <xsl:with-param name="p" select="'skos:narrower'" tunnel="yes"/>
-                    <xsl:with-param name="o"
-                        select="concat($s, '-term', count(preceding::subject) + 1)" tunnel="yes"/>
+                    <xsl:with-param name="o" select="concat($s,'-term',count(preceding::subject)+1)"
+                        tunnel="yes"/>
                 </xsl:call-template>
             </xsl:for-each>
         </xsl:if>
@@ -1373,17 +1317,12 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
         </xsl:call-template>
     </xsl:template>
 
-    <xsl:template match="subtitle | journal-subtitle">
+    <xsl:template match="subtitle|journal-subtitle">
         <xsl:param name="lang" tunnel="yes"/>
         <xsl:call-template name="attribute">
             <xsl:with-param name="p" select="'fabio:hasSubtitle'" tunnel="yes"/>
             <xsl:with-param name="o" select="." tunnel="yes"/>
-            <xsl:with-param name="lang"
-                select="
-                    if (@xml:lang) then
-                        @xml:lang
-                    else
-                        $lang"
+            <xsl:with-param name="lang" select="if (@xml:lang) then @xml:lang else $lang"
                 tunnel="yes"/>
         </xsl:call-template>
     </xsl:template>
@@ -1405,12 +1344,7 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
         <xsl:call-template name="attribute">
             <xsl:with-param name="p" select="'foaf:familyName'" tunnel="yes"/>
             <xsl:with-param name="o" select="." tunnel="yes"/>
-            <xsl:with-param name="lang"
-                select="
-                    if (@xml:lang) then
-                        @xml:lang
-                    else
-                        $lang"
+            <xsl:with-param name="lang" select="if (@xml:lang) then @xml:lang else $lang"
                 tunnel="yes"/>
         </xsl:call-template>
 
@@ -1424,12 +1358,7 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
         <xsl:call-template name="attribute">
             <xsl:with-param name="p" select="'fabio:hasTranslatedTitle'" tunnel="yes"/>
             <xsl:with-param name="o" select="." tunnel="yes"/>
-            <xsl:with-param name="lang"
-                select="
-                    if (@xml:lang) then
-                        @xml:lang
-                    else
-                        $lang"
+            <xsl:with-param name="lang" select="if (@xml:lang) then @xml:lang else $lang"
                 tunnel="yes"/>
         </xsl:call-template>
     </xsl:template>
@@ -1439,12 +1368,7 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
         <xsl:call-template name="attribute">
             <xsl:with-param name="p" select="'fabio:hasTranslatedSubtitle'" tunnel="yes"/>
             <xsl:with-param name="o" select="." tunnel="yes"/>
-            <xsl:with-param name="lang"
-                select="
-                    if (@xml:lang) then
-                        @xml:lang
-                    else
-                        $lang"
+            <xsl:with-param name="lang" select="if (@xml:lang) then @xml:lang else $lang"
                 tunnel="yes"/>
         </xsl:call-template>
     </xsl:template>
@@ -1467,14 +1391,14 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
                         select="concat($journalOfArticle, '/', $issue, '/issue_', ../issue/text())"
                     />
                 </xsl:when>
-                <xsl:when test="parent::mixed-citation/@publication-type = 'journal'">
+                <xsl:when test="parent::mixed-citation/@publication-type= 'journal'">
                     <xsl:variable name="uripart" select="f:urlEncode(../source)"/>
                     <xsl:sequence
-                        select="concat(f:getJournalName(../source), '/issue_', ../issue/text())"/>
+                        select="concat(f:getJournalName(../source), '/issue_', ../issue/text() )"/>
                 </xsl:when>
                 <xsl:otherwise>
                     <xsl:sequence
-                        select="concat($e, '/', f:urlEncode(../source), '/issue_', ../issue/text())"
+                        select="concat($e, '/', f:urlEncode(../source), '/issue_', ../issue/text()) "
                     />
                 </xsl:otherwise>
             </xsl:choose>
@@ -1484,34 +1408,27 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
                 <xsl:when test="parent::article-meta">
                     <xsl:sequence select="concat($journalOfArticle, '/', $volume, '/volume_', .)"/>
                 </xsl:when>
-                <xsl:when test="parent::mixed-citation/@publication-type = 'journal'">
+                <xsl:when test="parent::mixed-citation/@publication-type= 'journal'">
                     <xsl:variable name="uripart" select="f:urlEncode(../source)"/>
                     <xsl:sequence select="concat(f:getJournalName(../source), '/volume_', .)"/>
                 </xsl:when>
                 <xsl:otherwise>
-                    <xsl:sequence select="concat($e, '/', f:urlEncode(../source), '/volume_', .)"/>
+                    <xsl:sequence select="concat($e, '/', f:urlEncode(../source), '/volume_', .) "/>
                 </xsl:otherwise>
             </xsl:choose>
         </xsl:variable>
         <xsl:call-template name="single">
-            <xsl:with-param name="s"
-                select="
-                    if (../issue) then
-                        $issue
-                    else
-                        $e"
-                tunnel="yes"/>
+            <xsl:with-param name="s" select="if (../issue) then $issue else $e" tunnel="yes"/>
             <xsl:with-param name="p" select="'frbr:partOf'" tunnel="yes"/>
             <xsl:with-param name="o" select="$volume" tunnel="yes"/>
         </xsl:call-template>
         <xsl:call-template name="assert">
             <xsl:with-param name="triples"
-                select="
-                    (
-                    $volume, 'rdf:type', '&fabio;PeriodicalVolume',
-                    'prism:volume', concat('&quot;', ., '&quot;'),
-                    'frbr:partOf', '',
-                    'rdf:type', '&fabio;Periodical')"
+                select="(
+                $volume,'rdf:type','&fabio;PeriodicalVolume',
+                'prism:volume',concat('&quot;',.,'&quot;'),
+                'frbr:partOf','',
+                'rdf:type','&fabio;Periodical')"
             />
         </xsl:call-template>
         <xsl:call-template name="goahead">
@@ -1530,7 +1447,7 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
         <xsl:call-template name="goahead"/>
     </xsl:template>
 
-    <xsl:template match="year[parent::element-citation | parent::mixed-citation]">
+    <xsl:template match="year[parent::element-citation|parent::mixed-citation]">
         <xsl:param name="w" tunnel="yes"/>
         <xsl:call-template name="attribute">
             <xsl:with-param name="p" select="'fabio:hasPublicationYear'" tunnel="yes"/>
@@ -1547,14 +1464,13 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
         <xsl:param name="s" tunnel="yes"/>
         <xsl:call-template name="assert">
             <xsl:with-param name="triples"
-                select="
-                    (
-                    $s, 'fabio:hasShortTitle', '',
-                    'rdf:type', datacite:Identifier,
-                    'literal:hasLiteralValue', concat('&quot;', .., '&quot;'),
-                    '&prov;wasAttributedTo', '',
-                    'rdf:type', '&prov;Agent',
-                    'rdfs:label', concat('&quot;', ., '&quot;'))"
+                select="(
+                $s,'fabio:hasShortTitle','',
+                'rdf:type',datacite:Identifier,
+                'literal:hasLiteralValue',concat('&quot;',..,'&quot;'),
+                '&prov;wasAttributedTo','',
+                'rdf:type','&prov;Agent',
+                'rdfs:label',concat('&quot;',.,'&quot;'))"
             />
         </xsl:call-template>
     </xsl:template>
@@ -1563,7 +1479,7 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
         <xsl:param name="s" tunnel="yes"/>
         <xsl:call-template name="assert">
             <xsl:with-param name="triples"
-                select="($s, 'rdf:type', '&fabio;Abstract', 'frbr:summarizationOf', '', 'rdf:type', '&fabio;Expression')"
+                select="($s,'rdf:type','&fabio;Abstract','frbr:summarizationOf','','rdf:type','&fabio;Expression')"
             />
         </xsl:call-template>
     </xsl:template>
@@ -1588,7 +1504,7 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
         <xsl:param name="s" tunnel="yes"/>
         <xsl:call-template name="assert">
             <xsl:with-param name="triples"
-                select="($s, 'rdf:type', '&fabio;Comment', 'cito:discusses', '', 'rdf:type', '&fabio;Article')"
+                select="($s,'rdf:type','&fabio;Comment','cito:discusses','','rdf:type','&fabio;Article')"
             />
         </xsl:call-template>
     </xsl:template>
@@ -1597,7 +1513,7 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
         <xsl:param name="s" tunnel="yes"/>
         <xsl:call-template name="assert">
             <xsl:with-param name="triples"
-                select="($s, 'rdf:type', '&fabio;BookReview', 'cito:reviews', '', 'rdf:type', '&fabio;Book')"
+                select="($s,'rdf:type','&fabio;BookReview','cito:reviews','','rdf:type','&fabio;Book')"
             />
         </xsl:call-template>
     </xsl:template>
@@ -1606,7 +1522,7 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
         <xsl:param name="w" tunnel="yes"/>
         <xsl:call-template name="assert">
             <xsl:with-param name="triples"
-                select="($w, 'rdf:type', '&fabio;NotificationOfReceipt', 'swanrel:relatesTo', '', 'rdf:type', '&fabio;Book')"
+                select="($w,'rdf:type','&fabio;NotificationOfReceipt','swanrel:relatesTo','','rdf:type','&fabio;Book')"
             />
         </xsl:call-template>
     </xsl:template>
@@ -1686,7 +1602,7 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
         <xsl:variable name="issue" select="concat($e, '/', $issue)"/>
         <xsl:call-template name="assert">
             <xsl:with-param name="triples"
-                select="($s, 'rdf:type', '&fabio;InBrief', 'frbr:partOf', $issue, 'rdf:summarizationOf', '', 'rdf:type', '&fabio;Article', 'frbr:partOf', $issue)"
+                select="($s,'rdf:type','&fabio;InBrief','frbr:partOf',$issue,'rdf:summarizationOf','','rdf:type','&fabio;Article','frbr:partOf',$issue)"
             />
         </xsl:call-template>
         <xsl:call-template name="single">
@@ -1758,7 +1674,7 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
         </xsl:call-template>
         <xsl:call-template name="assert">
             <xsl:with-param name="triples"
-                select="($s, 'cito:retracts', '', 'frbr:partOf', '', 'rdf:type', '&owl;Thing')"/>
+                select="($s,'cito:retracts','','frbr:partOf','','rdf:type','&owl;Thing')"/>
         </xsl:call-template>
     </xsl:template>
 
@@ -1824,7 +1740,7 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
         <xsl:param name="s" tunnel="yes"/>
         <xsl:call-template name="assert">
             <xsl:with-param name="triples"
-                select="($s, 'rdf:type', '&fabio;ReviewArticle', 'cito:reviews', '', 'rdf:type', '&owl;Thing')"
+                select="($s,'rdf:type','&fabio;ReviewArticle','cito:reviews','','rdf:type','&owl;Thing')"
             />
         </xsl:call-template>
     </xsl:template>
@@ -1847,19 +1763,18 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
         <xsl:call-template name="goahead"/>
     </xsl:template>
 
-    <xsl:template match="@contrib-type | @collab-type">
+    <xsl:template match="@contrib-type|@collab-type">
         <xsl:param name="s" tunnel="yes"/>
         <xsl:param name="w" tunnel="yes"/>
 
         <xsl:call-template name="assert">
             <xsl:with-param name="triples"
-                select="
-                    (
-                    $s, 'pro:holdsRoleInTime', '',
-                    'pro:relatesToDocument', $w,
-                    'pro:withRole', '',
-                    'rdf:type', '&pro;Role',
-                    'rdf:label', .)"
+                select="(
+                $s,'pro:holdsRoleInTime','',
+                    'pro:relatesToDocument',$w,
+                    'pro:withRole','',
+                        'rdf:type','&pro;Role',
+                        'rdf:label',.)"
             />
         </xsl:call-template>
     </xsl:template>
@@ -1876,11 +1791,10 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
         <xsl:call-template name="assert">
             <xsl:with-param name="triples"
-                select="
-                    (
-                    $s, 'pro:holdsRoleInTime', '',
-                    'pro:relatesToDocument', $w,
-                    'pro:withRole', '&pro;author')"
+                select="(
+                $s,'pro:holdsRoleInTime','',
+                    'pro:relatesToDocument',$w,
+                    'pro:withRole','&pro;author')"
             />
         </xsl:call-template>
     </xsl:template>
@@ -1897,11 +1811,10 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
         <xsl:call-template name="assert">
             <xsl:with-param name="triples"
-                select="
-                    (
-                    $s, 'pro:holdsRoleInTime', '',
-                    'pro:relatesToDocument', $w,
-                    'pro:withRole', '&pro;editor')"
+                select="(
+                $s,'pro:holdsRoleInTime','',
+                'pro:relatesToDocument',$w,
+                'pro:withRole','&pro;editor')"
             />
         </xsl:call-template>
     </xsl:template>
@@ -1918,11 +1831,10 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
         <xsl:call-template name="assert">
             <xsl:with-param name="triples"
-                select="
-                    (
-                    $s, 'pro:holdsRoleInTime', '',
-                    'pro:relatesToDocument', $w,
-                    'pro:withRole', '&pro;translator')"
+                select="(
+                $s,'pro:holdsRoleInTime','',
+                'pro:relatesToDocument',$w,
+                'pro:withRole','&pro;translator')"
             />
         </xsl:call-template>
     </xsl:template>
@@ -1940,11 +1852,10 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
         <xsl:call-template name="assert">
             <xsl:with-param name="triples"
-                select="
-                    (
-                    $s, 'pro:holdsRoleInTime', '',
-                    'pro:relatesToDocument', $e,
-                    'pro:withRole', '&scoro;corresponding-author')"
+                select="(
+                $s,'pro:holdsRoleInTime','',
+                'pro:relatesToDocument',$e,
+                'pro:withRole','&scoro;corresponding-author')"
             />
         </xsl:call-template>
 
@@ -1982,7 +1893,7 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
         <xsl:param name="w" tunnel="yes"/>
         <xsl:param name="e" tunnel="yes"/>
         <xsl:variable name="date"
-            select="concat('&quot;', f:getDate(..), '&quot;^^', f:getDatetype(..))"/>
+            select="concat('&quot;',f:getDate(..),'&quot;^^',f:getDatetype(..))"/>
         <xsl:call-template name="single">
             <xsl:with-param name="s" select="$w" tunnel="yes"/>
             <xsl:with-param name="p" select="'frbr:realization'" tunnel="yes"/>
@@ -1995,11 +1906,10 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
         </xsl:call-template>
         <xsl:call-template name="assert">
             <xsl:with-param name="triples"
-                select="
-                    (
-                    $e, 'rdf:type', '&fabio;Expression',
-                    'frbr:revision', '',
-                    'rdf:type', '&fabio;Expression')"
+                select="(
+                $e,'rdf:type','&fabio;Expression',
+                'frbr:revision','',
+                    'rdf:type','&fabio;Expression')"
             />
         </xsl:call-template>
         <xsl:apply-templates select="../@publication-format">
@@ -2055,11 +1965,10 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
         <xsl:param name="e" tunnel="yes"/>
         <xsl:call-template name="assert">
             <xsl:with-param name="triples"
-                select="
-                    (
-                    $w, 'frbr:realization', '',
-                    'rdf:type', '&fabio;Expression',
-                    'frbr:revision', $e)"
+                select="(
+                $w,'frbr:realization','',
+                    'rdf:type','&fabio;Expression',
+                    'frbr:revision',$e)"
             />
         </xsl:call-template>
         <xsl:call-template name="single">
@@ -2105,7 +2014,7 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
 
 
-    <xsl:template match="@id | @object-id[@object-id-type != 'doi']">
+    <xsl:template match="@id|@object-id[@object-id-type != 'doi']">
         <xsl:call-template name="attribute">
             <xsl:with-param name="p" select="'dcterms:identifier'" tunnel="yes"/>
             <xsl:with-param name="o" select="." tunnel="yes"/>
@@ -2125,25 +2034,22 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
     <xsl:template match="@object-id-type[. = 'doi']">
         <xsl:call-template name="crossref">
-            <xsl:with-param name="curr_doi" select=".." tunnel="yes"/>
+          <xsl:with-param name="curr_doi" select=".." tunnel="yes"/>
         </xsl:call-template>
     </xsl:template>
 
     <xsl:template
-        match="
-            @person-group-type[some $translator in ('translator', 'translators')
-                satisfies . = $translator]">
+        match="@person-group-type[some $translator in ('translator','translators') satisfies . = $translator]">
         <xsl:param name="s" tunnel="yes"/>
         <xsl:param name="e" tunnel="yes"/>
 
         <xsl:call-template name="assert">
             <xsl:with-param name="triples"
-                select="
-                    (
-                    $s, 'rdf:type', '&foaf;Group',
-                    'pro:holdsRoleInTime', '',
-                    'pro:withRole', '&pro;translator',
-                    'pro:relatesToDocument', $e)"
+                select="(
+                $s,'rdf:type','&foaf;Group',
+                'pro:holdsRoleInTime','',
+                'pro:withRole','&pro;translator',
+                'pro:relatesToDocument',$e)"
             />
         </xsl:call-template>
 
@@ -2156,20 +2062,17 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
     </xsl:template>
 
     <xsl:template
-        match="
-            @person-group-type[some $author in ('author', 'authors')
-                satisfies . = $author]">
+        match="@person-group-type[some $author in ('author','authors') satisfies . = $author]">
         <xsl:param name="s" tunnel="yes"/>
         <xsl:param name="e" tunnel="yes"/>
 
         <xsl:call-template name="assert">
             <xsl:with-param name="triples"
-                select="
-                    (
-                    $s, 'rdf:type', '&foaf;Group',
-                    'pro:holdsRoleInTime', '',
-                    'pro:withRole', '&pro;author',
-                    'pro:relatesToDocument', $e)"
+                select="(
+                $s,'rdf:type','&foaf;Group',
+                'pro:holdsRoleInTime','',
+                'pro:withRole','&pro;author',
+                'pro:relatesToDocument',$e)"
             />
         </xsl:call-template>
 
@@ -2187,14 +2090,13 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
         <xsl:param name="e" tunnel="yes"/>
         <xsl:call-template name="assert">
             <xsl:with-param name="triples"
-                select="
-                    (
-                    $s, 'rdf:type', '&foaf;Group',
-                    'pro:holdsRoleInTime', '',
-                    'pro:relatesToDocument', $e,
-                    'pro:withRole', '',
-                    'rdf:type', '&pro;Role',
-                    'rdfs:label', concat('&quot;', ., '&quot;'))"
+                select="(
+                $s,'rdf:type','&foaf;Group',
+                'pro:holdsRoleInTime','',
+                'pro:relatesToDocument',$e,
+                'pro:withRole','',
+                'rdf:type','&pro;Role',
+                'rdfs:label',concat('&quot;',.,'&quot;'))"
             />
         </xsl:call-template>
 
@@ -2263,12 +2165,11 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
         <xsl:param name="e" tunnel="yes"/>
         <xsl:call-template name="assert">
             <xsl:with-param name="triples"
-                select="
-                    (
-                    $e, 'rdf:type', '',
-                    'rdf:type', '&owl;Class',
-                    'rdfs:label', concat('&quot;', ., '&quot;'),
-                    'rdfs:subClassOf', '&fabio;Expression')"
+                select="(
+                $e,'rdf:type','',
+                'rdf:type','&owl;Class',
+                'rdfs:label', concat('&quot;',.,'&quot;'),
+                'rdfs:subClassOf','&fabio;Expression')"
             />
         </xsl:call-template>
     </xsl:template>
@@ -2372,16 +2273,15 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
         <xsl:param name="s" tunnel="yes"/>
         <xsl:call-template name="assert">
             <xsl:with-param name="triples"
-                select="
-                    (
-                    $s, 'datacite:hasIdentifier', '',
-                    'rdf:type', '&datacite;Identifier',
-                    'datacite:usesIdentifierScheme', '&datacite;local-resource-identifier-scheme',
-                    'literal:hasLiteralValue', concat('&quot;', .., '&quot;'),
-                    'prov:wasAttributedTo', '',
-                    'rdf:type', '&prov;Agent',
-                    'rdf:type', '&foaf;Organization',
-                    'rdfs:label', concat('&quot;', 'PsychOpen', '&quot;'))"
+                select="(
+                $s,'datacite:hasIdentifier','',
+                    'rdf:type','&datacite;Identifier',
+                    'datacite:usesIdentifierScheme','&datacite;local-resource-identifier-scheme',
+                    'literal:hasLiteralValue',concat('&quot;',..,'&quot;'),
+                    'prov:wasAttributedTo','',
+                        'rdf:type','&prov;Agent',
+                        'rdf:type','&foaf;Organization',
+                        'rdfs:label',concat('&quot;','PsychOpen','&quot;'))"
             />
         </xsl:call-template>
     </xsl:template>
@@ -2483,11 +2383,9 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
     </xsl:template>
 
     <xsl:template
-        match="
-            @rid[parent::contrib and (some $a in //(aff | aff-alternatives)
-                satisfies $a/@id = .)]">
+        match="@rid[parent::contrib and (some $a in //(aff|aff-alternatives) satisfies $a/@id = .)]">
         <xsl:variable name="type" select="."/>
-        <xsl:apply-templates select="//(aff | aff-alternatives)[@id = $type]" mode="xref"/>
+        <xsl:apply-templates select="//(aff|aff-alternatives)[@id = $type]" mode="xref"/>
     </xsl:template>
 
     <xsl:template match="@seq">
@@ -2501,7 +2399,7 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
         <xsl:param name="s" tunnel="yes"/>
         <xsl:call-template name="assert">
             <xsl:with-param name="triples"
-                select="($s, 'dcterms:language', '', 'rdf:type', '&dcterms;LinguisticSystem', 'dcterms:description', concat('&quot;', ., '&quot;', '^^&dcterms;RFC5646'))"
+                select="($s,'dcterms:language','','rdf:type','&dcterms;LinguisticSystem','dcterms:description',concat('&quot;',.,'&quot;','^^&dcterms;RFC5646'))"
             />
         </xsl:call-template>
     </xsl:template>
@@ -2553,12 +2451,12 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
         <xsl:element name="{$predicate}">
             <xsl:choose>
                 <!-- Create the object as a literal -->
-                <xsl:when test="starts-with($object, '&quot;')">
+                <xsl:when test="starts-with($object,'&quot;')">
                     <xsl:variable name="value"
-                        select="substring-before(substring-after($object, '&quot;'), '&quot;')"/>
-                    <xsl:variable name="lang" select="substring-after($object, '@')"/>
-                    <xsl:variable name="type" select="substring-after($object, '^^')"/>
-                    <xsl:if test="string-length($lang) = 2">
+                        select="substring-before(substring-after($object,'&quot;'),'&quot;')"/>
+                    <xsl:variable name="lang" select="substring-after($object,'@')"/>
+                    <xsl:variable name="type" select="substring-after($object,'^^')"/>
+                    <xsl:if test="string-length($lang)=2">
                         <xsl:attribute name="xml:lang">
                             <xsl:value-of select="$lang"/>
                         </xsl:attribute>
@@ -2577,7 +2475,7 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
                 <!-- Create a reification (i.e. the object is an empty string) -->
                 <xsl:otherwise>
                     <xsl:call-template name="assert">
-                        <xsl:with-param name="triples" select="('', subsequence($triples, 4))"
+                        <xsl:with-param name="triples" select="('',subsequence($triples,4))"
                             as="xs:string*"/>
                         <xsl:with-param name="prev-subject" select="$subject"/>
                         <xsl:with-param name="reification" select="true()"/>
@@ -2588,7 +2486,7 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
         <!-- If the object exists, create another statement (according to $triples) using the same subject -->
         <xsl:if test="$object">
             <xsl:call-template name="assert">
-                <xsl:with-param name="triples" select="($subject, subsequence($triples, 4))"
+                <xsl:with-param name="triples" select="($subject,subsequence($triples,4))"
                     as="xs:string*"/>
                 <xsl:with-param name="prev-subject" select="$subject"/>
             </xsl:call-template>
@@ -2604,15 +2502,7 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
         <xsl:call-template name="assert">
             <xsl:with-param name="triples"
-                select="
-                    ($s, $p,
-                    concat('&quot;', $o, '&quot;', if ($lang) then
-                        concat('@', $lang)
-                    else
-                        '', if ($type) then
-                        concat('^^', $type)
-                    else
-                        ''))"
+                select="($s,$p,concat('&quot;',$o,'&quot;',if ($lang) then concat('@',$lang) else '', if ($type) then concat('^^',$type) else ''))"
             />
         </xsl:call-template>
     </xsl:template>
@@ -2630,17 +2520,16 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
             <xsl:when test="@calendar | season">
                 <xsl:call-template name="assert">
                     <xsl:with-param name="triples"
-                        select="
-                            (
-                            $s, 'literal:hasLiteral', '',
-                            'rdf:type', $o,
-                            'literal:hasLiteralValue', concat('&quot;', $date, '&quot;'))"
+                        select="(
+                        $s,'literal:hasLiteral','',
+                        'rdf:type',$o,
+                        'literal:hasLiteralValue',concat('&quot;',$date,'&quot;'))"
                     />
                 </xsl:call-template>
             </xsl:when>
             <xsl:otherwise>
                 <xsl:call-template name="assert">
-                    <xsl:with-param name="triples" select="($s, $p, $date)"/>
+                    <xsl:with-param name="triples" select="($s,$p,$date)"/>
                 </xsl:call-template>
             </xsl:otherwise>
         </xsl:choose>
@@ -2654,13 +2543,7 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
         <xsl:param name="o2" as="xs:string" tunnel="yes"/>
 
         <xsl:call-template name="assert">
-            <xsl:with-param name="triples"
-                select="
-                    ($s, $p, $o,
-                    if ($p2 = '') then
-                        $p
-                    else
-                        $p2, $o2)"
+            <xsl:with-param name="triples" select="($s,$p,$o, if ($p2 = '') then $p else $p2, $o2)"
             />
         </xsl:call-template>
     </xsl:template>
@@ -2670,11 +2553,7 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
         <xsl:apply-templates select="attribute()"/>
         <xsl:apply-templates select=".">
             <xsl:with-param name="lang"
-                select="
-                    if (not(self::article) and @xml:lang) then
-                        @xml:lang
-                    else
-                        $lang"
+                select="if (not(self::article) and @xml:lang) then @xml:lang else $lang"
                 tunnel="yes"/>
         </xsl:apply-templates>
     </xsl:template>
@@ -2685,11 +2564,7 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
         <xsl:apply-templates select="$nodes/attribute()"/>
         <xsl:apply-templates select="$nodes/element()">
             <xsl:with-param name="lang"
-                select="
-                    if (not($nodes/self::article) and $nodes/@xml:lang) then
-                        $nodes/@xml:lang
-                    else
-                        $lang"
+                select="if (not($nodes/self::article) and $nodes/@xml:lang) then $nodes/@xml:lang else $lang"
                 tunnel="yes"/>
         </xsl:apply-templates>
     </xsl:template>
@@ -2700,8 +2575,8 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
         <xsl:param name="o" tunnel="yes"/>
         <xsl:param name="el" select=".."/>
         <xsl:choose>
-            <xsl:when test="$el/(season | @calendar)">
-                <xsl:variable name="date" select="concat($s, '-date')"/>
+            <xsl:when test="$el/(season|@calendar)">
+                <xsl:variable name="date" select="concat($s,'-date')"/>
                 <xsl:call-template name="single">
                     <xsl:with-param name="p" select="'literal:hasLiteral'" tunnel="yes"/>
                     <xsl:with-param name="o" select="$date" tunnel="yes"/>
@@ -2711,7 +2586,7 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
                     <xsl:with-param name="o" select="f:getDate($el)" tunnel="yes"/>
                     <xsl:with-param name="type" select="f:getDatetype($el)" tunnel="yes"/>
                 </xsl:call-template>
-                <xsl:apply-templates select="@calendar | season">
+                <xsl:apply-templates select="@calendar|season">
                     <xsl:with-param name="s" select="$date" tunnel="yes"/>
                 </xsl:apply-templates>
             </xsl:when>
@@ -2758,7 +2633,7 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
         <xsl:param name="o" as="xs:string" tunnel="yes"/>
 
         <xsl:call-template name="assert">
-            <xsl:with-param name="triples" select="($s, $p, $o)"/>
+            <xsl:with-param name="triples" select="($s,$p,$o)"/>
         </xsl:call-template>
     </xsl:template>
 
@@ -2766,20 +2641,22 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
         <xsl:param name="s" as="xs:string" tunnel="yes"/>
         <xsl:param name="curr_doi" tunnel="yes"/>
 
-        <xsl:variable name="links" select="crossref:externalLinksByDoi(xs:string(..))"/>
+        <!-- FIXME xsl:variable name="links"  select="crossref:externalLinksByDoi(xs:string(..))"/ -->
+        <xsl:variable name="links"></xsl:variable><!--TODO remove -->
         <xsl:variable name="pdf" select="$links[1]"/>
         <xsl:if test="$pdf != ''">
 
             <xsl:variable name="dig_emb_pdf" select="replace($s, 'textual-entity', 'pdf')"/>
             <xsl:call-template name="assert">
-                <xsl:with-param name="triples" select="($s, 'frbr:embodiment', $dig_emb_pdf)"/>
+                <xsl:with-param name="triples"
+                    select="($s, 'frbr:embodiment', $dig_emb_pdf)"
+                />
             </xsl:call-template>
             <xsl:call-template name="assert">
                 <xsl:with-param name="triples"
-                    select="
-                        ($dig_emb_pdf, 'rdf:type', '&fabio;DigitalManifestation',
-                        'dcterms:format', '&application;pdf',
-                        'dcterms:relation', $pdf)"
+                    select="($dig_emb_pdf, 'rdf:type', '&fabio;DigitalManifestation',
+                                           'dcterms:format', '&application;pdf',
+                                           'dcterms:relation', $pdf)"
                 />
             </xsl:call-template>
         </xsl:if>
@@ -2789,70 +2666,29 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
             <xsl:variable name="dig_emb_html" select="replace($s, 'textual-entity', 'html')"/>
             <xsl:call-template name="assert">
-                <xsl:with-param name="triples" select="($s, 'frbr:embodiment', $dig_emb_html)"/>
+                <xsl:with-param name="triples"
+                    select="($s, 'frbr:embodiment', $dig_emb_html)"
+                />
             </xsl:call-template>
             <xsl:call-template name="assert">
                 <xsl:with-param name="triples"
-                    select="
-                        ($dig_emb_html, 'rdf:type', '&fabio;DigitalManifestation',
-                        'dcterms:format', '&application;html',
-                        'dcterms:relation', $html)"
+                    select="($dig_emb_html, 'rdf:type', '&fabio;DigitalManifestation',
+                    'dcterms:format', '&application;html',
+                    'dcterms:relation', $html)"
                 />
             </xsl:call-template>
         </xsl:if>
 
-        <xsl:variable name="subjects" select="crossref:subjectsByDoi(xs:string(..))"/>
+        <!-- FIXME xsl:variable name="subjects"  select="crossref:subjectsByDoi(xs:string(..))"/ -->
+        <xsl:variable name="subjects"></xsl:variable><!-- TODO remove -->
         <xsl:for-each select="$subjects">
-            <xsl:if test=". != ''">
-                <xsl:call-template name="subject">
-                    <xsl:with-param name="s" select="$s" tunnel="yes"/>
-                    <xsl:with-param name="o" select="." tunnel="yes"/>
-                    <xsl:with-param name="prov" select="'crossref'" tunnel="yes"/>
-                </xsl:call-template>
-            </xsl:if>
+            <xsl:call-template name="attribute">
+                <xsl:with-param name="s" select='$s' tunnel="yes"/>
+                <xsl:with-param name="p" select="'prism:keyword'" tunnel="yes"/>
+                <xsl:with-param name="o" select="." tunnel="yes"/>
+            </xsl:call-template>
         </xsl:for-each>
 
-    </xsl:template>
-
-    <xsl:template name="subject">
-        <xsl:param name="s" as="xs:string" tunnel="yes"/>
-        <xsl:param name="o" as="xs:string" tunnel="yes"/>
-        <xsl:param name="prov" as="xs:string" tunnel="yes"/>
-
-        <xsl:variable name="provUri" select="concat($baseUri, $prov, '/', f:urlEncode($o))"/>
-        <xsl:variable name="curatedBy">
-            <xsl:choose>
-                <xsl:when test="$prov = 'pubpsych'">
-                    <xsl:value-of select="'http://www.zpid.de'"/>
-                </xsl:when>
-                <xsl:when test="$prov = 'crossref'">
-                    <xsl:value-of select="'http://www.crossref.org'"/>
-                </xsl:when>
-                <xsl:otherwise>
-                    <xsl:value-of select="'http://www.psychopen.eu'"/>
-                </xsl:otherwise>
-            </xsl:choose>
-        </xsl:variable>
-        <xsl:variable name="term" select="concat($baseUri, $prov, '/', f:urlEncode(.))"/>
-        <xsl:call-template name="assert">
-            <xsl:with-param name="triples" select="($s, 'fabio:hasSubjectTerm', $term)"/>
-        </xsl:call-template>
-        <xsl:call-template name="single">
-            <xsl:with-param name="s" select="$term" tunnel="yes"/>
-            <xsl:with-param name="p" select="'pav:curatedBy'" tunnel="yes"/>
-            <xsl:with-param name="o" select="$curatedBy" tunnel="yes"/>
-        </xsl:call-template>
-        <xsl:call-template name="assert">
-            <xsl:with-param name="triples"
-                select="$s, 'prism:keyword', concat('&quot;', ., '&quot;')"/>
-        </xsl:call-template>
-        <xsl:if test="$prov = 'pubpsych'">
-            <xsl:call-template name="assert">
-               <xsl:with-param name="triples"
-                   select="$term, 'skos:prefLabel', concat('&quot;', .,'&quot;'),
-                   'skos:inScheme', 'http://purl.bioontology.org/ontology/APAONTO'"/>
-            </xsl:call-template>
-        </xsl:if>
     </xsl:template>
     <!-- END - Named templates -->
 
@@ -2896,7 +2732,7 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
     <xsl:function name="f:getJournalName" as="xs:string">
         <xsl:param name="jTitle" as="xs:string"/>
-        <xsl:value-of select="concat($journalUriInfix, f:urlEncode($jTitle))"/>
+        <xsl:value-of select="concat($journalUriInfix,f:urlEncode($jTitle))"/>
     </xsl:function>
 
     <xsl:function name="f:urlEncode" as="xs:string">

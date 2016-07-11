@@ -62,7 +62,6 @@ public class Jats2Spar {
 	 * A JATS-article that contains most of the processed JATS-tags. Useful for
 	 * testing.
 	 */
-	private static final String RESOURCE_TEST_PAPER = "/psychOpen_testArticle.xml";
 
 	private static final String TAG_ARTICLE = "article";
 
@@ -74,16 +73,6 @@ public class Jats2Spar {
 	private static final Logger log = LogManager.getLogger(Jats2Spar.class);
 
 	private String articleLanguage;
-
-	/** Just for testing. */
-	public static void main(String[] args) throws ParserConfigurationException,
-			SAXException, IOException, TransformerException,
-			URISyntaxException, SaxonApiException {
-		Jats2Spar jats2Spar = new Jats2Spar();
-		File datafile = new File(Jats2Spar.class.getResource(
-				RESOURCE_TEST_PAPER).getFile());
-		jats2Spar.transform(datafile, new File("D:\\Temp\\db\\meta.rdf"), "dummyBaseUri/resource", "jp");
-	}
 
 	/**
 	 * <p>
@@ -184,7 +173,11 @@ public class Jats2Spar {
 		saxonConfig
 				.registerExtensionFunction(new CrossrefLinksByDoiExtensionFunctionDef());
 		saxonConfig
-		.registerExtensionFunction(new CrossrefSubjectsByDoiExtensionFunctionDef());
+			.registerExtensionFunction(new CrossrefSubjectsByDoiExtensionFunctionDef());
+		saxonConfig
+			.registerExtensionFunction(new PubPsychLinkByTitleExtensionFunctionDef());
+		saxonConfig
+		    .registerExtensionFunction(new PubpsychSubjectsByTitleExtensionFunctionDef());
 		Processor proc = new Processor(saxonConfig);
 		XsltCompiler comp = proc.newXsltCompiler();
 		XsltExecutable exec;

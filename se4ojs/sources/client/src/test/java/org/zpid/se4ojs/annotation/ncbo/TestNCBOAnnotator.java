@@ -1,13 +1,12 @@
 package org.zpid.se4ojs.annotation.ncbo;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import java.io.UnsupportedEncodingException;
 
-import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
-
-import client.TestableConfig;
+import org.zpid.se4ojs.test.TestableConfig;
 
 import com.fasterxml.jackson.databind.JsonNode;
 
@@ -26,9 +25,6 @@ public class TestNCBOAnnotator {
 	private static final String PROP_EXPAND_MAPPINGS = "ncbo.annotator.expandMappings";
 	private static final String PROP_SEMANTIC_TYPE = "ncbo.annotator.semanticType";
 	private static final String PROP_INCLUDE_CUI = "ncbo.annotator.cui";
-	@Before
-	public void setUp() throws Exception {
-	}
 
 	@Test
 	@Ignore //This test is only meant for explorative manual investigation of the NCBO annotator's properties only
@@ -77,7 +73,7 @@ public class TestNCBOAnnotator {
             }
 		}
 	}
-    
+
 	@Ignore
 	@Test
 	public void rdfizeAnnotation_testMatchType() throws UnsupportedEncodingException {

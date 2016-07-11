@@ -10,6 +10,8 @@ import net.sf.saxon.value.SequenceExtent;
 import net.sf.saxon.value.SequenceType;
 import net.sf.saxon.value.StringValue;
 
+import org.apache.commons.lang3.StringUtils;
+import org.zpid.se4ojs.app.Config;
 import org.zpid.se4ojs.links.CrossrefApiCaller;
 
 
@@ -40,12 +42,14 @@ public class CrossrefLinksByDoiExtensionFunctionDef extends ExtensionFunctionDef
 
 			@Override public Sequence call(
 					XPathContext context, Sequence[] arguments) throws XPathException {
-				//TODO build in configuration option and only call if crossrefExternalLink-Option is set
-				String doi = ((StringValue)arguments[0]).asString();
-				String[] result = crossref.getExternalLinksByDoi(doi);
-				StringValue[] result1 = new StringValue[]{StringValue.makeStringValue(result[0]), StringValue.makeStringValue(result[1])};
-				return new SequenceExtent(result1);
-
+				if (Config.isGenerateCrossrefLinks()) {
+					String doi = ((StringValue)arguments[0]).asString();
+					String[] result = crossref.getExternalLinksByDoi(doi);
+					StringValue[] result1 = new StringValue[]{StringValue.makeStringValue(result[0]), StringValue.makeStringValue(result[1])};
+					return new SequenceExtent(result1);
+				}
+				return new SequenceExtent(
+						new StringValue[]{StringValue.makeStringValue(StringUtils.EMPTY), StringValue.makeStringValue(StringUtils.EMPTY)});
 			}
 		};
 	}
