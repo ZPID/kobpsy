@@ -1,4 +1,4 @@
-package client;
+package org.zpid.se4ojs.test;
 
 import org.zpid.se4ojs.app.Config;
 

@@ -12,23 +12,23 @@ import net.sf.saxon.value.StringValue;
 
 import org.apache.commons.lang3.StringUtils;
 import org.zpid.se4ojs.app.Config;
-import org.zpid.se4ojs.links.CrossrefApiCaller;
+import org.zpid.se4ojs.links.PubPsychApiCaller;
 
 
-public class CrossrefSubjectsByDoiExtensionFunctionDef extends
-		ExtensionFunctionDefinition {
+public class PubPsychLinkByTitleExtensionFunctionDef extends ExtensionFunctionDefinition {
 
-	private CrossrefApiCaller crossref = new CrossrefApiCaller();
+	private PubPsychApiCaller pubpsych = new PubPsychApiCaller();
 
 	@Override
 	public StructuredQName getFunctionQName() {
-		return new StructuredQName("crossref", "http://www.zpid.de/crossref",
-				"subjectsByDoi");
+		return new StructuredQName("pubpsych", "http://www.zpid.de/pubpsych", "pubpsychLinkByTitle");
 	}
 
 	@Override
 	public SequenceType[] getArgumentTypes() {
-		return new SequenceType[] { SequenceType.STRING_SEQUENCE };
+		return new SequenceType[] {
+				SequenceType.STRING_SEQUENCE, SequenceType.STRING_SEQUENCE
+			};
 	}
 
 	@Override
@@ -40,16 +40,17 @@ public class CrossrefSubjectsByDoiExtensionFunctionDef extends
 	public ExtensionFunctionCall makeCallExpression() {
 		return new ExtensionFunctionCall() {
 
-			@Override
-			public Sequence call(XPathContext context, Sequence[] arguments)
-					throws XPathException {
-				if (Config.isGenerateCrossrefLinks()) {
-					String doi = ((StringValue) arguments[0]).asString();
-					return new SequenceExtent(crossref.getSubjectsByDoi(doi));
+			@Override public Sequence call(
+					XPathContext context, Sequence[] arguments) throws XPathException {
+				if (Config.isGeneratePubPsychLinks()) {
+					String title = ((StringValue)arguments[0]).asString();
+					String firstAuthor = arguments[1].head().getStringValue();
+					String result = pubpsych.getPubPsychLinkByTitle(title, firstAuthor);
+					StringValue[] result1 = new StringValue[]{StringValue.makeStringValue(result)};
+					return new SequenceExtent(result1);
 				}
 				return new SequenceExtent(
 						new StringValue[]{StringValue.makeStringValue(StringUtils.EMPTY)});
-
 			}
 		};
 	}

@@ -51,11 +51,9 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
     xmlns:rdfs="&rdfs;" xmlns:rdf="&rdf;" xmlns:scoro="&scoro;" xmlns:skos="&skos;"
     xmlns:tvc="&tvc;" xmlns:vcard="&vcard;" xmlns:xsd="&xsd;"
     xmlns:f="http://www.essepuntato.it/xslt/function/" xmlns:xlink="http://www.w3.org/1999/xlink"
-    xmlns:pubpsych="http://www.zpid.de/pubpsych"
-    xmlns:fn="http://www.w3.org/2005/xpath-functions"
-    xmlns:crossref="http://www.zpid.de/crossref"
-    exclude-result-prefixes="xs f fn xlink crossref pubpsych" version="2.0">
-
+    exclude-result-prefixes="xs f xlink crossref" version="2.0"
+    xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:crossref="http://www.zpid.de/crossref"
+    xmlns:pubpsych="http://www.zpid.de/pubpsych">
 
     <xsl:param name="baseUri" select="''"/>
     <xsl:param name="doi" select="//article-id[@pub-id-type = 'doi']"/>
@@ -332,13 +330,11 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
         <xsl:variable name="keywords" select="pubpsych:subjectsByTitle(xs:string(.))"/>
         <xsl:for-each select="$keywords">
-            <xsl:if test=". != ''">
-                <xsl:call-template name="subject">
-                    <xsl:with-param name="s" select="$s" tunnel="yes"/>
-                    <xsl:with-param name="o" select="." tunnel="yes"/>
-                    <xsl:with-param name="prov" select="'pubpsych'" tunnel="yes"/>
-                </xsl:call-template>
-            </xsl:if>
+            <xsl:call-template name="subject">
+                <xsl:with-param name="s" select="$s" tunnel="yes"/>
+                <xsl:with-param name="o" select="." tunnel="yes"/>
+                <xsl:with-param name="prov" select="'pubpsych'" tunnel="yes"/>
+            </xsl:call-template>
         </xsl:for-each>
     </xsl:template>
 
@@ -825,9 +821,9 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
     </xsl:template>
 
     <xsl:template match="kwd">
-        <xsl:call-template name="subject">
+        <xsl:call-template name="attribute">
+            <xsl:with-param name="p" select="'prism:keyword'" tunnel="yes"/>
             <xsl:with-param name="o" select="." tunnel="yes"/>
-            <xsl:with-param name="prov" select="'psychopen'" tunnel="yes"/>
         </xsl:call-template>
     </xsl:template>
 
@@ -2803,13 +2799,11 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
         <xsl:variable name="subjects" select="crossref:subjectsByDoi(xs:string(..))"/>
         <xsl:for-each select="$subjects">
-            <xsl:if test=". != ''">
-                <xsl:call-template name="subject">
-                    <xsl:with-param name="s" select="$s" tunnel="yes"/>
-                    <xsl:with-param name="o" select="." tunnel="yes"/>
-                    <xsl:with-param name="prov" select="'crossref'" tunnel="yes"/>
-                </xsl:call-template>
-            </xsl:if>
+            <xsl:call-template name="subject">
+                <xsl:with-param name="s" select="$s" tunnel="yes"/>
+                <xsl:with-param name="o" select="." tunnel="yes"/>
+                <xsl:with-param name="prov" select="'crossref'" tunnel="yes"/>
+            </xsl:call-template>
         </xsl:for-each>
 
     </xsl:template>
@@ -2849,8 +2843,8 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
         <xsl:if test="$prov = 'pubpsych'">
             <xsl:call-template name="assert">
                <xsl:with-param name="triples"
-                   select="$term, 'skos:prefLabel', concat('&quot;', .,'&quot;'),
-                   'skos:inScheme', 'http://purl.bioontology.org/ontology/APAONTO'"/>
+                   select="$term, 'skos:prefLabel', .,
+                   'skos:inScheme', '&quot;http://purl.bioontology.org/ontology/APAONTO&quot;'"/>
             </xsl:call-template>
         </xsl:if>
     </xsl:template>

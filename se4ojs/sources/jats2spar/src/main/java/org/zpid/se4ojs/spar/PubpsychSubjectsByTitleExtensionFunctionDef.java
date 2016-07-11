@@ -12,18 +12,17 @@ import net.sf.saxon.value.StringValue;
 
 import org.apache.commons.lang3.StringUtils;
 import org.zpid.se4ojs.app.Config;
-import org.zpid.se4ojs.links.CrossrefApiCaller;
+import org.zpid.se4ojs.links.PubPsychApiCaller;
 
 
-public class CrossrefSubjectsByDoiExtensionFunctionDef extends
+public class PubpsychSubjectsByTitleExtensionFunctionDef extends
 		ExtensionFunctionDefinition {
 
-	private CrossrefApiCaller crossref = new CrossrefApiCaller();
+	private PubPsychApiCaller pubpsych = new PubPsychApiCaller();
 
 	@Override
 	public StructuredQName getFunctionQName() {
-		return new StructuredQName("crossref", "http://www.zpid.de/crossref",
-				"subjectsByDoi");
+		return new StructuredQName("pubpsych", "http://www.zpid.de/pubpsych", "subjectsByTitle");
 	}
 
 	@Override
@@ -33,7 +32,7 @@ public class CrossrefSubjectsByDoiExtensionFunctionDef extends
 
 	@Override
 	public SequenceType getResultType(SequenceType[] suppliedArgumentTypes) {
-		return SequenceType.STRING_SEQUENCE;
+		return SequenceType.ANY_SEQUENCE;
 	}
 
 	@Override
@@ -43,13 +42,12 @@ public class CrossrefSubjectsByDoiExtensionFunctionDef extends
 			@Override
 			public Sequence call(XPathContext context, Sequence[] arguments)
 					throws XPathException {
-				if (Config.isGenerateCrossrefLinks()) {
-					String doi = ((StringValue) arguments[0]).asString();
-					return new SequenceExtent(crossref.getSubjectsByDoi(doi));
+				if (Config.isGeneratePubPsychLinks()) {
+					String title = ((StringValue) arguments[0]).asString();
+					return new SequenceExtent(pubpsych.getSubjectsByTitle(title));
 				}
 				return new SequenceExtent(
 						new StringValue[]{StringValue.makeStringValue(StringUtils.EMPTY)});
-
 			}
 		};
 	}
