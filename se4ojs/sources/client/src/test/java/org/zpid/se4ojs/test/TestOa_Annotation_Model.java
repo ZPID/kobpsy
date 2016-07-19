@@ -72,6 +72,12 @@ public class TestOa_Annotation_Model extends AnnotationTester {
 	 */
 	@Test
 	public void testNcboAnnotation() throws ModelRuntimeException, IOException, JDOMException {
+		TestableConfig config = new TestableConfig();
+		config.setPropValue(PROP_JSON_ANNOTATION, "false");
+		config.setPropValue(PROP_EXCLUDE_SYNONYMS, "true");
+		config.setPropValue(PROP_EXPAND_MAPPINGS, "false");
+		config.setPropValue(PROP_INCLUDE_CUI, "false");
+		config.setPropValue(PROP_SEMANTIC_TYPE, "false");
 		 String inPath = this.getClass().getClassLoader().getResource("ncboAnnotatorTestXml.xml").getFile();
 		 inPath = inPath.replaceFirst("^/(.:/)", "$1");
 		 File in = new File(inPath);

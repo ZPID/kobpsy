@@ -210,6 +210,7 @@ public class Jats2Spar {
 			}
 		});
 		transformer.transform();
+		transformer.close();
 		log.info(String.format("Finished xslt transformation for file: %s",
 				dataFile));
 	}

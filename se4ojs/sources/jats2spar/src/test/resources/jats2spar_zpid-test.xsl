@@ -304,8 +304,6 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
             <xsl:message><xsl:value-of select="."/></xsl:message>
         </xsl:for-each>
 
-
-
         <xsl:variable name="auth">
             <xsl:choose>
                 <xsl:when test="name(../..) = 'article-meta'">
@@ -326,6 +324,15 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
                 tunnel="yes"/>
         </xsl:call-template>
 
+        <xsl:variable name="pubpsychLink">
+            <xsl:value-of disable-output-escaping="yes"
+                select="'https://pubpsych.zpid.de/pubpsych/Search.action?&q=ID=POID_ejcop.v2i2.34&amp;isFullView=true'"/>
+        </xsl:variable>
+        <xsl:if test="$pubpsychLink != ''">
+            <xsl:call-template name="create-structure">
+                <xsl:with-param name="triples" select="$s, 'rdfs:seeAlso', $pubpsychLink" />
+            </xsl:call-template>
+        </xsl:if>
     </xsl:template>
 
     <xsl:template match="award-id">

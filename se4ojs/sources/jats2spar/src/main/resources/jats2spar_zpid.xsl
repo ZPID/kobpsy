@@ -55,8 +55,10 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
     xmlns:fn="http://www.w3.org/2005/xpath-functions"
     xmlns:crossref="http://www.zpid.de/crossref"
     exclude-result-prefixes="xs f fn xlink crossref pubpsych" version="2.0">
-
-
+    <!--xsl:output use-character-maps="ampersand" />
+    <xsl:character-map name="ampersand">
+        <xsl:output-character character="&amp;" string='&amp;'/>
+    </xsl:character-map-->
     <xsl:param name="baseUri" select="''"/>
     <xsl:param name="doi" select="//article-id[@pub-id-type = 'doi']"/>
     <xsl:param name="default" select="concat($baseUri, $doiUriInfix)"/>
@@ -323,10 +325,10 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
         <xsl:variable name="links"
             select="pubpsych:pubpsychLinkByTitle(xs:string(.), xs:string($auth))"/>
         <xsl:variable name="pubpsychLink" select="$links[1]"/>
+
         <xsl:if test="$pubpsychLink != ''">
-            <xsl:call-template name="attribute">
-                <xsl:with-param name="p" select="'rdfs:seeAlso'" tunnel="yes"/>
-                <xsl:with-param name="o" select="$pubpsychLink" tunnel="yes"/>
+            <xsl:call-template name="assert">
+                <xsl:with-param name="triples" select="($s, 'rdfs:seeAlso', $pubpsychLink)"/>
             </xsl:call-template>
         </xsl:if>
 
@@ -718,8 +720,10 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
                     <xsl:sequence select="concat($journalOfArticle, '/', $issue, '/issue_', .)"/>
                 </xsl:when>
                 <xsl:when test="parent::mixed-citation/@publication-type = 'journal'">
-                    <xsl:variable name="uripart" select="f:urlEncode(../source)"/>
-                    <xsl:sequence select="concat(f:getJournalName(../source), '/issue_', .)"/>
+                    <xsl:if test="../source">
+                       <xsl:variable name="uripart" select="f:urlEncode(../source)"/>
+                       <xsl:sequence select="concat(f:getJournalName(../source), '/issue_', .)"/>
+                    </xsl:if>
                 </xsl:when>
                 <xsl:otherwise>
                     <xsl:sequence select="concat($e, '/', f:urlEncode(../source), '/issue_', .)"/>
@@ -729,31 +733,34 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
         <xsl:variable name="collection" select="concat($w, '/', $collection)"/>
         <xsl:call-template name="single">
-            <xsl:with-param name="p" select="'frbr:partOf'" tunnel="yes"/>
-            <xsl:with-param name="o" select="$issue" tunnel="yes"/>
-        </xsl:call-template>
-
-        <xsl:call-template name="assert">
-            <xsl:with-param name="triples"
-                select="
-                    (
-                    $issue, 'rdf:type', '&fabio;PeriodicalIssue',
-                    'frbr:realizationOf', $collection,
-                    'prism:issueIdentifier', .)"
-            />
-        </xsl:call-template>
-
-        <xsl:call-template name="single">
             <xsl:with-param name="s" select="$collection" tunnel="yes"/>
             <xsl:with-param name="p" select="'rdf:type'" tunnel="yes"/>
             <xsl:with-param name="o" select="'&fabio;WorkCollection'" tunnel="yes"/>
         </xsl:call-template>
 
-        <xsl:call-template name="goahead">
-            <xsl:with-param name="s" select="$issue" tunnel="yes"/>
-            <xsl:with-param name="w" select="$collection" tunnel="yes"/>
-            <xsl:with-param name="e" select="$issue" tunnel="yes"/>
-        </xsl:call-template>
+        <xsl:if test="$issue != ''">
+            <xsl:call-template name="single">
+                <xsl:with-param name="p" select="'frbr:partOf'" tunnel="yes"/>
+                <xsl:with-param name="o" select="$issue" tunnel="yes"/>
+            </xsl:call-template>
+
+
+            <xsl:call-template name="assert">
+                <xsl:with-param name="triples"
+                    select="
+                        (
+                        $issue, 'rdf:type', '&fabio;PeriodicalIssue',
+                        'frbr:realizationOf', $collection,
+                        'prism:issueIdentifier', .)"
+                />
+            </xsl:call-template>
+
+            <xsl:call-template name="goahead">
+                <xsl:with-param name="s" select="$issue" tunnel="yes"/>
+                <xsl:with-param name="w" select="$collection" tunnel="yes"/>
+                <xsl:with-param name="e" select="$issue" tunnel="yes"/>
+            </xsl:call-template>
+        </xsl:if>
     </xsl:template>
 
     <xsl:template match="issue-id">
@@ -1260,22 +1267,22 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
                     <xsl:sequence select="concat($journal, f:urlEncode(.))"/>
                 </xsl:when>
                 <xsl:when test="parent::mixed-citation/@publication-type = 'book'">
-                    <xsl:sequence select="concat($baseUri, '/book/', f:urlEncode(.))"/>
+                    <xsl:sequence select="concat($baseUri, 'book/', f:urlEncode(.))"/>
                 </xsl:when>
                 <xsl:when test="parent::mixed-citation/@publication-type = 'thesis'">
-                    <xsl:sequence select="concat($baseUri, '/thesis/', f:urlEncode(.))"/>
+                    <xsl:sequence select="concat($baseUri, 'thesis/', f:urlEncode(.))"/>
                 </xsl:when>
                 <xsl:when test="parent::mixed-citation/@publication-type = 'confproc'">
-                    <xsl:sequence select="concat($baseUri, '/confproc/', f:urlEncode(.))"/>
+                    <xsl:sequence select="concat($baseUri, 'confproc/', f:urlEncode(.))"/>
                 </xsl:when>
                 <xsl:when test="parent::mixed-citation/@publication-type = 'web'">
-                    <xsl:sequence select="concat($baseUri, '/web/', f:urlEncode(.))"/>
+                    <xsl:sequence select="concat($baseUri, 'web/', f:urlEncode(.))"/>
                 </xsl:when>
                 <xsl:when test="parent::mixed-citation/@publication-type = 'other'">
-                    <xsl:sequence select="concat($baseUri, '/other/', f:urlEncode(.))"/>
+                    <xsl:sequence select="concat($baseUri, 'other/', f:urlEncode(.))"/>
                 </xsl:when>
                 <xsl:otherwise>
-                    <xsl:sequence select="concat($baseUri, '/other/', f:urlEncode(.))"/>
+                    <xsl:sequence select="concat($baseUri, 'other/', f:urlEncode(.))"/>
                     <xsl:message>TRANS: Found source element that has publication type without
                         specified URI. Pub-type: <xsl:value-of
                             select="parent::mixed-citation/@publication-type/."/>
@@ -1468,9 +1475,11 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
                     />
                 </xsl:when>
                 <xsl:when test="parent::mixed-citation/@publication-type = 'journal'">
-                    <xsl:variable name="uripart" select="f:urlEncode(../source)"/>
-                    <xsl:sequence
-                        select="concat(f:getJournalName(../source), '/issue_', ../issue/text())"/>
+                    <xsl:if test="../source">
+                        <xsl:variable name="uripart" select="f:urlEncode(../source)"/>
+                        <xsl:sequence
+                            select="concat(f:getJournalName(../source), '/issue_', ../issue/text())"/>
+                    </xsl:if>
                 </xsl:when>
                 <xsl:otherwise>
                     <xsl:sequence
@@ -1485,39 +1494,43 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
                     <xsl:sequence select="concat($journalOfArticle, '/', $volume, '/volume_', .)"/>
                 </xsl:when>
                 <xsl:when test="parent::mixed-citation/@publication-type = 'journal'">
-                    <xsl:variable name="uripart" select="f:urlEncode(../source)"/>
-                    <xsl:sequence select="concat(f:getJournalName(../source), '/volume_', .)"/>
+                    <xsl:if test="../source">
+                        <xsl:variable name="uripart" select="f:urlEncode(../source)"/>
+                        <xsl:sequence select="concat(f:getJournalName(../source), '/volume_', .)"/>
+                    </xsl:if>
                 </xsl:when>
                 <xsl:otherwise>
                     <xsl:sequence select="concat($e, '/', f:urlEncode(../source), '/volume_', .)"/>
                 </xsl:otherwise>
             </xsl:choose>
         </xsl:variable>
-        <xsl:call-template name="single">
-            <xsl:with-param name="s"
-                select="
-                    if (../issue) then
-                        $issue
-                    else
-                        $e"
-                tunnel="yes"/>
-            <xsl:with-param name="p" select="'frbr:partOf'" tunnel="yes"/>
-            <xsl:with-param name="o" select="$volume" tunnel="yes"/>
-        </xsl:call-template>
-        <xsl:call-template name="assert">
-            <xsl:with-param name="triples"
-                select="
-                    (
-                    $volume, 'rdf:type', '&fabio;PeriodicalVolume',
-                    'prism:volume', concat('&quot;', ., '&quot;'),
-                    'frbr:partOf', '',
-                    'rdf:type', '&fabio;Periodical')"
-            />
-        </xsl:call-template>
-        <xsl:call-template name="goahead">
-            <xsl:with-param name="s" select="$volume" tunnel="yes"/>
-            <xsl:with-param name="e" select="$volume" tunnel="yes"/>
-        </xsl:call-template>
+        <xsl:if test="$issue != ''">
+            <xsl:call-template name="single">
+                <xsl:with-param name="s"
+                    select="
+                        if (../issue) then
+                            $issue
+                        else
+                            $e"
+                    tunnel="yes"/>
+                <xsl:with-param name="p" select="'frbr:partOf'" tunnel="yes"/>
+                <xsl:with-param name="o" select="$volume" tunnel="yes"/>
+            </xsl:call-template>
+            <xsl:call-template name="assert">
+                <xsl:with-param name="triples"
+                    select="
+                        (
+                        $volume, 'rdf:type', '&fabio;PeriodicalVolume',
+                        'prism:volume', concat('&quot;', ., '&quot;'),
+                        'frbr:partOf', '',
+                        'rdf:type', '&fabio;Periodical')"
+                />
+            </xsl:call-template>
+            <xsl:call-template name="goahead">
+                <xsl:with-param name="s" select="$volume" tunnel="yes"/>
+                <xsl:with-param name="e" select="$volume" tunnel="yes"/>
+            </xsl:call-template>
+        </xsl:if>
     </xsl:template>
 
     <xsl:template match="volume-id">

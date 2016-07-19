@@ -63,25 +63,29 @@ public class AnnotationTester {
 		 br.close();
 		 brRef.close();
 		 if (compareModels) {
-	        try {
-	            Model m1 = ModelFactory.createDefaultModel();
-	            Model m2 = ModelFactory.createDefaultModel();
-
-	            read(m1, refPath, "RDF/XML");
-	            read(m2, resPath, "RDF/XML");
-
-	            if (m1.isIsomorphicWith(m2)) {
-	                System.out.println("models are equal");
-	                System.out.println();
-	            } else {
-	                fail("models are unequal");
-	                System.out.println();
-	            }
-	        } catch (Exception e) {
-	            System.err.println("    " + e.toString());
-	            fail("Unhandled exception:");
-	        }
+	        areModelsIsomorph(resPath, refPath);
 		 }
+	}
+
+	public void areModelsIsomorph(String resPath, String refPath) {
+		try {
+		    Model m1 = ModelFactory.createDefaultModel();
+		    Model m2 = ModelFactory.createDefaultModel();
+
+		    read(m1, refPath, "RDF/XML");
+		    read(m2, resPath, "RDF/XML");
+
+		    if (m1.isIsomorphicWith(m2)) {
+		        System.out.println("models are equal");
+		        System.out.println();
+		    } else {
+		        fail("models are unequal");
+		        System.out.println();
+		    }
+		} catch (Exception e) {
+		    System.err.println("    " + e.toString());
+		    fail("Unhandled exception:");
+		}
 	}
 
 	protected void findMatchingLine(Map<String, String> linesRes,

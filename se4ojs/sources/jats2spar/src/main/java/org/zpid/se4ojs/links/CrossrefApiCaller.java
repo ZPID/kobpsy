@@ -58,31 +58,32 @@ public class CrossrefApiCaller {
 	 * @return the URL to the PDF
 	 */
 	public String[] getExternalLinksByDoi(String doi) {
-		String[] links = new String[]{StringUtils.EMPTY, StringUtils.EMPTY};
+		String[] links = new String[] { StringUtils.EMPTY, StringUtils.EMPTY };
 		String record = doiResults.get(doi);
 		if (record != null) {
 			extract(record, doi);
 		} else {
-			InputStream inputStream = null;
 			try {
 				URLConnection urlConnection = openUrlConnection(new URL(
 						DOI_PREFIX_URI + doi));
 				urlConnection.setRequestProperty("Content-Type",
 						"application/vnd.crossref.unixsd+xml");
 				urlConnection.connect();
-				inputStream = urlConnection.getInputStream();
-			} catch (IOException e) {
-				log.warn("Unable to resolve doi: " + doi + " by crossref API" + "\n" + e.getLocalizedMessage());
-			}
-			if (inputStream != null) {
-				try (BufferedReader reader = new BufferedReader(
-						new InputStreamReader(inputStream))) {
-					links = fetchRecord(reader, doi);
-				} catch (IOException e) {
-					log.warn("Error trying to obtain crossref record for doi: "
-							+ doi + "\n" + e.getLocalizedMessage());
-					e.printStackTrace();
+				try (InputStream inputStream = urlConnection.getInputStream()) {
+					if (inputStream != null) {
+						try (BufferedReader reader = new BufferedReader(
+								new InputStreamReader(inputStream))) {
+							links = fetchRecord(reader, doi);
+						} catch (IOException e) {
+							log.warn("Error trying to obtain crossref record for doi: "
+									+ doi + "\n" + e.getLocalizedMessage());
+							e.printStackTrace();
+						}
+					}
 				}
+			} catch (IOException e) {
+				log.warn("Unable to resolve doi: " + doi + " by crossref API"
+						+ "\n" + e.getLocalizedMessage());
 			}
 		}
 		return links;

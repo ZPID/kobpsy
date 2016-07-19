@@ -53,23 +53,9 @@ public class Config {
 		return INSTANCE;
 	}
 
-	private void initialize() {
-		//Load the properties file
+	protected void initialize() {
 		try {
-			URI jarpath = Config.class.getProtectionDomain().getCodeSource().getLocation().toURI();
-			LOGGER.debug("jarpath: " + jarpath.toString());
-			Path parentPath = Paths.get(jarpath).getParent();
-			propFilePath = Paths.get(parentPath.toString(), CONFIG_PROPERTIES_FILE_NAME);
-			if (!Files.exists(propFilePath, LinkOption.NOFOLLOW_LINKS)) {
-				URL projectLocalPropertyFile = Config.class.getClassLoader().getResource(CONFIG_PROPERTIES_FILE_NAME);
-				if (projectLocalPropertyFile != null) {
-						propFilePath = Paths.get(projectLocalPropertyFile.toURI());
-				}
-			}
-			LOGGER.debug("properties file was located here:: " + propFilePath);
-			if (!Files.exists(propFilePath, LinkOption.NOFOLLOW_LINKS)) {
-				throw new IOException();
-			}
+			propFilePath = getPropfilePath();
 			properties = new Properties();
 			properties.load(new FileInputStream(
 					propFilePath.toFile()));
@@ -84,7 +70,32 @@ public class Config {
 		}
 	}
 
-    /**
+	/**
+	 * Loads the properties file.
+	 *
+	 * @return the properties file
+	 * @throws IOException
+	 * @throws URISyntaxException
+	 */
+    protected Path getPropfilePath() throws IOException, URISyntaxException {
+		URI jarpath = Config.class.getProtectionDomain().getCodeSource().getLocation().toURI();
+		LOGGER.debug("jarpath: " + jarpath.toString());
+		Path parentPath = Paths.get(jarpath).getParent();
+		propFilePath = Paths.get(parentPath.toString(), CONFIG_PROPERTIES_FILE_NAME);
+		if (!Files.exists(propFilePath, LinkOption.NOFOLLOW_LINKS)) {
+			URL projectLocalPropertyFile = Config.class.getClassLoader().getResource(CONFIG_PROPERTIES_FILE_NAME);
+			if (projectLocalPropertyFile != null) {
+					propFilePath = Paths.get(projectLocalPropertyFile.toURI());
+			}
+		}
+		LOGGER.debug("properties file was located here:: " + propFilePath);
+		if (!Files.exists(propFilePath, LinkOption.NOFOLLOW_LINKS)) {
+			throw new IOException();
+		}
+		return propFilePath;
+	}
+
+	/**
      * Base URI of the organization or institute that does the rdfization (e.g. "zpid").
      */
     public static String getInstitutionUrl() {
