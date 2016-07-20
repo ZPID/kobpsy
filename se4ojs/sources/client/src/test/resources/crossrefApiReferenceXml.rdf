@@ -124,6 +124,9 @@
    <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/textual-entity">
       <prism:keyword>teens</prism:keyword>
    </rdf:Description>
+   <rdf:Description rdf:about="http://www.zpid.de/resource/crossref/teens">
+      <skos:prefLabel>teens</skos:prefLabel>
+   </rdf:Description>
    <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/textual-entity">
       <fabio:hasSubjectTerm rdf:resource="http://www.zpid.de/resource/crossref/self-regulation"/>
    </rdf:Description>
@@ -132,6 +135,9 @@
    </rdf:Description>
    <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/textual-entity">
       <prism:keyword>self-regulation</prism:keyword>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://www.zpid.de/resource/crossref/self-regulation">
+      <skos:prefLabel>self-regulation</skos:prefLabel>
    </rdf:Description>
    <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/textual-entity">
       <fabio:hasSubjectTerm rdf:resource="http://www.zpid.de/resource/crossref/lifestyles"/>
@@ -142,6 +148,9 @@
    <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/textual-entity">
       <prism:keyword>lifestyles</prism:keyword>
    </rdf:Description>
+   <rdf:Description rdf:about="http://www.zpid.de/resource/crossref/lifestyles">
+      <skos:prefLabel>lifestyles</skos:prefLabel>
+   </rdf:Description>
    <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/textual-entity">
       <fabio:hasSubjectTerm rdf:resource="http://www.zpid.de/resource/crossref/knowledgehiv"/>
    </rdf:Description>
@@ -151,6 +160,9 @@
    <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/textual-entity">
       <prism:keyword>knowledge hiv</prism:keyword>
    </rdf:Description>
+   <rdf:Description rdf:about="http://www.zpid.de/resource/crossref/knowledgehiv">
+      <skos:prefLabel>knowledge hiv</skos:prefLabel>
+   </rdf:Description>
    <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/textual-entity">
       <fabio:hasSubjectTerm rdf:resource="http://www.zpid.de/resource/crossref/aids"/>
    </rdf:Description>
@@ -159,6 +171,9 @@
    </rdf:Description>
    <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/textual-entity">
       <prism:keyword>aids</prism:keyword>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://www.zpid.de/resource/crossref/aids">
+      <skos:prefLabel>aids</skos:prefLabel>
    </rdf:Description>
    <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/textual-entity">
       <owl:sameAs rdf:resource="http://dx.doi.org/10.5964/ejcop.v2i2.34"/>
@@ -434,6 +449,9 @@
          </rdf:Description>
       </frbr:partOf>
    </rdf:Description>
+   <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/conceptual-work/conceptual-papers-collection">
+      <rdf:type rdf:resource="http://purl.org/spar/fabio/WorkCollection"/>
+   </rdf:Description>
    <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/textual-entity">
       <frbr:partOf rdf:resource="http://www.zpid.de/resource/journal/TheEuropeanJournalofCounsellingPsychology/periodical-issue/issue_2"/>
    </rdf:Description>
@@ -441,9 +459,6 @@
       <rdf:type rdf:resource="http://purl.org/spar/fabio/PeriodicalIssue"/>
       <frbr:realizationOf rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/conceptual-work/conceptual-papers-collection"/>
       <prism:issueIdentifier rdf:resource="2"/>
-   </rdf:Description>
-   <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/conceptual-work/conceptual-papers-collection">
-      <rdf:type rdf:resource="http://purl.org/spar/fabio/WorkCollection"/>
    </rdf:Description>
    <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/textual-entity">
       <frbr:embodiment rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/digital-embodiment"/>
@@ -487,6 +502,9 @@
    <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/textual-entity">
       <prism:keyword>teens</prism:keyword>
    </rdf:Description>
+   <rdf:Description rdf:about="http://www.zpid.de/resource/psychopen/teens">
+      <skos:prefLabel>teens</skos:prefLabel>
+   </rdf:Description>
    <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/textual-entity">
       <fabio:hasSubjectTerm rdf:resource="http://www.zpid.de/resource/psychopen/self-regulation"/>
    </rdf:Description>
@@ -495,6 +513,9 @@
    </rdf:Description>
    <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/textual-entity">
       <prism:keyword>self-regulation</prism:keyword>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://www.zpid.de/resource/psychopen/self-regulation">
+      <skos:prefLabel>self-regulation</skos:prefLabel>
    </rdf:Description>
    <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/textual-entity">
       <fabio:hasSubjectTerm rdf:resource="http://www.zpid.de/resource/psychopen/lifestyles"/>
@@ -505,6 +526,9 @@
    <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/textual-entity">
       <prism:keyword>lifestyles</prism:keyword>
    </rdf:Description>
+   <rdf:Description rdf:about="http://www.zpid.de/resource/psychopen/lifestyles">
+      <skos:prefLabel>lifestyles</skos:prefLabel>
+   </rdf:Description>
    <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/textual-entity">
       <fabio:hasSubjectTerm rdf:resource="http://www.zpid.de/resource/psychopen/knowledgeHIV"/>
    </rdf:Description>
@@ -514,6 +538,9 @@
    <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/textual-entity">
       <prism:keyword>knowledge HIV</prism:keyword>
    </rdf:Description>
+   <rdf:Description rdf:about="http://www.zpid.de/resource/psychopen/knowledgeHIV">
+      <skos:prefLabel>knowledge HIV</skos:prefLabel>
+   </rdf:Description>
    <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/textual-entity">
       <fabio:hasSubjectTerm rdf:resource="http://www.zpid.de/resource/psychopen/AIDS"/>
    </rdf:Description>
@@ -522,6 +549,9 @@
    </rdf:Description>
    <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/textual-entity">
       <prism:keyword>AIDS</prism:keyword>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://www.zpid.de/resource/psychopen/AIDS">
+      <skos:prefLabel>AIDS</skos:prefLabel>
    </rdf:Description>
    <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/textual-entity">
       <frbr:part rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/textual-entity/reference-list"/>
@@ -669,6 +699,9 @@
          </rdf:Description>
       </frbr:partOf>
    </rdf:Description>
+   <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-r1/conceptual-work/conceptual-papers-collection">
+      <rdf:type rdf:resource="http://purl.org/spar/fabio/WorkCollection"/>
+   </rdf:Description>
    <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-r1/textual-entity">
       <frbr:partOf rdf:resource="http://www.zpid.de/resource/journal/RevistaEnfermagemUERJ/issue_2"/>
    </rdf:Description>
@@ -676,9 +709,6 @@
       <rdf:type rdf:resource="http://purl.org/spar/fabio/PeriodicalIssue"/>
       <frbr:realizationOf rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-r1/conceptual-work/conceptual-papers-collection"/>
       <prism:issueIdentifier rdf:resource="2"/>
-   </rdf:Description>
-   <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-r1/conceptual-work/conceptual-papers-collection">
-      <rdf:type rdf:resource="http://purl.org/spar/fabio/WorkCollection"/>
    </rdf:Description>
    <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-r1/textual-entity">
       <frbr:embodiment rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-r1/digital-embodiment"/>
@@ -883,6 +913,9 @@
    <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-r13/textual-entity">
       <prism:keyword>social change</prism:keyword>
    </rdf:Description>
+   <rdf:Description rdf:about="http://www.zpid.de/resource/crossref/socialchange">
+      <skos:prefLabel>social change</skos:prefLabel>
+   </rdf:Description>
    <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-r13/textual-entity">
       <fabio:hasSubjectTerm rdf:resource="http://www.zpid.de/resource/crossref/goals"/>
    </rdf:Description>
@@ -891,6 +924,9 @@
    </rdf:Description>
    <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-r13/textual-entity">
       <prism:keyword>goals</prism:keyword>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://www.zpid.de/resource/crossref/goals">
+      <skos:prefLabel>goals</skos:prefLabel>
    </rdf:Description>
    <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-r13/textual-entity">
       <fabio:hasSubjectTerm rdf:resource="http://www.zpid.de/resource/crossref/collectiveaction"/>
@@ -901,6 +937,9 @@
    <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-r13/textual-entity">
       <prism:keyword>collective action</prism:keyword>
    </rdf:Description>
+   <rdf:Description rdf:about="http://www.zpid.de/resource/crossref/collectiveaction">
+      <skos:prefLabel>collective action</skos:prefLabel>
+   </rdf:Description>
    <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-r13/textual-entity">
       <fabio:hasSubjectTerm rdf:resource="http://www.zpid.de/resource/crossref/efficacy"/>
    </rdf:Description>
@@ -909,6 +948,9 @@
    </rdf:Description>
    <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-r13/textual-entity">
       <prism:keyword>efficacy</prism:keyword>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://www.zpid.de/resource/crossref/efficacy">
+      <skos:prefLabel>efficacy</skos:prefLabel>
    </rdf:Description>
    <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-r13/textual-entity">
       <fabio:hasSubjectTerm rdf:resource="http://www.zpid.de/resource/crossref/legitimacy"/>
@@ -919,6 +961,9 @@
    <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-r13/textual-entity">
       <prism:keyword>legitimacy</prism:keyword>
    </rdf:Description>
+   <rdf:Description rdf:about="http://www.zpid.de/resource/crossref/legitimacy">
+      <skos:prefLabel>legitimacy</skos:prefLabel>
+   </rdf:Description>
    <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-r13/textual-entity">
       <fabio:hasSubjectTerm rdf:resource="http://www.zpid.de/resource/crossref/identity"/>
    </rdf:Description>
@@ -928,6 +973,9 @@
    <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-r13/textual-entity">
       <prism:keyword>identity</prism:keyword>
    </rdf:Description>
+   <rdf:Description rdf:about="http://www.zpid.de/resource/crossref/identity">
+      <skos:prefLabel>identity</skos:prefLabel>
+   </rdf:Description>
    <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-r13/textual-entity">
       <fabio:hasSubjectTerm rdf:resource="http://www.zpid.de/resource/crossref/system"/>
    </rdf:Description>
@@ -936,6 +984,9 @@
    </rdf:Description>
    <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-r13/textual-entity">
       <prism:keyword>system</prism:keyword>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://www.zpid.de/resource/crossref/system">
+      <skos:prefLabel>system</skos:prefLabel>
    </rdf:Description>
    <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-r13/textual-entity">
       <owl:sameAs rdf:resource="http://dx.doi.org/10.5964/jspp.v1i1.85"/>

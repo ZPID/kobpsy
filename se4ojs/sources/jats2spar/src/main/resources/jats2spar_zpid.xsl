@@ -2859,13 +2859,10 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
             <xsl:with-param name="triples"
                 select="$s, 'prism:keyword', concat('&quot;', ., '&quot;')"/>
         </xsl:call-template>
-        <xsl:if test="$prov = 'pubpsych'">
-            <xsl:call-template name="assert">
+        <xsl:call-template name="assert">
                <xsl:with-param name="triples"
-                   select="$term, 'skos:prefLabel', concat('&quot;', .,'&quot;'),
-                   'skos:inScheme', 'http://purl.bioontology.org/ontology/APAONTO'"/>
-            </xsl:call-template>
-        </xsl:if>
+                   select="$term, 'skos:prefLabel', concat('&quot;', .,'&quot;')"/>
+        </xsl:call-template>
     </xsl:template>
     <!-- END - Named templates -->
 

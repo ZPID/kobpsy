@@ -373,6 +373,9 @@
          </rdf:Description>
       </frbr:partOf>
    </rdf:Description>
+   <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/conceptual-work/conceptual-papers-collection">
+      <rdf:type rdf:resource="http://purl.org/spar/fabio/WorkCollection"/>
+   </rdf:Description>
    <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/textual-entity">
       <frbr:partOf rdf:resource="http://www.zpid.de/resource/journal/TheEuropeanJournalofCounsellingPsychology/periodical-issue/issue_2"/>
    </rdf:Description>
@@ -380,9 +383,6 @@
       <rdf:type rdf:resource="http://purl.org/spar/fabio/PeriodicalIssue"/>
       <frbr:realizationOf rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/conceptual-work/conceptual-papers-collection"/>
       <prism:issueIdentifier rdf:resource="2"/>
-   </rdf:Description>
-   <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/conceptual-work/conceptual-papers-collection">
-      <rdf:type rdf:resource="http://purl.org/spar/fabio/WorkCollection"/>
    </rdf:Description>
    <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/textual-entity">
       <frbr:embodiment rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/digital-embodiment"/>
@@ -426,6 +426,9 @@
    <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/textual-entity">
       <prism:keyword>teens</prism:keyword>
    </rdf:Description>
+   <rdf:Description rdf:about="http://www.zpid.de/resource/psychopen/teens">
+      <skos:prefLabel>teens</skos:prefLabel>
+   </rdf:Description>
    <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/textual-entity">
       <fabio:hasSubjectTerm rdf:resource="http://www.zpid.de/resource/psychopen/self-regulation"/>
    </rdf:Description>
@@ -434,6 +437,9 @@
    </rdf:Description>
    <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/textual-entity">
       <prism:keyword>self-regulation</prism:keyword>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://www.zpid.de/resource/psychopen/self-regulation">
+      <skos:prefLabel>self-regulation</skos:prefLabel>
    </rdf:Description>
    <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/textual-entity">
       <fabio:hasSubjectTerm rdf:resource="http://www.zpid.de/resource/psychopen/lifestyles"/>
@@ -444,6 +450,9 @@
    <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/textual-entity">
       <prism:keyword>lifestyles</prism:keyword>
    </rdf:Description>
+   <rdf:Description rdf:about="http://www.zpid.de/resource/psychopen/lifestyles">
+      <skos:prefLabel>lifestyles</skos:prefLabel>
+   </rdf:Description>
    <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/textual-entity">
       <fabio:hasSubjectTerm rdf:resource="http://www.zpid.de/resource/psychopen/knowledgeHIV"/>
    </rdf:Description>
@@ -453,6 +462,9 @@
    <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/textual-entity">
       <prism:keyword>knowledge HIV</prism:keyword>
    </rdf:Description>
+   <rdf:Description rdf:about="http://www.zpid.de/resource/psychopen/knowledgeHIV">
+      <skos:prefLabel>knowledge HIV</skos:prefLabel>
+   </rdf:Description>
    <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/textual-entity">
       <fabio:hasSubjectTerm rdf:resource="http://www.zpid.de/resource/psychopen/AIDS"/>
    </rdf:Description>
@@ -461,6 +473,9 @@
    </rdf:Description>
    <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/textual-entity">
       <prism:keyword>AIDS</prism:keyword>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://www.zpid.de/resource/psychopen/AIDS">
+      <skos:prefLabel>AIDS</skos:prefLabel>
    </rdf:Description>
    <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/textual-entity">
       <frbr:part rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/textual-entity/reference-list"/>
@@ -608,6 +623,9 @@
          </rdf:Description>
       </frbr:partOf>
    </rdf:Description>
+   <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-r1/conceptual-work/conceptual-papers-collection">
+      <rdf:type rdf:resource="http://purl.org/spar/fabio/WorkCollection"/>
+   </rdf:Description>
    <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-r1/textual-entity">
       <frbr:partOf rdf:resource="http://www.zpid.de/resource/journal/RevistaEnfermagemUERJ/issue_2"/>
    </rdf:Description>
@@ -615,9 +633,6 @@
       <rdf:type rdf:resource="http://purl.org/spar/fabio/PeriodicalIssue"/>
       <frbr:realizationOf rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-r1/conceptual-work/conceptual-papers-collection"/>
       <prism:issueIdentifier rdf:resource="2"/>
-   </rdf:Description>
-   <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-r1/conceptual-work/conceptual-papers-collection">
-      <rdf:type rdf:resource="http://purl.org/spar/fabio/WorkCollection"/>
    </rdf:Description>
    <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-r1/textual-entity">
       <frbr:embodiment rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-r1/digital-embodiment"/>
@@ -1309,10 +1324,175 @@
    </rdf:Description>
    <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-item-6">
       <rdf:type rdf:resource="http://purl.org/co/ListItem"/>
-      <co:itemContent rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-r28"/>
+      <co:itemContent rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-r17"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-item-6">
+      <co:nextItem rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-item-7"/>
    </rdf:Description>
    <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-item-6">
       <co:index rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6</co:index>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-r17">
+      <dcterms:bibliographicCitation>IshiguroK.Lanteri-MinetM.Guegan-MassardierE.MickG.FabreN.GeraudG. (2008). Developmental activity of the renin-angiotensin system during the </dcterms:bibliographicCitation>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-r17">
+      <rdf:type rdf:resource="http://purl.org/spar/biro/BibliographicReference"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-r17">
+      <dcterms:identifier>r17</dcterms:identifier>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-r17">
+      <biro:references rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-r17/textual-entity"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/textual-entity">
+      <cito:cites rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-r17/textual-entity"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-r17/textual-entity">
+      <rdf:type rdf:resource="http://purl.org/spar/fabio/Expression"/>
+      <frbr:realizationOf rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-r17/conceptual-work"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-r17/textual-entity">
+      <rdf:type rdf:resource="http://purl.org/spar/fabio/JournalArticle"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-r17/textual-entity/group-6">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Group"/>
+      <pro:holdsRoleInTime>
+         <rdf:Description>
+            <pro:withRole rdf:resource="http://purl.org/spar/pro/author"/>
+            <pro:relatesToDocument rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-r17/textual-entity"/>
+         </rdf:Description>
+      </pro:holdsRoleInTime>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-r17/textual-entity/group-6">
+      <foaf:member rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-r17/textual-entity/group-6-agent-1"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-r17/textual-entity/group-6-agent-1">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-r17/textual-entity/group-6-agent-1">
+      <foaf:familyName>Ishiguro</foaf:familyName>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-r17/textual-entity/group-6-agent-1">
+      <foaf:givenName>K.</foaf:givenName>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-r17/textual-entity/group-6">
+      <foaf:member rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-r17/textual-entity/group-6-agent-2"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-r17/textual-entity/group-6-agent-2">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-r17/textual-entity/group-6-agent-2">
+      <foaf:familyName>Lanteri-Minet</foaf:familyName>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-r17/textual-entity/group-6-agent-2">
+      <foaf:givenName>M.</foaf:givenName>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-r17/textual-entity/group-6">
+      <foaf:member rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-r17/textual-entity/group-6-agent-3"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-r17/textual-entity/group-6-agent-3">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-r17/textual-entity/group-6-agent-3">
+      <foaf:familyName>Guegan-Massardier</foaf:familyName>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-r17/textual-entity/group-6-agent-3">
+      <foaf:givenName>E.</foaf:givenName>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-r17/textual-entity/group-6">
+      <foaf:member rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-r17/textual-entity/group-6-agent-4"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-r17/textual-entity/group-6-agent-4">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-r17/textual-entity/group-6-agent-4">
+      <foaf:familyName>Mick</foaf:familyName>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-r17/textual-entity/group-6-agent-4">
+      <foaf:givenName>G.</foaf:givenName>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-r17/textual-entity/group-6">
+      <foaf:member rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-r17/textual-entity/group-6-agent-5"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-r17/textual-entity/group-6-agent-5">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-r17/textual-entity/group-6-agent-5">
+      <foaf:familyName>Fabre</foaf:familyName>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-r17/textual-entity/group-6-agent-5">
+      <foaf:givenName>N.</foaf:givenName>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-r17/textual-entity/group-6">
+      <foaf:member rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-r17/textual-entity/group-6-agent-6"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-r17/textual-entity/group-6-agent-6">
+      <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-r17/textual-entity/group-6-agent-6">
+      <foaf:familyName>Geraud</foaf:familyName>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-r17/textual-entity/group-6-agent-6">
+      <foaf:givenName>G.</foaf:givenName>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-r17/textual-entity">
+      <fabio:hasPublicationYear>2008</fabio:hasPublicationYear>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-r17/textual-entity">
+      <dcterms:title>Developmental activity of the renin-angiotensin system during the </dcterms:title>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://www.zpid.de/resource/journal/JournalofNeurology%2CNeurosurgery%2Cand%0APsychiatry">
+      <dcterms:title>Journal of Neurology, Neurosurgery, and
+                  Psychiatry</dcterms:title>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-r17/textual-entity">
+      <frbr:partOf rdf:resource="http://www.zpid.de/resource/journal/JournalofNeurology%2CNeurosurgery%2Cand%0APsychiatry"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-r17/textual-entity">
+      <frbr:partOf rdf:resource="http://www.zpid.de/resource/journal/JournalofNeurology%2CNeurosurgery%2Cand%0APsychiatry/volume_78"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://www.zpid.de/resource/journal/JournalofNeurology%2CNeurosurgery%2Cand%0APsychiatry/volume_78">
+      <rdf:type rdf:resource="http://purl.org/spar/fabio/PeriodicalVolume"/>
+      <prism:volume>78</prism:volume>
+      <frbr:partOf>
+         <rdf:Description>
+            <rdf:type rdf:resource="http://purl.org/spar/fabio/Periodical"/>
+         </rdf:Description>
+      </frbr:partOf>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-r17/textual-entity">
+      <frbr:embodiment rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-r17/digital-embodiment"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-r17/digital-embodiment">
+      <prism:startingPage rdf:resource="1354"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-r17/digital-embodiment">
+      <prism:endingPage rdf:resource="1358"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-r17/textual-entity">
+      <prism:doi>10.5964/jspp.v1i1.85</prism:doi>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-r17/textual-entity">
+      <owl:sameAs rdf:resource="http://dx.doi.org/10.5964/jspp.v1i1.85"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-r17/textual-entity">
+      <fabio:hasPubMedId>17442761</fabio:hasPubMedId>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-r17/textual-entity">
+      <rdfs:seeAlso rdf:resource="http://www.ncbi.nlm.nih.gov/pubmed/17442761"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-r17/textual-entity">
+      <owl:sameAs rdf:resource="http://identifiers.org/pubmed/17442761"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/textual-entity/reference-list">
+      <co:item rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-item-7"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-item-7">
+      <rdf:type rdf:resource="http://purl.org/co/ListItem"/>
+      <co:itemContent rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-r28"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-item-7">
+      <co:index rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">7</co:index>
    </rdf:Description>
    <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/reference-r28">
       <dcterms:bibliographicCitation>Zimet, G. D. (1989). Adolescent AIDS knowledge scale. Retrieved from http://cw.routledge.com/textbooks/9780415801751/resources/Zimet_AAKS.doc</dcterms:bibliographicCitation>
