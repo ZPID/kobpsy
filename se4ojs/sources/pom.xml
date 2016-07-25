@@ -4,13 +4,13 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.zpid.se4ojs</groupId>
 	<artifactId>se4ojs-parent</artifactId>
-	<version>2.1-SNAPSHOT</version>
+	<version>2.1</version>
 	<packaging>pom</packaging>
 	<name>se4ojs</name>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<project.version>2.1-SNAPSHOT</project.version>
+		<project.version>2.1</project.version>
 		<maven.assembly.version>2.6</maven.assembly.version>
 		<httpclient.version>4.5.2</httpclient.version>
 		<jackson.version>2.5.4</jackson.version>
