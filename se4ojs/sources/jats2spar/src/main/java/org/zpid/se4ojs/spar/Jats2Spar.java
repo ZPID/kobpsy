@@ -72,6 +72,8 @@ public class Jats2Spar {
 
 	private static final Logger log = LogManager.getLogger(Jats2Spar.class);
 
+	private static final String DEFAULT_LANGUAGE = "en";
+
 	private String articleLanguage;
 
 	/**
@@ -226,7 +228,12 @@ public class Jats2Spar {
 	private boolean checkArticleLanguage(Document doc, String languages) {
 		Element article = (Element) doc.getElementsByTagName(TAG_ARTICLE).item(0);
 		Attr attrLanguage = article.getAttributeNode(ATTR_LANGUAGE);
-		articleLanguage = attrLanguage.getValue();
+		if (attrLanguage == null) {
+			log.warn("No language attribute exists for article. Defaulting to English");
+			articleLanguage = DEFAULT_LANGUAGE;
+		} else {
+			articleLanguage = attrLanguage.getValue();
+		}
 		if (languages.toLowerCase().contains(articleLanguage.toLowerCase())) {
 			return true;
 		}
