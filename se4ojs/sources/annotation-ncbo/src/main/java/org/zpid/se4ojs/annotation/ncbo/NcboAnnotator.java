@@ -14,21 +14,15 @@ import java.net.URLEncoder;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.ontoware.rdf2go.model.Model;
-import org.zpid.se4ojs.annotation.AnnotationUtils;
-import org.zpid.se4ojs.annotation.JsonAnnotationHandler;
 import org.zpid.se4ojs.annotation.OaAnnotator;
-import org.zpid.se4ojs.annotation.util.AnnotationEvent;
-import org.zpid.se4ojs.annotation.util.AnnotationListener;
 import org.zpid.se4ojs.annotation.util.AnnotationResultsAvailableEvent;
-import org.zpid.se4ojs.annotation.util.JsonResultEvent;
-import org.zpid.se4ojs.annotation.util.MappingsResultEvent;
 import org.zpid.se4ojs.app.Config;
-import org.zpid.se4ojs.sparql.Prefix;
 import org.zpid.se4ojs.textStructure.bo.BOStructureElement;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -57,15 +51,9 @@ public class NcboAnnotator extends OaAnnotator {
 
 	private static Logger log = LogManager.getLogger(NcboAnnotator.class);
 	private String ontologies;
-	private JsonResultListener jsonResultListener;
 
 	public NcboAnnotator(String ontologies) {
 		this.ontologies = ontologies;
-	}
-
-	public NcboAnnotator(String ontologies, boolean isJsonAnnotation) {
-		this(ontologies);
-		setJsonAsAnnotationSource(isJsonAnnotation);
 	}
 
 	/**
@@ -76,13 +64,13 @@ public class NcboAnnotator extends OaAnnotator {
 	 *      RDF-representations of the annotations.
 	 */
 	@Override
-	public void annotateText(Model model, String text, String subElementUri)
+	public void annotateText(Map<String,Model> ontologyModels, String text, String subElementUri)
 			throws UnsupportedEncodingException {
 
 		JsonNode results = callAnnotator(text);
 
 		if (results != null) {
-			rdfizeAnnotations(model, results, subElementUri);
+			rdfizeAnnotations(ontologyModels, results, subElementUri);
 			notifyListeners(getAnnotationListeners(), new AnnotationResultsAvailableEvent(results, subElementUri));
 		} else {
 			log.error("NCBOAnnotator: Results are null!. : Text: " + text);
@@ -117,9 +105,6 @@ public class NcboAnnotator extends OaAnnotator {
 				+ new Boolean(Config.getNcboIsExcludeSynonyms()).toString().toLowerCase());
 
 		urlParameters.append(createUrlParameterForOntologies());
-//@FIXME address issues with mapping expansion and enable again
-//		urlParameters.append("&expand_mappings="
-//				+ new Boolean(Config.getNcboExpandMappings()).toString().toLowerCase());
 
 		// //TODO externalize following options in config.properties
 		urlParameters.append("&exclude_numbers=true");
@@ -148,29 +133,28 @@ public class NcboAnnotator extends OaAnnotator {
 	 *            the ID of the text structure element whose text is being
 	 *            annotated
 	 */
-	private void rdfizeAnnotations(Model model, JsonNode results,
+	private void rdfizeAnnotations(Map<String,Model> ontologyModels, JsonNode results,
 			String textStructElementUri) {
 
 		for (JsonNode result : results) {
 			String rawClassDetails = "";
-			if (isJsonAsAnnotationSource()) {
-				rawClassDetails = result.get("annotatedClass").toString();
-			} else {
-				// Get the details for the class that was found in the annotation
-				rawClassDetails = get(result.get("annotatedClass")
-						.get("links").get("self").asText());
-			}
+
+			// Get the details for the class that was found in the annotation
+			rawClassDetails = get(result.get("annotatedClass").get("links")
+					.get("self").asText());
 			if (!rawClassDetails.isEmpty()) {
 				JsonNode classDetails = jsonToNode(rawClassDetails);
 				JsonNode annotationInfo = result.get("annotations");
-				rdfizeAnnotation(model, textStructElementUri, classDetails, annotationInfo);
+				rdfizeAnnotation(ontologyModels, textStructElementUri,
+						classDetails, annotationInfo);
 			} else {
-				log.error("Class details for json Node:" + result + " are empty. Check json library version.");
+				log.error("Class details for json Node:" + result
+						+ " are empty. Check json library version.");
 			}
 		}
 	}
 
-	void rdfizeAnnotation(Model model, String textStructElementUri,
+	private void rdfizeAnnotation(Map<String,Model> ontologyModels, String textStructElementUri,
 			JsonNode classDetails, JsonNode annotationInfo) {
 		String matchType = StringUtils.EMPTY;
 		if (annotationInfo != null) {
@@ -181,40 +165,39 @@ public class NcboAnnotator extends OaAnnotator {
 				}
 			}
 			if (matchType.isEmpty() || matchType.equals("PREF")) {
-				extractClassDetails(model, textStructElementUri, classDetails,
-						annotationInfo);
+				String ontology = extractOntologyName(classDetails);
+				extractClassDetails(ontologyModels, textStructElementUri, classDetails,
+						annotationInfo, ontology);
 			}
 		}
 	}
 
-	protected void extractClassDetails(Model model,
+	protected String extractOntologyName(JsonNode classDetails) {
+		return classDetails.get("links").get("ontology")
+				.asText();
+	}
+
+	private void extractClassDetails(Map<String,Model> ontologyModels,
 			String textStructElementUri, JsonNode classDetails,
-			JsonNode annotationInfo) {
+			JsonNode annotationInfo, String ontology) {
+
 		String conceptId = getClassDetail(classDetails, "@id");
 		String prefLabel = getClassDetail(classDetails, "prefLabel");
 		String conceptBrowserUrl = getClassDetail(classDetails,
 				"links", "ui");
-		if (Config.getNcboExpandMappings() == true) {
-			JsonNode mappingsNode = classDetails.get("links").get("mappings");
-			if (mappingsNode != null) {
-//				try {//@TODO check if waiting is necessary because of too many api calls
-//					Thread.sleep(1000);
-//				} catch (InterruptedException e) {
-//					// TODO Auto-generated catch block
-//					e.printStackTrace();
-//				}
-				JsonNode mappings = jsonToNode(get(mappingsNode.asText()));
-				notifyListeners(getAnnotationListeners(),
-						new MappingsResultEvent(conceptId, mappings));
-			}
-		}
-
+		String ontologyName	= ontology.subSequence(ontology.lastIndexOf("/") + 1, ontology.length()).toString();
 		log.trace("\tprefLabel: " + prefLabel);
-		String ontology = classDetails.get("links").get("ontology")
-				.asText();
 		log.trace("\tontology: " + ontology + "\n");
+		Model model = ontologyModels.get(ontologyName);
+		createSingleAnnotation(textStructElementUri, annotationInfo, conceptId,
+				prefLabel, conceptBrowserUrl, ontology, model);
+	}
 
-		String annotationUri = createAnnotation(model, conceptId);
+	private void createSingleAnnotation(String textStructElementUri,
+			JsonNode annotationInfo, String conceptId, String prefLabel,
+			String conceptBrowserUrl, String ontology, Model model) {
+
+		String annotationUri = createAnnotationUri(model, conceptId);
 		log.trace("Annotation URI: " + annotationUri);
 		addAnnotationMetaInfo(model, annotationUri, NCBO_ANNOTATOR_URL);
 		String bodyUri = createBody(model, annotationUri, conceptId);
@@ -222,76 +205,8 @@ public class NcboAnnotator extends OaAnnotator {
 				ontology);
 		createTargets(model, annotationInfo, annotationUri,
 				textStructElementUri);
-		if (getSemTypeModel() != null) {
-			createSemanticTypeInfo(bodyUri, classDetails);
-		}
-		if (getSemTypeModel() != null && Config.getNcboCui()) {
-			createCuiInfo(bodyUri, classDetails);
-		}
 	}
 
-	/**
-	 * Adds semantic type info. The information in passed to a separate model so
-	 * that the RDF may be persisted separately from the rest of the
-	 * annotations.
-	 *
-	 * @TODO As a first step we save the semantic type as a literal. However,
-	 *       the semantic type should be mapped to the corresponding concept in
-	 *       bioportal's semantic type ontology (STY).
-	 *
-	 * @FIXME The predicate used here does not belong to an ontology. Find a
-	 *        suitable ontology / structure to express "hasSemanticType" or
-	 *        create one.
-	 *
-	 * @param bodyUri
-	 *            the uri of the body (concept)
-	 */
-	protected void createSemanticTypeInfo(String bodyUri, JsonNode classDetails) {
-		String semanticType = getClassDetail(classDetails, "semanticType");
-		if (!StringUtils.isEmpty(semanticType)) {
-			String[] semTypes = semanticType.split(",");
-			for (String semTypeToken : semTypes) {
-				getAnnotationUtils()
-						.createResourceTriple(
-								bodyUri,
-								AnnotationUtils.createPropertyString(
-										Prefix.PLACEHOLDER, "hasSemanticType"),
-										semTypeToken, getSemTypeModel());
-			}
-		}
-	}
-
-	/**
-	 * Adds the cui info. The information in passed to a separate model so
-	 * that the RDF may be persisted separately from the rest of the
-	 * annotations.
-	 *
-	 * @TODO As a first step we save the semantic type as a literal. However,
-	 *       the semantic type should be mapped to the corresponding concept in
-	 *       bioportal's semantic type ontology (STY).
-	 *
-	 * @FIXME The predicate used here does not belong to an ontology. Find a
-	 *        suitable ontology / structure to express "hasSemanticType" or
-	 *        create one.
-	 *
-	 * @param bodyUri
-	 *            the uri of the body (concept)
-	 */
-	private void createCuiInfo(String bodyUri, JsonNode classDetails) {
-		String cui = getClassDetail(classDetails, "cui");
-		if (!StringUtils.isEmpty(cui)) {
-			String[] cuis = cui.split(",");
-			for (String cuiToken : cuis) {
-				getAnnotationUtils()
-						.createLiteralTriple(
-								bodyUri,
-								AnnotationUtils.createPropertyString(
-										Prefix.PLACEHOLDER, "hasCui"),
-								cuiToken, getSemTypeModel());
-			}
-		}
-
-	}
 
 
 	/**
@@ -304,7 +219,7 @@ public class NcboAnnotator extends OaAnnotator {
 	 * @param textStructElementUri
 	 *            the URI of the paragraph that is being annotated
 	 */
-	private void createTargets(Model model, JsonNode annotationInfo,
+	protected void createTargets(Model model, JsonNode annotationInfo,
 			String annotationUri, String textStructElementUri) {
 		int startPos = -1;
 		int endPos = -1;
@@ -377,9 +292,9 @@ public class NcboAnnotator extends OaAnnotator {
 	 *      of the concept URI to create the annotation ID.
 	 */
 	@Override
-	public String createAnnotation(Model model, String id) {
+	public String createAnnotationUri(Model model, String id) {
 		String idSuffix = id.substring(id.lastIndexOf("/") + 1);
-		String url = super.createAnnotation(model, idSuffix);
+		String url = super.createAnnotationUri(model, idSuffix);
 		return url;
 	}
 
@@ -390,16 +305,6 @@ public class NcboAnnotator extends OaAnnotator {
 		String out = paper.toPath().getFileName().toString()
 				.replace(".xml", "-ncboAnnotations.rdf");
 		out = out.replace(".XML", "-ncboAnnotations.rdf");
-		if (Config.isSaveAnnotationAsJson()) {
-			addListener(new JsonAnnotationHandler(
-					Paths.get(outputDir.toString(),out.replace(
-							".rdf", ".json")).toString(), false));
-		}
-		if (Config.getNcboExpandMappings()) {
-			addMappingsListener(new JsonAnnotationHandler(
-					Paths.get(outputDir.toString(),out.replace(
-							".rdf", "mappings.json")).toString(), false));
-		}
 		super.annotate(baseUri, paper, bOStructureElements,
 				Paths.get(outputDir.toString(), out));
 	}
@@ -502,47 +407,6 @@ public class NcboAnnotator extends OaAnnotator {
 		return conn;
 	}
 
-	@Override
-	protected AnnotationListener getJsonResultsListener() {
-		if (jsonResultListener == null) {
-			this.jsonResultListener = new JsonResultListener();
-		}
-		return jsonResultListener;
-	}
 
-	private class JsonResultListener implements AnnotationListener {
 
-		private Model model;
-		private String subElementUri;
-
-		@Override
-		public void handlePaperAnnotationFinished() {
-			// TODO Auto-generated method stub
-
-		}
-
-		@Override
-		public void update(AnnotationEvent event) {
-			if (event instanceof JsonResultEvent) {
-				JsonResultEvent resultsEvent= (JsonResultEvent) event;
-				NcboAnnotator.this.rdfizeAnnotations(model, resultsEvent.getResult(), subElementUri);
-			}
-		}
-
-		public void setModel(Model model) {
-			this.model = model;
-		}
-
-		public void setSubElementUri(String subElementUri) {
-			this.subElementUri = subElementUri;
-		}
-
-	}
-
-	@Override
-	protected void updateJsonResultListener(Model model, String subElementUri) {
-		jsonResultListener.setModel(model);
-		jsonResultListener.setSubElementUri(subElementUri);
-
-	}
 }

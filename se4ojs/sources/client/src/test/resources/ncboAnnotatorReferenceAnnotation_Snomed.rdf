@@ -1,0 +1,181 @@
+<rdf:RDF
+    xmlns:po="http://www.essepuntato.it/2008/12/pattern#"
+    xmlns:co="http://purl.org/co/"
+    xmlns:psyndex="http://www.zpid.de/psyndex#"
+    xmlns:oa="http://www.w3.org/ns/oa#"
+    xmlns:dcterms="http://purl.org/dc/terms/"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:prov="http://www.w3.org/ns/prov#"
+    xmlns:c4o="http://purl.org/spar/c4o/"
+    xmlns:zpid_placeholder_onto="http://www.zpid.de/placeholder/"
+    xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+    xmlns:cnt="http://www.w3.org/2011/content#"
+    xmlns:frbr="http://purl.org/vocab/frbr/core#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:sro="http://salt.semanticauthoring.org/ontologies/sro#"
+    xmlns:cito="http://purl.org/spar/cito/"
+    xmlns:prism="http://prismstandard.org/namespaces/basic/2.0/"
+    xmlns:datacite="http://purl.org/spar/datacite/"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:zpid_doco="http://www.zpid.de/zpid_doco#"
+    xmlns:tvc="http://www.essepuntato.it/2012/04/tvc/"
+    xmlns:zpid="http://www.zpid.de/resource"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:doco="http://purl.org/spar/doco/"
+    xmlns:pav="http://purl.org/pav/"
+    xmlns:vcard="http://www.w3.org/2006/vcard/ns#"
+    xmlns:fabio="http://purl.org/spar/fabio/"
+    xmlns:deo="http://purl.org/spar/deo/"
+    xmlns:biro="http://purl.org/spar/biro/"
+    xmlns:literal="http://www.essepuntato.it/2010/06/literalreification/"
+    xmlns:pro="http://purl.org/spar/pro/"
+    xmlns:application="http://purl.org/NET/mediatypes/application/"
+    xmlns:foaf="http://xmlns.com/foaf/0.1/" >
+  <rdf:Description rdf:about="urn:uuid:test3">
+    <rdf:type rdf:resource="http://www.w3.org/ns/oa#SpecificResource"/>
+    <oa:hasSource rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/textual-entity"/>
+    <oa:hasSelector rdf:resource="urn:uuid:test4"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.bioontology.org/ontology/SNOMEDCT/422645003">
+    <rdf:type rdf:resource="http://www.w3.org/ns/oa#SemanticTag"/>
+    <rdf:type rdf:resource="http://www.w3.org/2011/content#ContentAsText"/>
+    <foaf:page rdf:resource="http://bioportal.bioontology.org/ontologies/SNOMEDCT?p=classes&amp;conceptid=http%3A%2F%2Fpurl.bioontology.org%2Fontology%2FSNOMEDCT%2F422645003"/>
+    <cnt:chars>Eos</cnt:chars>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:inScheme rdf:resource="http://data.bioontology.org/ontologies/SNOMEDCT"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/textPosSel/Introduction_para_1/147_149">
+    <rdf:type rdf:resource="http://www.w3.org/ns/oa#TextPositionSelector"/>
+    <oa:start rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">147</oa:start>
+    <oa:end rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">149</oa:end>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:uuid:test1">
+    <rdf:type rdf:resource="http://www.w3.org/ns/oa#SpecificResource"/>
+    <oa:hasSource rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/textual-entity"/>
+    <oa:hasSelector rdf:resource="urn:uuid:test2"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.bioontology.org/ontology/SNOMEDCT/410618006">
+    <rdf:type rdf:resource="http://www.w3.org/ns/oa#SemanticTag"/>
+    <rdf:type rdf:resource="http://www.w3.org/2011/content#ContentAsText"/>
+    <foaf:page rdf:resource="http://bioportal.bioontology.org/ontologies/SNOMEDCT?p=classes&amp;conceptid=http%3A%2F%2Fpurl.bioontology.org%2Fontology%2FSNOMEDCT%2F410618006"/>
+    <cnt:chars>Application</cnt:chars>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:inScheme rdf:resource="http://data.bioontology.org/ontologies/SNOMEDCT"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:uuid:test7">
+    <rdf:type rdf:resource="http://www.w3.org/ns/oa#SpecificResource"/>
+    <oa:hasSource rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/textual-entity"/>
+    <oa:hasSelector rdf:resource="urn:uuid:test8"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:uuid:test5">
+    <rdf:type rdf:resource="http://www.w3.org/ns/oa#SpecificResource"/>
+    <oa:hasSource rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/textual-entity"/>
+    <oa:hasSelector rdf:resource="urn:uuid:test6"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/textPosSel/Introduction_para_1/265_275">
+    <rdf:type rdf:resource="http://www.w3.org/ns/oa#TextPositionSelector"/>
+    <oa:start rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">265</oa:start>
+    <oa:end rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">275</oa:end>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.bioontology.org/ontologies/SNOMEDCT">
+    <dc:title>SNOMEDCT</dc:title>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/225742004">
+    <rdf:type rdf:resource="http://www.w3.org/ns/oa#Annotation"/>
+    <oa:annotatedBy rdf:resource="http://bioportal.bioontology.org/annotator"/>
+    <oa:annotatedAt rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2015-06-30</oa:annotatedAt>
+    <oa:motivatedBy rdf:resource="http://www.w3.org/ns/oa#tagging"/>
+    <oa:hasBody rdf:resource="http://purl.bioontology.org/ontology/SNOMEDCT/225742004"/>
+    <oa:hasTarget rdf:resource="urn:uuid:test3"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/410618006">
+    <rdf:type rdf:resource="http://www.w3.org/ns/oa#Annotation"/>
+    <oa:annotatedBy rdf:resource="http://bioportal.bioontology.org/annotator"/>
+    <oa:annotatedAt rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2015-06-30</oa:annotatedAt>
+    <oa:motivatedBy rdf:resource="http://www.w3.org/ns/oa#tagging"/>
+    <oa:hasBody rdf:resource="http://purl.bioontology.org/ontology/SNOMEDCT/410618006"/>
+    <oa:hasTarget rdf:resource="urn:uuid:test5"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.bioontology.org/ontology/SNOMEDCT/410619003">
+    <rdf:type rdf:resource="http://www.w3.org/ns/oa#SemanticTag"/>
+    <rdf:type rdf:resource="http://www.w3.org/2011/content#ContentAsText"/>
+    <foaf:page rdf:resource="http://bioportal.bioontology.org/ontologies/SNOMEDCT?p=classes&amp;conceptid=http%3A%2F%2Fpurl.bioontology.org%2Fontology%2FSNOMEDCT%2F410619003"/>
+    <cnt:chars>Application</cnt:chars>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:inScheme rdf:resource="http://data.bioontology.org/ontologies/SNOMEDCT"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/422645003">
+    <rdf:type rdf:resource="http://www.w3.org/ns/oa#Annotation"/>
+    <oa:annotatedBy rdf:resource="http://bioportal.bioontology.org/annotator"/>
+    <oa:annotatedAt rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2015-06-30</oa:annotatedAt>
+    <oa:motivatedBy rdf:resource="http://www.w3.org/ns/oa#tagging"/>
+    <oa:hasBody rdf:resource="http://purl.bioontology.org/ontology/SNOMEDCT/422645003"/>
+    <oa:hasTarget rdf:resource="urn:uuid:test1"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://bioportal.bioontology.org/annotator">
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#SoftwareAgent"/>
+    <foaf:homepage rdf:resource="http://bioportal.bioontology.org/annotator"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/410619003">
+    <rdf:type rdf:resource="http://www.w3.org/ns/oa#Annotation"/>
+    <oa:annotatedBy rdf:resource="http://bioportal.bioontology.org/annotator"/>
+    <oa:annotatedAt rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2015-06-30</oa:annotatedAt>
+    <oa:motivatedBy rdf:resource="http://www.w3.org/ns/oa#tagging"/>
+    <oa:hasBody rdf:resource="http://purl.bioontology.org/ontology/SNOMEDCT/410619003"/>
+    <oa:hasTarget rdf:resource="urn:uuid:test7"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.zpid.de/textQuoteSel/EOS">
+    <rdf:type rdf:resource="http://www.w3.org/ns/oa#TextQuoteSelector"/>
+    <oa:exact>EOS</oa:exact>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.zpid.de/textQuoteSel/SEA">
+    <rdf:type rdf:resource="http://www.w3.org/ns/oa#TextQuoteSelector"/>
+    <oa:exact>SEA</oa:exact>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.zpid.de/textQuoteSel/APPLICATION">
+    <rdf:type rdf:resource="http://www.w3.org/ns/oa#TextQuoteSelector"/>
+    <oa:exact>APPLICATION</oa:exact>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:uuid:test4">
+    <rdf:type rdf:resource="http://www.w3.org/ns/oa#Composite"/>
+    <oa:item rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/fragmentSel/Introduction_para_1"/>
+    <oa:item rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/textPosSel/Introduction_para_1/218_220"/>
+    <oa:item rdf:resource="http://www.zpid.de/textQuoteSel/SEA"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/textPosSel/Introduction_para_1/218_220">
+    <rdf:type rdf:resource="http://www.w3.org/ns/oa#TextPositionSelector"/>
+    <oa:start rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">218</oa:start>
+    <oa:end rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">220</oa:end>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:uuid:test2">
+    <rdf:type rdf:resource="http://www.w3.org/ns/oa#Composite"/>
+    <oa:item rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/fragmentSel/Introduction_para_1"/>
+    <oa:item rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/textPosSel/Introduction_para_1/147_149"/>
+    <oa:item rdf:resource="http://www.zpid.de/textQuoteSel/EOS"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:uuid:test8">
+    <rdf:type rdf:resource="http://www.w3.org/ns/oa#Composite"/>
+    <oa:item rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/fragmentSel/Introduction_para_1"/>
+    <oa:item rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/textPosSel/Introduction_para_1/265_275"/>
+    <oa:item rdf:resource="http://www.zpid.de/textQuoteSel/APPLICATION"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:uuid:test6">
+    <rdf:type rdf:resource="http://www.w3.org/ns/oa#Composite"/>
+    <oa:item rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/fragmentSel/Introduction_para_1"/>
+    <oa:item rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/textPosSel/Introduction_para_1/265_275"/>
+    <oa:item rdf:resource="http://www.zpid.de/textQuoteSel/APPLICATION"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.bioontology.org/ontology/SNOMEDCT/225742004">
+    <rdf:type rdf:resource="http://www.w3.org/ns/oa#SemanticTag"/>
+    <rdf:type rdf:resource="http://www.w3.org/2011/content#ContentAsText"/>
+    <foaf:page rdf:resource="http://bioportal.bioontology.org/ontologies/SNOMEDCT?p=classes&amp;conceptid=http%3A%2F%2Fpurl.bioontology.org%2Fontology%2FSNOMEDCT%2F225742004"/>
+    <cnt:chars>Sea</cnt:chars>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:inScheme rdf:resource="http://data.bioontology.org/ontologies/SNOMEDCT"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i2.34/fragmentSel/Introduction_para_1">
+    <rdf:type rdf:resource="http://www.w3.org/ns/oa#FragmentSelector"/>
+    <rdf:value>Introduction_para_1</rdf:value>
+  </rdf:Description>
+</rdf:RDF>
