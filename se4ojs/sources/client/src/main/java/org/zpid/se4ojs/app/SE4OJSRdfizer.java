@@ -21,7 +21,7 @@ import org.zpid.se4ojs.textStructure.bo.BOStructureElement;
 
 /**
  * Main class of the se4ojs tool.
- * 
+ *
  * @author barth
  *
  */
@@ -41,7 +41,7 @@ public class SE4OJSRdfizer {
 			+ "\n\n";
 
 	private static final String PATH_SUFFIX_PREPROCESSED_XML = "structured";
-	
+
 	private static final Logger log = LogManager.getLogger();
 
 	private static Path preProcessedDir;
@@ -58,7 +58,7 @@ public class SE4OJSRdfizer {
 	private SE4OJSAccessHelper helper;
 
 	private int annotationTaskCount;
-	
+
 	/**
 	 * Default constructor, it defines an initial pool with 5 threads, a maximum
 	 * of 10 threads, and a keepAlive time of 300 seconds.
@@ -71,7 +71,7 @@ public class SE4OJSRdfizer {
 	 * Constructor with parameters, it enables to define the initial pool size,
 	 * maximum pool size, and keep alive time in seconds; it initializes the
 	 * ThreadPoolExecutor.
-	 * 
+	 *
 	 * @param poolSize
 	 *            Thread pool size
 	 */
@@ -83,7 +83,7 @@ public class SE4OJSRdfizer {
 	/**
 	 * Run a task with the thread pool and modifies the waiting queue list as
 	 * needed.
-	 * 
+	 *
 	 * @param task
 	 */
 	protected void runTask(Runnable task) {
@@ -100,7 +100,7 @@ public class SE4OJSRdfizer {
 
 	/**
 	 * Informs whether or not the threads have finished all pending executions.
-	 * 
+	 *
 	 * @return
 	 */
 	public boolean isTerminated() {
@@ -144,7 +144,7 @@ public class SE4OJSRdfizer {
 				processingTasks.add(ProcessingTask.RDF);
 			} else if (str.equalsIgnoreCase("-poolSize")) {
 				poolSize = Integer.parseInt(args[++i]);
-			} 
+			}
 		}
 
 		if (processingTasks.isEmpty()
@@ -159,7 +159,7 @@ public class SE4OJSRdfizer {
 					.println("The request cannot be parsed, please check the usage");
 			System.exit(0);
 		}
-		
+
 		preProcessedDir = Paths.get(inputDir, PATH_SUFFIX_PREPROCESSED_XML);
 		//TODO add a property for preProcessedDir in property file (or an additional input parameter) and set the value here.
 
@@ -167,7 +167,7 @@ public class SE4OJSRdfizer {
 				+ "\nOutput " + outputDir
 				+ "\nReference preprocessing "
 				+ processingTasks.contains(ProcessingTask.REFERENCE_PREPROCESSING));
-		
+
 
 		log.info(ProcessingTask.RDF.toString() + " "
 				+ processingTasks.contains(ProcessingTask.RDF));
@@ -196,16 +196,16 @@ public class SE4OJSRdfizer {
 	/**
 	 * Process n number of xml files in a directory to the given limit, converts
 	 * files to RDF.
-	 * 
+	 *
 	 */
 	public void processDirectory() throws IOException {
 		Path path = Paths.get(inputDir);
 		if (processingTasks.contains(ProcessingTask.REFERENCE_PREPROCESSING)) {
-			XMLFileVisitor fileVisitor = new XMLFileVisitor(this, ProcessingTask.REFERENCE_PREPROCESSING, outputDir);	
+			XMLFileVisitor fileVisitor = new XMLFileVisitor(this, ProcessingTask.REFERENCE_PREPROCESSING, outputDir);
 			Files.walkFileTree(path, fileVisitor);
 		} else {
 			XMLFileVisitor fileVisitor = new XMLFileVisitor(this, null, outputDir);
-			Files.walkFileTree(path, fileVisitor);			
+			Files.walkFileTree(path, fileVisitor);
 		}
 	}
 
@@ -217,7 +217,7 @@ public class SE4OJSRdfizer {
 			}
 		});
 	}
-	
+
 	public void processFile(final Path path) {
 		runTask(new Runnable() {
 			public void run() {
@@ -227,7 +227,7 @@ public class SE4OJSRdfizer {
 
 	/**
 	 * Executes the processing tasks.
-	 * 
+	 *
 	 * @param path
 	 * @param helper
 	 * @return true, if the file could be processed, false otherwise
@@ -264,10 +264,10 @@ public class SE4OJSRdfizer {
 								annoTask = annotators.iterator().next();
 							}
 						    annotate(helper, path.toFile(), outputDir, topLevelElements, annoTask, doneSignal);
-						}	
+						}
 					    doneSignal.await();
 					} else {
-						log.error("Unable to annotate input file - please process the sections, too");						
+						log.error("Unable to annotate input file - please process the sections, too");
 					}
 					break;
 				case NCBO_ANNOTATOR:
@@ -278,7 +278,7 @@ public class SE4OJSRdfizer {
 							annotate(helper, path.toFile(), outputDir, topLevelElements, task, doneSignal);
 							doneSignal.await();
 						} else {
-							log.error("Unable to annotate input file - please process the sections, too");						
+							log.error("Unable to annotate input file - please process the sections, too");
 						}
 					}
 					break;
@@ -292,12 +292,12 @@ public class SE4OJSRdfizer {
 			e.printStackTrace();
 		}
 	}
-	
+
 	private void annotate(SE4OJSAccessHelper helper, File file,
 			String outputDir, List<BOStructureElement> topLevelElements,
 			ProcessingTask task, CountDownLatch doneSignal) {
-		
-		AnnotationTask annotationTask = 
+
+		AnnotationTask annotationTask =
 				new AnnotationTask(helper, file, outputDir, topLevelElements, task, doneSignal);
 		annotationTask.run();
 	}
@@ -321,11 +321,11 @@ class AnnotationTask implements Runnable {
 	private Exception exception;
 	private ProcessingTask processingTask;
 	private CountDownLatch doneSignal;
-	
+
 	public AnnotationTask(SE4OJSAccessHelper helper, File file,
 			String outputDir, List<BOStructureElement> structureElements,
 			ProcessingTask processingTask, CountDownLatch doneSignal) {
-		
+
 		this.helper = helper;
 		this.paper = file;
 		this.outputDir = outputDir;
@@ -338,7 +338,7 @@ class AnnotationTask implements Runnable {
 	public void run() {
 		try {
 			if (processingTask.equals(ProcessingTask.NCBO_ANNOTATOR)) {
-				helper.annotateFileWithNCBOAnnotator(paper, structureElements, outputDir);			
+				helper.annotateFileWithNCBOAnnotator(paper, structureElements, outputDir);
 			}
 			doneSignal.countDown();
 		} catch (IOException e) {
@@ -347,9 +347,9 @@ class AnnotationTask implements Runnable {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public Exception getException() {
 		return exception;
 	}
-	
+
 }

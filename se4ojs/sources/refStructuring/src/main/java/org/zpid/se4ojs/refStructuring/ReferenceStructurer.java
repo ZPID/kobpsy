@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package org.zpid.se4ojs.refStructuring;
 
@@ -38,7 +38,7 @@ import org.zpid.se4ojs.refStructuring.bo.BOReference;
  * strings. The extracted information is stored in the passed in
  * {@link BOReference}.
  * </p>
- * 
+ *
  * @author barth
  *
  */
@@ -138,9 +138,9 @@ public class ReferenceStructurer {
 
 	/**
 	 * Iterates over the content of a reference.
-	 * 
+	 *
 	 * @param refs
-	 * 
+	 *
 	 * @param content
 	 *            the content of the reference
 	 * @return the {@link BOReference} that store the extracted information
@@ -155,7 +155,7 @@ public class ReferenceStructurer {
 				reference = new BOReference();
 				reference.setInternalReferenceId(ref.getAttribute(ATTR_ID));
 				if (authorGroup.getLength() == 0) {
-					log.warn("Unprocessed Reference: "
+					log.warn("Unstructured reference: "
 							+ reference.getInternalReferenceId()
 							+ " , trying to parse it: \n	"
 							+ ref.getTextContent());
@@ -206,7 +206,7 @@ public class ReferenceStructurer {
 	 * predefined sequence (1st: author, 2nd: year, 3rd: title,...). The
 	 * reference may contain all information in one string or in separate
 	 * strings, this must be taken into account.
-	 * 
+	 *
 	 * @param str
 	 *            part of a reference.
 	 */
@@ -220,6 +220,8 @@ public class ReferenceStructurer {
 				}
 				if (StringUtils.isEmpty(reference.getYear())) {
 					reference.setYear(parseYearString(str));
+					log.info(reference.getInternalReferenceId() + " Year: *"
+							+ reference.getYear() + "*");
 				}
 				if (StringUtils.isEmpty(reference.getSectionTitle())) {
 					if (parsePosition != -1
@@ -268,7 +270,7 @@ public class ReferenceStructurer {
 
 			}
 		} catch (Exception e) {
-			log.error("TODO delete this catch block again. just for debugging\n. Ref: "
+			log.error(" "
 					+ reference.getInternalReferenceId()
 					+ " ex: "
 					+ e.fillInStackTrace());
@@ -334,7 +336,7 @@ public class ReferenceStructurer {
 
 	/**
 	 * Returns the first match of the regular expression as the title.
-	 * 
+	 *
 	 * @param restString
 	 */
 	String parseTitle(String restString) {
@@ -420,8 +422,7 @@ public class ReferenceStructurer {
 				}
 			}
 		}
-		log.info(reference.getInternalReferenceId() + " Year: *"
-				+ reference.getYear() + "*");
+
 		if (reference.getYear() == null) {
 			log.error(reference.getInternalReferenceId() + "No year found");
 			// throw new

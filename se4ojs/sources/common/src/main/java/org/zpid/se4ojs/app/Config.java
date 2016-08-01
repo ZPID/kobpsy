@@ -138,6 +138,15 @@ public class Config {
     	return (getInstance().getProperty("ncbo.service.url"));
     }
 
+    public static Set<String> getNcboOntologiesAsSet() {
+		StringTokenizer tokenizer = new StringTokenizer(getInstance().getProperty("ncbo.annotator.ontologies"), ",");
+		Set<String> ontologySet = new HashSet<>();
+		while (tokenizer.hasMoreTokens()) {
+			ontologySet.add(tokenizer.nextToken());
+		}
+		return ontologySet;
+    }
+
     public static String getNCBOAPIKey(){
     	return (getInstance().getProperty("ncbo.apikey"));
     }

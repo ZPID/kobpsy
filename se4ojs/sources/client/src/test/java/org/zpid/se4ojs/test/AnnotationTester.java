@@ -120,7 +120,7 @@ public class AnnotationTester {
 			 }
 			 lines.put(line.trim(), "");
 		 } else {
-			 System.out.println("lineRes is null");
+			 System.out.println("line is empty");
 		 }
 		return line;
 	}
