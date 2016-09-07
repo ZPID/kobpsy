@@ -1,0 +1,1 @@
+This folder contains sample annotations of a PsychOpen article together with its raw JATS-xml file as the annotation source and the PDF version of the article for better readability.

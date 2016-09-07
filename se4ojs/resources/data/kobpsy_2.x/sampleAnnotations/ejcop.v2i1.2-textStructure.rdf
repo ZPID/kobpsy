@@ -1,0 +1,1824 @@
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:sro="http://salt.semanticauthoring.org/ontologies/sro#"
+    xmlns:po="http://www.essepuntato.it/2008/12/pattern#"
+    xmlns:co="http://purl.org/co/"
+    xmlns:psyndex="http://www.zpid.de/psyndex#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:zpid_doco="http://www.zpid.de/zpid_doco#"
+    xmlns:oa="http://www.w3.org/ns/oa#"
+    xmlns:dcterms="http://purl.org/dc/terms/"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:zpid="http://www.zpid.de/resource"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:prov="http://www.w3.org/ns/prov#"
+    xmlns:c4o="http://purl.org/spar/c4o/"
+    xmlns:zpid_placeholder_onto="http://www.zpid.de/placeholder/"
+    xmlns:doco="http://purl.org/spar/doco/"
+    xmlns:pav="http://purl.org/pav/"
+    xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+    xmlns:cnt="http://www.w3.org/2011/content#"
+    xmlns:frbr="http://purl.org/vocab/frbr/core#"
+    xmlns:fabio="http://purl.org/spar/fabio/"
+    xmlns:deo="http://purl.org/spar/deo/"
+    xmlns:application="http://purl.org/NET/mediatypes/application/"
+    xmlns:foaf="http://xmlns.com/foaf/0.1/">
+  <c4o:InTextReferencePointer rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Demographic-Characteristics_para_1/r72/6">
+    <c4o:denotes>
+      <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/reference-r72">
+        <c4o:hasInTextCitationFrequency rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</c4o:hasInTextCitationFrequency>
+      </rdf:Description>
+    </c4o:denotes>
+    <c4o:hasContent>Safdar et al., 2009</c4o:hasContent>
+    <c4o:hasContext>
+      <doco:Paragraph rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Demographic-Characteristics_para_1">
+        <c4o:hasContent>In our study, we are also interested in the role of gender in explaining the variation in bullying and victimization. With regard to gender differences, research suggests that boys are more likely than girls to be bullies and victims of bullying (; ; ), although girls may be more likely to experience more relational victimization/aggression than boys (; ). In addition, we expect that gender is correlated with the predictor variables, i.e., parental bonding and empathy. For example, various studies have shown that girls and women are better at understanding, recognizing and regulating emotions than boys (). Also, asking friends for help, or crying as a response to distress is more frequently reported by female victims. Previous studies have demonstrated that girls tend to be more empathic than boys, and they are often defenders of victims (; ). Further, in adolescence, boys tend to demonstrate less empathy towards their victims (). For these reasons, we decided to conduct separate analyses for each gender, and to report upon similarities and differences.</c4o:hasContent>
+      </doco:Paragraph>
+    </c4o:hasContext>
+  </c4o:InTextReferencePointer>
+  <c4o:InTextReferencePointer rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_para_1/r58/3">
+    <c4o:hasContext>
+      <doco:Paragraph rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_para_1">
+        <c4o:hasContent>According to recent studies, bullying in schools is widespread. In the United States, 15% to 20% of children experience repeated victimization in the form of intimidation, ostracism, or physical violence by peers at some time during their school careers (). In Europe, cross-cultural studies have shown that between 9% and 54% of children are involved in bullying or victimization (). , , ) presented the first in depth study on bullying in Sweden. He defined victimization as “a student being exposed to negative actions on the part of one or more other students with the intention to hurt” (p. 32). Bullying is also defined as a systematic abuse of power (), and more specifically as an intentional repeated aggressive behaviour towards a victim, who cannot readily defend him or herself (), and which usually involves an imbalance, either real or perceived, of power or strength between the aggressor and the victim (; ).</c4o:hasContent>
+      </doco:Paragraph>
+    </c4o:hasContext>
+    <c4o:hasContent>Olweus (1978</c4o:hasContent>
+    <c4o:denotes>
+      <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/reference-r58">
+        <c4o:hasInTextCitationFrequency rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</c4o:hasInTextCitationFrequency>
+      </rdf:Description>
+    </c4o:denotes>
+  </c4o:InTextReferencePointer>
+  <c4o:InTextReferencePointer rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Perceived-Parental-Bonding-an_para_1/r5/7">
+    <c4o:denotes>
+      <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/reference-r5">
+        <c4o:hasInTextCitationFrequency rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</c4o:hasInTextCitationFrequency>
+      </rdf:Description>
+    </c4o:denotes>
+    <c4o:hasContent>Bowers, Smith, &amp; Binney, 1994</c4o:hasContent>
+    <c4o:hasContext>
+      <doco:Paragraph rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Perceived-Parental-Bonding-an_para_1">
+        <c4o:hasContent> suggested that inadequate parenting is a contributing determinant of bullying behaviour but the implication of this association was first stressed by  who underlined the importance of parenting for the effective social and mental functioning of children. He then posed that a reduced capacity to relate effectively to others and poor mental health derives from the same source, i.e., inadequate parental bonding. Subsequently,  identified two dimensions of particular relevance to parental bonding. These are, firstly, Parental Care, which is reflected in emotional warmth, empathy and closeness, as opposed to coldness, indifference and neglect; and secondly, Parental Control, which is indicated when parents are over-intrusive and controlling, thereby hindering the child’s development of independence and autonomy. The two dimensions, Parental Care and Parental Control, were operationalized in Parental Bonding Instrument (PBI, ). Arguably, warm accepting relations with parent figures can provide a child with the necessary security and confidence to reach out and interact effectively with others, thus avoiding being victimized by others. On the other hand, ‘cold’ parenting has been associated with the possibility of being victimized at school (). There is also some indirect, experimental evidence supporting this view. The work of  with young rhesus monkeys reared without parents suggests that the formation of effective relations with peers is greatly hindered in the absence of warm relations with parents. Additionally, some studies have indicated that children, who are over-controlled by their parents, are more likely to be victimized by peers (). It is possible that restrictive parenting practices may result in children feeling insecure in encounters with peers at school, and lacking the social skills needed to cope with potential bullies. To address this, we have to establish the extent to which parental bonding, as assessed using the PBI, is related to being victimized by peers at school. Part of the answer to the question concerning the relationship between parental bonding and bullying may lie in the link with later violence in adulthood; some bullies in later life behave aggressively towards their partners and use harsh physical discipline with their own children (). These children in turn may be more likely to become bullies themselves ().</c4o:hasContent>
+      </doco:Paragraph>
+    </c4o:hasContext>
+  </c4o:InTextReferencePointer>
+  <c4o:InTextReferencePointer rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Discussion_para_1/r32/3">
+    <c4o:hasContext>
+      <doco:Paragraph rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Discussion_para_1">
+        <c4o:hasContent>An initial aim of the present study was to explore possible gender differences in bullying and victimization in a sample of pre-adolescents. The results indicated that boys engage significantly more frequently in both bullying other children and being victimized by their peers. This finding is consistent with previous research which suggests that boys tend to get involved more often in the bullying phenomenon (; ). Further, we found that victimization of self was positively correlated with the – perceived – existence of both overprotective mother and father. This means that an overprotective parenting style makes children vulnerable to being victimised by other children. Indeed, other studies have confirmed this result. In line with this, it has been suggested (; ) that overprotection by parents inhibits children from developing the appropriate social skills for resolving problematic situations (such as an interpersonal conflict), thus making them easy targets for bullies. Our next finding concerns the gender differences with respect to the manifestation of empathy. More specifically, we found that girls showed significantly higher scores in the dimensions of Sadness and Tearful Reaction, which represent the affective components of this construct – i.e., the ability to experience and share the emotions of others, as opposed to Understanding of Feelings, which represents the cognitive aspect of empathy, i.e., the ability to understand the emotions of others (). Indeed, previous research has suggested that although generally girls show higher levels of empathy that boys, the magnitude of this difference is greater for the affective than its cognitive dimension ().</c4o:hasContent>
+      </doco:Paragraph>
+    </c4o:hasContext>
+    <c4o:hasContent>Fosse &amp; Holen, 2002</c4o:hasContent>
+    <c4o:denotes>
+      <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/reference-r32">
+        <c4o:hasInTextCitationFrequency rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</c4o:hasInTextCitationFrequency>
+      </rdf:Description>
+    </c4o:denotes>
+  </c4o:InTextReferencePointer>
+  <c4o:InTextReferencePointer rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_para_1/r16/8">
+    <c4o:hasContext rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_para_1"/>
+    <c4o:hasContent>Craig, 1998</c4o:hasContent>
+    <c4o:denotes>
+      <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/reference-r16">
+        <c4o:hasInTextCitationFrequency rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</c4o:hasInTextCitationFrequency>
+      </rdf:Description>
+    </c4o:denotes>
+  </c4o:InTextReferencePointer>
+  <c4o:InTextReferencePointer rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Method_Measures_Parental-Bonding_para_1/r76/5">
+    <c4o:hasContext>
+      <doco:Paragraph rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Method_Measures_Parental-Bonding_para_1">
+        <c4o:hasContent>The Parental Bonding Instrument (PBI; ) was developed to produce a two-factor model that assesses parenting styles in terms of parental caring (e.g., warmth, sensitivity) and overprotection (e.g., control, intrusion), separately for mother and father. The care and overprotection scales comprise 12 and 13 items, respectively. These are completed separately by the mother and the father. Examples of items are: “My mother/father speaks to me in a warm and friendly voice” (care) and “My mother/ father tries to control everything I do” (overprotection). The PBI has been validated in numerous studies, which confirmed its two-factor structure and other aspects of validity in both English-speaking populations (; ), and in different populations (). The PBI has been adapted and validated in the Greek population and has shown good psychometric properties (; ). Internal consistencies () in our sample were .81 for “Caring from mother – CareM”, .66 for “Overprotection from mother – OverP_M”, .80 for “Caring from father – CareF” and .67 for “Overprotection from father – OverP_F”.</c4o:hasContent>
+      </doco:Paragraph>
+    </c4o:hasContext>
+    <c4o:hasContent>Sideridis &amp; Kafetsios, 2008</c4o:hasContent>
+    <c4o:denotes>
+      <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/reference-r76">
+        <c4o:hasInTextCitationFrequency rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</c4o:hasInTextCitationFrequency>
+      </rdf:Description>
+    </c4o:denotes>
+  </c4o:InTextReferencePointer>
+  <c4o:InTextReferencePointer rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Method_Measures_Data-Analyses_para_1/r14/1">
+    <c4o:hasContext>
+      <doco:Paragraph rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Method_Measures_Data-Analyses_para_1">
+        <c4o:hasContent>A series of multiple regression analyses were conducted. Each regression analysis included the four PBI dimensions (2 for the mother and 2 for the father) and the 3 subscales of Empathy as the independent variables, and each of the VS and VO as the dependent variables (one at a time). The models were run with the “Stepwise” method. Initially, a power analysis was conducted to evaluate whether enough participants were available to reject the null hypotheses, assuming that they are incorrect. Using medium effect size estimates (i.e., a multiple R-squared equal to .15; ) and seven predictors for alpha levels equal to .01 and a linear multiple regression (; ; ), the required number of participants was 141. Thus, the present study had adequate number of participants to test our hypotheses.</c4o:hasContent>
+      </doco:Paragraph>
+    </c4o:hasContext>
+    <c4o:hasContent>Cohen, 1988</c4o:hasContent>
+    <c4o:denotes>
+      <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/reference-r14">
+        <c4o:hasInTextCitationFrequency rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</c4o:hasInTextCitationFrequency>
+      </rdf:Description>
+    </c4o:denotes>
+  </c4o:InTextReferencePointer>
+  <c4o:InTextReferencePointer rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Empathy-Bullying-Victimizatio_para_3/r45/5">
+    <c4o:denotes>
+      <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/reference-r45">
+        <c4o:hasInTextCitationFrequency rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</c4o:hasInTextCitationFrequency>
+      </rdf:Description>
+    </c4o:denotes>
+    <c4o:hasContent>Kaukiainen et al., 1999</c4o:hasContent>
+    <c4o:hasContext>
+      <doco:Paragraph rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Empathy-Bullying-Victimizatio_para_3">
+        <c4o:hasContent>In contrast to previous stereotypes that bullies are ‘strong but dumb’, i.e., lack social intelligence, are not able to understand and interpret others’ emotions and mental states, and ‘are not aware’ of the consequences of their actions, evidence points towards the direction that bullies do possess well developed social intelligence and have a developed theory of mind (). Such cognitive skills make them ‘leaders’ of children who bully, because they are able to control these children. In contrast, victims appear to be lacking in theory of mind, as they cannot predict or deal with the bully’s manipulations (). An important individual characteristic that determines whether a child would decide to use social and emotional knowledge to manipulate others for personal gain is the level of the child’s empathy (). It has been suggested that empathic responsiveness inhibits aggressive behaviour, because an empathic person recognizes and shares the emotional distress of the victim. In relation to this, it has been suggested that empathy deficits also characterize children who are violent and antisocial (; ).</c4o:hasContent>
+      </doco:Paragraph>
+    </c4o:hasContext>
+  </c4o:InTextReferencePointer>
+  <c4o:InTextReferencePointer rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Empathy-Bullying-Victimizatio_para_1/r28/3">
+    <c4o:denotes>
+      <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/reference-r28">
+        <c4o:hasInTextCitationFrequency rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >2</c4o:hasInTextCitationFrequency>
+      </rdf:Description>
+    </c4o:denotes>
+    <c4o:hasContent>Eisenberg, Spinrad, &amp; Sadovsky, 2006</c4o:hasContent>
+    <c4o:hasContext>
+      <doco:Paragraph rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Empathy-Bullying-Victimizatio_para_1">
+        <c4o:hasContent> define empathy as a vicarious emotional response to the perceived emotional experiences of others. In Bryant’s Index of Empathy of Children and Adolescents () an emphasis is given not only to this definition but also to behavioural responsiveness. From a developmental perspective, empathy begins during the first years of life (). Empathy is viewed as a multidimensional construct comprising both cognitive and emotional components (; ).</c4o:hasContent>
+      </doco:Paragraph>
+    </c4o:hasContext>
+  </c4o:InTextReferencePointer>
+  <c4o:InTextReferencePointer rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Empathy-Bullying-Victimizatio_para_4/r26/3">
+    <c4o:denotes>
+      <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/reference-r26">
+        <c4o:hasInTextCitationFrequency rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</c4o:hasInTextCitationFrequency>
+      </rdf:Description>
+    </c4o:denotes>
+    <c4o:hasContent>Egan, &amp; Perry, 1998</c4o:hasContent>
+    <c4o:hasContext>
+      <doco:Paragraph rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Empathy-Bullying-Victimizatio_para_4">
+        <c4o:hasContent>Various authors have stressed that the relationship between empathy and bullying may be more complex. For example,  reported that understanding and feeling the emotions of other people might result in less bullying, but also that not caring about these feelings can be similarly important. They examined self-reports of callous-unemotional traits (CU: Inventory of Callous-Unemotional Traits) bullying and empathy in 201 children (aged 11–12). Their results showed that children high on CU had the lowest scores in affective empathy and the highest scores in direct bullying. Moreover,  found poor family functioning to be related to both bully-victim problems and mental health problems in children. Internalizing problems, such as anxiety, depression, unhappiness and emotional difficulties (such as not understanding or feeling other’s emotions), as well as externalizing problems (i.e., aggression) were linked to bullying. Other researchers have found that depressed and unhappy children with poor self-esteem may be more susceptible to become a bully target (; ). Children who are maltreated at home and/or bullied by peers may develop ‘learned helplessness’ and establish an external locus of control (; ). This means that if a child believes that there is nothing he or she can do to counteract bullying, then the child may not fight back or seek help from teachers or friends. Thus, research indicates that bullies are formed environmentally, i.e., bullies are influenced by the parenting styles and general family functioning – including early parent-child bonding (). In a similar vein, research implies some links between bullying activities and lack of parental closeness (), inappropriate genetic tendencies, and parental example ().</c4o:hasContent>
+      </doco:Paragraph>
+    </c4o:hasContext>
+  </c4o:InTextReferencePointer>
+  <c4o:InTextReferencePointer rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_para_2/r21/1">
+    <c4o:hasContext>
+      <doco:Paragraph rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_para_2">
+        <c4o:hasContent>In the 1980s, bullying was considered primarily in terms of direct physical and/or verbal attacks. Through the 1990s, the work of Bjorkqvist, Crick, Underwood, and other researchers broadened the scope to include indirect aggression (via a third party), relational aggression (the intention to damage one’s peer relationships), and social aggression (damage of self-esteem and/or social status) (). Examples of physical bullying are hitting, kicking, pushing, and taking other’s personal belongings, examples of verbal bullying are name calling and threatening, and examples of indirect bullying are excluding, isolating, gossiping, malicious rumor spreading, and the withdrawal of friendships (). Other forms of bullying are based on the use of technology, including threatening text messages, harassment in Internet chat rooms, and bullying via e-mail ().</c4o:hasContent>
+      </doco:Paragraph>
+    </c4o:hasContext>
+    <c4o:hasContent>Dautenhahn, Woods, &amp; Kaouri, 2007</c4o:hasContent>
+    <c4o:denotes>
+      <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/reference-r21">
+        <c4o:hasInTextCitationFrequency rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >2</c4o:hasInTextCitationFrequency>
+      </rdf:Description>
+    </c4o:denotes>
+  </c4o:InTextReferencePointer>
+  <c4o:InTextReferencePointer rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Characteristics-of-Bullies-an_para_1/r8/1">
+    <c4o:denotes>
+      <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/reference-r8">
+        <c4o:hasInTextCitationFrequency rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</c4o:hasInTextCitationFrequency>
+      </rdf:Description>
+    </c4o:denotes>
+    <c4o:hasContent>Bushman and Baumeister (1998)</c4o:hasContent>
+    <c4o:hasContext>
+      <doco:Paragraph rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Characteristics-of-Bullies-an_para_1">
+        <c4o:hasContent>A first step to explain school violence is to recognize the specific characteristics of bullies. However, identifying bullying behaviours is a complex task, since a well-defined profile for identifying bullies is lacking.  suggested that bullies can be identified by their exaggerated air of self-confidence and their feelings of power. Additionally,  proposed that bullies can be recognized by their emotional immaturity. Researchers have found that bullies, being emotionally immature, are often characterized by feelings of depression, inferiority, inadequacy, insecurity, loneliness, fear, jealousy, and rejection (). The identification of bullies is complicated by the fluid nature of the bully-victim relationship in the classroom.  and , for instance, described bullying as a  of complex behaviours, with shifting fluidity, whereby bullies and victims may exchange roles. Regarding victims, the relevant literature suggests a distinction between bully-victims (sometimes described as provocative victims), who are frequently aggressive towards peers, and non-bully victims who seldom engage in bullying (). A study of children in elementary school characterized non bully-victims as unassertive youngsters, who typically withdraw from or give in to bullies, and who do not display emotional distress when bullied (). Bully-victims, in contrast, engage in numerous aggressive acts towards their peers and often show aggressive cognitive profiles comparable to bullies, who are themselves not frequently subjected to aggression ().</c4o:hasContent>
+      </doco:Paragraph>
+    </c4o:hasContext>
+  </c4o:InTextReferencePointer>
+  <c4o:InTextReferencePointer rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Empathy-Bullying-Victimizatio_para_1/r7/2">
+    <c4o:denotes>
+      <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/reference-r7">
+        <c4o:hasInTextCitationFrequency rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >3</c4o:hasInTextCitationFrequency>
+      </rdf:Description>
+    </c4o:denotes>
+    <c4o:hasContent>Bryant, 1982</c4o:hasContent>
+    <c4o:hasContext rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Empathy-Bullying-Victimizatio_para_1"/>
+  </c4o:InTextReferencePointer>
+  <c4o:InTextReferencePointer rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_para_1/r68/6">
+    <c4o:hasContext rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_para_1"/>
+    <c4o:hasContent>Rigby, 2002</c4o:hasContent>
+    <c4o:denotes>
+      <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/reference-r68">
+        <c4o:hasInTextCitationFrequency rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >3</c4o:hasInTextCitationFrequency>
+      </rdf:Description>
+    </c4o:denotes>
+  </c4o:InTextReferencePointer>
+  <c4o:InTextReferencePointer rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_para_3/r17/3">
+    <c4o:hasContext>
+      <doco:Paragraph rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_para_3">
+        <c4o:hasContent>Bullying can occur in many contexts but our main concern is bullying among children in the school context. There appears to be a lot of variation in the incidence of bullying in schools. This variation may be in part due to the differences in methods that are used to investigate the phenomenon. The most common method is self-report, i.e., asking pupils by means of questionnaires or interviews about their bullying experiences. Other assessment methods include asking teachers or pupils to nominate children, who are victims or bullies, to systematically observe children, and to record bullying incidents. In relation to this, it has been suggested that different methods of investigation may produce different bullying estimates (). Surveys in different countries have reported victimization rates of 9 to 32%, and bullying rates of 3 to 27% (). In the World Health Organization (WHO) report on ‘ 2001/02’, a survey of 35 countries, the average incidence rates of victims and bullies were both 11% (). According to another recent international research in 40 countries, Greece occupies the third place in the number of students being involved in incidents of victimization either as bullies, victims or as bullies/victims (). More specifically, in a recent research by  it was found that in a sample of 371 elementary school children, 16.2% were victims, 2.7% were bullies and 7.8% belonged to the bully/victim group. In another study by the General Secretariat for Youth, 29.4% of a teenage sample reported that they had been exposed to various forms of bullying by other children ().</c4o:hasContent>
+      </doco:Paragraph>
+    </c4o:hasContext>
+    <c4o:hasContent>Craig &amp; Harel-Fish, 2004</c4o:hasContent>
+    <c4o:denotes>
+      <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/reference-r17">
+        <c4o:hasInTextCitationFrequency rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</c4o:hasInTextCitationFrequency>
+      </rdf:Description>
+    </c4o:denotes>
+  </c4o:InTextReferencePointer>
+  <c4o:InTextReferencePointer rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Empathy-Bullying-Victimizatio_para_3/r41/3">
+    <c4o:denotes>
+      <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/reference-r41">
+        <c4o:hasInTextCitationFrequency rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >2</c4o:hasInTextCitationFrequency>
+      </rdf:Description>
+    </c4o:denotes>
+    <c4o:hasContent>Jolliffe &amp; Farrington, 2004</c4o:hasContent>
+    <c4o:hasContext rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Empathy-Bullying-Victimizatio_para_3"/>
+  </c4o:InTextReferencePointer>
+  <c4o:InTextReferencePointer rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Discussion_para_4/r46/3">
+    <c4o:hasContext>
+      <doco:Paragraph rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Discussion_para_4">
+        <c4o:hasContent>Further, the finding that maternal care leads to lowered affective and cognitive empathic responses which in turn results in increasing tendency to bully other children may be viewed in the light of the effects of parenting on the development of emotional responsiveness of children. More specifically, the relation between parental styles and children’s empathy has been explained in terms of social learning theory, according to which warm and caring parents provide children with the opportunity to observe and experience perspective taking and emotional concern, creating a learning environment appropriate for the development of empathy (). Indeed, parenting has been directly linked to prosocial behavior in different situations, and it has been argued that parenting practices also contribute to the children’s ability to monitor and control their own emotions and understand the emotions of others, which in turn motivate children to initiate prosocial behaviour (; ).</c4o:hasContent>
+      </doco:Paragraph>
+    </c4o:hasContext>
+    <c4o:hasContent>Knafo, Zahn-Waxler, Van Hulle, Robinson, &amp; Rhee, 2008</c4o:hasContent>
+    <c4o:denotes>
+      <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/reference-r46">
+        <c4o:hasInTextCitationFrequency rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</c4o:hasInTextCitationFrequency>
+      </rdf:Description>
+    </c4o:denotes>
+  </c4o:InTextReferencePointer>
+  <c4o:InTextReferencePointer rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Empathy-Bullying-Victimizatio_para_4/r4/6">
+    <c4o:denotes>
+      <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/reference-r4">
+        <c4o:hasInTextCitationFrequency rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</c4o:hasInTextCitationFrequency>
+      </rdf:Description>
+    </c4o:denotes>
+    <c4o:hasContent>Bolger &amp; Patterson, 2001</c4o:hasContent>
+    <c4o:hasContext rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Empathy-Bullying-Victimizatio_para_4"/>
+  </c4o:InTextReferencePointer>
+  <c4o:InTextReferencePointer rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Method_Measures_Aggression-Victimization_para_1/r81/1">
+    <c4o:hasContext>
+      <doco:Paragraph rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Method_Measures_Aggression-Victimization_para_1">
+        <c4o:hasContent>The standard version of Peer Experiences Questionnaire (PEQ; ) was used to assess experiences in bullying behaviours. Previous research indicated that both self – and peer report measures of victimization show significant associations with measures of psychosocial maladjustment (). The PEQ is comprised of two subscales: The Victimization of Self subcale (VS) comprises 9 items that address overt victimization (e.g., “A kid hit, kicked or pushed me in a mean way”), relational victimization (e.g., “A kid told lies about me so other kids wouldn’t like me”), and general victimization (e.g., “A kid teased me in a mean way”). The Victimization of Other subscale (VO) consists of 9 items that concern aggressive behaviour toward another children (e.g., “I chased a teen like I was really trying to hurt him or her”). Children indicated on a 5-point likert scale (1 = , 2 = , 3 = , 4 = , 5 = ) how often in the past 3 months the item content applied to them. Total VS and VO scores were computed, such that higher scores indicate more severe aggressive behaviour or victimization. In our sample, these scales demonstrated good internal consistency (Cronbach’s  .79 and .80, respectively)</c4o:hasContent>
+      </doco:Paragraph>
+    </c4o:hasContext>
+    <c4o:hasContent>Vernberg et al., 1999</c4o:hasContent>
+    <c4o:denotes>
+      <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/reference-r81">
+        <c4o:hasInTextCitationFrequency rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >2</c4o:hasInTextCitationFrequency>
+      </rdf:Description>
+    </c4o:denotes>
+  </c4o:InTextReferencePointer>
+  <c4o:InTextReferencePointer rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Empathy-Bullying-Victimizatio_para_4/r38/4">
+    <c4o:denotes>
+      <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/reference-r38">
+        <c4o:hasInTextCitationFrequency rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</c4o:hasInTextCitationFrequency>
+      </rdf:Description>
+    </c4o:denotes>
+    <c4o:hasContent>Hodges &amp; Perry, 1999</c4o:hasContent>
+    <c4o:hasContext rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Empathy-Bullying-Victimizatio_para_4"/>
+  </c4o:InTextReferencePointer>
+  <c4o:InTextReferencePointer rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Empathy-Bullying-Victimizatio_para_1/r22/4">
+    <c4o:denotes>
+      <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/reference-r22">
+        <c4o:hasInTextCitationFrequency rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</c4o:hasInTextCitationFrequency>
+      </rdf:Description>
+    </c4o:denotes>
+    <c4o:hasContent>Davis, 1983</c4o:hasContent>
+    <c4o:hasContext rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Empathy-Bullying-Victimizatio_para_1"/>
+  </c4o:InTextReferencePointer>
+  <c4o:InTextReferencePointer rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_para_1/r56/9">
+    <c4o:hasContext rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_para_1"/>
+    <c4o:hasContent>Nansel et al., 2001</c4o:hasContent>
+    <c4o:denotes>
+      <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/reference-r56">
+        <c4o:hasInTextCitationFrequency rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >2</c4o:hasInTextCitationFrequency>
+      </rdf:Description>
+    </c4o:denotes>
+  </c4o:InTextReferencePointer>
+  <c4o:InTextReferencePointer rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_para_1/r57/2">
+    <c4o:hasContext rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_para_1"/>
+    <c4o:hasContent>Nansel et al., 2004</c4o:hasContent>
+    <c4o:denotes>
+      <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/reference-r57">
+        <c4o:hasInTextCitationFrequency rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</c4o:hasInTextCitationFrequency>
+      </rdf:Description>
+    </c4o:denotes>
+  </c4o:InTextReferencePointer>
+  <c4o:InTextReferencePointer rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Method_Measures_Empathy_para_1/r23/2">
+    <c4o:hasContext>
+      <doco:Paragraph rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Method_Measures_Empathy_para_1">
+        <c4o:hasContent>Empathy was assessed using the Greek version of Bryant’s Empathy Index (). The 22 items of Bryant’s index were translated into Greek by two bilingual researchers who were familiar with the construct being assessed. Forward and backward translation procedures were used. Empathic answers were assigned the value 1, and unempathic answers the value 0. Following exploratory factor analyses, two items were omitted. The factor structure was consistent with the three-factor solution proposed by . The internal consistencies of the three subscales were: Feelings of Sadness .52, Understanding Feelings, .56 and Tearful Reaction .65.</c4o:hasContent>
+      </doco:Paragraph>
+    </c4o:hasContext>
+    <c4o:hasContent>del Barrio Gándara, Aluja, &amp; García (2004)</c4o:hasContent>
+    <c4o:denotes>
+      <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/reference-r23">
+        <c4o:hasInTextCitationFrequency rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</c4o:hasInTextCitationFrequency>
+      </rdf:Description>
+    </c4o:denotes>
+  </c4o:InTextReferencePointer>
+  <c4o:InTextReferencePointer rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Demographic-Characteristics_para_1/r73/7">
+    <c4o:denotes>
+      <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/reference-r73">
+        <c4o:hasInTextCitationFrequency rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</c4o:hasInTextCitationFrequency>
+      </rdf:Description>
+    </c4o:denotes>
+    <c4o:hasContent>Salmivalli, Lagerspetz, Björkqvist, Österman, &amp; Kaukiainen, 1996</c4o:hasContent>
+    <c4o:hasContext rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Demographic-Characteristics_para_1"/>
+  </c4o:InTextReferencePointer>
+  <c4o:InTextReferencePointer rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Discussion_para_1/r24/5">
+    <c4o:hasContext rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Discussion_para_1"/>
+    <c4o:hasContent>de Wied et al., 2007</c4o:hasContent>
+    <c4o:denotes>
+      <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/reference-r24">
+        <c4o:hasInTextCitationFrequency rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</c4o:hasInTextCitationFrequency>
+      </rdf:Description>
+    </c4o:denotes>
+  </c4o:InTextReferencePointer>
+  <c4o:InTextReferencePointer rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Empathy-Bullying-Victimizatio_para_2/r25/1">
+    <c4o:denotes>
+      <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/reference-r25">
+        <c4o:hasInTextCitationFrequency rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</c4o:hasInTextCitationFrequency>
+      </rdf:Description>
+    </c4o:denotes>
+    <c4o:hasContent>Dodge &amp; Rabiner, 2004</c4o:hasContent>
+    <c4o:hasContext>
+      <doco:Paragraph rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Empathy-Bullying-Victimizatio_para_2">
+        <c4o:hasContent>Social-cognitive models of bullying explain how interactions between individual factors and interpretations of social events contribute to the bullying process. They suggest that a person’s behavioural responses are in part a function of (a) perceived social cues, (b) the interpretation of these cues, (c) accessing possible behavioural responses through decision making, and (d) selecting the behavioural response (). Deficits in this social information processing may directly or indirectly underlie bullying behaviours. Thus, bullying and aggression may be attributable to a lack of confidence in dealing with aggravation (), or the misinterpretation of social cues ().</c4o:hasContent>
+      </doco:Paragraph>
+    </c4o:hasContext>
+  </c4o:InTextReferencePointer>
+  <c4o:InTextReferencePointer rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Perceived-Parental-Bonding-an_para_1/r36/6">
+    <c4o:denotes>
+      <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/reference-r36">
+        <c4o:hasInTextCitationFrequency rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</c4o:hasInTextCitationFrequency>
+      </rdf:Description>
+    </c4o:denotes>
+    <c4o:hasContent>Harlow and Harlow (1972)</c4o:hasContent>
+    <c4o:hasContext rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Perceived-Parental-Bonding-an_para_1"/>
+  </c4o:InTextReferencePointer>
+  <c4o:InTextReferencePointer rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Empathy-Bullying-Victimizatio_para_4/r54/1">
+    <c4o:denotes>
+      <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/reference-r54">
+        <c4o:hasInTextCitationFrequency rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</c4o:hasInTextCitationFrequency>
+      </rdf:Description>
+    </c4o:denotes>
+    <c4o:hasContent>Muñoz, Qualter, and Padgett (2011)</c4o:hasContent>
+    <c4o:hasContext rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Empathy-Bullying-Victimizatio_para_4"/>
+  </c4o:InTextReferencePointer>
+  <c4o:InTextReferencePointer rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Method_Measures_Parental-Bonding_para_1/r12/2">
+    <c4o:hasContext rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Method_Measures_Parental-Bonding_para_1"/>
+    <c4o:hasContent>Chambers, Power, Loucks, &amp; Swanson, 2000</c4o:hasContent>
+    <c4o:denotes>
+      <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/reference-r12">
+        <c4o:hasInTextCitationFrequency rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</c4o:hasInTextCitationFrequency>
+      </rdf:Description>
+    </c4o:denotes>
+  </c4o:InTextReferencePointer>
+  <c4o:InTextReferencePointer rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Discussion_para_1/r11/1">
+    <c4o:hasContext rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Discussion_para_1"/>
+    <c4o:hasContent>Card, Stucky, Sawalani, &amp; Little, 2008</c4o:hasContent>
+    <c4o:denotes>
+      <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/reference-r11">
+        <c4o:hasInTextCitationFrequency rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</c4o:hasInTextCitationFrequency>
+      </rdf:Description>
+    </c4o:denotes>
+  </c4o:InTextReferencePointer>
+  <c4o:InTextReferencePointer rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Method_Measures_Parental-Bonding_para_1/r55/3">
+    <c4o:hasContext rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Method_Measures_Parental-Bonding_para_1"/>
+    <c4o:hasContent>Murphy, Brewin, &amp; Silka, 1997</c4o:hasContent>
+    <c4o:denotes>
+      <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/reference-r55">
+        <c4o:hasInTextCitationFrequency rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</c4o:hasInTextCitationFrequency>
+      </rdf:Description>
+    </c4o:denotes>
+  </c4o:InTextReferencePointer>
+  <c4o:InTextReferencePointer rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Demographic-Characteristics_para_1/r61/9">
+    <c4o:denotes>
+      <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/reference-r61">
+        <c4o:hasInTextCitationFrequency rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</c4o:hasInTextCitationFrequency>
+      </rdf:Description>
+    </c4o:denotes>
+    <c4o:hasContent>Olweus &amp; Endresen, 1998</c4o:hasContent>
+    <c4o:hasContext rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Demographic-Characteristics_para_1"/>
+  </c4o:InTextReferencePointer>
+  <c4o:InTextReferencePointer rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Empathy-Bullying-Victimizatio_para_4/r68/9">
+    <c4o:denotes rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/reference-r68"/>
+    <c4o:hasContent>Rigby, 2002</c4o:hasContent>
+    <c4o:hasContext rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Empathy-Bullying-Victimizatio_para_4"/>
+  </c4o:InTextReferencePointer>
+  <c4o:InTextReferencePointer rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Characteristics-of-Bullies-an_para_1/r65/3">
+    <c4o:denotes>
+      <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/reference-r65">
+        <c4o:hasInTextCitationFrequency rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</c4o:hasInTextCitationFrequency>
+      </rdf:Description>
+    </c4o:denotes>
+    <c4o:hasContent>Piotrowski &amp; Hoot, 2008</c4o:hasContent>
+    <c4o:hasContext rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Characteristics-of-Bullies-an_para_1"/>
+  </c4o:InTextReferencePointer>
+  <c4o:InTextReferencePointer rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Discussion_para_3/r77/3">
+    <c4o:hasContext>
+      <doco:Paragraph rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Discussion_para_3">
+        <c4o:hasContent>This finding adds to the controversial findings of previous research which has examined the relationship between low affective empathy and low cognitive empathy on bullying. For example,  found that frequent bullies of both genders had significantly less affective and total empathy than those involved with bullying only once or twice. On the other hand,  reported that cognitive empathy is important but affective empathy is as important or even more important to alleviate the manifestation of specific forms of bullying (i.e., physical bullying). In any case, according to the findings of , it could be argued that cognitive empathy may play a more important role in moral decision making for boys compared to girls.</c4o:hasContent>
+      </doco:Paragraph>
+    </c4o:hasContext>
+    <c4o:hasContent>Silfver and Helkama (2007)</c4o:hasContent>
+    <c4o:denotes>
+      <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/reference-r77">
+        <c4o:hasInTextCitationFrequency rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</c4o:hasInTextCitationFrequency>
+      </rdf:Description>
+    </c4o:denotes>
+  </c4o:InTextReferencePointer>
+  <c4o:InTextReferencePointer rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Results_Regression-Analyses_para_1/r3/1">
+    <c4o:denotes>
+      <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/reference-r3">
+        <c4o:hasInTextCitationFrequency rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</c4o:hasInTextCitationFrequency>
+      </rdf:Description>
+    </c4o:denotes>
+    <c4o:hasContent>Baron and Kenny (1986)</c4o:hasContent>
+    <c4o:hasContext>
+      <doco:Paragraph rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Results_Regression-Analyses_para_1">
+        <c4o:hasContent>Initially, we conducted a stepwise regression for the whole sample (). We then tested for possible mediation effects. According to  mediation is present if: (a) the predictor, mediator and outcome variables are significantly related, and (b) there is a reduction in the effect of the predictor on the outcome variable after controlling for the mediator. In addition, formal tests of significance of the mediation were carried out using the Sobel Test ().</c4o:hasContent>
+      </doco:Paragraph>
+    </c4o:hasContext>
+  </c4o:InTextReferencePointer>
+  <c4o:InTextReferencePointer rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Empathy-Bullying-Victimizatio_para_2/r2/3">
+    <c4o:denotes>
+      <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/reference-r2">
+        <c4o:hasInTextCitationFrequency rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</c4o:hasInTextCitationFrequency>
+      </rdf:Description>
+    </c4o:denotes>
+    <c4o:hasContent>Arsenio &amp; Lemerise, 2004</c4o:hasContent>
+    <c4o:hasContext rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Empathy-Bullying-Victimizatio_para_2"/>
+  </c4o:InTextReferencePointer>
+  <c4o:InTextReferencePointer rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Demographic-Characteristics_para_1/r13/4">
+    <c4o:denotes>
+      <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/reference-r13">
+        <c4o:hasInTextCitationFrequency rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >3</c4o:hasInTextCitationFrequency>
+      </rdf:Description>
+    </c4o:denotes>
+    <c4o:hasContent>Champion et al., 2003</c4o:hasContent>
+    <c4o:hasContext rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Demographic-Characteristics_para_1"/>
+  </c4o:InTextReferencePointer>
+  <c4o:InTextReferencePointer rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Discussion_para_5/r33/5">
+    <c4o:hasContext>
+      <doco:Paragraph rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Discussion_para_5">
+        <c4o:hasContent>However, the fact that this finding is true for boys, but not for girls, is in contrast with previous research which stresses that mothers invest more in emotional closeness with their daughters than with their sons (; ) and that children are more likely to identify with and model the behaviour of the same-sex parent (; ). However, it should be mentioned that the aforementioned studies have used primarily adolescent samples; it can then be argued that in our case (i.e., preadolescent sample), the maternal influence on the development of their sons’ emotional concern is greater for boys than for girls, and it is possible that this does not extend into adolescence. Cultural issues may also play a role in these relationships, in that Greek mothers seem to spend a greater deal of time with their children when compared to fathers, resulting in them having a greater impact on their emotional development (). It also may follow that at this age, girls’s emotional development is influenced by other resources as well (i.e., peer group).</c4o:hasContent>
+      </doco:Paragraph>
+    </c4o:hasContext>
+    <c4o:hasContent>Georgiou, 2008</c4o:hasContent>
+    <c4o:denotes>
+      <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/reference-r33">
+        <c4o:hasInTextCitationFrequency rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</c4o:hasInTextCitationFrequency>
+      </rdf:Description>
+    </c4o:denotes>
+  </c4o:InTextReferencePointer>
+  <c4o:InTextReferencePointer rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Demographic-Characteristics_para_1/r75/3">
+    <c4o:denotes>
+      <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/reference-r75">
+        <c4o:hasInTextCitationFrequency rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</c4o:hasInTextCitationFrequency>
+      </rdf:Description>
+    </c4o:denotes>
+    <c4o:hasContent>Seals &amp; Young, 2003</c4o:hasContent>
+    <c4o:hasContext rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Demographic-Characteristics_para_1"/>
+  </c4o:InTextReferencePointer>
+  <c4o:InTextReferencePointer rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Discussion_para_1/r48/4">
+    <c4o:hasContext rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Discussion_para_1"/>
+    <c4o:hasContent>Ladd, 1992</c4o:hasContent>
+    <c4o:denotes>
+      <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/reference-r48">
+        <c4o:hasInTextCitationFrequency rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</c4o:hasInTextCitationFrequency>
+      </rdf:Description>
+    </c4o:denotes>
+  </c4o:InTextReferencePointer>
+  <c4o:InTextReferencePointer rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Perceived-Parental-Bonding-an_para_1/r70/8">
+    <c4o:denotes>
+      <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/reference-r70">
+        <c4o:hasInTextCitationFrequency rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</c4o:hasInTextCitationFrequency>
+      </rdf:Description>
+    </c4o:denotes>
+    <c4o:hasContent>Roberts, 2000</c4o:hasContent>
+    <c4o:hasContext rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Perceived-Parental-Bonding-an_para_1"/>
+  </c4o:InTextReferencePointer>
+  <c4o:InTextReferencePointer rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Discussion_para_1/r42/6">
+    <c4o:hasContext rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Discussion_para_1"/>
+    <c4o:hasContent>Jolliffe &amp; Farrington, 2006a</c4o:hasContent>
+    <c4o:denotes>
+      <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/reference-r42">
+        <c4o:hasInTextCitationFrequency rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</c4o:hasInTextCitationFrequency>
+      </rdf:Description>
+    </c4o:denotes>
+  </c4o:InTextReferencePointer>
+  <c4o:InTextReferencePointer rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Characteristics-of-Bullies-an_para_1/r81/8">
+    <c4o:denotes rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/reference-r81"/>
+    <c4o:hasContent>Vernberg, Jacobs, &amp; Hershberger, 1999</c4o:hasContent>
+    <c4o:hasContext rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Characteristics-of-Bullies-an_para_1"/>
+  </c4o:InTextReferencePointer>
+  <c4o:InTextReferencePointer rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Discussion_para_5/r51/4">
+    <c4o:hasContext rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Discussion_para_5"/>
+    <c4o:hasContent>Maccoby, 2003</c4o:hasContent>
+    <c4o:denotes>
+      <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/reference-r51">
+        <c4o:hasInTextCitationFrequency rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</c4o:hasInTextCitationFrequency>
+      </rdf:Description>
+    </c4o:denotes>
+  </c4o:InTextReferencePointer>
+  <c4o:InTextReferencePointer rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Characteristics-of-Bullies-an_para_1/r47/7">
+    <c4o:denotes>
+      <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/reference-r47">
+        <c4o:hasInTextCitationFrequency rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</c4o:hasInTextCitationFrequency>
+      </rdf:Description>
+    </c4o:denotes>
+    <c4o:hasContent>Kochenderfer &amp; Ladd, 1997</c4o:hasContent>
+    <c4o:hasContext rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Characteristics-of-Bullies-an_para_1"/>
+  </c4o:InTextReferencePointer>
+  <c4o:InTextReferencePointer rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_para_3/r35/5">
+    <c4o:hasContext rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_para_3"/>
+    <c4o:hasContent>Giovazolias, Kourkoutas, Mitsopoulou, and Georgiadi (2010)</c4o:hasContent>
+    <c4o:denotes>
+      <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/reference-r35">
+        <c4o:hasInTextCitationFrequency rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</c4o:hasInTextCitationFrequency>
+      </rdf:Description>
+    </c4o:denotes>
+  </c4o:InTextReferencePointer>
+  <c4o:InTextReferencePointer rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Characteristics-of-Bullies-an_para_1/r13/6">
+    <c4o:denotes rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/reference-r13"/>
+    <c4o:hasContent>Champion, Vernberg, &amp; Shipman, 2003</c4o:hasContent>
+    <c4o:hasContext rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Characteristics-of-Bullies-an_para_1"/>
+  </c4o:InTextReferencePointer>
+  <c4o:InTextReferencePointer rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_para_2/r82/2">
+    <c4o:hasContext rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_para_2"/>
+    <c4o:hasContent>Wolke, Woods, Bloomfield, &amp; Karstadt, 2000</c4o:hasContent>
+    <c4o:denotes>
+      <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/reference-r82">
+        <c4o:hasInTextCitationFrequency rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</c4o:hasInTextCitationFrequency>
+      </rdf:Description>
+    </c4o:denotes>
+  </c4o:InTextReferencePointer>
+  <c4o:InTextReferencePointer rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_para_1/r56/1">
+    <c4o:hasContext rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_para_1"/>
+    <c4o:hasContent>Nansel et al., 2001</c4o:hasContent>
+    <c4o:denotes rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/reference-r56"/>
+  </c4o:InTextReferencePointer>
+  <c4o:InTextReferencePointer rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Method_Measures_Data-Analyses_para_1/r62/4">
+    <c4o:hasContext rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Method_Measures_Data-Analyses_para_1"/>
+    <c4o:hasContent>Onwuegbuzie, Levin, &amp; Leech, 2003</c4o:hasContent>
+    <c4o:denotes>
+      <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/reference-r62">
+        <c4o:hasInTextCitationFrequency rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</c4o:hasInTextCitationFrequency>
+      </rdf:Description>
+    </c4o:denotes>
+  </c4o:InTextReferencePointer>
+  <c4o:InTextReferencePointer rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_para_1/r60/7">
+    <c4o:hasContext rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_para_1"/>
+    <c4o:hasContent>Olweus, 1999</c4o:hasContent>
+    <c4o:denotes>
+      <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/reference-r60">
+        <c4o:hasInTextCitationFrequency rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >2</c4o:hasInTextCitationFrequency>
+      </rdf:Description>
+    </c4o:denotes>
+  </c4o:InTextReferencePointer>
+  <c4o:InTextReferencePointer rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Empathy-Bullying-Victimizatio_para_2/r9/2">
+    <c4o:denotes>
+      <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/reference-r9">
+        <c4o:hasInTextCitationFrequency rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</c4o:hasInTextCitationFrequency>
+      </rdf:Description>
+    </c4o:denotes>
+    <c4o:hasContent>Camodeca, Goossens, Schuengel, &amp; Terwogt, 2003</c4o:hasContent>
+    <c4o:hasContext rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Empathy-Bullying-Victimizatio_para_2"/>
+  </c4o:InTextReferencePointer>
+  <c4o:InTextReferencePointer rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Method_Measures_Data-Analyses_para_1/r39/3">
+    <c4o:hasContext rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Method_Measures_Data-Analyses_para_1"/>
+    <c4o:hasContent>Howell, 1999</c4o:hasContent>
+    <c4o:denotes>
+      <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/reference-r39">
+        <c4o:hasInTextCitationFrequency rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</c4o:hasInTextCitationFrequency>
+      </rdf:Description>
+    </c4o:denotes>
+  </c4o:InTextReferencePointer>
+  <c4o:InTextReferencePointer rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_para_2/r64/3">
+    <c4o:hasContext rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_para_2"/>
+    <c4o:hasContent>Patchin &amp; Hinduja, 2006</c4o:hasContent>
+    <c4o:denotes>
+      <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/reference-r64">
+        <c4o:hasInTextCitationFrequency rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</c4o:hasInTextCitationFrequency>
+      </rdf:Description>
+    </c4o:denotes>
+  </c4o:InTextReferencePointer>
+  <c4o:InTextReferencePointer rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Demographic-Characteristics_para_1/r13/1">
+    <c4o:denotes rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/reference-r13"/>
+    <c4o:hasContent>Champion et al., 2003</c4o:hasContent>
+    <c4o:hasContext rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Demographic-Characteristics_para_1"/>
+  </c4o:InTextReferencePointer>
+  <c4o:InTextReferencePointer rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Method_Measures_Aggression-Victimization_para_1/r19/2">
+    <c4o:hasContext rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Method_Measures_Aggression-Victimization_para_1"/>
+    <c4o:hasContent>Crick &amp; Bigbee, 1998</c4o:hasContent>
+    <c4o:denotes>
+      <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/reference-r19">
+        <c4o:hasInTextCitationFrequency rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</c4o:hasInTextCitationFrequency>
+      </rdf:Description>
+    </c4o:denotes>
+  </c4o:InTextReferencePointer>
+  <c4o:InTextReferencePointer rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Empathy-Bullying-Victimizatio_para_3/r7/4">
+    <c4o:denotes rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/reference-r7"/>
+    <c4o:hasContent>Bryant, 1982</c4o:hasContent>
+    <c4o:hasContext rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Empathy-Bullying-Victimizatio_para_3"/>
+  </c4o:InTextReferencePointer>
+  <c4o:InTextReferencePointer rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Demographic-Characteristics_para_1/r34/5">
+    <c4o:denotes>
+      <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/reference-r34">
+        <c4o:hasInTextCitationFrequency rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >2</c4o:hasInTextCitationFrequency>
+      </rdf:Description>
+    </c4o:denotes>
+    <c4o:hasContent>Giovazolias et al., 2009</c4o:hasContent>
+    <c4o:hasContext rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Demographic-Characteristics_para_1"/>
+  </c4o:InTextReferencePointer>
+  <c4o:InTextReferencePointer rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_para_1/r60/5">
+    <c4o:hasContext rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_para_1"/>
+    <c4o:hasContent>1999</c4o:hasContent>
+    <c4o:denotes rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/reference-r60"/>
+  </c4o:InTextReferencePointer>
+  <c4o:InTextReferencePointer rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Discussion_Limitations_para_1/r71/1">
+    <c4o:denotes>
+      <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/reference-r71">
+        <c4o:hasInTextCitationFrequency rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</c4o:hasInTextCitationFrequency>
+      </rdf:Description>
+    </c4o:denotes>
+    <c4o:hasContent>Rohner, Khaleque, &amp; Cournoyer, 2005</c4o:hasContent>
+    <c4o:hasContext>
+      <doco:Paragraph rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Discussion_Limitations_para_1">
+        <c4o:hasContent>Although adolescent perceptions of parenting have often been found to be more predictive of various developmental outcomes than parental perceptions (), an important limitation of the present study is its reliance on a single-informant single-method approach As a result, it could be argued that common method variance might have inflated the observed relations. Future research would benefit from including multiple informants and using multiple methods. Furthermore, the cross-sectional design of the study limits the possibility of determining causal relationships among the variables examined. Further studies might employ a longitudinal design in order to control for these interactions.</c4o:hasContent>
+      </doco:Paragraph>
+    </c4o:hasContext>
+  </c4o:InTextReferencePointer>
+  <c4o:InTextReferencePointer rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Method_Measures_Empathy_para_1/r7/1">
+    <c4o:hasContext rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Method_Measures_Empathy_para_1"/>
+    <c4o:hasContent>Bryant, 1982</c4o:hasContent>
+    <c4o:denotes rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/reference-r7"/>
+  </c4o:InTextReferencePointer>
+  <c4o:InTextReferencePointer rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Perceived-Parental-Bonding-an_para_1/r69/5">
+    <c4o:denotes>
+      <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/reference-r69">
+        <c4o:hasInTextCitationFrequency rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >2</c4o:hasInTextCitationFrequency>
+      </rdf:Description>
+    </c4o:denotes>
+    <c4o:hasContent>Rigby, 2007</c4o:hasContent>
+    <c4o:hasContext rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Perceived-Parental-Bonding-an_para_1"/>
+  </c4o:InTextReferencePointer>
+  <c4o:InTextReferencePointer rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Empathy-Bullying-Victimizatio_para_4/r1/5">
+    <c4o:denotes>
+      <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/reference-r1">
+        <c4o:hasInTextCitationFrequency rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</c4o:hasInTextCitationFrequency>
+      </rdf:Description>
+    </c4o:denotes>
+    <c4o:hasContent>Allen &amp; Tarnowski, 1989</c4o:hasContent>
+    <c4o:hasContext rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Empathy-Bullying-Victimizatio_para_4"/>
+  </c4o:InTextReferencePointer>
+  <c4o:InTextReferencePointer rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Empathy-Bullying-Victimizatio_para_3/r10/1">
+    <c4o:denotes>
+      <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/reference-r10">
+        <c4o:hasInTextCitationFrequency rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</c4o:hasInTextCitationFrequency>
+      </rdf:Description>
+    </c4o:denotes>
+    <c4o:hasContent>Caravita, Di Blasio, &amp; Salmivalli, 2010</c4o:hasContent>
+    <c4o:hasContext rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Empathy-Bullying-Victimizatio_para_3"/>
+  </c4o:InTextReferencePointer>
+  <c4o:InTextReferencePointer rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Discussion_para_4/r27/2">
+    <c4o:hasContext rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Discussion_para_4"/>
+    <c4o:hasContent>Eisenberg &amp; Valiente, 2002</c4o:hasContent>
+    <c4o:denotes>
+      <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/reference-r27">
+        <c4o:hasInTextCitationFrequency rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</c4o:hasInTextCitationFrequency>
+      </rdf:Description>
+    </c4o:denotes>
+  </c4o:InTextReferencePointer>
+  <c4o:InTextReferencePointer rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Characteristics-of-Bullies-an_para_1/r20/2">
+    <c4o:denotes>
+      <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/reference-r20">
+        <c4o:hasInTextCitationFrequency rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</c4o:hasInTextCitationFrequency>
+      </rdf:Description>
+    </c4o:denotes>
+    <c4o:hasContent>Crick and Grotpeter (1995)</c4o:hasContent>
+    <c4o:hasContext rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Characteristics-of-Bullies-an_para_1"/>
+  </c4o:InTextReferencePointer>
+  <c4o:InTextReferencePointer rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_para_3/r79/2">
+    <c4o:hasContext rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_para_3"/>
+    <c4o:hasContent>Stassen Berger, 2007</c4o:hasContent>
+    <c4o:denotes>
+      <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/reference-r79">
+        <c4o:hasInTextCitationFrequency rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</c4o:hasInTextCitationFrequency>
+      </rdf:Description>
+    </c4o:denotes>
+  </c4o:InTextReferencePointer>
+  <c4o:InTextReferencePointer rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Empathy-Bullying-Victimizatio_para_4/r68/7">
+    <c4o:denotes rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/reference-r68"/>
+    <c4o:hasContent>Rigby, 2002</c4o:hasContent>
+    <c4o:hasContext rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Empathy-Bullying-Victimizatio_para_4"/>
+  </c4o:InTextReferencePointer>
+  <c4o:InTextReferencePointer rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Empathy-Bullying-Victimizatio_para_3/r21/2">
+    <c4o:denotes rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/reference-r21"/>
+    <c4o:hasContent>Dautenhahn et al., 2007</c4o:hasContent>
+    <c4o:hasContext rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Empathy-Bullying-Victimizatio_para_3"/>
+  </c4o:InTextReferencePointer>
+  <c4o:InTextReferencePointer rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Discussion_para_5/r53/2">
+    <c4o:hasContext rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Discussion_para_5"/>
+    <c4o:hasContent>Milevsky, Schlechter, Netter, &amp; Keehn, 2007</c4o:hasContent>
+    <c4o:denotes>
+      <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/reference-r53">
+        <c4o:hasInTextCitationFrequency rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</c4o:hasInTextCitationFrequency>
+      </rdf:Description>
+    </c4o:denotes>
+  </c4o:InTextReferencePointer>
+  <c4o:InTextReferencePointer rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Method_Measures_Parental-Bonding_para_1/r84/6">
+    <c4o:hasContext rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Method_Measures_Parental-Bonding_para_1"/>
+    <c4o:hasContent>Tsaousis, Mascha, &amp; Giovazolias, 2012</c4o:hasContent>
+    <c4o:denotes>
+      <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/reference-r84">
+        <c4o:hasInTextCitationFrequency rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</c4o:hasInTextCitationFrequency>
+      </rdf:Description>
+    </c4o:denotes>
+  </c4o:InTextReferencePointer>
+  <c4o:InTextReferencePointer rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_para_3/r67/6">
+    <c4o:hasContext rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_para_3"/>
+    <c4o:hasContent>Psalti, Papathanassiou, Konstantinou, &amp; Deliyanni, 2005</c4o:hasContent>
+    <c4o:denotes>
+      <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/reference-r67">
+        <c4o:hasInTextCitationFrequency rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</c4o:hasInTextCitationFrequency>
+      </rdf:Description>
+    </c4o:denotes>
+  </c4o:InTextReferencePointer>
+  <c4o:InTextReferencePointer rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Method_Measures_Parental-Bonding_para_1/r63/1">
+    <c4o:hasContext rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Method_Measures_Parental-Bonding_para_1"/>
+    <c4o:hasContent>Parker et al., 1979</c4o:hasContent>
+    <c4o:denotes>
+      <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/reference-r63">
+        <c4o:hasInTextCitationFrequency rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >3</c4o:hasInTextCitationFrequency>
+      </rdf:Description>
+    </c4o:denotes>
+  </c4o:InTextReferencePointer>
+  <c4o:InTextReferencePointer rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Demographic-Characteristics_para_1/r80/8">
+    <c4o:denotes>
+      <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/reference-r80">
+        <c4o:hasInTextCitationFrequency rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</c4o:hasInTextCitationFrequency>
+      </rdf:Description>
+    </c4o:denotes>
+    <c4o:hasContent>Sutton &amp; Smith, 1999</c4o:hasContent>
+    <c4o:hasContext rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Demographic-Characteristics_para_1"/>
+  </c4o:InTextReferencePointer>
+  <c4o:InTextReferencePointer rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Results_Regression-Analyses_para_1/r66/2">
+    <c4o:denotes>
+      <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/reference-r66">
+        <c4o:hasInTextCitationFrequency rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</c4o:hasInTextCitationFrequency>
+      </rdf:Description>
+    </c4o:denotes>
+    <c4o:hasContent>Preacher &amp; Hayes, 2004</c4o:hasContent>
+    <c4o:hasContext rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Results_Regression-Analyses_para_1"/>
+  </c4o:InTextReferencePointer>
+  <c4o:InTextReferencePointer rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Discussion_para_3/r31/2">
+    <c4o:hasContext rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Discussion_para_3"/>
+    <c4o:hasContent>Feshbach (1987)</c4o:hasContent>
+    <c4o:denotes>
+      <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/reference-r31">
+        <c4o:hasInTextCitationFrequency rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</c4o:hasInTextCitationFrequency>
+      </rdf:Description>
+    </c4o:denotes>
+  </c4o:InTextReferencePointer>
+  <c4o:InTextReferencePointer rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Demographic-Characteristics_para_1/r34/2">
+    <c4o:denotes rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/reference-r34"/>
+    <c4o:hasContent>Giovazolias, Kourkoutas, &amp; Mitsopoulou, 2009</c4o:hasContent>
+    <c4o:hasContext rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Demographic-Characteristics_para_1"/>
+  </c4o:InTextReferencePointer>
+  <c4o:InTextReferencePointer rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Characteristics-of-Bullies-an_para_1/r50/5">
+    <c4o:denotes>
+      <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/reference-r50">
+        <c4o:hasInTextCitationFrequency rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</c4o:hasInTextCitationFrequency>
+      </rdf:Description>
+    </c4o:denotes>
+    <c4o:hasContent>Long and Pellegrini (2003)</c4o:hasContent>
+    <c4o:hasContext rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Characteristics-of-Bullies-an_para_1"/>
+  </c4o:InTextReferencePointer>
+  <c4o:InTextReferencePointer rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Empathy-Bullying-Victimizatio_para_1/r41/5">
+    <c4o:denotes rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/reference-r41"/>
+    <c4o:hasContent>Jolliffe &amp; Farrington, 2004</c4o:hasContent>
+    <c4o:hasContext rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Empathy-Bullying-Victimizatio_para_1"/>
+  </c4o:InTextReferencePointer>
+  <c4o:InTextReferencePointer rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Discussion_para_3/r43/1">
+    <c4o:hasContext rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Discussion_para_3"/>
+    <c4o:hasContent>Jolliffe and Farrington (2006b)</c4o:hasContent>
+    <c4o:denotes>
+      <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/reference-r43">
+        <c4o:hasInTextCitationFrequency rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</c4o:hasInTextCitationFrequency>
+      </rdf:Description>
+    </c4o:denotes>
+  </c4o:InTextReferencePointer>
+  <c4o:InTextReferencePointer rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Discussion_para_4/r28/1">
+    <c4o:hasContext rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Discussion_para_4"/>
+    <c4o:hasContent>Eisenberg et al., 2006</c4o:hasContent>
+    <c4o:denotes rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/reference-r28"/>
+  </c4o:InTextReferencePointer>
+  <c4o:InTextReferencePointer rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Method_Measures_Data-Analyses_para_1/r15/2">
+    <c4o:hasContext rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Method_Measures_Data-Analyses_para_1"/>
+    <c4o:hasContent>Cohen, 1992</c4o:hasContent>
+    <c4o:denotes>
+      <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/reference-r15">
+        <c4o:hasInTextCitationFrequency rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</c4o:hasInTextCitationFrequency>
+      </rdf:Description>
+    </c4o:denotes>
+  </c4o:InTextReferencePointer>
+  <c4o:InTextReferencePointer rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Characteristics-of-Bullies-an_para_1/r29/4">
+    <c4o:denotes>
+      <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/reference-r29">
+        <c4o:hasInTextCitationFrequency rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</c4o:hasInTextCitationFrequency>
+      </rdf:Description>
+    </c4o:denotes>
+    <c4o:hasContent>Espelage and Swearer (2003)</c4o:hasContent>
+    <c4o:hasContext rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Characteristics-of-Bullies-an_para_1"/>
+  </c4o:InTextReferencePointer>
+  <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/textual-entity">
+    <po:contains>
+      <doco:Section rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Discussion">
+        <po:contains rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Discussion_para_4"/>
+        <dcterms:title>Discussion</dcterms:title>
+        <po:contains>
+          <doco:Paragraph rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Discussion_para_2">
+            <c4o:hasContent>A third finding of this study was that Sadness and Understanding of Feelings mediated the relationship between the Care Mother and the tendency of children to bully their peers. More specifically, it was found that the children who perceived their mothers as less caring (i.e., showing less affection, less warmth, more indifference and rejecting behaviour towards them) had lower empathic responses (both affective and cognitive) and this resulted in a higher tendency to bully other children. A closer examination of this relationship – by conducting separate analyses in the two genders – revealed that this was evident in the sub-sample of boys, but not in girls.</c4o:hasContent>
+          </doco:Paragraph>
+        </po:contains>
+        <po:contains rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Discussion_para_1"/>
+        <po:contains rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Discussion_para_3"/>
+        <po:contains>
+          <doco:Section rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Discussion_Limitations">
+            <dcterms:title>Limitations</dcterms:title>
+            <po:contains rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Discussion_Limitations_para_1"/>
+            <po:contains>
+              <po:Structured rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Discussion_Limitations_list">
+                <co:firstItem>
+                  <co:ListItem rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Discussion_Limitations/_listItem/1">
+                    <co:itemContent rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Discussion_Limitations_para_1"/>
+                    <co:index rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+                    >1</co:index>
+                  </co:ListItem>
+                </co:firstItem>
+                <co:size rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+                >1</co:size>
+                <rdf:type rdf:resource="http://purl.org/co/List"/>
+              </po:Structured>
+            </po:contains>
+          </doco:Section>
+        </po:contains>
+        <rdf:type rdf:resource="http://salt.semanticauthoring.org/ontologies/sro#Discussion"/>
+        <po:contains>
+          <co:List rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Discussion_list">
+            <rdf:type rdf:resource="http://www.essepuntato.it/2008/12/pattern#Structured"/>
+            <co:size rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+            >7</co:size>
+            <co:firstItem>
+              <co:ListItem rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Discussion/_listItem/1">
+                <co:index rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+                >1</co:index>
+                <co:itemContent rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Discussion_para_1"/>
+                <co:nextItem>
+                  <co:ListItem rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Discussion/_listItem/2">
+                    <co:index rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+                    >2</co:index>
+                    <co:itemContent rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Discussion_para_2"/>
+                    <co:nextItem>
+                      <co:ListItem rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Discussion/_listItem/3">
+                        <co:index rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+                        >3</co:index>
+                        <co:itemContent rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Discussion_para_3"/>
+                        <co:nextItem>
+                          <co:ListItem rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Discussion/_listItem/4">
+                            <co:index rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+                            >4</co:index>
+                            <co:itemContent rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Discussion_para_4"/>
+                            <co:nextItem>
+                              <co:ListItem rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Discussion/_listItem/5">
+                                <co:index rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+                                >5</co:index>
+                                <co:itemContent rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Discussion_para_5"/>
+                                <co:nextItem>
+                                  <co:ListItem rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Discussion/_listItem/6">
+                                    <co:index rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+                                    >6</co:index>
+                                    <co:itemContent rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Discussion_Limitations"/>
+                                    <co:nextItem>
+                                      <co:ListItem rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Discussion/_listItem/7">
+                                        <co:index rdf:datatype=
+                                        "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+                                        >7</co:index>
+                                        <co:itemContent>
+                                          <doco:Section rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Discussion_Conclusions">
+                                            <dcterms:title>Conclusions</dcterms:title>
+                                            <po:contains>
+                                              <doco:Paragraph rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Discussion_Conclusions_para_1">
+                                                <c4o:hasContent
+                                                >To our knowledge, this is the first study investigating both types of empathy together with gender on bullying behaviour, as related to parental behaviour. Previous research studies have not distinguished between types of empathy, especially as possible mediators of the parental behaviours to the manifestation of bullying. However, examining these relevant variables together in a single study allows for a more comprehensive understanding of the complex pattern of relationships among them. The present research underscores the need to differentiate between emotional and cognitive aspects of empathy (i.e., Sadness and Understanding of Feelings, respectively) in order to better understand the family origins of empathy development, as well as its association with bullying behaviours. This differentiation might prove especially helpful also in the case of the design and implementation of counselling interventions aiming at the development of empathic skills in children.</c4o:hasContent>
+                                              </doco:Paragraph>
+                                            </po:contains>
+                                            <po:contains>
+                                              <po:Structured rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Discussion_Conclusions_list">
+                                                <co:firstItem>
+                                                  <co:ListItem rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Discussion_Conclusions/_listItem/1">
+                                                    <co:itemContent rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Discussion_Conclusions_para_1"/>
+                                                    <co:index
+                                                     rdf:datatype=
+                                                    "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+                                                    >1</co:index>
+                                                  </co:ListItem>
+                                                </co:firstItem>
+                                                <co:size rdf:datatype=
+                                                "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+                                                >1</co:size>
+                                                <rdf:type rdf:resource="http://purl.org/co/List"/>
+                                              </po:Structured>
+                                            </po:contains>
+                                          </doco:Section>
+                                        </co:itemContent>
+                                      </co:ListItem>
+                                    </co:nextItem>
+                                  </co:ListItem>
+                                </co:nextItem>
+                              </co:ListItem>
+                            </co:nextItem>
+                          </co:ListItem>
+                        </co:nextItem>
+                      </co:ListItem>
+                    </co:nextItem>
+                  </co:ListItem>
+                </co:nextItem>
+              </co:ListItem>
+            </co:firstItem>
+          </co:List>
+        </po:contains>
+        <po:contains rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Discussion_para_5"/>
+        <po:contains rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Discussion_Conclusions"/>
+      </doco:Section>
+    </po:contains>
+    <po:contains>
+      <deo:Results rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Results">
+        <po:contains>
+          <co:List rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Results_list">
+            <rdf:type rdf:resource="http://www.essepuntato.it/2008/12/pattern#Structured"/>
+            <co:size rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+            >3</co:size>
+            <co:firstItem>
+              <co:ListItem rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Results/_listItem/1">
+                <co:index rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+                >1</co:index>
+                <co:itemContent>
+                  <doco:Section rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Results_Frequencies-of-Bullying-and-V">
+                    <dcterms:title>Frequencies of Bullying and Victimization and Overall Gender Differences</dcterms:title>
+                    <po:contains>
+                      <doco:Paragraph rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Results_Frequencies-of-Bullying-and-V_para_1">
+                        <c4o:hasContent>Independent samples -tests were conducted to examine gender differences with a level = .05/9 = .005 using the Bonferroni correction (controlling for Type I error). Boys and girls did not differ on average with respect to mother’s or father’s care and overprotection. Boys scored significantly higher on average with respect to VO (boys:  = 1.40,  = .50; girls:  = 1.22,  = .31: (429) = 4.74,  &lt; .001); and VS (boys:  = 1.75,  = .69; girls:  = 1.63,  = .58; (490) = 2.00,  = .04; see ). These results reveal that boys engage in both forms of bullying behaviours (i.e., bullying others and being victimised by others) in a greater proportion than girls. Furthermore, boys and girls were found to differ with respect to dimensions of empathy, namely Sadness (girls:  = .82,  = .18; boys:  = .77,  = .21; (495) = -2.72,  &lt; .001) and Tearful Reaction (girls:  = .49,  = .33; boys:  = .29,  = .31; (499) = -5.57,  &lt; .001; see ).</c4o:hasContent>
+                      </doco:Paragraph>
+                    </po:contains>
+                    <po:contains>
+                      <po:Structured rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Results_Frequencies-of-Bullying-and-V_list">
+                        <co:firstItem>
+                          <co:ListItem rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Results_Frequencies-of-Bullying-and-V/_listItem/1">
+                            <co:itemContent rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Results_Frequencies-of-Bullying-and-V_para_1"/>
+                            <co:index rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+                            >1</co:index>
+                          </co:ListItem>
+                        </co:firstItem>
+                        <co:size rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+                        >1</co:size>
+                        <rdf:type rdf:resource="http://purl.org/co/List"/>
+                      </po:Structured>
+                    </po:contains>
+                  </doco:Section>
+                </co:itemContent>
+                <co:nextItem>
+                  <co:ListItem rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Results/_listItem/2">
+                    <co:index rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+                    >2</co:index>
+                    <co:itemContent>
+                      <doco:Section rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Results_Associations-Among-Parental-B">
+                        <dcterms:title>Associations Among Parental Bonding, Empathy (Proposed Mediator) and Outcome Variables</dcterms:title>
+                        <po:contains>
+                          <doco:Paragraph rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Results_Associations-Among-Parental-B_para_3">
+                            <c4o:hasContent>Interestingly, Sadness and Understanding of emotion but not Tearful Reaction, the proposed mediators in the associations among VS, VO and Parental Bonding, had strong associations almost with all variables.</c4o:hasContent>
+                          </doco:Paragraph>
+                        </po:contains>
+                        <po:contains>
+                          <doco:Paragraph rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Results_Associations-Among-Parental-B_para_2">
+                            <c4o:hasContent>In relation to Empathy, VS was positively correlated with Tearful Reaction ( = .10,  &lt; .05) and negatively with Understanding of emotions ( = -.11,  &lt; .05), while regarding VO, there were negative correlations with Sadness ( = -.20,  &lt; .01), and Understanding of emotion ( = -.26,  &lt; .01).</c4o:hasContent>
+                          </doco:Paragraph>
+                        </po:contains>
+                        <po:contains>
+                          <doco:Paragraph rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Results_Associations-Among-Parental-B_para_1">
+                            <c4o:hasContent> presents the zero order correlations among the main variables of the study. In relation to  victimization of self (VS) was positively correlated with overprotective mother ( = .21,  &lt; .01) and father ( = .13,  &lt; .01) but negatively with Care Mother ( = .12,  &lt; .01) and Father ( = -.10,  &lt; .01). Regarding Victimization of Other (VO), there was positive correlation with overprotective mother  &lt; . and negative correlation with Care Mother ( = -.23,  &lt; .01) and Father ( = -.15,  &lt; .01).</c4o:hasContent>
+                          </doco:Paragraph>
+                        </po:contains>
+                        <po:contains>
+                          <po:Structured rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Results_Associations-Among-Parental-B_list">
+                            <co:firstItem>
+                              <co:ListItem rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Results_Associations-Among-Parental-B/_listItem/1">
+                                <co:nextItem>
+                                  <co:ListItem rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Results_Associations-Among-Parental-B/_listItem/2">
+                                    <co:nextItem>
+                                      <co:ListItem rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Results_Associations-Among-Parental-B/_listItem/3">
+                                        <co:itemContent rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Results_Associations-Among-Parental-B_para_3"/>
+                                        <co:index rdf:datatype=
+                                        "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+                                        >3</co:index>
+                                      </co:ListItem>
+                                    </co:nextItem>
+                                    <co:itemContent rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Results_Associations-Among-Parental-B_para_2"/>
+                                    <co:index rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+                                    >2</co:index>
+                                  </co:ListItem>
+                                </co:nextItem>
+                                <co:itemContent rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Results_Associations-Among-Parental-B_para_1"/>
+                                <co:index rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+                                >1</co:index>
+                              </co:ListItem>
+                            </co:firstItem>
+                            <co:size rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+                            >3</co:size>
+                            <rdf:type rdf:resource="http://purl.org/co/List"/>
+                          </po:Structured>
+                        </po:contains>
+                      </doco:Section>
+                    </co:itemContent>
+                    <co:nextItem>
+                      <co:ListItem rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Results/_listItem/3">
+                        <co:index rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+                        >3</co:index>
+                        <co:itemContent>
+                          <doco:Section rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Results_Regression-Analyses">
+                            <dcterms:title>Regression Analyses</dcterms:title>
+                            <po:contains>
+                              <doco:Paragraph rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Results_Regression-Analyses_para_4">
+                                <c4o:hasContent>We have to point out that the subsample of boys reveals that the Care Mother plays role in their tendency to become bullies. In the case of Care Mother, Sadness and Understanding of Feelings were significant mediators of Victimization of Others (VO),  = -2.36,  = .01 and  = -2.37,  = .02, respectively.</c4o:hasContent>
+                              </doco:Paragraph>
+                            </po:contains>
+                            <po:contains>
+                              <doco:Paragraph rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Results_Regression-Analyses_para_3">
+                                <c4o:hasContent>To further investigate the mediation effect of empathy on bullying behaviour regarding the gender of the participants, we conducted separate stepwise regression analyses for girls and boys.  and  present the results for girls and boys on VS and VO, respectively.</c4o:hasContent>
+                              </doco:Paragraph>
+                            </po:contains>
+                            <po:contains>
+                              <doco:Paragraph rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Results_Regression-Analyses_para_2">
+                                <c4o:hasContent>It was found that in the case of Care Mother, Sadness and Understanding of Feelings were significant mediators of Victimization of Others (VS),  = -3.03,  = .002 and  = -3.70,  = .001, respectively (see ).</c4o:hasContent>
+                              </doco:Paragraph>
+                            </po:contains>
+                            <po:contains rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Results_Regression-Analyses_para_1"/>
+                            <po:contains>
+                              <po:Structured rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Results_Regression-Analyses_list">
+                                <co:firstItem>
+                                  <co:ListItem rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Results_Regression-Analyses/_listItem/1">
+                                    <co:nextItem>
+                                      <co:ListItem rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Results_Regression-Analyses/_listItem/2">
+                                        <co:nextItem>
+                                          <co:ListItem rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Results_Regression-Analyses/_listItem/3">
+                                            <co:nextItem>
+                                              <co:ListItem rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Results_Regression-Analyses/_listItem/4">
+                                                <co:itemContent rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Results_Regression-Analyses_para_4"/>
+                                                <co:index rdf:datatype=
+                                                "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+                                                >4</co:index>
+                                              </co:ListItem>
+                                            </co:nextItem>
+                                            <co:itemContent rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Results_Regression-Analyses_para_3"/>
+                                            <co:index rdf:datatype=
+                                            "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+                                            >3</co:index>
+                                          </co:ListItem>
+                                        </co:nextItem>
+                                        <co:itemContent rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Results_Regression-Analyses_para_2"/>
+                                        <co:index rdf:datatype=
+                                        "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+                                        >2</co:index>
+                                      </co:ListItem>
+                                    </co:nextItem>
+                                    <co:itemContent rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Results_Regression-Analyses_para_1"/>
+                                    <co:index rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+                                    >1</co:index>
+                                  </co:ListItem>
+                                </co:firstItem>
+                                <co:size rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+                                >4</co:size>
+                                <rdf:type rdf:resource="http://purl.org/co/List"/>
+                              </po:Structured>
+                            </po:contains>
+                          </doco:Section>
+                        </co:itemContent>
+                      </co:ListItem>
+                    </co:nextItem>
+                  </co:ListItem>
+                </co:nextItem>
+              </co:ListItem>
+            </co:firstItem>
+          </co:List>
+        </po:contains>
+        <po:contains rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Results_Frequencies-of-Bullying-and-V"/>
+        <po:contains rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Results_Associations-Among-Parental-B"/>
+        <po:contains rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Results_Regression-Analyses"/>
+        <rdf:type rdf:resource="http://purl.org/spar/doco/Section"/>
+        <dcterms:title>Results</dcterms:title>
+      </deo:Results>
+    </po:contains>
+    <po:contains>
+      <deo:Methods rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Method">
+        <po:contains>
+          <co:List rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Method_list">
+            <rdf:type rdf:resource="http://www.essepuntato.it/2008/12/pattern#Structured"/>
+            <co:size rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+            >2</co:size>
+            <co:firstItem>
+              <co:ListItem rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Method/_listItem/1">
+                <co:index rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+                >1</co:index>
+                <co:itemContent>
+                  <doco:Section rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Method_Participants-and-Procedure">
+                    <dcterms:title>Participants and Procedure</dcterms:title>
+                    <po:contains>
+                      <doco:Paragraph rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Method_Participants-and-Procedure_para_2">
+                        <c4o:hasContent>According to children’s reports, approximately 4.8% of children’s parents had completed Primary school, 12.9% High school, 24.1% Lycee and 58.1% had graduated from University or Technical School. This research was approved by the Hellenic Ministry of Education and Religion. Prior to the distribution of the questionaires, children were asked to participate in a study concerning the relationship between their feelings towards their parents and the perceived aggression among their peers. Children participated voluntarily with their parents’ permission, and were informed about the anonymity of their responses. No other incentive was provided for their participation in this study. The data were collected during the spring semester of 2011. After the collection of the questionnaires, the answers were encoded and analyzed using the SPSS (Statistical Package for Social Sciences, version 18.0, University of Crete).</c4o:hasContent>
+                      </doco:Paragraph>
+                    </po:contains>
+                    <po:contains>
+                      <doco:Paragraph rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Method_Participants-and-Procedure_para_1">
+                        <c4o:hasContent>Participants included 504 children (255 boys, 50.9%, 246 girls, 49.1%) in Grades 4 (49.5%) and 5 (50.5%) from different primary schools in northern Crete, Greece (Heraklion, Rethymnon and Chania). The age mean for the total sample was  = 11.32,  = 0.86. The data collection was conducted during the spring semester of 2010. Participants filled out the questionnaires during an ordinary lecture (appr. 30 minutes). Data on absences from school on the days when the survey was done were not collected. This fact limits the degree of generalization of our findings. The effects of absences, however, are unlikely to have been substantial in the large sample of children who completed the questionnaires.</c4o:hasContent>
+                      </doco:Paragraph>
+                    </po:contains>
+                    <po:contains>
+                      <po:Structured rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Method_Participants-and-Procedure_list">
+                        <co:firstItem>
+                          <co:ListItem rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Method_Participants-and-Procedure/_listItem/1">
+                            <co:nextItem>
+                              <co:ListItem rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Method_Participants-and-Procedure/_listItem/2">
+                                <co:itemContent rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Method_Participants-and-Procedure_para_2"/>
+                                <co:index rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+                                >2</co:index>
+                              </co:ListItem>
+                            </co:nextItem>
+                            <co:itemContent rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Method_Participants-and-Procedure_para_1"/>
+                            <co:index rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+                            >1</co:index>
+                          </co:ListItem>
+                        </co:firstItem>
+                        <co:size rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+                        >2</co:size>
+                        <rdf:type rdf:resource="http://purl.org/co/List"/>
+                      </po:Structured>
+                    </po:contains>
+                  </doco:Section>
+                </co:itemContent>
+                <co:nextItem>
+                  <co:ListItem rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Method/_listItem/2">
+                    <co:index rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+                    >2</co:index>
+                    <co:itemContent>
+                      <doco:Section rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Method_Measures">
+                        <dcterms:title>Measures</dcterms:title>
+                        <po:contains>
+                          <doco:Section rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Method_Measures_Data-Analyses">
+                            <po:contains>
+                              <co:List rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Method_Measures_Data-Analyses_list">
+                                <rdf:type rdf:resource="http://www.essepuntato.it/2008/12/pattern#Structured"/>
+                                <co:size rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+                                >1</co:size>
+                                <co:firstItem>
+                                  <co:ListItem rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Method_Measures_Data-Analyses/_listItem/1">
+                                    <co:index rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+                                    >1</co:index>
+                                    <co:itemContent rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Method_Measures_Data-Analyses_para_1"/>
+                                  </co:ListItem>
+                                </co:firstItem>
+                              </co:List>
+                            </po:contains>
+                            <po:contains rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Method_Measures_Data-Analyses_para_1"/>
+                            <dcterms:title>Data Analyses</dcterms:title>
+                          </doco:Section>
+                        </po:contains>
+                        <po:contains>
+                          <doco:Section rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Method_Measures_Empathy">
+                            <po:contains>
+                              <co:List rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Method_Measures_Empathy_list">
+                                <rdf:type rdf:resource="http://www.essepuntato.it/2008/12/pattern#Structured"/>
+                                <co:size rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+                                >1</co:size>
+                                <co:firstItem>
+                                  <co:ListItem rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Method_Measures_Empathy/_listItem/1">
+                                    <co:index rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+                                    >1</co:index>
+                                    <co:itemContent rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Method_Measures_Empathy_para_1"/>
+                                  </co:ListItem>
+                                </co:firstItem>
+                              </co:List>
+                            </po:contains>
+                            <po:contains rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Method_Measures_Empathy_para_1"/>
+                            <dcterms:title>Empathy</dcterms:title>
+                          </doco:Section>
+                        </po:contains>
+                        <po:contains>
+                          <doco:Section rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Method_Measures_Parental-Bonding">
+                            <po:contains>
+                              <co:List rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Method_Measures_Parental-Bonding_list">
+                                <rdf:type rdf:resource="http://www.essepuntato.it/2008/12/pattern#Structured"/>
+                                <co:size rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+                                >1</co:size>
+                                <co:firstItem>
+                                  <co:ListItem rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Method_Measures_Parental-Bonding/_listItem/1">
+                                    <co:index rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+                                    >1</co:index>
+                                    <co:itemContent rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Method_Measures_Parental-Bonding_para_1"/>
+                                  </co:ListItem>
+                                </co:firstItem>
+                              </co:List>
+                            </po:contains>
+                            <po:contains rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Method_Measures_Parental-Bonding_para_1"/>
+                            <dcterms:title>Parental Bonding</dcterms:title>
+                          </doco:Section>
+                        </po:contains>
+                        <po:contains>
+                          <doco:Section rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Method_Measures_Aggression-Victimization">
+                            <po:contains>
+                              <co:List rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Method_Measures_Aggression-Victimization_list">
+                                <rdf:type rdf:resource="http://www.essepuntato.it/2008/12/pattern#Structured"/>
+                                <co:size rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+                                >1</co:size>
+                                <co:firstItem>
+                                  <co:ListItem rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Method_Measures_Aggression-Victimization/_listItem/1">
+                                    <co:index rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+                                    >1</co:index>
+                                    <co:itemContent rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Method_Measures_Aggression-Victimization_para_1"/>
+                                  </co:ListItem>
+                                </co:firstItem>
+                              </co:List>
+                            </po:contains>
+                            <po:contains rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Method_Measures_Aggression-Victimization_para_1"/>
+                            <dcterms:title>Aggression / Victimization</dcterms:title>
+                          </doco:Section>
+                        </po:contains>
+                        <po:contains>
+                          <doco:Section rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Method_Measures_Demographics">
+                            <po:contains>
+                              <co:List rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Method_Measures_Demographics_list">
+                                <rdf:type rdf:resource="http://www.essepuntato.it/2008/12/pattern#Structured"/>
+                                <co:size rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+                                >1</co:size>
+                                <co:firstItem>
+                                  <co:ListItem rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Method_Measures_Demographics/_listItem/1">
+                                    <co:index rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+                                    >1</co:index>
+                                    <co:itemContent>
+                                      <doco:Paragraph rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Method_Measures_Demographics_para_1">
+                                        <c4o:hasContent>Preliminary questions were asking children to indicate their gender, age, their hometown and their parents’ education level.</c4o:hasContent>
+                                      </doco:Paragraph>
+                                    </co:itemContent>
+                                  </co:ListItem>
+                                </co:firstItem>
+                              </co:List>
+                            </po:contains>
+                            <po:contains rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Method_Measures_Demographics_para_1"/>
+                            <dcterms:title>Demographics</dcterms:title>
+                          </doco:Section>
+                        </po:contains>
+                        <po:contains>
+                          <po:Structured rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Method_Measures_list">
+                            <co:firstItem>
+                              <co:ListItem rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Method_Measures/_listItem/1">
+                                <co:nextItem>
+                                  <co:ListItem rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Method_Measures/_listItem/2">
+                                    <co:nextItem>
+                                      <co:ListItem rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Method_Measures/_listItem/3">
+                                        <co:nextItem>
+                                          <co:ListItem rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Method_Measures/_listItem/4">
+                                            <co:nextItem>
+                                              <co:ListItem rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Method_Measures/_listItem/5">
+                                                <co:itemContent rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Method_Measures_Data-Analyses"/>
+                                                <co:index rdf:datatype=
+                                                "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+                                                >5</co:index>
+                                              </co:ListItem>
+                                            </co:nextItem>
+                                            <co:itemContent rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Method_Measures_Empathy"/>
+                                            <co:index rdf:datatype=
+                                            "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+                                            >4</co:index>
+                                          </co:ListItem>
+                                        </co:nextItem>
+                                        <co:itemContent rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Method_Measures_Parental-Bonding"/>
+                                        <co:index rdf:datatype=
+                                        "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+                                        >3</co:index>
+                                      </co:ListItem>
+                                    </co:nextItem>
+                                    <co:itemContent rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Method_Measures_Aggression-Victimization"/>
+                                    <co:index rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+                                    >2</co:index>
+                                  </co:ListItem>
+                                </co:nextItem>
+                                <co:itemContent rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Method_Measures_Demographics"/>
+                                <co:index rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+                                >1</co:index>
+                              </co:ListItem>
+                            </co:firstItem>
+                            <co:size rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+                            >5</co:size>
+                            <rdf:type rdf:resource="http://purl.org/co/List"/>
+                          </po:Structured>
+                        </po:contains>
+                      </doco:Section>
+                    </co:itemContent>
+                  </co:ListItem>
+                </co:nextItem>
+              </co:ListItem>
+            </co:firstItem>
+          </co:List>
+        </po:contains>
+        <po:contains rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Method_Participants-and-Procedure"/>
+        <po:contains rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Method_Measures"/>
+        <rdf:type rdf:resource="http://purl.org/spar/doco/Section"/>
+        <dcterms:title>Method</dcterms:title>
+      </deo:Methods>
+    </po:contains>
+    <po:contains>
+      <deo:Introduction rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction">
+        <po:contains>
+          <doco:Section rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_The-Present-Study">
+            <dcterms:title>The Present Study</dcterms:title>
+            <po:contains>
+              <doco:Paragraph rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_The-Present-Study_para_3">
+                <c4o:hasContent>Secondly, based on the above-mentioned studies, we assume that parental bonding affects school violence (i.e., bullying and victimization behaviour towards peers). We also assume that this influence is exerted both directly and through empathy. More specifically,we expect that empathy would mediate the ralationship between parental styles and bullying and/or victimization.</c4o:hasContent>
+              </doco:Paragraph>
+            </po:contains>
+            <po:contains>
+              <doco:Paragraph rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_The-Present-Study_para_2">
+                <c4o:hasContent>In accordance with research on younger children, we firstly hypothesize that boys are expected to report more frequent experiences with victimization and bullying and to exert less empathy behaviour; however, parental bonding is expected to be reported at comparable levels by boys and girls.</c4o:hasContent>
+              </doco:Paragraph>
+            </po:contains>
+            <po:contains>
+              <doco:Paragraph rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_The-Present-Study_para_1">
+                <c4o:hasContent>Despite the importance of care and overprotection from parents and empathy regarding the children’s behaviour towards others, no study to our knowledge has ever examined the impact of parental bonding and the mediating role of empathy on bullying and victimization. The present study aims in examining these relationships.</c4o:hasContent>
+              </doco:Paragraph>
+            </po:contains>
+            <po:contains>
+              <po:Structured rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_The-Present-Study_list">
+                <co:firstItem>
+                  <co:ListItem rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_The-Present-Study/_listItem/1">
+                    <co:nextItem>
+                      <co:ListItem rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_The-Present-Study/_listItem/2">
+                        <co:nextItem>
+                          <co:ListItem rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_The-Present-Study/_listItem/3">
+                            <co:itemContent rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_The-Present-Study_para_3"/>
+                            <co:index rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+                            >3</co:index>
+                          </co:ListItem>
+                        </co:nextItem>
+                        <co:itemContent rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_The-Present-Study_para_2"/>
+                        <co:index rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+                        >2</co:index>
+                      </co:ListItem>
+                    </co:nextItem>
+                    <co:itemContent rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_The-Present-Study_para_1"/>
+                    <co:index rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+                    >1</co:index>
+                  </co:ListItem>
+                </co:firstItem>
+                <co:size rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+                >3</co:size>
+                <rdf:type rdf:resource="http://purl.org/co/List"/>
+              </po:Structured>
+            </po:contains>
+          </doco:Section>
+        </po:contains>
+        <po:contains>
+          <doco:Section rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Perceived-Parental-Bonding-an">
+            <dcterms:title>Perceived Parental Bonding and Bullying / Victimization Behaviour</dcterms:title>
+            <po:contains rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Perceived-Parental-Bonding-an_para_1"/>
+            <po:contains>
+              <po:Structured rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Perceived-Parental-Bonding-an_list">
+                <co:firstItem>
+                  <co:ListItem rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Perceived-Parental-Bonding-an/_listItem/1">
+                    <co:itemContent rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Perceived-Parental-Bonding-an_para_1"/>
+                    <co:index rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+                    >1</co:index>
+                  </co:ListItem>
+                </co:firstItem>
+                <co:size rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+                >1</co:size>
+                <rdf:type rdf:resource="http://purl.org/co/List"/>
+              </po:Structured>
+            </po:contains>
+          </doco:Section>
+        </po:contains>
+        <po:contains rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_para_1"/>
+        <po:contains>
+          <doco:Section rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Empathy-Bullying-Victimizatio">
+            <dcterms:title>Empathy, Bullying / Victimization and Parental Behaviour</dcterms:title>
+            <po:contains rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Empathy-Bullying-Victimizatio_para_4"/>
+            <po:contains rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Empathy-Bullying-Victimizatio_para_3"/>
+            <po:contains rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Empathy-Bullying-Victimizatio_para_2"/>
+            <po:contains rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Empathy-Bullying-Victimizatio_para_1"/>
+            <po:contains>
+              <po:Structured rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Empathy-Bullying-Victimizatio_list">
+                <co:firstItem>
+                  <co:ListItem rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Empathy-Bullying-Victimizatio/_listItem/1">
+                    <co:nextItem>
+                      <co:ListItem rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Empathy-Bullying-Victimizatio/_listItem/2">
+                        <co:nextItem>
+                          <co:ListItem rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Empathy-Bullying-Victimizatio/_listItem/3">
+                            <co:nextItem>
+                              <co:ListItem rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Empathy-Bullying-Victimizatio/_listItem/4">
+                                <co:itemContent rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Empathy-Bullying-Victimizatio_para_4"/>
+                                <co:index rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+                                >4</co:index>
+                              </co:ListItem>
+                            </co:nextItem>
+                            <co:itemContent rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Empathy-Bullying-Victimizatio_para_3"/>
+                            <co:index rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+                            >3</co:index>
+                          </co:ListItem>
+                        </co:nextItem>
+                        <co:itemContent rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Empathy-Bullying-Victimizatio_para_2"/>
+                        <co:index rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+                        >2</co:index>
+                      </co:ListItem>
+                    </co:nextItem>
+                    <co:itemContent rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Empathy-Bullying-Victimizatio_para_1"/>
+                    <co:index rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+                    >1</co:index>
+                  </co:ListItem>
+                </co:firstItem>
+                <co:size rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+                >4</co:size>
+                <rdf:type rdf:resource="http://purl.org/co/List"/>
+              </po:Structured>
+            </po:contains>
+          </doco:Section>
+        </po:contains>
+        <po:contains rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_para_3"/>
+        <dcterms:title>Introduction</dcterms:title>
+        <po:contains rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_para_2"/>
+        <po:contains>
+          <doco:Section rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Demographic-Characteristics">
+            <dcterms:title>Demographic Characteristics</dcterms:title>
+            <po:contains rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Demographic-Characteristics_para_1"/>
+            <po:contains>
+              <po:Structured rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Demographic-Characteristics_list">
+                <co:firstItem>
+                  <co:ListItem rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Demographic-Characteristics/_listItem/1">
+                    <co:itemContent rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Demographic-Characteristics_para_1"/>
+                    <co:index rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+                    >1</co:index>
+                  </co:ListItem>
+                </co:firstItem>
+                <co:size rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+                >1</co:size>
+                <rdf:type rdf:resource="http://purl.org/co/List"/>
+              </po:Structured>
+            </po:contains>
+          </doco:Section>
+        </po:contains>
+        <po:contains>
+          <doco:Section rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Characteristics-of-Bullies-an">
+            <dcterms:title>Characteristics of Bullies and Victims</dcterms:title>
+            <po:contains rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Characteristics-of-Bullies-an_para_1"/>
+            <po:contains>
+              <po:Structured rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Characteristics-of-Bullies-an_list">
+                <co:firstItem>
+                  <co:ListItem rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Characteristics-of-Bullies-an/_listItem/1">
+                    <co:itemContent rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Characteristics-of-Bullies-an_para_1"/>
+                    <co:index rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+                    >1</co:index>
+                  </co:ListItem>
+                </co:firstItem>
+                <co:size rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+                >1</co:size>
+                <rdf:type rdf:resource="http://purl.org/co/List"/>
+              </po:Structured>
+            </po:contains>
+          </doco:Section>
+        </po:contains>
+        <po:contains>
+          <co:List rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_list">
+            <rdf:type rdf:resource="http://www.essepuntato.it/2008/12/pattern#Structured"/>
+            <co:size rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+            >8</co:size>
+            <co:firstItem>
+              <co:ListItem rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction/_listItem/1">
+                <co:index rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+                >1</co:index>
+                <co:itemContent rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_para_1"/>
+                <co:nextItem>
+                  <co:ListItem rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction/_listItem/2">
+                    <co:index rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+                    >2</co:index>
+                    <co:itemContent rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_para_2"/>
+                    <co:nextItem>
+                      <co:ListItem rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction/_listItem/3">
+                        <co:index rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+                        >3</co:index>
+                        <co:itemContent rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_para_3"/>
+                        <co:nextItem>
+                          <co:ListItem rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction/_listItem/4">
+                            <co:index rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+                            >4</co:index>
+                            <co:itemContent rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Characteristics-of-Bullies-an"/>
+                            <co:nextItem>
+                              <co:ListItem rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction/_listItem/5">
+                                <co:index rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+                                >5</co:index>
+                                <co:itemContent rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Perceived-Parental-Bonding-an"/>
+                                <co:nextItem>
+                                  <co:ListItem rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction/_listItem/6">
+                                    <co:index rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+                                    >6</co:index>
+                                    <co:itemContent rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Empathy-Bullying-Victimizatio"/>
+                                    <co:nextItem>
+                                      <co:ListItem rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction/_listItem/7">
+                                        <co:index rdf:datatype=
+                                        "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+                                        >7</co:index>
+                                        <co:itemContent rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Demographic-Characteristics"/>
+                                        <co:nextItem>
+                                          <co:ListItem rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction/_listItem/8">
+                                            <co:index rdf:datatype=
+                                            "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+                                            >8</co:index>
+                                            <co:itemContent rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_The-Present-Study"/>
+                                          </co:ListItem>
+                                        </co:nextItem>
+                                      </co:ListItem>
+                                    </co:nextItem>
+                                  </co:ListItem>
+                                </co:nextItem>
+                              </co:ListItem>
+                            </co:nextItem>
+                          </co:ListItem>
+                        </co:nextItem>
+                      </co:ListItem>
+                    </co:nextItem>
+                  </co:ListItem>
+                </co:nextItem>
+              </co:ListItem>
+            </co:firstItem>
+          </co:List>
+        </po:contains>
+        <rdf:type rdf:resource="http://purl.org/spar/doco/Section"/>
+      </deo:Introduction>
+    </po:contains>
+    <po:contains>
+      <sro:Abstract rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/abstract">
+        <po:contains>
+          <co:List rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/abstract_list">
+            <rdf:type rdf:resource="http://www.essepuntato.it/2008/12/pattern#Structured"/>
+            <co:size rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+            >1</co:size>
+            <co:firstItem>
+              <co:ListItem rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/abstract/_listItem/1">
+                <co:index rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+                >1</co:index>
+                <co:itemContent>
+                  <doco:Paragraph rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/abstract_para_1">
+                    <c4o:hasContent>Despite the importance of parenting in the development of empathy in children as well as their involvement in bullying behaviours, no study has ever examined the mediating role of empathy in the relationship between parental bonding and bullying and victimization. The present study aims in examining these relationships. Participants included 504 children (255 boys, 246 girls) from different primary schools of Crete. The standard version of the Peer Experiences Questionnaire was used to assess experiences in bullying behaviours, the Parental Bonding Instrument was used to assess self-reported sense of care and overprotection from the mother and father separately, whereas empathy was assessed using the Greek version of Bryant’s Empathy Index. A series of multiple regression analyses were conducted. Results showed that boys scored significantly higher on average with respect to Victimisation of Others, and girls scored higher to specific sub-factors of empathy. It was also found that in the case of Care Mother, Sadness and Understanding of Feelings were significant mediators of Victimization of Others. Further, in the subsample of boys it was revealed that Sadness and Understanding of Feelings were significant mediators of the relationship between Care Mother and Victimization of Others. Implications for counselling interventions are also discussed.</c4o:hasContent>
+                  </doco:Paragraph>
+                </co:itemContent>
+              </co:ListItem>
+            </co:firstItem>
+          </co:List>
+        </po:contains>
+        <po:contains rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/abstract_para_1"/>
+        <rdf:type rdf:resource="http://purl.org/spar/doco/Section"/>
+        <dcterms:title>abstract</dcterms:title>
+      </sro:Abstract>
+    </po:contains>
+    <po:contains>
+      <po:Structured rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/textual-entity_list">
+        <co:firstItem>
+          <co:ListItem rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/textual-entity/_listItem/1">
+            <co:nextItem>
+              <co:ListItem rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/textual-entity/_listItem/2">
+                <co:nextItem>
+                  <co:ListItem rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/textual-entity/_listItem/3">
+                    <co:nextItem>
+                      <co:ListItem rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/textual-entity/_listItem/4">
+                        <co:nextItem>
+                          <co:ListItem rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/textual-entity/_listItem/5">
+                            <co:itemContent rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Discussion"/>
+                            <co:index rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+                            >5</co:index>
+                          </co:ListItem>
+                        </co:nextItem>
+                        <co:itemContent rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Results"/>
+                        <co:index rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+                        >4</co:index>
+                      </co:ListItem>
+                    </co:nextItem>
+                    <co:itemContent rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Method"/>
+                    <co:index rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+                    >3</co:index>
+                  </co:ListItem>
+                </co:nextItem>
+                <co:itemContent rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction"/>
+                <co:index rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+                >2</co:index>
+              </co:ListItem>
+            </co:nextItem>
+            <co:itemContent rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/abstract"/>
+            <co:index rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+            >1</co:index>
+          </co:ListItem>
+        </co:firstItem>
+        <co:size rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >5</co:size>
+        <rdf:type rdf:resource="http://purl.org/co/List"/>
+      </po:Structured>
+    </po:contains>
+  </rdf:Description>
+  <c4o:InTextReferencePointer rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Perceived-Parental-Bonding-an_para_1/r63/4">
+    <c4o:denotes rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/reference-r63"/>
+    <c4o:hasContent>Parker et al., 1979</c4o:hasContent>
+    <c4o:hasContext rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Perceived-Parental-Bonding-an_para_1"/>
+  </c4o:InTextReferencePointer>
+  <c4o:InTextReferencePointer rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_para_3/r40/1">
+    <c4o:hasContext rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_para_3"/>
+    <c4o:hasContent>James, 2010</c4o:hasContent>
+    <c4o:denotes>
+      <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/reference-r40">
+        <c4o:hasInTextCitationFrequency rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</c4o:hasInTextCitationFrequency>
+      </rdf:Description>
+    </c4o:denotes>
+  </c4o:InTextReferencePointer>
+  <c4o:InTextReferencePointer rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Perceived-Parental-Bonding-an_para_1/r78/9">
+    <c4o:denotes>
+      <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/reference-r78">
+        <c4o:hasInTextCitationFrequency rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</c4o:hasInTextCitationFrequency>
+      </rdf:Description>
+    </c4o:denotes>
+    <c4o:hasContent>Smokowski &amp; Kopasz, 2005</c4o:hasContent>
+    <c4o:hasContext rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Perceived-Parental-Bonding-an_para_1"/>
+  </c4o:InTextReferencePointer>
+  <c4o:InTextReferencePointer rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Perceived-Parental-Bonding-an_para_1/r6/2">
+    <c4o:denotes>
+      <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/reference-r6">
+        <c4o:hasInTextCitationFrequency rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</c4o:hasInTextCitationFrequency>
+      </rdf:Description>
+    </c4o:denotes>
+    <c4o:hasContent>Bowlby (1969)</c4o:hasContent>
+    <c4o:hasContext rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Perceived-Parental-Bonding-an_para_1"/>
+  </c4o:InTextReferencePointer>
+  <c4o:InTextReferencePointer rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Empathy-Bullying-Victimizatio_para_1/r52/1">
+    <c4o:denotes>
+      <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/reference-r52">
+        <c4o:hasInTextCitationFrequency rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</c4o:hasInTextCitationFrequency>
+      </rdf:Description>
+    </c4o:denotes>
+    <c4o:hasContent>Mehrabian and Epstein (1972)</c4o:hasContent>
+    <c4o:hasContext rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Empathy-Bullying-Victimizatio_para_1"/>
+  </c4o:InTextReferencePointer>
+  <c4o:InTextReferencePointer rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Discussion_para_5/r49/1">
+    <c4o:hasContext rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Discussion_para_5"/>
+    <c4o:hasContent>Lamb, &amp; Lewis, 2010</c4o:hasContent>
+    <c4o:denotes>
+      <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/reference-r49">
+        <c4o:hasInTextCitationFrequency rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</c4o:hasInTextCitationFrequency>
+      </rdf:Description>
+    </c4o:denotes>
+  </c4o:InTextReferencePointer>
+  <c4o:InTextReferencePointer rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Empathy-Bullying-Victimizatio_para_4/r18/2">
+    <c4o:denotes>
+      <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/reference-r18">
+        <c4o:hasInTextCitationFrequency rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</c4o:hasInTextCitationFrequency>
+      </rdf:Description>
+    </c4o:denotes>
+    <c4o:hasContent>Craig, Peters, and Konarski (1998)</c4o:hasContent>
+    <c4o:hasContext rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Empathy-Bullying-Victimizatio_para_4"/>
+  </c4o:InTextReferencePointer>
+  <c4o:InTextReferencePointer rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Perceived-Parental-Bonding-an_para_1/r69/1">
+    <c4o:denotes rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/reference-r69"/>
+    <c4o:hasContent>Rigby (2007)</c4o:hasContent>
+    <c4o:hasContext rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Perceived-Parental-Bonding-an_para_1"/>
+  </c4o:InTextReferencePointer>
+  <c4o:InTextReferencePointer rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Perceived-Parental-Bonding-an_para_1/r63/3">
+    <c4o:denotes rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/reference-r63"/>
+    <c4o:hasContent>Parker, Tupling, and Brown (1979)</c4o:hasContent>
+    <c4o:hasContext rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Perceived-Parental-Bonding-an_para_1"/>
+  </c4o:InTextReferencePointer>
+  <c4o:InTextReferencePointer rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Empathy-Bullying-Victimizatio_para_4/r44/8">
+    <c4o:denotes>
+      <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/reference-r44">
+        <c4o:hasInTextCitationFrequency rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</c4o:hasInTextCitationFrequency>
+      </rdf:Description>
+    </c4o:denotes>
+    <c4o:hasContent>Kasen, Berenson, Cohen, &amp; Johnson, 2004</c4o:hasContent>
+    <c4o:hasContext rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_Empathy-Bullying-Victimizatio_para_4"/>
+  </c4o:InTextReferencePointer>
+  <c4o:InTextReferencePointer rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Discussion_para_1/r74/2">
+    <c4o:hasContext rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Discussion_para_1"/>
+    <c4o:hasContent>Sapouna, 2008</c4o:hasContent>
+    <c4o:denotes>
+      <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/reference-r74">
+        <c4o:hasInTextCitationFrequency rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</c4o:hasInTextCitationFrequency>
+      </rdf:Description>
+    </c4o:denotes>
+  </c4o:InTextReferencePointer>
+  <c4o:InTextReferencePointer rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_para_3/r83/4">
+    <c4o:hasContext rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_para_3"/>
+    <c4o:hasContent>Craig, Harel-Fish, Fogel-Grinvald, et al., 2009</c4o:hasContent>
+    <c4o:denotes>
+      <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/reference-r83">
+        <c4o:hasInTextCitationFrequency rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</c4o:hasInTextCitationFrequency>
+      </rdf:Description>
+    </c4o:denotes>
+  </c4o:InTextReferencePointer>
+  <c4o:InTextReferencePointer rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Method_Measures_Parental-Bonding_para_1/r30/4">
+    <c4o:hasContext rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Method_Measures_Parental-Bonding_para_1"/>
+    <c4o:hasContent>Favaretto, Torresani, &amp; Zimmermann, 2001</c4o:hasContent>
+    <c4o:denotes>
+      <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/reference-r30">
+        <c4o:hasInTextCitationFrequency rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</c4o:hasInTextCitationFrequency>
+      </rdf:Description>
+    </c4o:denotes>
+  </c4o:InTextReferencePointer>
+  <c4o:InTextReferencePointer rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Discussion_para_5/r37/3">
+    <c4o:hasContext rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Discussion_para_5"/>
+    <c4o:hasContent>Hastings, Rubin, &amp; DeRose, 2005</c4o:hasContent>
+    <c4o:denotes>
+      <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/reference-r37">
+        <c4o:hasInTextCitationFrequency rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</c4o:hasInTextCitationFrequency>
+      </rdf:Description>
+    </c4o:denotes>
+  </c4o:InTextReferencePointer>
+  <c4o:InTextReferencePointer rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_para_1/r59/4">
+    <c4o:hasContext rdf:resource="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/Introduction_para_1"/>
+    <c4o:hasContent>1993</c4o:hasContent>
+    <c4o:denotes>
+      <rdf:Description rdf:about="http://www.zpid.de/resource/doi/10.5964/ejcop.v2i1.2/reference-r59">
+        <c4o:hasInTextCitationFrequency rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</c4o:hasInTextCitationFrequency>
+      </rdf:Description>
+    </c4o:denotes>
+  </c4o:InTextReferencePointer>
+</rdf:RDF>
